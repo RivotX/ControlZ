@@ -1,4 +1,5 @@
 export default Index;
+import Footer from "../componentes/Footer";
 import Navbar from "../componentes/navbar";
 
 function Index() {
@@ -417,6 +418,7 @@ if(isset($_GET["regincorrecto"])){
           crossorigin="anonymous"
         ></script>
       </div>
+      {/* <Footer/> */}
     </div>
   );
 }
