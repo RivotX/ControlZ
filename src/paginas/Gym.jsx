@@ -34,7 +34,7 @@ function Gym() {
           </div>
           <div class="container mx-auto d-flex align-items-center justify-content-center ">
             <div class="card-group">
-              <div class="row  row-cols-md-4 g-4">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">
                 <Features
                   imagen={fotorutinaserv}
                   titulo={"Rutina"}
