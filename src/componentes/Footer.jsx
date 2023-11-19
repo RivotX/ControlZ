@@ -23,8 +23,8 @@ function Footer() {
           <div class="col-4">
             <a
               class="btn btn-outline-light btn-floating m-1"
-              href="#!"
               role="button"
+              href="https://www.youtube.com/shorts/CKLcYKQ_drM"
             >
               <i class="fab fa-facebook-f"></i>
               <svg
@@ -42,7 +42,7 @@ function Footer() {
           <div class="col-4">
             <a
               class="btn btn-outline-light btn-floating m-1"
-              href="#!"
+              href="https://statics.memondo.com/p/s1/ccs/2022/10/CC_2795378_7e45a8644f28403f99ef1c5df2008edf_meme_otros_este_es_mierdon.jpg?cb=7121585"
               role="button"
             >
               <i class="fab fa-facebook-f"></i>
@@ -61,7 +61,7 @@ function Footer() {
           <div class="col-4">
             <a
               class="btn btn-outline-light btn-floating m-1"
-              href="#!"
+              href = "https://www.youtube.com/shorts/RGF00ezxC9Q"
               role="button"
             >
               <i class="fab fa-facebook-f"></i>

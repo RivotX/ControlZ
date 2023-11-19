@@ -1,6 +1,7 @@
 export default Gym;
 import Navbar from "../componentes/navbar";
 import Footer from "../componentes/Footer";
+import Features from "../componentes/Features";
 import fotorutinaserv from "../img/fotorutinaserv.jpg";
 import fotoejerciciosexpli from "../img/fotoejerciciosexpli.jpg";
 import fototiendaserv from "../img/fototiendaserv.jpg";
@@ -34,72 +35,38 @@ function Gym() {
           <div class="container mx-auto d-flex align-items-center justify-content-center ">
             <div class="card-group">
               <div class="row  row-cols-md-4 g-4">
-                <div class="col">
-                  <div class="card m-2">
-                    <img src={fotorutinaserv} class="card-img-top" alt="..." />
-                    <div class="card-body bg-dark">
-                      <h5 class="card-title text-white">Rutina</h5>
-                      <p class="card-text text-secondary">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </p>
-                      <a href="#" class="btn btn-outline-info">
-                        Go somewhere
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card m-2">
-                    <img
-                      src={fotoejerciciosexpli}
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body bg-dark">
-                      <h5 class="card-title text-white">
-                        Explicación Ejercicios
-                      </h5>
-                      <p class="card-text text-secondary">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </p>
-                      <a href="#" class="btn btn-outline-info">
-                        Go somewhere
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card m-2">
-                    <img src={fotodietaserv} class="card-img-top" alt="..." />
-                    <div class="card-body bg-dark ">
-                      <h5 class="card-title text-white">Dieta</h5>
-                      <p class="card-text text-secondary">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </p>
-                      <a href="/dieta" class="btn btn-outline-info">
-                        Go somewhere
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card m-2">
-                    <img src={fototiendaserv} class="card-img-top" alt="..." />
-                    <div class="card-body bg-dark ">
-                      <h5 class="card-title text-white">Tienda</h5>
-                      <p class="card-text text-secondary">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </p>
-                      <a href="#" class="btn btn-outline-info">
-                        Go somewhere
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <Features
+                  imagen={fotorutinaserv}
+                  titulo={"Rutina"}
+                  descripcion={
+                    "Some quick example text to build on the card title and make up the bulk of the card's content"
+                  }
+                  link={"#"}
+                />
+                <Features
+                  imagen={fotoejerciciosexpli}
+                  titulo={"Guia ejercicios"}
+                  descripcion={
+                    "Some quick example text to build on the card title and make up the bulk of the card's content"
+                  }
+                  link={"#"}
+                />
+                <Features
+                  imagen={fotodietaserv}
+                  titulo={"Dieta"}
+                  descripcion={
+                    "Some quick example text to build on the card title and make up the bulk of the card's content"
+                  }
+                  link={"#"}
+                />{" "}
+                <Features
+                  imagen={fototiendaserv}
+                  titulo={"Tienda"}
+                  descripcion={
+                    "Some quick example text to build on the card title and make up the bulk of the card's content"
+                  }
+                  link={"#"}
+                />
               </div>
             </div>
           </div>
