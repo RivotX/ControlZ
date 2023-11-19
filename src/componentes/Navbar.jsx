@@ -9,7 +9,7 @@ function Navbar({linkHome}) {
       data-bs-theme="dark"
     >
       <div class="container-fluid ">
-        <a class="navbar-brand" href="principal.php">
+        <a class="navbar-brand" href="principal">
           <img
             src= {logo}
             alt="Logo"
@@ -66,7 +66,7 @@ function Navbar({linkHome}) {
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="perfil.php">
+              <a class="nav-link active" aria-current="page" href="perfil">
                 Perfil
               </a>
             </li>

@@ -28,7 +28,7 @@ function Dieta() {
 
         <div class=" container fs-1">
           <b>
-            <a class="titulo1Dieta" href="/">
+            <a class="titulo1Dieta" href="/gym">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"

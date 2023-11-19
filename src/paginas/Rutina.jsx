@@ -5,7 +5,7 @@ import Footer from "../componentes/Footer";
 function Rutina() {
   return (
     <div class="container-fluid bg-black min-vh-100 ">
-      <Navbar linkHome={"/"} />
+      <Navbar linkHome={"gym"} />
 
       <div class="container-fluid containercompelto">
         <h1 class="text-center text-white"> $Variable dia</h1>

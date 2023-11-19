@@ -41,7 +41,7 @@ function Gym() {
                   descripcion={
                     "Some quick example text to build on the card title and make up the bulk of the card's content"
                   }
-                  link={"#"}
+                  link={"rutina"}
                 />
                 <Features
                   imagen={fotoejerciciosexpli}
@@ -57,7 +57,7 @@ function Gym() {
                   descripcion={
                     "Some quick example text to build on the card title and make up the bulk of the card's content"
                   }
-                  link={"#"}
+                  link={"dieta"}
                 />{" "}
                 <Features
                   imagen={fototiendaserv}
