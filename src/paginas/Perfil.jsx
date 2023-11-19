@@ -29,12 +29,12 @@ function Perfil() {
         <div class="circulo container-fluid mb-3">
           <div class=" justify-content-center d-flex">
             <div class="borde mb-2 mt-2">
-              <div class="card-body text-center mt-5  ">
+              <div className="card-body text-center mt-5  ">
                 <img
                   id="flecha"
                   src={fotoMujer}
                   alt="avatar"
-                  class="rounded-circle img-fluid"
+                  className="rounded-circle img-fluid"
                   style={{ width: "150px" }}
                 />
                 <h5 class="my-3 text-white">

@@ -1,0 +1,394 @@
+@font-face {
+  font-family: gym;
+  src: url(font/SportCenter-DO9Od.ttf);
+}
+
+.fondoindex {
+  background-image: url("../img/fondoindex.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: contrast(-2);
+}
+
+.logoindex {
+  font-size: 130%;
+  font-family: gym;
+  text-shadow: 2.5px 5px 5px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.titulocontenedor {
+  font-size: 450%;
+  color: rgb(255, 255, 255);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+.construir {
+  color: #00e0ec;
+  text-shadow: 5px 5px 5px rgb(0, 0, 0);
+  filter: brightness(-20);
+  transition: all 1s;
+}
+
+.construir:hover {
+  text-shadow: 20px 7px 7px rgb(0, 0, 0);
+}
+
+.descripcionindex {
+  font-size: 100%;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  color: aliceblue;
+  width: 67.5%;
+  margin-left: 15%;
+  text-align: justify;
+}
+
+#frasesuelta {
+  text-align: center;
+}
+
+/* .completo {
+    
+  
+   
+  } */
+
+#svg1:hover {
+  width: 20px;
+  height: 20px;
+}
+
+svg {
+  transition: all 0.2s;
+}
+
+svg:hover {
+  width: 30px;
+  height: 30px;
+}
+
+.instagram:hover {
+  color: #c300ff;
+}
+
+.facebook:hover {
+  color: #0804dd;
+}
+
+.whatsapp:hover {
+  color: #1bad08;
+}
+
+.login-box {
+  width: 80vh;
+
+  padding-top: 2vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
+  padding-bottom: 2vh;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  /*luego poner display:block en js */
+  backdrop-filter: blur(6px);
+  transition: all 1s;
+  opacity: 0%;
+  display: none;
+}
+
+.login-box h2 {
+  font-family: gym;
+  font-size: 200%;
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 10%;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.reg .user-box input {
+  padding: 10px 0;
+  margin-top: 2%;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  width: 60%;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 15%;
+  margin-left: 20%;
+  letter-spacing: 4px;
+  font-family: gym;
+}
+.reg form a {
+  margin-top: 2%;
+}
+
+.iniciar {
+  position: relative;
+  background-color: #03e8f400;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  text-shadow: 2px 2px 2px #004b4f;
+  width: auto;
+  /* o un valor en píxeles */
+  text-align: center;
+  font-size: 200%;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 3vh;
+  letter-spacing: 4px;
+  font-family: gym;
+  border: none;
+  border-radius: 10px;
+  transition: all 1s;
+}
+
+.login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.iniciar:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+  transform: scale(1.06);
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.iniciar span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+.iniciar span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+.iniciar span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.iniciar span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+.iniciar span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.registro {
+  color: rgb(255, 255, 255);
+
+  font-family: gym;
+  font-size: 90%;
+  cursor: pointer;
+  user-select: none;
+}
+@media screen and (max-width: 1000px) {
+  .titulocontenedor {
+    font-size: 350%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .titulocontenedor {
+    font-size: 270%;
+  }
+}
+@media screen and (max-width: 250px) {
+  .titulocontenedor {
+    font-size: 150%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .iniciar {
+    margin-bottom: 10%;
+  }
+}
+.inicio {
+  transform: scale(1);
+}
+
+#submit {
+  cursor: pointer;
+}
+
+#mensaje {
+  display: none;
+}
+.botonsiguiente {
+  background-color: #03e9f4;
+  height: 4vh;
+  color: white;
+  font-family: gym;
+  border: 0px;
+  transition: all 0.2s;
+}
+.botonsiguiente:hover {
+  box-shadow: 0px 0px 10px aqua;
+}

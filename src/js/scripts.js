@@ -1,9 +1,3 @@
-function ampliar(elemento, number) {
-  elemento.style.backgroundSize = number;
-}
-function desampliar(elemento) {
-  elemento.style.backgroundSize = "180%";
-}
 function iniciarsesion() {
   var nuevaPagina = "paginas/principal.html";
   window.location.href = nuevaPagina;

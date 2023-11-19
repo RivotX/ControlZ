@@ -1,10 +1,21 @@
 export default Principal;
-import Navbar from "../componentes/navbar";
-import Footer from "../componentes/Footer";
+
+import { useRef } from "react";
 
 function Principal() {
+  const elementoRefGym = useRef(null);
+  const elementoRefDieta = useRef(null);
+
+
+  const ampliar = (elemento, number) => {
+    elemento.style.backgroundSize = number;
+  };
+
+  const desampliar = (elemento) => {
+    elemento.style.backgroundSize = "180%";
+  };
   return (
-    <div class="container-fluid min-vh-100 paginafija px-0 ">
+    <div className="bg-bg-black ">
       {/* <?php
     include_once("../php/consultas.php");
     if(isset($_POST["usuarioInicio"])&&isset($_POST["claveInicio"])&&Consultas::ComprobarInicio($_POST["usuarioInicio"],$_POST["claveInicio"]) ){ 
@@ -36,9 +47,10 @@ function Principal() {
               </h2>
 
               <div
-                class=" ancho img1 d-flex justify-content-center align-items-center "
-                onmouseenter="ampliar(this, '190%')"
-                onmouseleave="desampliar(this)"
+                className="ancho img1 d-flex justify-content-center align-items-center"
+                ref={elementoRefGym}
+                onMouseEnter={() => ampliar(elementoRefGym.current, "190%")}
+                onMouseLeave={() => desampliar(elementoRefGym.current)}
               >
                 <h1 class="apartado">Gym</h1>
               </div>
@@ -57,9 +69,10 @@ function Principal() {
               </h2>
 
               <div
-                class=" ancho img2 d-flex justify-content-center align-items-center "
-                onmouseenter="ampliar(this, '190%')"
-                onmouseleave="desampliar(this)"
+                className="ancho img2 d-flex justify-content-center align-items-center"
+                ref={elementoRefDieta}
+                onMouseEnter={() => ampliar(elementoRefDieta.current, "190%")}
+                onMouseLeave={() => desampliar(elementoRefDieta.current)}
               >
                 <h1 class="apartado1 ">Dieta</h1>
               </div>

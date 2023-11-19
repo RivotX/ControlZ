@@ -4,13 +4,16 @@ import Dieta from "./paginas/Dieta.jsx";
 import Perfil from "./paginas/Perfil.jsx";
 import Principal from "./paginas/Principal.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Index from "./paginas/index.jsx";
 
 const router = createBrowserRouter([
   { path: "/gym", element: <Gym /> },
   { path: "/rutina", element: <Rutina /> },
   { path: "/dieta", element: <Dieta /> },
   { path: "/perfil", element: <Perfil /> },
-  { path: "/principal", element: <Principal /> }
+  { path: "/principal", element: <Principal /> },
+  { path: "/", element: <Index /> }
+
 
 ]);
 function App() {
