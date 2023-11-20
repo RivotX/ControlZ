@@ -3,6 +3,8 @@ export default Principal;
 import { useRef } from "react";
 
 function Principal() {
+
+  
   const elementoRefGym = useRef(null);
   const elementoRefDieta = useRef(null);
 

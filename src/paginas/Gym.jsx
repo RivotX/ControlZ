@@ -10,19 +10,7 @@ import fotogym from "../img/gym.jpg";
 function Gym() {
   return (
     <div class="container-fluid bg-black min-vh-100 bodygym">
-      <div class=" gimnasio mx-auto d-flex align-items-center justify-content-center">
-        <a
-          href="#flecha"
-          class="mb-5 mx-auto d-flex align-items-center justify-content-center"
-        >
-          <h1 id="gym" class="perfil text-white ">
-            GIMNASIO
-          </h1>
 
-          <div class=" down-arrow"></div>
-          <h4 class="acceder  text-white ">Acceder</h4>
-        </a>
-      </div>
       <Navbar linkHome={"#"} />
 
       <div class="container-fluid">
@@ -34,20 +22,16 @@ function Gym() {
           </div>
           <div class="container mx-auto d-flex align-items-center justify-content-center ">
             <div class="card-group">
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">
-                <Features
-                  imagen={fotorutinaserv}
-                  titulo={"Rutina"}
-                  descripcion={
-                    "Some quick example text to build on the card title and make up the bulk of the card's content"
-                  }
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4  ">
+                <Features imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"Some quick example text to build on the card title and make up the bulk of the card's content"
+                }
                   link={"rutina"}
                 />
                 <Features
                   imagen={fotoejerciciosexpli}
                   titulo={"Guia ejercicios"}
                   descripcion={
-                    "Some quick example text to build on the card title and make up the bulk of the card's content"
+                    "Some content"
                   }
                   link={"#"}
                 />
