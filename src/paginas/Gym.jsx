@@ -17,19 +17,19 @@ function Gym() {
 
       <div class="container-fluid  bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <div class="container mb-3 p-3">
-          <div class="row mt-5">
-            <div class="col-6  border-0 mt-5 text-white justify-content-center  card bg-transparent ">
-              <div class="card-header mb-2 border-0" style={{ fontSize: '100px' }}>
+          <div class="row d-flex flex-wrap flex-md-wrap row-cols-sm-1 row-cols-md-2 mt-5">
+            <div class="col-sm-12 col-md-6 mb-4 border-0 mt-5 text-white justify-content-center  card bg-transparent ">
+              <div class="card-header mb-2 border-0" style={{ fontSize: '450%' }}>
                 ControlZ
               </div>
-              <div class="card-body">
-                <blockquote class="blockquote mb-5">
+              <div class="card-body textobienvenidagimnasio">
+                <blockquote class="blockquote ">
                   <p>¡Bienvenido a ControlZ, tu destino digital para transformar tu cuerpo y recuperar el control de tu salud y bienestar! Sumérgete en un mundo fitness donde cada click te acerca a la mejor versión de ti mismo. Desde rutinas de entrenamiento personalizadas hasta consejos de nutrición, en ControlZ, desafiamos tus límites y te guiamos hacia un estilo de vida activo, saludable y enérgico. Rompe con la rutina y reinicia tu camino hacia la forma física con ControlZ, donde cada movimiento es un paso más hacia la grandeza. ¡Es hora de pulsar el botón de reinicio en tu fitness y descubrir el poder de un nuevo tú en ControlZ!</p>
                   <footer class="blockquote-footer mt-5">El equipo de <cite title="Source Title">ControlZ</cite></footer>
                 </blockquote>
               </div>
             </div>
-            <img src={foto1} class="col-6 rounded float-end" alt="..." />
+            <img src={foto1} class="col-sm-12 col-md-6  rounded float-end" alt="..." />
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@ function Gym() {
           <div class="container mx-auto d-flex align-items-center justify-content-center ">
             <div class="card-group">
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4  ">
-                <Features imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"Some quick example text to build on the card title and make up the bulk of the card's content"
+                <Features imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales gracias a los servicios que ControlZ te brinda."
                 }
                   link={"rutina"}
                 />
@@ -52,7 +52,7 @@ function Gym() {
                   imagen={fotoejerciciosexpli}
                   titulo={"Guia ejercicios"}
                   descripcion={
-                    "Some content"
+                    "Disfruta de las explicaciones que te ofrecemos sobre los diferentes ejercicios con videos y fotos explicativos."
                   }
                   link={"#"}
                 />
@@ -60,7 +60,7 @@ function Gym() {
                   imagen={fotodietaserv}
                   titulo={"Dieta"}
                   descripcion={
-                    "Some quick example text to build on the card title and make up the bulk of the card's content"
+                    "Crea, modifica y sigue tu dieta a través de nuestra calculadora de macronutrientes para poder cumplir tus objetivos."
                   }
                   link={"dieta"}
                 />{" "}
@@ -68,7 +68,7 @@ function Gym() {
                   imagen={fototiendaserv}
                   titulo={"Tienda"}
                   descripcion={
-                    "Some quick example text to build on the card title and make up the bulk of the card's content"
+                    "Consigue y hazte con algunos de nuestros productos de suplementación de la mano de las mejores marcas."
                   }
                   link={"#"}
                 />

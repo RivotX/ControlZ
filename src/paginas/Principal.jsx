@@ -29,7 +29,7 @@ function Principal() {
     ?> */}
 
       <div class="d-flex justify-content-center align-items-center kkk">
-        <div class="logo-container animate__animated animate__backInDown">
+        <div class="logo-container animate__animated animate__backInDown ">
           <a href="perfil">
             <div id="logo" class="logo">
               <div></div>
@@ -61,7 +61,7 @@ function Principal() {
             </a>
           </div>
 
-          <div class="col-6 caja animate__animated animate__fadeInRight">
+          <div class="col-6 caja animate__animated  animate__fadeInRight">
             <a class="ApartadosAElegir" href="dieta">
               <h2 class="descripcion2 text-center">
                 Con esta herramienta interactiva, te empoderamos para que

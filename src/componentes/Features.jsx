@@ -10,7 +10,7 @@ function Features({ imagen, titulo, descripcion, link }) {
             <h5 class="card-title text-white">{titulo}</h5>
             <p class="card-text text-secondary cartas">{descripcion}</p>
             <a href={link} class="btn btn-outline-info">
-              Go somewhere
+              Acceder
             </a>
           </div>
         </div>{" "}
