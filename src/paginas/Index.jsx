@@ -198,13 +198,13 @@ if(isset($_GET["regincorrecto"])){
           </div>
 
           <div class="d-flex justify-content-center align-items-center">
-            <button class="iniciar" type="button" onclick="btncomenzar()">
+            <a href="/Principal"><button class="iniciar" type="button" onclick="btncomenzar()">
               <span></span>
               <span></span>
               <span></span>
               <span></span>
               COMENZAR
-            </button>
+            </button></a>
           </div>
         </div>
         <div class="inicio d-flex justify-content-center align-items-center">
