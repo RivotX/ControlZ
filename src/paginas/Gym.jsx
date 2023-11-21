@@ -29,7 +29,7 @@ function Gym() {
                 </blockquote>
               </div>
             </div>
-            <img src={foto1} class="col-sm-12 col-md-12  col-lg-9  rounded float-end" alt="..." />
+            <img src={foto1} class="col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0  rounded float-end" alt="..." />
           </div>
         </div>
       </div>
