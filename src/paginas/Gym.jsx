@@ -17,8 +17,8 @@ function Gym() {
 
       <div class="container-fluid  bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <div class="container mb-3 p-3">
-          <div class="row d-flex flex-wrap flex-md-wrap row-cols-sm-1 row-cols-md-2 mt-5">
-            <div class="col-sm-12 col-md-6 mb-4 border-0 mt-5 text-white justify-content-center  card bg-transparent ">
+          <div class="row d-flex flex-wrap flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1 mt-5">
+            <div class="col-sm-12 col-md-12 col-lg-12  mb-4 border-0 mt-5 text-white justify-content-center tetito card bg-transparent ">
               <div class="card-header mb-2 border-0" style={{ fontSize: '450%' }}>
                 ControlZ
               </div>
@@ -29,7 +29,7 @@ function Gym() {
                 </blockquote>
               </div>
             </div>
-            <img src={foto1} class="col-sm-12 col-md-6  rounded float-end" alt="..." />
+            <img src={foto1} class="col-sm-12 col-md-12  col-lg-9  rounded float-end" alt="..." />
           </div>
         </div>
       </div>
