@@ -5,6 +5,7 @@ import Perfil from "./paginas/Perfil.jsx";
 import Principal from "./paginas/Principal.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./paginas/index.jsx";
+import Hola from "./paginas/hola.jsx";
 
 const router = createBrowserRouter([
   { path: "/gym", element: <Gym /> },
@@ -12,7 +13,9 @@ const router = createBrowserRouter([
   { path: "/dieta", element: <Dieta /> },
   { path: "/perfil", element: <Perfil /> },
   { path: "/principal", element: <Principal /> },
-  { path: "/", element: <Index /> }
+  { path: "/", element: <Index /> },
+  { path: "/hola", element: <Hola /> }
+
 
 
 ]);

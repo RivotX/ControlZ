@@ -3,6 +3,23 @@ import Navbar from "../componentes/navbar";
 import Footer from "../componentes/Footer";
 import fotoHombre from "../img/hombre.png";
 import fotoMujer from "../img/mujer.png";
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBCard,
+  MDBCardText,
+  MDBCardBody,
+  MDBCardImage,
+  MDBBtn,
+  MDBBreadcrumb,
+  MDBBreadcrumbItem,
+  MDBProgress,
+  MDBProgressBar,
+  MDBIcon,
+  MDBListGroup,
+  MDBListGroupItem,
+} from "mdb-react-ui-kit";
 
 function Perfil() {
   //     <?php
@@ -34,14 +51,14 @@ function Perfil() {
         </div>
       </div>
       <div class="container-fluid col-lg-8">
-        <div class="card mb-4">
+        {/* <div class="card mb-4">
             <div class="row">
               <div class="col-sm-3">
                 <p class="mb-0">Nombre Completo</p>
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
-                  {/* <?php echo $_SESSION["nombre"]; ?> */}
+                  <?php echo $_SESSION["nombre"]; ?> 
                 </p>
             </div>
           </div>
@@ -52,7 +69,7 @@ function Perfil() {
             </div>
             <div class="col-sm-9">
               <p class="text-muted mb-0">
-                {/* <?php echo $_SESSION["email"]; ?> */}
+                 <?php echo $_SESSION["email"]; ?> 
               </p>
             </div>
           </div>
@@ -63,7 +80,7 @@ function Perfil() {
             </div>
             <div class="col-sm-9">
               <p class="text-muted mb-0">
-                {/* <?php echo $_SESSION["telefono"]; ?> */}
+                 <?php echo $_SESSION["telefono"]; ?> 
               </p>
             </div>
           </div>
@@ -74,11 +91,71 @@ function Perfil() {
             </div>
             <div class="col-sm-9">
               <p class="text-muted mb-0">
-                {/* <?php echo $_SESSION["direccion"]; ?> */}
+                <?php echo $_SESSION["direccion"]; ?> 
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
+        <MDBCol lg="12">
+          <MDBCard className="mb-4">
+            <MDBCardBody>
+              <MDBRow>
+                <MDBCol sm="3">
+                  <MDBCardText>Full Name</MDBCardText>
+                </MDBCol>
+                <MDBCol sm="9">
+                  <MDBCardText className="text-muted">
+                    Johnatan Smith
+                  </MDBCardText>
+                </MDBCol>
+              </MDBRow>
+              <hr />
+              <MDBRow>
+                <MDBCol sm="3">
+                  <MDBCardText>Email</MDBCardText>
+                </MDBCol>
+                <MDBCol sm="9">
+                  <MDBCardText className="text-muted">
+                    example@example.com
+                  </MDBCardText>
+                </MDBCol>
+              </MDBRow>
+              <hr />
+              <MDBRow>
+                <MDBCol sm="3">
+                  <MDBCardText>Phone</MDBCardText>
+                </MDBCol>
+                <MDBCol sm="9">
+                  <MDBCardText className="text-muted">
+                    (097) 234-5678
+                  </MDBCardText>
+                </MDBCol>
+              </MDBRow>
+              <hr />
+              <MDBRow>
+                <MDBCol sm="3">
+                  <MDBCardText>Mobile</MDBCardText>
+                </MDBCol>
+                <MDBCol sm="9">
+                  <MDBCardText className="text-muted">
+                    (098) 765-4321
+                  </MDBCardText>
+                </MDBCol>
+              </MDBRow>
+              <hr />
+              <MDBRow>
+                <MDBCol sm="3">
+                  <MDBCardText>Address</MDBCardText>
+                </MDBCol>
+                <MDBCol sm="9">
+                  <MDBCardText className="text-muted">
+                    Bay Area, San Francisco, CA
+                  </MDBCardText>
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
         <div class="row mb-5">
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">
