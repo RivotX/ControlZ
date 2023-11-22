@@ -89,3 +89,9 @@ function cambiarhidden() {
 
   hidden.style.overflow = "auto";
 }
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   window.addEventListener("scroll", function () {
+//       var scrolleando = document.getElementsByClassName("scrolleando")[0];           INTENTO DE CAMBIAR COLOR AL NAVBAR AL SCROLLEAR
+//       scrolleando.classList.toggle("scroll-nav", window.scrollY > 0);
+//   });

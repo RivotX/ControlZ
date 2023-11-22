@@ -3,6 +3,7 @@ import Rutina from "./paginas/Rutina.jsx";
 import Dieta from "./paginas/Dieta.jsx";
 import Perfil from "./paginas/Perfil.jsx";
 import Principal from "./paginas/Principal.jsx";
+import Tienda from "./paginas/Tienda.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./paginas/index.jsx";
 
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
   { path: "/dieta", element: <Dieta /> },
   { path: "/perfil", element: <Perfil /> },
   { path: "/principal", element: <Principal /> },
+  { path: "/tienda", element: <Tienda /> },
   { path: "/", element: <Index /> },
 
 
