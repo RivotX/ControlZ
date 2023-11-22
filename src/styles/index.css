@@ -12,7 +12,8 @@
 
 .logoindex {
   font-size: 130%;
-  font-family: gym;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont ;
+  font-weight: 500;
   text-shadow: 2.5px 5px 5px rgb(0, 0, 0);
   color: rgb(255, 255, 255);
 }
@@ -25,7 +26,8 @@
 .titulocontenedor {
   font-size: 450%;
   color: rgb(255, 255, 255);
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-weight: 600;
   width: 100%;
   text-align: center;
 }
@@ -43,8 +45,7 @@
 
 .descripcionindex {
   font-size: 100%;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
-    sans-serif;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont;
   color: aliceblue;
   width: 67.5%;
   margin-left: 15%;
@@ -98,7 +99,8 @@ svg:hover {
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-weight: bold;
   /*luego poner display:block en js */
   backdrop-filter: blur(6px);
   transition: all 1s;
@@ -107,7 +109,8 @@ svg:hover {
 }
 
 .login-box h2 {
-  font-family: gym;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-weight: bold;
   font-size: 200%;
   margin: 0 0 30px;
   padding: 0;
@@ -170,7 +173,8 @@ svg:hover {
   margin-top: 15%;
   margin-left: 20%;
   letter-spacing: 4px;
-  font-family: gym;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-weight: bold;
 }
 .reg form a {
   margin-top: 2%;
@@ -191,7 +195,8 @@ svg:hover {
   transition: 0.5s;
   margin-top: 3vh;
   letter-spacing: 4px;
-  font-family: gym;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-weight: bold;
   border: none;
   border-radius: 10px;
   transition: all 1s;
@@ -349,7 +354,8 @@ svg:hover {
 .registro {
   color: rgb(255, 255, 255);
 
-  font-family: gym;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-weight: bold;
   font-size: 90%;
   cursor: pointer;
   user-select: none;
@@ -390,10 +396,12 @@ svg:hover {
   background-color: #03e9f4;
   height: 4vh;
   color: white;
-  font-family: gym;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-weight: bold;
   border: 0px;
   transition: all 0.2s;
 }
 .botonsiguiente:hover {
   box-shadow: 0px 0px 10px aqua;
 }
+

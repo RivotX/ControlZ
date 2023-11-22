@@ -1,6 +1,8 @@
 export default Principal;
 
 import { useRef } from "react";
+import 'animate.css';
+
 
 function Principal() {
 
@@ -17,7 +19,7 @@ function Principal() {
     elemento.style.backgroundSize = "180%";
   };
   return (
-    <div className="bg-bg-black ">
+    <div className="bg-bg-black " style={{overflow:"hidden"}}>
       {/* <?php
     include_once("../php/consultas.php");
     if(isset($_POST["usuarioInicio"])&&isset($_POST["claveInicio"])&&Consultas::ComprobarInicio($_POST["usuarioInicio"],$_POST["claveInicio"]) ){ 
@@ -27,7 +29,7 @@ function Principal() {
     ?> */}
 
       <div class="d-flex justify-content-center align-items-center kkk">
-        <div class="logo-container">
+        <div class="logo-container animate__animated animate__backInDown ">
           <a href="perfil">
             <div id="logo" class="logo">
               <div></div>
@@ -37,7 +39,7 @@ function Principal() {
       </div>
       <div class="container-fluid cont">
         <div class="row ">
-          <div class="col-6 caja">
+          <div class="col-6 caja animate__animated animate__fadeInLeft">
             <a class="ApartadosAElegir" href="gym">
               <h2 class="descripcion1 text-center">
                 En esta sección de nuestro sitio web de gimnasio, te sumergirás
@@ -59,7 +61,7 @@ function Principal() {
             </a>
           </div>
 
-          <div class="col-6 caja">
+          <div class="col-6 caja animate__animated  animate__fadeInRight">
             <a class="ApartadosAElegir" href="dieta">
               <h2 class="descripcion2 text-center">
                 Con esta herramienta interactiva, te empoderamos para que
