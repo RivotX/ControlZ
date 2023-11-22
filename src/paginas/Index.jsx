@@ -3,8 +3,28 @@ import Footer from "../componentes/Footer";
 import Navbar from "../componentes/navbar";
 
 function Index() {
+  function btncomenzar() {
+    var login = document.getElementById("logearse");
+    var completo = document.getElementsByClassName("completo")[0];
+    
+  
+    completo.style.display = "none";
+    
+    
+    
+    login.style.display = "block";
+    login.style.opacity = "100%";
+  }
+  function registrar() {
+    var login = document.getElementById("logearse");
+    var registro = document.getElementById("registrar");
+  
+    login.style.display = "none";
+    registro.style.display = "block";
+    registro.style.opacity = "100%";
+  }
   //funciones js con states
-
+  
   return (
     <div className="fondoindex min-vh-100">
       <div id="containerPagEntera" class="container-fluid">
@@ -181,7 +201,7 @@ if(isset($_GET["regincorrecto"])){
             </p>
           </div>
           <br />
-          <div class="descripcionindex fixed">
+          <div className="descripcionindex fixed">
             <p id="frasesuelta">
               No esperes más para comenzar tu viaje hacia una mejor versión de
               ti mismo. En el gimnasio, no solo transformamos cuerpos;
@@ -198,17 +218,17 @@ if(isset($_GET["regincorrecto"])){
           </div>
 
           <div class="d-flex justify-content-center align-items-center">
-            <a href="/Principal"><button class="iniciar" type="button" onclick="btncomenzar()">
+            <button class="iniciar" type="button" onClick={btncomenzar}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
               COMENZAR
-            </button></a>
+            </button>
           </div>
         </div>
         <div class="inicio d-flex justify-content-center align-items-center">
-          <div className="login-box">
+          <div className="login-box " id="logearse">
             <h2>Iniciar Sesion</h2>
             <form action="paginas/principal.php" method="post">
               <div class="text-center mb-2">
@@ -263,7 +283,7 @@ if(isset($_GET["regincorrecto"])){
               <div class="container-fluid">
                 <div class="row">
                   <u class="col-8"></u>
-                  <u href="" class="col-4 registro" onclick="registrar()">
+                  <u href="" class="col-4 registro" onClick={registrar}>
                     No tengo cuenta
                   </u>
                 </div>
@@ -282,7 +302,7 @@ if(isset($_GET["regincorrecto"])){
           </div>
         </div>
         <div class=" d-flex justify-content-center align-items-center">
-          <div class="loginRegistro login-box reg ">
+          <div class="loginRegistro login-box reg " id="registrar">
             <h2>Crea tu Perfil</h2>
             <form id="enviarphp" action="index.php" method="post">
               <div class="text-center mb-3">
