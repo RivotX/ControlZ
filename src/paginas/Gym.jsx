@@ -6,7 +6,7 @@ import fotorutinaserv from "../img/fotorutinaserv.jpg";
 import fotoejerciciosexpli from "../img/fotoejerciciosexpli.jpg";
 import fototiendaserv from "../img/fototiendaserv.jpg";
 import fotodietaserv from "../img/fotodietaserv.jpg";
-import fotogym from "../img/gym.jpg";
+import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.webp";
 
 function Gym() {
@@ -44,7 +44,7 @@ function Gym() {
           <div class="container mx-auto d-flex align-items-center justify-content-center ">
             <div class="card-group">
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4  ">
-                <Features imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales gracias a los servicios que ControlZ te brinda."
+                <Features imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales y tu progreso gracias a la ayuda que ControlZ te brinda en el día a día."
                 }
                   link={"rutina"}
                 />
@@ -134,15 +134,15 @@ function Gym() {
                 alt="..."
               />
             </div>
-            <div class="col-6 mt-3 mx-auto d-flex align-items-center justify-content-center">
-              <div class="card border-info bg-dark text-secondary mb-3">
-                <div class="card-header fs-2 fw-semibold">Contáctanos</div>
+            <div class="col-6 mt-3 mx-auto " >
+              <div class="card border-secondary bg-dark text-secondary mb-3  rounded-end-circle " style={{height:'37vh'}}>
+                <div class="card-header fs-2 fw-semibold mt-4">Contáctanos</div>
                 <div class="card-body ">
-                  <p class="card-text">
+                  <p class="card-text mt-4 mb-4">
                     En ControlZ, valoramos la comunicación directa y estamos aquí para responder a todas tus preguntas, escuchar tus comentarios y apoyarte en tu viaje hacia un estilo de vida más saludable. No dudes en ponerte en contacto con nosotros a través de los siguientes canales:
                   </p>
+                  <button type="button" class="btn btn-outline-info mt-4">Contactar</button>
                 </div>
-                <button type="button" class="btn btn-outline-info">Contactar</button>
               </div>
             </div>
           </div>
