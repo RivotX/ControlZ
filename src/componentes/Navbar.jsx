@@ -5,9 +5,9 @@ function Navbar({linkHome}) {
     
   return (
     <nav
-      class="container-fluid navbar bg-dark   navbar-expand-lg position-fixed z-3" style={{ '--bs-bg-opacity': '.9' }}
+      class=" navbar bg-black navbar-expand-lg fixed-top "
       data-bs-theme="dark">
-      <div class="container-fluid ">
+      <div class="container-fluid">
         <a class="navbar-brand" href="principal">
           <img
             src= {logo}

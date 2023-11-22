@@ -22,13 +22,13 @@ import {
 } from "mdb-react-ui-kit";
 
 function Perfil() {
-  //     <?php
-  // session_start();
-  // ?>
+  // // <?php
+  // // session_start();
+  // // ?>
   return (
     <div class="container-fluid min-vh-100 bodyperfil px-0">
       <Navbar linkHome={"/gym"} />
-      <div class="container-fluid fondoperfil ">
+      <div class="container-fluid fondoperfil mb-4 ">
         <div class="circulo container-fluid mb-3">
           <div class=" justify-content-center d-flex">
             <div class="borde mb-2 mt-2">
@@ -156,7 +156,7 @@ function Perfil() {
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
-        <div class="row mb-5">
+        <div class="row ">
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">
               <div class="card-body">
@@ -232,7 +232,7 @@ function Perfil() {
               </div>
             </div>
           </div>
-          <div class="col-md-6 mb-5">
+          <div class="col-md-6 mb-3">
             <div class="card mb-4 mb-md-0">
               <div class="card-body">
                 <p class="mb-4">

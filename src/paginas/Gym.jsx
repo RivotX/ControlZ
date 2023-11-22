@@ -11,7 +11,7 @@ import foto1 from "../img/foto1.webp";
 
 function Gym() {
   return (
-    <div class="container-fluid bg-black min-vh-100 bodygym">
+    <div class=" bg-black min-vh-100 bodygym">
 
       <Navbar linkHome={"#"} />
 
@@ -19,7 +19,7 @@ function Gym() {
         <div class="container mb-3 p-3">
           <div class="row d-flex flex-wrap flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1 mt-5">
             <div class="col-sm-12 col-md-12 col-lg-12  mb-4 border-0 mt-5 text-white justify-content-center tetito card bg-transparent ">
-              <div class="card-header mb-2 border-0" style={{ fontSize: '450%' }}>
+              <div class="card-header mb-2 border-0 fw-semibold  " style={{ fontSize: '450%' }}>
                 ControlZ
               </div>
               <div class="card-body textobienvenidagimnasio">
@@ -38,7 +38,7 @@ function Gym() {
         <div class="container text-center">
           <div class="mb-3">
             <div class=" text-center mb-2 mx-auto d-flex align-items-center justify-content-center">
-              <h1 class=" container titulobienvenidagym">Servicios</h1>
+              <h1 class=" container titulobienvenidagym fw-semibold">Servicios</h1>
             </div>
           </div>
           <div class="container mx-auto d-flex align-items-center justify-content-center ">
@@ -85,7 +85,7 @@ function Gym() {
         <div class="mt-3 mb-4 container contenedortitulogym ">
           <div class="mb-3">
             <div class=" text-center mb-2 mt-4 mx-auto d-flex align-items-center justify-content-center">
-              <h1 class=" container mt-4 titulobienvenidagym">
+              <h1 class=" container mt-4 titulobienvenidagym fw-semibold">
                 Comienza el cambio (usuario)
               </h1>
             </div>
@@ -136,7 +136,7 @@ function Gym() {
             </div>
             <div class="col-6 mt-3 mx-auto d-flex align-items-center justify-content-center">
               <div class="card border-info bg-dark text-secondary mb-3">
-                <div class="card-header fs-2">Contáctanos</div>
+                <div class="card-header fs-2 fw-semibold">Contáctanos</div>
                 <div class="card-body ">
                   <p class="card-text">
                     En ControlZ, valoramos la comunicación directa y estamos aquí para responder a todas tus preguntas, escuchar tus comentarios y apoyarte en tu viaje hacia un estilo de vida más saludable. No dudes en ponerte en contacto con nosotros a través de los siguientes canales:

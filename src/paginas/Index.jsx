@@ -208,7 +208,7 @@ if(isset($_GET["regincorrecto"])){
           </div>
         </div>
         <div class="inicio d-flex justify-content-center align-items-center">
-          <div class="login-box">
+          <div className="login-box">
             <h2>Iniciar Sesion</h2>
             <form action="paginas/principal.php" method="post">
               <div class="text-center mb-2">
