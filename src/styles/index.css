@@ -17,6 +17,11 @@
   color: rgb(255, 255, 255);
 }
 
+.logearse{
+  opacity: 0%;
+  display: none;
+}
+
 .titulocontenedor {
   font-size: 450%;
   color: rgb(255, 255, 255);
