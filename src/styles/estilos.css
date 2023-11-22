@@ -12,7 +12,7 @@
     height: 100vh;
 
     color: rgb(250, 250, 250);
-    font-family: gym;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 4vh;
     text-shadow: 10px 10px 3px rgb(0, 0, 0);
     margin: 0;
@@ -22,6 +22,10 @@
 
 
 
+}
+
+.cartas{
+    min-height: 12.5vh;
 }
 
 .dropdown-item {
@@ -37,7 +41,7 @@
 .card{
     transition: all 1s;
 }
-.card:hover{
+.hovcard:hover{
     transform: scale(1.1);
 }
 
@@ -47,9 +51,6 @@
     text-shadow: 0px 0px 300px white;
     color:#c7c7c7;
 }
-.titulobienvenidagym:hover{
-    text-decoration: underline rgb(66, 190, 206);
-}
 .descgym{
     text-align: center;
     width: 80%;
@@ -57,7 +58,7 @@
 }
 
 .bodygym {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-left: -20vh;
 
 }
@@ -76,8 +77,8 @@
     font-size: large;
     transition: all 0.5s;
     color: aliceblue;
-    max-width: 25%;
-    left: 10%;
+    max-width: 65%;
+    left: 15%;
 
 
 }
@@ -90,8 +91,8 @@
     font-size: large;
     transition: all 0.5s;
     color: rgb(0, 0, 0);
-    max-width: 25%;
-    left: 60%;
+    max-width: 65%;
+    left: 20%;
 
 }
 
@@ -188,9 +189,11 @@
 
 .logo-container {
     position: absolute;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+     top: 30%;
+    /*left: 50%;
+    transform: translate(-50%, -50%); */
+    
+    place-items: center;
     width: 13%;
     height: 40%;
     overflow: hidden;
@@ -210,7 +213,7 @@
 }
 
 .logo:hover {
-    background-size: 200%;
+    
 }
 
 #logo {
@@ -235,14 +238,7 @@
 
 }
 
-@media screen and (max-width: 992px) {
-    .caja {
-        width: 100%;
 
-        float: none;
-        height: 50vh;
-    }
-}
 @media screen and (max-width: 1100px) {
     
     
@@ -309,14 +305,24 @@
     position: absolute;
     font-size: 150px;
     text-shadow: 2px 0px 12px white;
-    font-family: gym;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,;
 }
 
 .acceder {
     position: absolute;
-    font-family: gym;
+    font-family: system-ui, -apple-system ;
     top: calc(90vh - 60px);
 }
+
+/* .fotobanca{
+    display: flex;
+    flex-wrap: wrap;
+}
+.elemento{
+    flex-grow: 1;
+    flex-basis: 200;
+} */
+
 
 @media screen and (max-width: 750px) {
     .perfil {
@@ -432,13 +438,6 @@
 
     animation: jumpInfinite 1.5s infinite;
 }
-/* body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #0D0D0D;
-    margin: 10%;
-  } */
   
   .contenedorgym {
     display: flex;
