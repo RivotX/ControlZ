@@ -224,7 +224,7 @@ if(isset($_GET["regincorrecto"])){
               <span></span>
               <span></span>
               COMENZAR
-            </button></a>
+            </button>
           </div>
         </div>
         <div class="inicio d-flex justify-content-center align-items-center">
