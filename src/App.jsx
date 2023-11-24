@@ -6,6 +6,7 @@ import Principal from "./paginas/Principal.jsx";
 import Tienda from "./paginas/Tienda.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./paginas/index.jsx";
+import ChatComponent from "./componentes/ChatComponent.jsx";
 
 const router = createBrowserRouter([
   { path: "/gym", element: <Gym /> },
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
   { path: "/principal", element: <Principal /> },
   { path: "/tienda", element: <Tienda /> },
   { path: "/", element: <Index /> },
+  { path: "/asistente", element: <ChatComponent /> },
 
 
 
