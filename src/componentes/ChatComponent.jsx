@@ -13,8 +13,6 @@
 
 //para ver esto teneis que entrar en (localhost)/asistente
 
-
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -88,8 +86,12 @@ function ChatComponent() {
       >
         <h1 className="text-white mb-5 h1 ">ChatGPT - Asistente Virtual</h1>
         <div
-          className="border border-light  p-3"
-          style={{ maxHeight: "400px", overflowY: "scroll" }}
+          className="border border-light w-50 p-3"
+          style={{
+            minHeight: "200px",
+            maxHeight: "400px",
+            overflowY: "scroll",
+          }}
         >
           {conversation.map((interaction, index) => (
             <div key={index} className="mb-3 text-light">
@@ -109,7 +111,9 @@ function ChatComponent() {
             value={message}
             onChange={handleChange}
           />
-          <button className="btn btn-light mt-3 ms-3" onClick={sendMessage}>Enviar</button>
+          <button className="btn btn-light mt-3 ms-3" onClick={sendMessage}>
+            Enviar
+          </button>
         </div>
       </div>
     </div>
