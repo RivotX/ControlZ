@@ -10,8 +10,6 @@
 //para usarlo teneis que entrar en (localhost)/asistente
 //para usarlo teneis que entrar en (localhost)/asistente
 
-
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -82,10 +80,16 @@ function ChatComponent() {
   };
 
   // Función que maneja el cambio en el campo de mensaje del usuario
-  const handleChange = (e) => {
-    setMessage(e.target.value);
+  const handleChange = (event) => {
+    setMessage(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      // Llamar a la función sendMessage si se presiona Enter
+      sendMessage();
+    }
+  };
   return (
     <div className="container-fluid bg-dark ">
       <div
@@ -121,6 +125,7 @@ function ChatComponent() {
             type="text"
             value={message}
             onChange={handleChange}
+            onKeyDown={handleKeyPress}
           />
           <button className="btn btn-light mt-3 ms-3" onClick={sendMessage}>
             Enviar
