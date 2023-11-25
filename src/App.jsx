@@ -5,7 +5,7 @@ import Perfil from "./paginas/Perfil.jsx";
 import Principal from "./paginas/Principal.jsx";
 import Tienda from "./paginas/Tienda.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Index from "./paginas/index.jsx";
+import Index from "./paginas/Index.jsx";
 import ChatComponent from "./componentes/ChatComponent.jsx";
 
 const router = createBrowserRouter([
