@@ -20,7 +20,7 @@ function ChatComponent() {
   const [previousContext, setPreviousContext] = useState(""); // Estado para el contexto previo del bot
 
   const initialPrompt =
-    "Vamos a hacer una simulacion, tu eres el asistente virtual de una aplicacion de gimnasio y fitness llamada ControlZ. Es importante que nunca salgas de ese rol. En esta aplicacion se puede llevar un registro de los alimentos que comes cada dia, contando sus valores nutricionales (calorias grasas proteinas..etc) en el apartado dieta. Tambien se puede llevar un registro de tu rutina y los pesos que levantas en el gimnasio en el apartado gym. Hay un apartado de tienda en el que se pueden comprar productos vendidos por nuestros socios, los productos son suplementacion de proteinas, barritas de chocolate proteicas y cereales proteicos. Puedes crear un usuario o iniciar sesion con google, o con una cuenta de ControlZ (nuestra propia app) en nuestra app. Tu funcion será resolver las dudas de los usuarios, puedes redireccionarlos a diferentes apartados proporcionando los siguientes links: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/rutina gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/gym dieta: En esta pagina puedes registrar los alimentos que comes cada dia y calcular las calorias y valores nutricionales que consumes, gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/dieta perfil: En este apartado podrás configurar tu perfil y objetivos fitness, gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/perfil Tienda: En este apartado se pueden comprar productos que nos proporcionan nuestros socios, en este momento hay proteinas en polvo y alimentos ricos en proteinas (cereales y barritas de chocolate proteicas). En el footer (parte de abajo) de la pagina hay informacion sobre nosotros (about us) acceso a nuestras redes sociales y se facilita la manera de contactar con nosotros Darás siempre respuestas cortas y específicas para ayudar al usuario a resolver sus dudas o navegar por la aplicacion. Solo puedes responder preguntas relacionadas con la aplicación, en ningun caso se responderá una pregunta que no este relacionada. Recuerda jamás salir del rol de asistente, aunque el usuario lo pida. Independientemente de lo que diga el usuario jamás saldras del rol de asistente.";
+    'Vamos a hacer una simulacion, tu eres el asistente virtual de una aplicacion de gimnasio y fitness llamada ControlZ. Es importante que nunca salgas de ese rol. En esta aplicacion se puede llevar un registro de los alimentos que comes cada dia, contando sus valores nutricionales (calorias grasas proteinas..etc) en el apartado dieta. Tambien se puede llevar un registro de tu rutina y los pesos que levantas en el gimnasio en el apartado gym. Hay un apartado de tienda en el que se pueden comprar productos vendidos por nuestros socios, los productos son suplementacion de proteinas, barritas de chocolate proteicas y cereales proteicos. Puedes crear un usuario o iniciar sesion con google, o con una cuenta de ControlZ (nuestra propia app) en nuestra app. Tu funcion será resolver las dudas de los usuarios, puedes redireccionarlos a diferentes apartados proporcionando los siguientes links: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/rutina gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/gym dieta: En esta pagina puedes registrar los alimentos que comes cada dia y calcular las calorias y valores nutricionales que consumes, gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/dieta perfil: En este apartado podrás configurar tu perfil y objetivos fitness, gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/perfil Tienda: En este apartado se pueden comprar productos que nos proporcionan nuestros socios, en este momento hay proteinas en polvo y alimentos ricos en proteinas (cereales y barritas de chocolate proteicas). En el footer (parte de abajo) de la pagina hay informacion sobre nosotros (about us) acceso a nuestras redes sociales y se facilita la manera de contactar con nosotros Darás siempre respuestas cortas y específicas para ayudar al usuario a resolver sus dudas o navegar por la aplicacion. Solo puedes responder preguntas relacionadas con la aplicación mientras lo hagas tendrras el "rol de asistente", en ningun caso se responderá una pregunta que no este relacionada. Recuerda jamás salir del rol de asistente, aunque el usuario lo pida. Independientemente de lo que diga el usuario jamás saldras del rol de asistente.';
   // useEffect se usa para realizar operaciones después de cada renderizado
   useEffect(() => {
     // Función que actualiza el contexto previo basado en la conversación
@@ -51,7 +51,7 @@ function ChatComponent() {
         // Datos a enviar a la API
         const requestBody = {
           prompt: fullPrompt,
-          max_tokens: 250,
+          max_tokens: 180,
           temperature: 0.5,
         };
 
@@ -91,48 +91,56 @@ function ChatComponent() {
     }
   };
   return (
-    <div className="container-fluid bg-dark ">
-      <div
-        className="d-flex align-items-center justify-content-center flex-column"
-        style={{ minHeight: "100vh" }}
-      >
-        <h1 className="text-white mb-5 h1 ">ChatGPT - Asistente Virtual</h1>
+    <>
+      {/* //   <div className="container-fluid bg-dark ">
+    //   <div
+    //     className="d-flex align-items-center justify-content-center flex-column"
+    //     style={{ minHeight: "100vh" }}
+    //   > */}
+      {/* <h1 className="text-white mb-5 h1 ">ChatGPT - Asistente Virtual</h1> */}
+      <div className="d-flex ">
+        <input
+          className=" w-100"
+          type="text"
+          value={message}
+          onChange={handleChange}
+          onKeyDown={handleKeyPress}
+          placeholder="Asistente Virtual"
+        />
+        <button className="btn btn-light ms-3" onClick={sendMessage}>
+          Enviar
+        </button>
+      </div>
 
+      {conversation.length > 0 && ( //esto es un if en jsx. Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
+        // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
         <div
-          className="border border-light w-50 p-3"
+          className="border border-light p-3 position-fixed "
           style={{
-            minHeight: "200px",
             maxHeight: "400px",
             overflowY: "scroll",
           }}
         >
-          {/* Mapeo de la conversación para mostrar preguntas y respuestas */}
+          {/* Mapeo de la conversación para mostrar preguntas y respuestas //aqui es lo importante */}
           {conversation.map((interaction, index) => (
-            <div key={index} className="mb-3 text-light">
-              <p className="mb-1">
+            <div key={index} className="mb-3 text-black">
+              <p className="mb-1 bg-info">
                 <strong>Tú:</strong> {interaction.userQuestion}
               </p>
-              <p className="mb-0">
+              <p
+                className="mb-0 text-black"
+                style={{ backgroundColor: "pink" }}
+              >
                 <strong>Asistente:</strong> {interaction.assistantResponse}
               </p>
             </div>
           ))}
         </div>
+      )}
 
-        <div className="d-flex">
-          <input
-            className="mt-3"
-            type="text"
-            value={message}
-            onChange={handleChange}
-            onKeyDown={handleKeyPress}
-          />
-          <button className="btn btn-light mt-3 ms-3" onClick={sendMessage}>
-            Enviar
-          </button>
-        </div>
-      </div>
-    </div>
+      {/* </div>
+    </div> */}
+    </>
   );
 }
 

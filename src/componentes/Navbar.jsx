@@ -1,16 +1,17 @@
 export default Navbar;
 
 import logo from "../img/logo.png";
-function Navbar({linkHome}) {
-    
+import ChatComponent from "./ChatComponent";
+function Navbar({ linkHome }) {
   return (
     <nav
       class=" navbar bg-black navbar-expand-lg fixed-top "
-      data-bs-theme="dark">
+      data-bs-theme="dark"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="principal">
           <img
-            src= {logo}
+            src={logo}
             alt="Logo"
             width="30"
             height="30"
@@ -32,7 +33,7 @@ function Navbar({linkHome}) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href= {linkHome}>
+              <a class="nav-link active" aria-current="page" href={linkHome}>
                 Home
               </a>
             </li>
@@ -70,17 +71,9 @@ function Navbar({linkHome}) {
               </a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-info" type="submit">
-              Search
-            </button>
-          </form>
+          <div>
+            <ChatComponent />
+          </div>
         </div>
       </div>
     </nav>
