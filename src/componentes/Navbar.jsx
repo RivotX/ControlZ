@@ -71,7 +71,7 @@ function Navbar({ linkHome }) {
               </a>
             </li>
           </ul>
-          <div>
+          <div className="me-2 ">
             <ChatComponent />
           </div>
         </div>

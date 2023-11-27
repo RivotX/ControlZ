@@ -115,7 +115,7 @@ function ChatComponent() {
       {conversation.length > 0 && ( //esto es un if en jsx. Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
         // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
         <div
-          className="border border-light p-3 position-fixed "
+          className="border border-light p-3 position-fixed me-2 "
           style={{
             maxHeight: "400px",
             overflowY: "scroll",
