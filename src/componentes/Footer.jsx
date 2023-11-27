@@ -61,7 +61,7 @@ function Footer() {
         {/* <!-- Copyright --> */}
         <div class="text-center p-2" const style = {{ backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
           © 2023 Copyright:
-          <a class="text-light" href="https://Controlz.kesug.com/">  Controlz.kesug.com</a>
+          <a class="text-light ms-2" href="https://Controlz.kesug.com/">Controlz.kesug.com</a>
         </div>
         {/* <!-- Copyright --> */}
       </footer>
