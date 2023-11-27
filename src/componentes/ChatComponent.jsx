@@ -115,33 +115,52 @@ function ChatComponent() {
         </button>
       </div>
 
-      {conversation.length > 0 && showChat &&( //esto es un if en jsx. Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
-        // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
-        <div
-          id="chat"
-          className="border border-light p-3 position-fixed me-2 bg-dark mt-1"
-          style={{
-            maxHeight: "400px",
-            overflowY: "scroll",
-          }}
-        >
-          {/* Mapeo de la conversación para mostrar preguntas y respuestas //aqui es lo importante */}
-          {conversation.map((interaction, index) => (
-            <div key={index} className="mb-3 text-black">
-              <p className="mb-1 bg-info">
-                <strong>Tú:</strong> {interaction.userQuestion}
-              </p>
-              <p
-                className="mb-0 text-black"
-                style={{ backgroundColor: "pink" }}
-              >
-                <strong>Asistente:</strong> {interaction.assistantResponse}
-              </p>
-            </div>
-          ))}
-        </div>
-        
-      )}
+      {conversation.length > 0 &&
+        showChat && ( // Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
+          // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
+          <div
+            id="chat"
+            className="border border-light p-3 position-fixed me-2 bg-dark mt-1"
+            style={{
+              maxHeight: "400px",
+              overflowY: "scroll",
+            }}
+          >
+            {/*funcion de Mapeo de la conversación para mostrar preguntas y respuestas */}
+            {conversation.map((interaction, index) => {
+              const regex = /(https?:\/\/[^\s]+)/g;
+              const urls = interaction.assistantResponse.match(regex); // Encuentra todas las URLs en la respuesta
+
+              let responseContent = interaction.assistantResponse;
+              
+              if (urls && urls.length > 0) {
+                urls.forEach((url) => {
+                  responseContent = responseContent.replace(
+                    url,
+                    `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+                  );
+                });
+              }
+
+              return (
+                <div key={index} className="mb-3 text-black">
+                  <p className="mb-1 bg-info">
+                    <strong>Tú:</strong> {interaction.userQuestion}
+                  </p>
+                  <p
+                    className="mb-0 text-black"
+                    style={{ backgroundColor: "pink" }}
+                  >
+                    <strong>Asistente:</strong>
+                    <span
+                      dangerouslySetInnerHTML={{ __html: responseContent }}
+                    />
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
       {/* </div>
     </div> */}
