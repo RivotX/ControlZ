@@ -90,6 +90,11 @@ function ChatComponent() {
       sendMessage();
     }
   };
+  const [showChat, setShowChat] = useState(true); // Estado para controlar la visibilidad del chat
+
+  const desplegarChat = () => {
+    setShowChat(!showChat); // Invierte el estado actual al hacer clic en el botón
+  };
   return (
     <>
       {/* //   <div className="container-fluid bg-dark ">
@@ -99,6 +104,14 @@ function ChatComponent() {
     //   > */}
       {/* <h1 className="text-white mb-5 h1 ">ChatGPT - Asistente Virtual</h1> */}
       <div className="d-flex ">
+        <button
+          type="button"
+          className="btn me-2 w-100 btn-danger"
+          onClick={desplegarChat}
+        >
+          {showChat &&("Ocultar asistente") }
+          {!showChat &&("Mostrar asistente")}
+        </button>
         <input
           className=" w-100"
           type="text"
@@ -112,9 +125,10 @@ function ChatComponent() {
         </button>
       </div>
 
-      {conversation.length > 0 && ( //esto es un if en jsx. Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
+      {conversation.length > 0 && showChat &&( //esto es un if en jsx. Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
         // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
         <div
+          id="chat"
           className="border border-light p-3 position-fixed me-2 "
           style={{
             maxHeight: "400px",
