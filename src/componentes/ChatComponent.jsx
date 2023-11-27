@@ -40,6 +40,9 @@ function ChatComponent() {
   // Función que maneja el envío de mensajes del usuario
   const sendMessage = async () => {
     if (message.trim() !== "") {
+      if (!showChat) {
+        setShowChat(true);
+      }
       try {
         const apiKey = "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";
         const url =
@@ -109,8 +112,7 @@ function ChatComponent() {
           className="btn me-2 w-100 btn-danger"
           onClick={desplegarChat}
         >
-          {showChat &&("Ocultar asistente") }
-          {!showChat &&("Mostrar asistente")}
+          Ocultar/Mostrar
         </button>
         <input
           className=" w-100"
@@ -150,6 +152,7 @@ function ChatComponent() {
             </div>
           ))}
         </div>
+        
       )}
 
       {/* </div>
