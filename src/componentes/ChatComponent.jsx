@@ -1,15 +1,3 @@
-//Aun falta por mejorar el codigo, resolver algunos errores y mejorar el prompt inicial.
-//Aun falta por mejorar el codigo, resolver algunos errores y mejorar el prompt inicial.
-
-//Cuando esté perfecto, metemos este componente en el componente <Navbar> y hacemos que la barra de busqueda sea el input
-
-//para usarlo teneis que entrar en (localhost)/asistente
-//para usarlo teneis que entrar en (localhost)/asistente
-//para usarlo teneis que entrar en (localhost)/asistente
-//para usarlo teneis que entrar en (localhost)/asistente
-//para usarlo teneis que entrar en (localhost)/asistente
-//para usarlo teneis que entrar en (localhost)/asistente
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
