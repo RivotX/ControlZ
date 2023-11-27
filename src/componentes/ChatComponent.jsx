@@ -131,7 +131,7 @@ function ChatComponent() {
         // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
         <div
           id="chat"
-          className="border border-light p-3 position-fixed me-2 bg-dark"
+          className="border border-light p-3 position-fixed me-2 bg-dark mt-1"
           style={{
             maxHeight: "400px",
             overflowY: "scroll",
