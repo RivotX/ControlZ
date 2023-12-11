@@ -32,7 +32,7 @@ function ChatComponent() {
         setShowChat(true);
       }
       try {
-        const apiKey = "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";
+        const apiKey = "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";
         const url =
           "https://api.openai.com/v1/engines/text-davinci-003/completions";
 
