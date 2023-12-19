@@ -6,25 +6,22 @@ function Index() {
   function btncomenzar() {
     var login = document.getElementById("logearse");
     var completo = document.getElementsByClassName("completo")[0];
-    
-  
+
     completo.style.display = "none";
-    
-    
-    
+
     login.style.display = "block";
     login.style.opacity = "100%";
   }
   function registrar() {
     var login = document.getElementById("logearse");
     var registro = document.getElementById("registrar");
-  
+
     login.style.display = "none";
     registro.style.display = "block";
     registro.style.opacity = "100%";
   }
   //funciones js con states
-  
+
   return (
     <div className="fondoindex min-vh-100">
       <div id="containerPagEntera" class="container-fluid">
@@ -39,7 +36,9 @@ function Index() {
                 height="50"
                 className="d-inline-block"
               />
-              <span className="logoindex" style={{marginLeft : '5px'}}>ControlZ</span>
+              <span className="logoindex" style={{ marginLeft: "5px" }}>
+                ControlZ
+              </span>
             </a>
             <div class="row d-flex align-items-center justify-content-center">
               <div class="col-4">
@@ -230,75 +229,71 @@ if(isset($_GET["regincorrecto"])){
         <div class="inicio d-flex justify-content-center align-items-center">
           <div className="login-box " id="logearse">
             <h2>Iniciar Sesion</h2>
-            <form action="/principal" method="post">
-              <div class="text-center mb-2">
-                <p class="text-white">Sign in with:</p>
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-floating mx-1"
-                >
-                  <i class="fab fa-facebook-f">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      class="bi bi-facebook"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                    </svg>
-                  </i>
-                </button>
+            {/* <form action="/principal" method="post"> */}
+            <div class="text-center mb-2">
+              <p class="text-white">Sign in with:</p>
+              <button type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-facebook-f">
+                  <svg
+                    id="svg1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-facebook"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                  </svg>
+                </i>
+              </button>
 
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-floating mx-1"
-                >
-                  <i class="fab fa-google">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      class="bi bi-google"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                    </svg>
-                  </i>
-                </button>
-              </div>
+              <button type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-google">
+                  <svg
+                    id="svg1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-google"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                  </svg>
+                </i>
+              </button>
+            </div>
 
-              <div class="user-box">
-                <input type="text" name="usuarioInicio" required="" />
-                <label>Usuario</label>
+            <div class="user-box">
+              <input type="text" name="usuarioInicio" required="" />
+              <label>Usuario</label>
+            </div>
+            <div class="user-box">
+              <input type="password" name="claveInicio" required="" />
+              <label>Contraseña</label>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                <u class="col-8"></u>
+                <u href="" class="col-4 registro" onClick={registrar}>
+                  No tengo cuenta
+                </u>
               </div>
-              <div class="user-box">
-                <input type="password" name="claveInicio" required="" />
-                <label>Contraseña</label>
-              </div>
-              <div class="container-fluid">
-                <div class="row">
-                  <u class="col-8"></u>
-                  <u href="" class="col-4 registro" onClick={registrar}>
-                    No tengo cuenta
-                  </u>
-                </div>
-              </div>
-              <div class="container-fluid mt-3 mb-5">
-                <div class="row text-center">
+            </div>
+            <div class="container-fluid mt-3 mb-5">
+              <div class="row text-center">
+                <a href="/principal">
                   <input
                     type="submit"
                     class=" botonsiguiente "
                     value="Siguiente"
                     name="submit"
                   />
-                </div>
+                </a>
               </div>
-            </form>
+            </div>
+            {/* </form> */}
           </div>
         </div>
         <div class=" d-flex justify-content-center align-items-center">
@@ -410,14 +405,16 @@ if(isset($_GET["regincorrecto"])){
               </div>
               <div class="container-fluid mt-3 mb-5">
                 <div class="row text-center">
-                  <input
-                    onclick="enviar()"
-                    type="button"
-                    class=" botonsiguiente "
-                    value="Siguiente"
-                    name="submit"
-                    id="submit"
-                  />
+                  <a href="/principal">
+                    <input
+                      onclick="enviar()"
+                      type="button"
+                      class=" botonsiguiente "
+                      value="Siguiente"
+                      name="submit"
+                      id="submit"
+                    />
+                  </a>
                 </div>
               </div>
             </form>
