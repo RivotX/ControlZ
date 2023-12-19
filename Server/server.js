@@ -13,6 +13,6 @@ const db= mysql.createConnection({
 })
 
 app.listen(8081, () => {
-    console.log("funciona");
+    console.log("servidor corriendo...");
 })
 
