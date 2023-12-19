@@ -1,5 +1,5 @@
 
-
+//
 
 function RegPlus() {
   var registro = document.getElementsByClassName("loginRegistro")[0];
