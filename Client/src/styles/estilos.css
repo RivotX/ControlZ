@@ -1,0 +1,501 @@
+.paginafija {
+    background-color: black;
+
+}
+
+@font-face {
+    font-family: gym;
+    src: url(../font/SportCenter-DO9Od.ttf);
+}
+
+.ancho {
+    height: 100vh;
+
+    color: rgb(250, 250, 250);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 4vh;
+    text-shadow: 10px 10px 3px rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 1s;
+
+
+
+}
+
+.cartas{
+    min-height: 13.8vh;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.alturacarrusel {
+    height: 60%;
+}
+.servicios{
+    font-size: 4rem;
+}
+.card{
+    transition: all 1s;
+}
+.hovcard:hover{
+    transform: scale(1.1);
+}
+
+.titulobienvenidagym {
+    font-size: 4rem;
+    width: 70%;
+    text-shadow: 0px 0px 300px white;
+    color:#c7c7c7;
+}
+.descgym{
+    text-align: center;
+    width: 80%;
+    font-size: 17px;
+}
+
+.bodygym {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: -20vh;
+
+}
+
+
+.caja {
+    padding: 0;
+
+}
+
+.descripcion1 {
+    top: 40vh;
+    position: fixed;
+    z-index: 100;
+    opacity: 0;
+    font-size: large;
+    transition: all 0.5s;
+    color: aliceblue;
+    max-width: 65%;
+    left: 15%;
+
+
+}
+
+.descripcion2 {
+    top: 40vh;
+    position: fixed;
+    z-index: 100;
+    opacity: 0;
+    font-size: large;
+    transition: all 0.5s;
+    color: rgb(0, 0, 0);
+    max-width: 65%;
+    left: 20%;
+
+}
+
+
+
+.img-portada {
+    height: 100%;
+    width: 100%;
+
+
+}
+
+.ApartadosAElegir {
+    text-decoration: none;
+    z-index: 1000;
+
+}
+
+.apartado {
+    opacity: 100%;
+    transition: all 1s;
+    margin-top: -2%;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+
+}
+.apartado1{
+    opacity: 100%;
+    transition: all 1s;
+    margin-top: -2%;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    color:black;
+    text-shadow: 10px 10px 3px rgb(255, 255, 255);
+}
+
+.caja:hover {
+
+    .descripcion {
+        opacity: 1;
+    }
+
+    .ancho {
+        filter: brightness(0.5);
+        filter: blur(20px);
+        z-index: -100;
+    }
+
+    .apartado {
+        color: rgb(133, 132, 68);
+        opacity: 0%;
+        font-size: 400%;
+        filter: none;
+
+    }
+
+    .apartado1 {
+        color: rgb(133, 132, 68);
+        opacity: 0%;
+        font-size: 400%;
+        filter: none;
+
+    }
+
+    .descripcion1 {
+        opacity: 1
+    }
+
+    .descripcion2 {
+        opacity: 1
+    }
+
+
+}
+
+
+.img1 {
+    background-image: url(../img/gym.jpg);
+    background-size: 180%;
+    background-position: center;
+
+
+}
+
+.img2 {
+    background-image: url(../img/dieta.jpg);
+    background-position: center;
+    background-size: 180%;
+}
+
+
+
+.logo-container {
+    position: absolute;
+     top: 30%;
+    /*left: 50%;
+    transform: translate(-50%, -50%); */
+    
+    place-items: center;
+    width: 13%;
+    height: 40%;
+    overflow: hidden;
+    z-index: 100000;
+    border-radius: 30%;
+}
+
+.logo {
+    background-repeat: no-repeat;
+    background-image: url(../img/perfil.png);
+    background-size: 210%;
+    
+    background-position: center;
+    z-index: 100000;
+
+
+}
+
+.logo:hover {
+    
+}
+
+#logo {
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+
+
+@media screen and (max-width: 559px) {
+
+    .descripcion1 {
+
+        font-size: medium;
+    }
+
+    .descripcion2 {
+        
+        font-size: medium;
+    }
+
+}
+
+
+@media screen and (max-width: 1100px) {
+    
+    
+
+    .caja {
+        width: 100%;
+
+        float: none;
+        height: 50vh;
+    }
+
+    .ancho {
+        height: 50vh;
+    }
+
+    .descripcion1 {
+        max-width: 60%;
+        left: 20%;
+        top: 10%;
+    }
+
+    .descripcion2 {
+        max-width: 60%;
+        left: 20%;
+        top: 65%;
+    }
+
+}
+
+@media screen and (max-width: 814px) {
+    .logo-container{
+        width: 150px;
+        height: 200px;
+    }
+}
+
+.bodyperfil {
+    overflow: hidden;
+    background: fixed url(../img/fondoperfil2.jpg);
+    
+}
+.bodygym{
+    overflow: auto;
+}
+
+
+.fondoperfil {
+    background: fixed url(../img/fondoperfil.jpg);
+    backdrop-filter: blur(10px);
+    height: 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.borde {}
+
+#video {
+    z-index: -1;
+    width: 100%;
+    height: 80%;
+}
+
+.perfil {
+    position: absolute;
+    font-size: 150px;
+    text-shadow: 2px 0px 12px white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,;
+}
+
+.acceder {
+    position: absolute;
+    font-family: system-ui, -apple-system ;
+    top: calc(90vh - 60px);
+}
+
+/* .fotobanca{
+    display: flex;
+    flex-wrap: wrap;
+}
+.elemento{
+    flex-grow: 1;
+    flex-basis: 200;
+} */
+
+
+@media screen and (max-width: 750px) {
+    .perfil {
+        font-size: 100px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .perfil {
+        font-size: 70px;
+    }
+
+}
+
+@media screen and (max-width: 1500px) {
+    #video {
+        display: none;
+    }
+
+    .fondoperfil {
+        background: fixed url(../img/fondoperfil.jpg);
+        background-position: 60%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .down-arrow {
+        display: none;
+    }
+
+    .acceder {
+        display: none;
+    }
+
+    .fondoperfil {
+       
+    }
+
+    .bodyperfil {
+        overflow: auto;
+    }
+    .perfil{
+        display: none;
+        visibility: hidden;
+    }
+    #gym{
+        display: none;
+        visibility: hidden;
+    }
+
+}
+
+
+@media screen and (max-width: 1000px) {
+    .fondoperfil {
+        
+    }
+
+}
+
+@media screen and (max-width: 750px) {
+    .fondoperfil {
+       
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .fondoperfil {
+        
+    }
+
+}
+
+.down-arrow {
+    position: absolute;
+    top: calc(95vh - 60px);
+    width: 0;
+    height: 30px;
+    border: 2px solid;
+    border-radius: 2px;
+    color: aliceblue;
+}
+
+.down-arrow:after {
+    content: " ";
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    border-bottom: 4px solid;
+    border-right: 4px solid;
+    border-radius: 4px;
+    transform: rotateZ(45deg);
+}
+
+@keyframes jumpInfinite {
+    0% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: 20px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+.down-arrow {
+
+    animation: jumpInfinite 1.5s infinite;
+}
+  
+  .contenedorgym {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30%;
+  }
+  
+  .textgym {
+    font-size: 10vw;
+    letter-spacing: -.01em;
+    line-height: 100%;
+    margin: 0;
+    
+    width: 100%;
+    color: rgba(255, 255, 255, 0.501);
+    background: linear-gradient(to right, #e2e0e0, #b6b6b6) no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 0%;
+    transition: background-size cubic-bezier(.1,.5,.5,1) 0.5s;
+    
+  
+    border-bottom: 1px solid #2F2B28;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+  }
+  
+  #wanana {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(66, 190, 206);
+    color: #ffffff;
+    
+    clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+    transform-origin: center;
+    transition: all cubic-bezier(.1,.5,.5,1) 0.4s;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .textgym:hover > #wanana {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  /* .scrolleando {
+    background-color: transparent; /* Initial background color of the navbar 
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.5s ease; /* Transition effect for smooth color change
+} */
