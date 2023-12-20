@@ -169,7 +169,7 @@ function ChatComponent() {
                 </div>
               );
             })}
-            <div className=" container mb-3 row fixed-bottom d-flex justify-content-center align-align-items-center  ">
+            <div className=" container mb-3 row sticky-bottom d-flex justify-content-center align-align-items-center  ">
               <input
                 className="border-0 text-center rounded-2 ms-2 col-8"
                 type="text"
