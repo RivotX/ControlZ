@@ -137,7 +137,7 @@ function ChatComponent() {
           >
             <nav class="navbar ">
               <div class="container-fluid  d-flex justify-content-center align-items-center">
-                <a class="navbar-brand fw-bold" href="#">
+                <span class="navbar-brand fw-bold" >
                   <img
                     src={fotoasist}
                     alt="Logo"
@@ -146,7 +146,7 @@ function ChatComponent() {
                     class="d-inline-block me-3 mb-2 align-text-top"
                   />
                   Control Z Asistente
-                </a>
+                </span>
               </div>
             </nav>
             {/*funcion de Mapeo de la conversación para mostrar preguntas y respuestas */}
@@ -183,7 +183,7 @@ function ChatComponent() {
                 </div>
               );
             })}
-            <div className=" container mb-3 row sticky-bottom d-flex justify-content-center align-align-items-center  ">
+            <div className=" container row sticky-bottom d-flex justify-content-center align-align-items-center ">
               <input
                 className="border-0 text-center rounded-2 ms-2 col-8"
                 type="text"
