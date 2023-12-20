@@ -12,7 +12,7 @@ const db= mysql.createConnection({
     database: 'usuarios',
 })
 
-app.listen(8081, () => {
+app.listen(5175, () => {
     console.log("servidor corriendo...");
 })
 
