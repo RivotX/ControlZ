@@ -393,15 +393,15 @@ svg:hover {
   display: none;
 }
 .botonsiguiente {
-  background-color: #03e9f4;
-  height: 4vh;
+  background-color: #00f2ff;
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   font-weight: bold;
   border: 0px;
+  width: 100%;
   transition: all 0.2s;
 }
 .botonsiguiente:hover {
-  box-shadow: 0px 0px 10px aqua;
+  box-shadow: 0px 0px 10px rgb(3, 85, 85);
 }
 

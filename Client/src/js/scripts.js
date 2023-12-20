@@ -21,6 +21,15 @@ function inputIguales() {
     mensaje.style.display = "none";
   }
 }
+function registrar() {
+  var login = document.getElementsByClassName("login-box")[0];
+  var registro = document.getElementsByClassName("login-box")[1];
+
+  login.style.display = "none";
+  registro.style.display = "block";
+  registro.style.opacity = "100%";
+
+}
 
 function enviar() {
   var campo1 = document.getElementById("clave1");
