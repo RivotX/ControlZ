@@ -83,7 +83,7 @@ function ChatComponent() {
       sendMessage();
     }
   };
-  const [showChat, setShowChat] = useState(true); // Estado para controlar la visibilidad del chat
+  const [showChat, setShowChat] = useState(false); // Estado para controlar la visibilidad del chat
 
   const desplegarChat = () => {
     setShowChat(!showChat); // Invierte el estado actual al hacer clic en el botón
@@ -109,13 +109,7 @@ function ChatComponent() {
             <span style={{ width: "80px" }}>Abrir Asistente</span>
           )}
         </button>
-        {showChat ? (
-          <>
-          </>
-        ) : (
-          <span>Abrir</span>
-        )}
-
+       
       </div>
 
       {/* {conversation.length > 0 && */showChat
