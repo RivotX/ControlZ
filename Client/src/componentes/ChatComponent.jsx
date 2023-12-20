@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import fotoasist from "../img/logo_asistente.svg";
+import robot from "../img/robot.svg";
 
 function ChatComponent() {
   // Estados del componente utilizando el hook useState
@@ -96,43 +98,56 @@ function ChatComponent() {
       {/* <h1 className="text-white mb-5 h1 ">ChatGPT - Asistente Virtual</h1> */}
       <div className="d-flex ">
         <button
+          id="mostrar"
           type="button"
-          className="btn me-2 w-100 btn-danger"
+          className="btn me-2 w-100 btn-dark"
           onClick={desplegarChat}
         >
-          Ocultar/Mostrar
+          {showChat ? (
+            <span style={{ width: "80px" }}>Cerrar Asistente</span>
+          ) : (
+            <span style={{ width: "80px" }}>Abrir Asistente</span>
+          )}
         </button>
-        <input
-          className=" w-100"
-          type="text"
-          value={message}
-          onChange={handleChange}
-          onKeyDown={handleKeyPress}
-          placeholder="Asistente Virtual"
-        />
-        <button className="btn btn-light ms-3" onClick={sendMessage}>
-          Enviar
-        </button>
+        {showChat ? (
+          <>
+          </>
+        ) : (
+          <span>Abrir</span>
+        )}
+
       </div>
 
-      {conversation.length > 0 &&
-        showChat && ( // Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
+      {/* {conversation.length > 0 && */showChat
+        && ( // Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
           // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
           <div
             id="chat"
-            className="border border-light p-3 position-fixed me-2 bg-dark mt-1"
+            className="border border-light p-3 rounded-3 position-fixed  h-100 w-100 mt-4 "
             style={{
-              maxHeight: "400px",
+              maxHeight: "600px",
+              maxWidth: "500px",
               overflowY: "scroll",
+              backdropFilter: "blur(10px)",
+              marginLeft: "-20%",
+              textAlign: "justify"
             }}
           >
+            <nav class="navbar ">
+              <div class="container-fluid  d-flex justify-content-center align-items-center">
+                <a class="navbar-brand fw-bold" href="#">
+                  <img src={fotoasist} alt="Logo" width="35" height="35" class="d-inline-block me-3 mb-2 align-text-top" />
+                  Control Z Asistente
+                </a>
+              </div>
+            </nav>
             {/*funcion de Mapeo de la conversación para mostrar preguntas y respuestas */}
             {conversation.map((interaction, index) => {
               const regex = /(https?:\/\/[^\s]+)/g;
               const urls = interaction.assistantResponse.match(regex); // Encuentra todas las URLs en la respuesta
 
               let responseContent = interaction.assistantResponse;
-              
+
               if (urls && urls.length > 0) {
                 urls.forEach((url) => {
                   responseContent = responseContent.replace(
@@ -143,22 +158,36 @@ function ChatComponent() {
               }
 
               return (
-                <div key={index} className="mb-3 text-black">
-                  <p className="mb-1 bg-info">
-                    <strong>Tú:</strong> {interaction.userQuestion}
+                <div key={index} className="mb-3 text-white">
+                  <p className="mb-3 row">
+                    <strong className="col-3">Tú:</strong>
+                    <span className="col-9 bg-success rounded-bottom-3 rounded-end-3  ">
+                      {interaction.userQuestion}
+                    </span>
                   </p>
-                  <p
-                    className="mb-0 text-black"
-                    style={{ backgroundColor: "pink" }}
-                  >
-                    <strong>Asistente:</strong>
-                    <span
+                  <div className="d-flex row">
+                    <strong className="text-info col-3">Asistente:</strong>
+                    <span className="col-9 bg-dark  rounded-bottom-3 rounded-end-3   "
                       dangerouslySetInnerHTML={{ __html: responseContent }}
                     />
-                  </p>
+                  </div>
+
                 </div>
               );
             })}
+            <div className=" container mb-3 row fixed-bottom d-flex justify-content-center align-align-items-center  ">
+              <input
+                className="border-0 text-center rounded-2 ms-2 col-8"
+                type="text"
+                value={message}
+                onChange={handleChange}
+                onKeyDown={handleKeyPress}
+                placeholder="Consulta Asistente..."
+              />
+              <button className="btn btn-outline-info text-center text-white fw-semibold ms-3 col-3" onClick={sendMessage}>
+                Enviar
+              </button>
+            </div>
           </div>
         )}
 
