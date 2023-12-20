@@ -10,7 +10,6 @@ function ChatComponent() {
   const [previousContext, setPreviousContext] = useState(""); // Estado para el contexto previo del bot
   const chatRef = useRef(null); //para mover el scrollbar
 
-
   const initialPrompt =
     'Vamos a hacer una simulacion, tu eres el asistente virtual de una aplicacion de gimnasio y fitness llamada ControlZ. Es importante que nunca salgas de ese rol. En esta aplicacion se puede llevar un registro de los alimentos que comes cada dia, contando sus valores nutricionales (calorias grasas proteinas..etc) en el apartado dieta. Tambien se puede llevar un registro de tu rutina y los pesos que levantas en el gimnasio en el apartado gym. Hay un apartado de tienda en el que se pueden comprar productos vendidos por nuestros socios, los productos son suplementacion de proteinas, barritas de chocolate proteicas y cereales proteicos. Puedes crear un usuario o iniciar sesion con google, o con una cuenta de ControlZ (nuestra propia app) en nuestra app. Tu funcion será resolver las dudas de los usuarios, puedes redireccionarlos a diferentes apartados proporcionando los siguientes links: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/rutina gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/gym dieta: En esta pagina puedes registrar los alimentos que comes cada dia y calcular las calorias y valores nutricionales que consumes, gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/dieta perfil: En este apartado podrás configurar tu perfil y objetivos fitness, gimnasio: en esta pagina se encuentra la informacion principal, desde ella puedes acceder a todas las demas: rutina: para registrar los ejercicios y pesos que haces cada dia del gimnasio, http://localhost:5173/perfil Tienda: En este apartado se pueden comprar productos que nos proporcionan nuestros socios, en este momento hay proteinas en polvo y alimentos ricos en proteinas (cereales y barritas de chocolate proteicas). En el footer (parte de abajo) de la pagina hay informacion sobre nosotros (about us) acceso a nuestras redes sociales y se facilita la manera de contactar con nosotros Darás siempre respuestas cortas y específicas para ayudar al usuario a resolver sus dudas o navegar por la aplicacion. Solo puedes responder preguntas relacionadas con la aplicación mientras lo hagas tendrras el "rol de asistente", en ningun caso se responderá una pregunta que no este relacionada. Recuerda jamás salir del rol de asistente, aunque el usuario lo pida. Independientemente de lo que diga el usuario jamás saldras del rol de asistente.';
   // useEffect se usa para realizar operaciones después de cada renderizado
@@ -94,7 +93,7 @@ function ChatComponent() {
   useEffect(() => {
     // Desplazar hacia abajo el div cuando se agrega un nuevo mensaje
     if (chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      chatRef.current.scrollTop = chatRef.current.scrollHeight; //chatRef.current = div de la conversacion (que tiene scrollbar). Cada vez que cambie la conversacion, scrollbar.top será el valor de la alturaMaxima del div (se va a abajo).
     }
   }, [conversation]); // Esto se ejecutará cada vez que la conversación cambie
   return (
@@ -118,14 +117,13 @@ function ChatComponent() {
             <span style={{ width: "80px" }}>Abrir Asistente</span>
           )}
         </button>
-       
       </div>
 
-      {/* {conversation.length > 0 && */showChat
-        && ( // Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
+      {
+        /* {conversation.length > 0 && */ showChat && ( // Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
           // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
           <div
-          ref={chatRef}
+            ref={chatRef}
             id="chat"
             className="border border-light p-3 rounded-3 position-fixed  h-100 w-100 mt-4 "
             style={{
@@ -134,13 +132,19 @@ function ChatComponent() {
               overflowY: "scroll",
               backdropFilter: "blur(10px)",
               marginLeft: "-20%",
-              textAlign: "justify"
+              textAlign: "justify",
             }}
           >
             <nav class="navbar ">
               <div class="container-fluid  d-flex justify-content-center align-items-center">
                 <a class="navbar-brand fw-bold" href="#">
-                  <img src={fotoasist} alt="Logo" width="35" height="35" class="d-inline-block me-3 mb-2 align-text-top" />
+                  <img
+                    src={fotoasist}
+                    alt="Logo"
+                    width="35"
+                    height="35"
+                    class="d-inline-block me-3 mb-2 align-text-top"
+                  />
                   Control Z Asistente
                 </a>
               </div>
@@ -171,11 +175,11 @@ function ChatComponent() {
                   </p>
                   <div className="d-flex row">
                     <strong className="text-info col-3">Asistente:</strong>
-                    <span className="col-9 bg-dark  rounded-bottom-3 rounded-end-3   "
+                    <span
+                      className="col-9 bg-dark  rounded-bottom-3 rounded-end-3   "
                       dangerouslySetInnerHTML={{ __html: responseContent }}
                     />
                   </div>
-
                 </div>
               );
             })}
@@ -188,12 +192,16 @@ function ChatComponent() {
                 onKeyDown={handleKeyPress}
                 placeholder="Consulta Asistente..."
               />
-              <button className="btn btn-outline-info text-center text-white fw-semibold ms-3 col-3" onClick={sendMessage}>
+              <button
+                className="btn btn-outline-info text-center text-white fw-semibold ms-3 col-3"
+                onClick={sendMessage}
+              >
                 Enviar
               </button>
             </div>
           </div>
-        )}
+        )
+      }
     </>
   );
 }
