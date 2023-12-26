@@ -1,54 +1,38 @@
 export default Index;
-import Footer from "../componentes/Footer";
-import Navbar from "../componentes/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Index() {
+
   //js estética
-  function btncomenzar() {
-    var login = document.getElementById("logearse");
-    var completo = document.getElementsByClassName("completo")[0];
+  const [VisibleWelcome, setVisibleWelcome] = useState(true);
+  const [VisibleRegistro, setVisibleRegistro] = useState(false);
+  const [VisibleRegistro2, setVisibleRegistro2] = useState(false);
+  const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
 
-    completo.style.display = "none";
-
-    login.style.display = "block";
-    login.style.opacity = "100%";
+  const btnComenzar =() => {
+    setVisibleWelcome(false);
+    setVisibleIniciarSesion(true);
+    setVisibleRegistro(false);
+    setVisibleRegistro2(false);
   }
-  function registrar() {
-    var login = document.getElementById("logearse");
-    var registro = document.getElementById("registrar");
 
-    login.style.display = "none";
-    registro.style.display = "block";
-    registro.style.opacity = "100%";
-  }
-  
-  // function siguiente() {
-  //   let registrar = document.getElementById("registrar");
-  //   let reg = document.getElementById("reg");
+  const cambiarDisplayRegistro = () => {
+    setVisibleIniciarSesion(false);
+    setVisibleRegistro(true);
+    setVisibleRegistro2(false);
 
-  //   console.log(registrar);
+  };
+  const cambiarDisplayRegistro2 = () => {
+    setVisibleRegistro(false);
+    setVisibleRegistro2(true);
+  };
 
-  //   registrar.style.display = "none";
-  //   reg.style.display = "block";
-  //   reg.style.opacity = "100%";
-
-
-
-  // }
-
-  // function enviar() {
-  //   var campo1 = document.getElementById("clave1");
-  //   var campo2 = document.getElementById("clave2");
-  //   var elemento = document.getElementById("submit");
-  //   var mensaje = document.getElementById("mensaje2");
-  //   if (campo2.value === campo1.value && campo2.value.length >= 8) {
-  //     elemento.type = "submit";
-  //   } else {
-  //     mensaje.style.display = "block";
-  //   }
-  // }
+  const IrInicioSesion = () => {
+    setVisibleRegistro(false);
+    setVisibleRegistro2(false);
+    setVisibleIniciarSesion(true);
+  };
 
   //servidor
   const [values, setValues] = useState({
@@ -58,17 +42,18 @@ function Index() {
     email: "",
     telefono: "",
     direccion: "",
-    sexo: "",
+    // sexo: "",
   });
 
   //prevent default hace que el evento no haga lo que haía de forma predeterminada, en este caso hará que el sumbit no reinicie la pagina
-  // const manejarSumbit = (event) => {
-  //   event.preventDefault();
-
-  //   axios.post('http://localhost:8081/', values)
-  //     .then((res) => { console.log(res) })
-  //     .then((error) => { console.log(error) })
-  // }
+  //mandamos al servidor values
+  const manejarSumbit = (event) => {
+    event.preventDefault();
+    
+    axios.post('http://localhost:8081', values)
+    .then (res=> console.log(res))
+    .catch (err => console.error(err))
+  }
 
   return (
     <div className="fondoindex min-vh-100">
@@ -150,59 +135,43 @@ function Index() {
           </nav>
         </div>
 
-        {/* <?php
-        include_once("php/consultas.php");
-
-        if (isset($_POST["nombre"]) && isset($_POST["telefono"]) && isset($_POST["direccion"])&& isset($_POST["sexo"])) {
-            $_SESSION["nombre"] = $_POST["nombre"];
-            $_SESSION["telefono"] = $_POST["telefono"];
-            $_SESSION["direccion"] = $_POST["direccion"];
-            $_SESSION["sexo"] = $_POST["sexo"];
- 
-            Consultas::Insertar($_SESSION["usuario"],$_SESSION["clave"],$_SESSION["email"],$_SESSION["nombre"],$_SESSION["telefono"],$_SESSION["direccion"],$_SESSION["sexo"] );
-        }
-
-
-        if (isset($_POST["usuario"]) && isset($_POST["email"]) && isset($_POST["clave1"])) {
-            $_SESSION["usuario"] = $_POST["usuario"];
-            $_SESSION["email"] = $_POST["email"];
-            $_SESSION["clave"] = $_POST["clave1"];
-
-            if (!Consultas::ExisteRegistro($_SESSION["usuario"],  $_SESSION["email"])) {
-                # si los datos de usuario no existen en la base de datos entra a el apartado de regplus
-
-        ?>       */}
 
         <div className=" d-flex justify-content-center align-items-center">
-          <div className="loginRegistro login-box reg " id="reg">
+          <div className="loginRegistro login-box reg " id="reg" style={{display: VisibleRegistro2? 'block':'none' , opacity: 1 }}>
             <h2>Crea tu Perfil</h2>
-            <form id="enviarphp" >{/*onSubmit={manejarSumbit}> */}
+
+            <form id="enviarphp" onSubmit={manejarSumbit}>
               <div className="user-box regPlus">
-                <input type="text" name="nombre" onChange={e => setValues(...values, nombre = e.target.value)} required />  {/*e = evento */}
+                <input type="text" name="nombre" value={values.nombre} onChange={(e) => setValues({ ...values, nombre: e.target.value })} required />  {/*e = evento */}
                 <label>Nombre completo</label>
               </div>
 
               <div className="user-box regPlus">
-                <input type="text" name="telefono" onChange={e => setValues(...values, telefono = e.target.value)} required />
+                <input type="text" name="telefono" value={values.telefono} onChange={(e) => setValues({ ...values, telefono: e.target.value })}
+                  required />
                 <label>Telefono</label>
               </div>
 
               <div className="user-box regPlus">
-                <input type="text" name="direccion" onChange={e => setValues(...values, direccion = e.target.value)} required />
+                <input type="text" name="direccion" value={values.direccion} onChange={(e) => setValues({ ...values, direccion: e.target.value })} required />
                 <label>Direccion</label>
               </div>
 
-              <div style={{ color: "white;" }}>
+              {/* <div style={{ color: "white;" }}>
                 <h3>Sexo</h3>
                 <label>Hombre</label>
                 <input type="radio" name="sexo" value="1" id="sexo" />
                 <br /> <label>Mujer</label>
                 <input type="radio" name="sexo" value="0" id="sexo" />
-              </div>
+              </div> */}
+               <u href="" className="col-4 registro" onClick={btnComenzar}>
+                    Ya tienes cuenta
+                  </u>
 
               <div className="container-fluid mt-3 mb-5">
                 <div className="row text-center">
                   <input
+                  onClick={IrInicioSesion}
                     type="submit"
                     className=" botonsiguiente "
                     value="Siguiente"
@@ -214,29 +183,9 @@ function Index() {
             </form>
           </div>
         </div>
-        <script>RegPlus()</script>
-        {/* <?php
-            }else{?>
-            <div class="mt-5 p-5">
-                <div class="alert alert-danger container w-25">El usuario o el email ya estan en uso</div>
-                <div class="text-center"><a href="index.php" class="btn btn-dark btn-outline-light ">Volver</a></div>
-            </div>
-            <?php
-            }
-        }else{
-
-        session_destroy();
-        ?> */}
-        <div className="container completo">
-          {/* <?php
-if(isset($_GET["inicioincorrecto"])){
-    echo "<div class='alert alert-danger'>Inicio Incorrecto</div>";
-}
-?><?php
-if(isset($_GET["regincorrecto"])){
-    echo "<div class='alert alert-danger'>El usuario o el email ya esta en uso</div>";
-}
-?> */}
+        
+        <div className="container completo" style={{display: VisibleWelcome? 'block':'none'}}>
+          
           <div className="container titulocontenedor">
             <p>
               Nosotros te ayudamos a
@@ -262,7 +211,7 @@ if(isset($_GET["regincorrecto"])){
           </div>
 
           <div className="d-flex justify-content-center align-items-center">
-            <button className="iniciar" type="button" onClick={btncomenzar}>
+            <button className="iniciar" type="button" onClick={btnComenzar}>
               <span></span>
               <span></span>
               <span></span>
@@ -271,8 +220,8 @@ if(isset($_GET["regincorrecto"])){
             </button>
           </div>
         </div>
-        <div className="inicio d-flex justify-content-center align-items-center">
-          <div className="login-box " id="logearse">
+        <div className="inicio d-flex justify-content-center align-items-center" >
+          <div className="login-box " id="logearse" style={{display: VisibleIniciarSesion? 'block':'none', opacity:1}}>
             <h2>Iniciar Sesion</h2>
             <form action="paginas/principal.php" method="post">
               <div className="text-center mb-2">
@@ -327,7 +276,7 @@ if(isset($_GET["regincorrecto"])){
               <div className="container-fluid">
                 <div className="row">
                   <u className="col-8"></u>
-                  <u href="" className="col-4 registro" onClick={registrar}>
+                  <u href="" className="col-4 registro" onClick={cambiarDisplayRegistro}>
                     No tengo cuenta
                   </u>
                 </div>
@@ -347,10 +296,10 @@ if(isset($_GET["regincorrecto"])){
         </div>
 
         <div className=" d-flex justify-content-center align-items-center">
-          <div className="loginRegistro login-box reg " id="registrar">
+          <div className="loginRegistro login-box reg " id="registrar"  style={{display: VisibleRegistro? 'block':'none' , opacity:"100%" }}>
             <h2>Crea tu Perfil</h2>
 
-            <form id="enviarphp">
+            <form id="enviarphp2" onSubmit={manejarSumbit}>
               <div className="text-center mb-3">
                 <p className="text-white">Sign up with:</p>
                 <button
@@ -393,12 +342,12 @@ if(isset($_GET["regincorrecto"])){
               </div>
 
               <div className="user-box regNormal">
-                <input type="text" name="usuario" id="usuario" required />
+                <input type="text" name="usuario" id="usuario" onChange={e => setValues({ ...values, usuario: e.target.value })} required />
                 <label>Usuario</label>
               </div>
 
               <div className="user-box regNormal">
-                <input type="email" name="email" id="email" required />
+                <input type="email" name="email" id="email" onChange={e => setValues({ ...values, email: e.target.value })} required />
                 <label>Email</label>
               </div>
               <div className="user-box regNormal">
@@ -419,6 +368,8 @@ if(isset($_GET["regincorrecto"])){
                   name="clave2"
                   id="clave2"
                   // oninput="inputIguales()"
+                  onChange={(e) => setValues({ ...values, password: e.target.value })}
+
                   required
                 />
                 <label>Repetir contraseña</label>
@@ -434,7 +385,7 @@ if(isset($_GET["regincorrecto"])){
               <div className="container-fluid">
                 <div className="row">
                   <u className="col-8"></u>
-                  <u href="" className="col-4 registro" onClick={btncomenzar}>
+                  <u href="" className="col-4 registro" onClick={btnComenzar}>
                     Ya tienes cuenta
                   </u>
                 </div>
@@ -442,7 +393,7 @@ if(isset($_GET["regincorrecto"])){
               <div className="container-fluid mt-3 mb-5">
                 <div className="row text-center">
                   <input
-                    //  onClick={siguiente()}
+                    onClick={cambiarDisplayRegistro2} 
                     type="button"
                     className=" botonsiguiente "
                     value="Siguiente"
@@ -454,9 +405,7 @@ if(isset($_GET["regincorrecto"])){
             </form>
           </div>
         </div>
-        {/* <?php }
-    ?>
- */}
+       
 
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
@@ -469,7 +418,7 @@ if(isset($_GET["regincorrecto"])){
           crossOrigin="anonymous"
         ></script>
       </div>
-      {/* <Footer/> */}
+
     </div>
   );
 }
