@@ -3,14 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Index() {
-
   //js estética
   const [VisibleWelcome, setVisibleWelcome] = useState(true);
   const [VisibleRegistro, setVisibleRegistro] = useState(false);
   const [VisibleRegistro2, setVisibleRegistro2] = useState(false);
   const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
 
-  const btnComenzar =() => {
+  const btnComenzar = () => {
     setVisibleWelcome(false);
     setVisibleIniciarSesion(true);
     setVisibleRegistro(false);
@@ -45,14 +44,26 @@ function Index() {
     // sexo: "",
   });
 
-  //prevent default hace que el evento no haga lo que haía de forma predeterminada, en este caso hará que el sumbit no reinicie la pagina
-  //mandamos al servidor values
-  const manejarSumbit = (event) => {
+  //mandamos a servidor/registro los valores con los que trabajaremos
+  const SumbitRegistro = (event) => {
+    event.preventDefault(); //quitamos el sumbit default, lo creamos nosotros
+    axios.post('http://localhost:8081/registro', values) //envia values a "servidor/registro"
+      .then((res) =>{ 
+        console.log(res)
+      })
+      .catch(err => console.error(err))
+  }
+
+  //mandamos a servidor/login los datos para trabajar con ellos
+  const SumbitLogin = (event) => {
     event.preventDefault();
-    
-    axios.post('http://localhost:8081', values)
-    .then (res=> console.log(res))
-    .catch (err => console.error(err))
+    axios.post('http://localhost:8081/login', { usuario: values.usuario, password: values.password })
+      .then(res => {
+        if (res.data.redirectTo!= undefined){
+          window.location.href = res.data.redirectTo
+        }
+      })
+      .catch(err => console.log(err))
   }
 
   return (
@@ -137,18 +148,17 @@ function Index() {
 
 
         <div className=" d-flex justify-content-center align-items-center">
-          <div className="loginRegistro login-box reg " id="reg" style={{display: VisibleRegistro2? 'block':'none' , opacity: 1 }}>
+          <div className="loginRegistro login-box reg " id="reg" style={{ display: VisibleRegistro2 ? 'block' : 'none', opacity: 1 }}>
             <h2>Crea tu Perfil</h2>
 
-            <form id="enviarphp" onSubmit={manejarSumbit}>
+            <form id="enviarphp" onSubmit={SumbitRegistro}>
               <div className="user-box regPlus">
-                <input type="text" name="nombre" value={values.nombre} onChange={(e) => setValues({ ...values, nombre: e.target.value })} required />  {/*e = evento */}
+                <input type="text" name="nombre" value={values.nombre} onChange={(e) => setValues({ ...values, nombre: e.target.value })} required />
                 <label>Nombre completo</label>
               </div>
 
               <div className="user-box regPlus">
-                <input type="text" name="telefono" value={values.telefono} onChange={(e) => setValues({ ...values, telefono: e.target.value })}
-                  required />
+                <input type="text" name="telefono" value={values.telefono} onChange={(e) => setValues({ ...values, telefono: e.target.value })} required />
                 <label>Telefono</label>
               </div>
 
@@ -157,21 +167,21 @@ function Index() {
                 <label>Direccion</label>
               </div>
 
-              {/* <div style={{ color: "white;" }}>
+              <div style={{ color: "white;" }}>
                 <h3>Sexo</h3>
                 <label>Hombre</label>
                 <input type="radio" name="sexo" value="1" id="sexo" />
                 <br /> <label>Mujer</label>
                 <input type="radio" name="sexo" value="0" id="sexo" />
-              </div> */}
-               <u href="" className="col-4 registro" onClick={btnComenzar}>
-                    Ya tienes cuenta
-                  </u>
+              </div>
+              <u href="" className="col-4 registro" onClick={btnComenzar}>
+                Ya tienes cuenta
+              </u>
 
               <div className="container-fluid mt-3 mb-5">
                 <div className="row text-center">
                   <input
-                  onClick={IrInicioSesion}
+                    onClick={IrInicioSesion} // habría que comprobar primero si se ha hecho bien el sumbit
                     type="submit"
                     className=" botonsiguiente "
                     value="Siguiente"
@@ -183,9 +193,9 @@ function Index() {
             </form>
           </div>
         </div>
-        
-        <div className="container completo" style={{display: VisibleWelcome? 'block':'none'}}>
-          
+
+        <div className="container completo" style={{ display: VisibleWelcome ? 'block' : 'none' }}>
+
           <div className="container titulocontenedor">
             <p>
               Nosotros te ayudamos a
@@ -221,9 +231,9 @@ function Index() {
           </div>
         </div>
         <div className="inicio d-flex justify-content-center align-items-center" >
-          <div className="login-box " id="logearse" style={{display: VisibleIniciarSesion? 'block':'none', opacity:1}}>
+          <div className="login-box " id="logearse" style={{ display: VisibleIniciarSesion ? 'block' : 'none', opacity: 1 }}>
             <h2>Iniciar Sesion</h2>
-            <form action="paginas/principal.php" method="post">
+            <form onSubmit={SumbitLogin} method="post">
               <div className="text-center mb-2">
                 <p className="text-white">Sign in with:</p>
                 <button
@@ -266,11 +276,11 @@ function Index() {
               </div>
 
               <div className="user-box">
-                <input type="text" name="usuarioInicio" required />
+                <input type="text" name="usuarioInicio" required value={values.usuario} onChange={(e) => setValues({ ...values, usuario: e.target.value })} />
                 <label>Usuario</label>
               </div>
               <div className="user-box">
-                <input type="password" name="claveInicio" required />
+                <input type="password" name="claveInicio" required value={values.password} onChange={(e) => setValues({ ...values, password: e.target.value })} />
                 <label>Contraseña</label>
               </div>
               <div className="container-fluid">
@@ -296,10 +306,10 @@ function Index() {
         </div>
 
         <div className=" d-flex justify-content-center align-items-center">
-          <div className="loginRegistro login-box reg " id="registrar"  style={{display: VisibleRegistro? 'block':'none' , opacity:"100%" }}>
+          <div className="loginRegistro login-box reg " id="registrar" style={{ display: VisibleRegistro ? 'block' : 'none', opacity: "100%" }}>
             <h2>Crea tu Perfil</h2>
 
-            <form id="enviarphp2" onSubmit={manejarSumbit}>
+            <form id="enviarphp2">
               <div className="text-center mb-3">
                 <p className="text-white">Sign up with:</p>
                 <button
@@ -393,7 +403,7 @@ function Index() {
               <div className="container-fluid mt-3 mb-5">
                 <div className="row text-center">
                   <input
-                    onClick={cambiarDisplayRegistro2} 
+                    onClick={cambiarDisplayRegistro2}
                     type="button"
                     className=" botonsiguiente "
                     value="Siguiente"
@@ -405,7 +415,7 @@ function Index() {
             </form>
           </div>
         </div>
-       
+
 
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
