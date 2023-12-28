@@ -77,7 +77,6 @@ function Index() {
         setShowMensajeEmail(false);
         setShowMensaje2(false);
         setShowMensaje1(true);
-
       } else {
         setShowMensaje1(false);
         setShowMensaje2(false);
@@ -97,8 +96,6 @@ function Index() {
       }
     }
   }, [values.email]);
-
-
 
   const cambiarDisplayRegistro2 = () => {
     if (values.usuario.trim() === '' || values.email.trim() === '' || values.password.trim() === '') {
