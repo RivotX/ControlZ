@@ -82,6 +82,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Endpoint ExisteUsuario (vaamo yeison vamo jason)
+// Endpoint Existe-Usuario-Email (vaamo yeison vamo jason)
 
 

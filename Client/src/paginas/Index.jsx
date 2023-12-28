@@ -35,76 +35,116 @@ function Index() {
   const [VisibleRegistro2, setVisibleRegistro2] = useState(false);
   const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
 
+  const [showMensaje1, setShowMensaje1] = useState(false);
+  const [showMensaje2, setShowMensaje2] = useState(false);
+  const [showMensajeEmail, setShowMensajeEmail] = useState(false);
+  const [showMensajeCompletar, setShowMensajeCompletar] = useState(false);
+
+
   const btnComenzar = () => {
     vaciarCampos();
     setVisibleWelcome(false);
-    setVisibleIniciarSesion(true);
     setVisibleRegistro(false);
     setVisibleRegistro2(false);
-  }
-
-  const checkCamposCompletados = () => {
-    var bool = false;
-    if (values.nombre.trim() === '' || values.telefono.trim() === '' || values.direccion.trim() === '' || values.usuario.trim() === '' || values.email.trim() === '' || values.password.trim() === '') {
-      alert('Por favor, completa todos los campos.');
-      bool = true;
-    }
-    console.log(values)
-    return bool;
+    setVisibleIniciarSesion(true);
   }
 
   const cambiarDisplayRegistro = () => {
     vaciarCampos();
-    mensaje1.style.display = 'none';
-    mensaje2.style.display = 'none';
+    setShowMensaje1(false);
+    setShowMensaje2(false);
+    setShowMensajeEmail(false);
+    setShowMensajeCompletar(false);
     setVisibleIniciarSesion(false);
     setVisibleRegistro(true);
     setVisibleRegistro2(false);
-
   };
 
-  // Las contraseñas no coinciden o <8
-  const mensaje1 = document.getElementById('mensaje1');
-  const mensaje2 = document.getElementById('mensaje2');
+  const validarEmail = (email) => {
+    const expresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return expresion.test(String(email).toLowerCase());
+  };
+
   useEffect(() => {
-
-    if (mensaje1 && mensaje2) {
-
+    if (values.password && values.password2) {
       if (values.password.length < 8) {
-        mensaje1.style.display = "none"
-        mensaje2.style.display = "block"
+        setShowMensaje1(false);
+        setShowMensajeCompletar(false);
+        setShowMensajeEmail(false);
+        setShowMensaje2(true);
       } else if (values.password !== values.password2) {
-        mensaje1.style.display = "block"
-        mensaje2.style.display = "none"
-      }
-      else {
-        mensaje1.style.display = "none"
-        mensaje2.style.display = "none"
+        setShowMensajeCompletar(false);
+        setShowMensajeEmail(false);
+        setShowMensaje2(false);
+        setShowMensaje1(true);
+
+      } else {
+        setShowMensaje1(false);
+        setShowMensaje2(false);
       }
     }
-
   }, [values.password, values.password2]);
 
-  const cambiarDisplayRegistro2 = () => {
-    vaciarCampos();
-    mensaje2.style.display = 'none';
+  useEffect(() => {
+    if (values.email) {
+      if (!validarEmail(values.email)) {
+        setShowMensajeCompletar(false);
+        setShowMensaje1(false);
+        setShowMensaje2(false);
+        setShowMensajeEmail(true);
+      } else {
+        setShowMensajeEmail(false);
+      }
+    }
+  }, [values.email]);
 
-    // check de que todos los campos estén rellenados
+
+
+  const cambiarDisplayRegistro2 = () => {
     if (values.usuario.trim() === '' || values.email.trim() === '' || values.password.trim() === '') {
-      alert("ingresa todos los campos")
-      return;
+      setShowMensaje1(false);
+      setShowMensaje2(false);
+      setShowMensajeEmail(false);
+      setShowMensajeCompletar(true);
+      return
     }
     //check que las contraseñas coincidan
     else if (values.password !== values.password2) {
+      setShowMensaje2(false);
+      setShowMensajeEmail(false);
+      setShowMensajeCompletar(false);
+      setShowMensaje1(true);
 
       return;
     }
     //check que la contraseña tenga mas de 8 caracteres
     else if (values.password.length < 8) {
+      setShowMensaje1(false);
+      setShowMensajeEmail(false);
+      setShowMensajeCompletar(false);
+      setShowMensaje2(true);
+      return;
+    }
+    //check del email valido
+    else if (!validarEmail(values.email)) {
+      setShowMensaje1(false);
+      setShowMensaje2(false);
+      setShowMensajeCompletar(false);
+      setShowMensajeEmail(true);
       return;
     }
     setVisibleRegistro(false);
     setVisibleRegistro2(true);
+  }
+
+
+  const checkCamposCompletados = () => {
+    var bool = false;
+    if (values.nombre.trim() === '' || values.telefono.trim() === '' || values.direccion.trim() === '' || values.usuario.trim() === '' || values.email.trim() === '' || values.password.trim() === '') {
+      bool = true;
+    }
+    console.log(values)
+    return bool;
   }
 
   const IrInicioSesion = () => {
@@ -379,11 +419,17 @@ function Index() {
                 <label>Repetir contraseña</label>
 
               </div>
-              <p id="mensaje1" className="text-danger position-absolute" style={{ display: "none", height: "10px" }}>
+              <p id="mensaje1" className="text-danger position-absolute" style={{ display: showMensaje1 ? 'block' : 'none', height: "10px" }}>
                 Las contraseñas no coinciden
               </p>
-              <p id="mensaje2" className="text-danger position-absolute" style={{ display: "none", height: "10px" }}>
+              <p id="mensaje2" className="text-danger position-absolute" style={{ display: showMensaje2 ? 'block' : 'none', height: "10px" }}>
                 La contraseña es demasiado corta
+              </p>
+              <p id="mensajeEmail" className="text-danger position-absolute" style={{ display: showMensajeEmail ? 'block' : 'none', height: "10px" }}>
+                Direccion de Email inválida
+              </p>
+              <p id="mensajeCompletar" className="text-danger position-absolute" style={{ display: showMensajeCompletar ? 'block' : 'none', height: "10px" }}>
+                Debes escribir en todos los campos
               </p>
               <div className="container-fluid">
                 <div className="row">
