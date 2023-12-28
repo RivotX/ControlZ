@@ -1,8 +1,8 @@
 // set up
-import express from 'express';
-import mysql from 'mysql';
-import cors from 'cors';
-import bcrypt from 'bcrypt';
+import express from "express";
+import mysql from "mysql";
+import cors from "cors";
+import bcrypt from "bcrypt";
 const salt = 10;
 
 const app = express();
@@ -20,13 +20,15 @@ app.listen(8081, () => {
   console.log("servidor corriendo...");
 });
 
-// Endpoint /registro 
-app.post('/registro', (req, res) => {
-  const consulta = "INSERT INTO usuarios (`usuario`, `password`,`nombre`,`email` ,`telefono` ,`direccion` ) VALUES (?,?,?,?,?,?)";
+// Endpoint /registro
+
+app.post("/registro", (req, res) => {
+  const consulta =
+    "INSERT INTO usuarios (`usuario`, `password`,`nombre`,`email` ,`telefono` ,`direccion` ) VALUES (?,?,?,?,?,?)";
   //hasheo de la contraseña, (error,hash) es el ultimo parametro que recibe la funcion de bcrypt, llamado funcion de callback.
   bcrypt.hash(req.body.password.toString(), salt, (error, hash) => {
     if (error) {
-      return res.json({ Error: "error for hashing password" })
+      return res.json({ Error: "error for hashing password" });
     } else {
       const values = [
         req.body.usuario,
@@ -35,23 +37,77 @@ app.post('/registro', (req, res) => {
         req.body.email,
         req.body.telefono,
         req.body.direccion,
-        // req.body.sexo       
-      ]
+        // req.body.sexo
+      ];
       db.query(consulta, values, (err, result) => {
         if (err) {
           console.error("Error al insertar en la base de datos:", err);
-          return res.status(500).json({ Error: "Error al insertar en la base de datos =====" });
+          return res
+            .status(500)
+            .json({ Error: "Error al insertar en la base de datos =====" });
         } else {
           return res.json({ Status: "success" });
         }
       });
     }
-  })
-})
+  });
+});
 
-// Endpoint /login 
-app.post('/login', async (req, res) => {
-  const consulta = 'SELECT password FROM usuarios WHERE usuario = ?';
+//Endpoint / ExisteRegistro
+app.post("/existeregistro", (req, res) => {
+  const consultaUsuario = "SELECT * FROM USUARIOS WHERE USUARIO=?";
+  const consultaEmail = "SELECT * FROM USUARIOS WHERE EMAIL=?";
+
+  const usuario = req.body.usuario;
+  const email = req.body.email;
+  let existe= false;
+
+  db.query(consultaUsuario, usuario, (err, result, campos) => {
+    if (err) {
+      console.error("Error en la base de datos:", err);
+      return res
+        .status(500)
+        .json({ Error: "Error al comprobar existencia del registro" });
+    } else {
+      if (campos.length > 0) {
+        existe= true;
+        return res.status(500).json({ Status: "Existe el usuario" });
+        
+      } else {
+        result;
+        return res.json({ Status: "Success" });
+      }
+    }
+  });
+
+  db.query(consultaEmail, email, (err, result, campos) => {
+    if (err) {
+      console.error("Error en la base de datos:", err);
+      return res
+        .status(500)
+        .json({ Error: "Error al comprobar existencia del registro" });
+    } else {
+      if (campos.length > 0) {
+        existe= true;
+        return res.status(500).json({ Status: "Existe el email" });
+        
+      } else {
+        result;
+        return res.json({ Status: "Success" });
+      }
+    }
+  });
+});
+
+
+
+
+
+
+
+// Endpoint /login
+app.post("/login", async (req, res) => {
+  const consulta = "SELECT password FROM usuarios WHERE usuario = ?";
   const values = [req.body.usuario, req.body.password];
 
   try {
@@ -71,8 +127,12 @@ app.post('/login', async (req, res) => {
       const passwordFromDB = promesaDB[0].password;
       const IsCorrect = await bcrypt.compare(values[1], passwordFromDB);
 
-      console.log("IsCorrect:", IsCorrect);            
-      return res.json(IsCorrect ? { Status: "success", redirectTo: "/gym" } : { Error: "Contraseña incorrecta" }); //le paso la url al cliente
+      console.log("IsCorrect:", IsCorrect);
+      return res.json(
+        IsCorrect
+          ? { Status: "success", redirectTo: "/gym" }
+          : { Error: "Contraseña incorrecta" }
+      ); //le paso la url al cliente
     } else {
       return res.json({ Error: "No existe el usuario" });
     }
@@ -83,5 +143,3 @@ app.post('/login', async (req, res) => {
 });
 
 // Endpoint Existe-Usuario-Email (vaamo yeison vamo jason)
-
-
