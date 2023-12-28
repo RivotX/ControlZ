@@ -50,19 +50,19 @@ function Index() {
   const mensaje2 = document.getElementById('mensaje2');
   useEffect(() => {
 
+    if (mensaje1 && mensaje2) {
 
-    if (values.password.length < 8) {
-      mensaje1.style.display = "none"
-      mensaje2.style.display = "block"
-
-    } else if (values.password !== values.password2) {
-      mensaje1.style.display = "block"
-      mensaje2.style.display = "none"
-
-    }
-    else {
-      mensaje1.style.display = "none"
-      mensaje2.style.display = "none"
+      if (values.password.length < 8) {
+        mensaje1.style.display = "none"
+        mensaje2.style.display = "block"
+      } else if (values.password !== values.password2) {
+        mensaje1.style.display = "block"
+        mensaje2.style.display = "none"
+      }
+      else {
+        mensaje1.style.display = "none"
+        mensaje2.style.display = "none"
+      }
     }
 
   }, [values.password, values.password2]);
