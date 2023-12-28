@@ -99,6 +99,12 @@ function Index() {
   }, [values.email]);
 
   const cambiarDisplayRegistro2 = (e) => {
+
+    if(values.usuario&&values.email&&values.password&&values.password2){
+      e.preventDefault();
+    }
+
+
     if (values.usuario.trim() === '' || values.email.trim() === '' || values.password.trim() === '' || values.password2.trim() === '') {
       return
     }
@@ -388,7 +394,7 @@ function Index() {
               </div>
 
               <div className="user-box regNormal">
-                <input type="email" name="email" id="email" value={values.email} onChange={e => setValues({ ...values, email: e.target.value })} required />
+                <input  type="email" name="email" id="email" value={values.email} onChange={e => setValues({ ...values, email: e.target.value })} required />
                 <label>Email</label>
               </div>
               <div className="user-box regNormal">
