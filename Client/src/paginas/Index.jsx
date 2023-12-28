@@ -103,13 +103,13 @@ function Index() {
     }
     setVisibleRegistro(false);
     setVisibleRegistro2(true);
-  };
+  }
 
   const IrInicioSesion = () => {
     setVisibleRegistro(false);
     setVisibleRegistro2(false);
     setVisibleIniciarSesion(true);
-  };
+  }
 
   //servidor
   const SumbitRegistro = (event) => {
@@ -171,7 +171,7 @@ function Index() {
               <div className="col-4">
                 <a
                   className="btn text-white mb-2 w-100"
-                  style={{ backgroundColor: "#ffe60000;" }}
+                  style={{ backgroundColor: "#ffe60000" }}
                   href="https://www.facebook.com"
                   role="button"
                 >
@@ -183,7 +183,7 @@ function Index() {
               <div className="col-4">
                 <a
                   className="btn text-white mb-2 w-100"
-                  style={{ backgroundColor: "#ffe60000;" }}
+                  style={{ backgroundColor: "#ffe60000" }}
                   href="https://statics.memondo.com/p/s1/ccs/2022/10/CC_2795378_7e45a8644f28403f99ef1c5df2008edf_meme_otros_este_es_mierdon.jpg?cb=7121585"
                   role="button"
                 >
@@ -429,12 +429,12 @@ function Index() {
                 <label>Direccion</label>
               </div>
 
-              <div style={{ color: "white;" }}>
+              <div style={{ color: "white" }}>
                 <h3>Sexo</h3>
                 <label>Hombre</label>
                 <input type="radio" name="sexo" value="1" id="sexo" />
                 <br /> <label>Mujer</label>
-                <input type="radio" name="sexo" value="0" id="sexo" />
+                <input type="radio" name="sexo" value="0" id="sexo2" />
               </div>
               <u href="" className="col-4 registro" onClick={btnComenzar}>
                 Ya tienes cuenta
