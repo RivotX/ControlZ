@@ -20,7 +20,7 @@ app.listen(8081, () => {
   console.log("servidor corriendo...");
 });
 
-//funcion para registrar
+// Endpoint /registro 
 app.post('/registro', (req, res) => {
   const consulta = "INSERT INTO usuarios (`usuario`, `password`,`nombre`,`email` ,`telefono` ,`direccion` ) VALUES (?,?,?,?,?,?)";
   //hasheo de la contraseña, (error,hash) es el ultimo parametro que recibe la funcion de bcrypt, llamado funcion de callback.
@@ -49,6 +49,7 @@ app.post('/registro', (req, res) => {
   })
 })
 
+// Endpoint /login 
 app.post('/login', async (req, res) => {
   const consulta = 'SELECT password FROM usuarios WHERE usuario = ?';
   const values = [req.body.usuario, req.body.password];
@@ -80,5 +81,7 @@ app.post('/login', async (req, res) => {
     return res.status(500).json({ Error: "Error interno del servidor" });
   }
 });
+
+// Endpoint ExisteUsuario (vaamo yeison vamo jason)
 
 

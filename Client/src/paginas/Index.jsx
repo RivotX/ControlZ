@@ -15,11 +15,33 @@ function Index() {
     password2: ""
   });
 
+  // Función para vaciar todos los campos
+  const vaciarCampos = () => {
+    setValues({
+      usuario: "",
+      password: "",
+      nombre: "",
+      email: "",
+      telefono: "",
+      direccion: "",
+      // sexo: "",
+      password2: ""
+    });
+  };
+
   //js estética
   const [VisibleWelcome, setVisibleWelcome] = useState(true);
   const [VisibleRegistro, setVisibleRegistro] = useState(false);
   const [VisibleRegistro2, setVisibleRegistro2] = useState(false);
   const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
+
+  const btnComenzar = () => {
+    vaciarCampos();
+    setVisibleWelcome(false);
+    setVisibleIniciarSesion(true);
+    setVisibleRegistro(false);
+    setVisibleRegistro2(false);
+  }
 
   const checkCamposCompletados = () => {
     var bool = false;
@@ -31,14 +53,9 @@ function Index() {
     return bool;
   }
 
-  const btnComenzar = () => {
-    setVisibleWelcome(false);
-    setVisibleIniciarSesion(true);
-    setVisibleRegistro(false);
-    setVisibleRegistro2(false);
-  }
-
   const cambiarDisplayRegistro = () => {
+    mensaje1.style.display = 'none';
+    mensaje2.style.display = 'none';
     setVisibleIniciarSesion(false);
     setVisibleRegistro(true);
     setVisibleRegistro2(false);
@@ -67,7 +84,6 @@ function Index() {
 
   }, [values.password, values.password2]);
 
-
   const cambiarDisplayRegistro2 = () => {
     mensaje2.style.display = 'none';
 
@@ -77,7 +93,8 @@ function Index() {
       return;
     }
     //check que las contraseñas coincidan
-    else if (clave1 !== clave2) {
+    else if (values.password !== values.password2) {
+
       return;
     }
     //check que la contraseña tenga mas de 8 caracteres
@@ -340,23 +357,23 @@ function Index() {
               </div>
 
               <div className="user-box regNormal">
-                <input type="text" name="usuario" id="usuario" onChange={e => setValues({ ...values, usuario: e.target.value })} required />
+                <input type="text" name="usuario" id="usuario" value={values.usuario} onChange={e => setValues({ ...values, usuario: e.target.value })} required />
                 <label>Usuario</label>
               </div>
 
               <div className="user-box regNormal">
-                <input type="email" name="email" id="email" onChange={e => setValues({ ...values, email: e.target.value })} required />
+                <input type="email" name="email" id="email" value={values.email} onChange={e => setValues({ ...values, email: e.target.value })} required />
                 <label>Email</label>
               </div>
               <div className="user-box regNormal">
-                <input type="password" name="clave1" id="clave1" required onChange={(e) => setValues({ ...values, password: e.target.value })}
+                <input type="password" name="clave1" id="clave1" value={values.password} required onChange={(e) => setValues({ ...values, password: e.target.value })}
                 />
                 <label>Contraseña</label>
               </div>
 
 
               <div className="user-box regNormal">
-                <input type="password" name="clave2" id="clave2" onChange={(e) => setValues({ ...values, password2: e.target.value })} required />
+                <input type="password" name="clave2" id="clave2" value={values.password2} onChange={(e) => setValues({ ...values, password2: e.target.value })} required />
                 <label>Repetir contraseña</label>
 
               </div>
