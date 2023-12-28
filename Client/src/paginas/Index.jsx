@@ -54,7 +54,7 @@ function Index() {
   }
 
   const cambiarDisplayRegistro = () => {
-    mensaje1.style.display = 'none';
+    vaciarCampos();
     mensaje2.style.display = 'none';
     setVisibleIniciarSesion(false);
     setVisibleRegistro(true);
@@ -85,6 +85,7 @@ function Index() {
   }, [values.password, values.password2]);
 
   const cambiarDisplayRegistro2 = () => {
+    vaciarCampos();
     mensaje2.style.display = 'none';
 
     // check de que todos los campos estén rellenados
@@ -377,11 +378,11 @@ function Index() {
                 <label>Repetir contraseña</label>
 
               </div>
-              <p id="mensaje1" className="text-danger" style={{ display: "none", height: "10px" }}>
+              <p id="mensaje1" className="text-danger position-absolute" style={{ display: "none", height: "10px" }}>
                 Las contraseñas no coinciden
               </p>
-              <p id="mensaje2" className="text-danger" style={{ display: "none", height: "10px" }}>
-                La contraseña debe tener 8 o más caracteres
+              <p id="mensaje2" className="text-danger position-absolute" style={{ display: "none", height: "10px" }}>
+                La contraseña es demasiado corta
               </p>
               <div className="container-fluid">
                 <div className="row">
