@@ -55,6 +55,7 @@ function Index() {
 
   const cambiarDisplayRegistro = () => {
     vaciarCampos();
+    mensaje1.style.display = 'none';
     mensaje2.style.display = 'none';
     setVisibleIniciarSesion(false);
     setVisibleRegistro(true);
