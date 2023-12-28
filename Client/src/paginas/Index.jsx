@@ -60,10 +60,6 @@ function Index() {
     setVisibleRegistro2(false);
   };
 
-  const validarEmail = (email) => {
-    const expresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return expresion.test(String(email).toLowerCase());
-  };
 
   useEffect(() => {
     if (values.password && values.password2) {
@@ -84,6 +80,11 @@ function Index() {
     }
   }, [values.password, values.password2]);
 
+  const validarEmail = (email) => {
+    const expresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return expresion.test(String(email).toLowerCase());
+  };
+
   useEffect(() => {
     if (values.email) {
       if (!validarEmail(values.email)) {
@@ -97,37 +98,23 @@ function Index() {
     }
   }, [values.email]);
 
-  const cambiarDisplayRegistro2 = () => {
-    if (values.usuario.trim() === '' || values.email.trim() === '' || values.password.trim() === '') {
-      setShowMensaje1(false);
-      setShowMensaje2(false);
-      setShowMensajeEmail(false);
-      setShowMensajeCompletar(true);
+  const cambiarDisplayRegistro2 = (e) => {
+    if (values.usuario.trim() === '' || values.email.trim() === '' || values.password.trim() === '' || values.password2.trim() === '') {
       return
     }
     //check que las contraseñas coincidan
     else if (values.password !== values.password2) {
-      setShowMensaje2(false);
-      setShowMensajeEmail(false);
-      setShowMensajeCompletar(false);
-      setShowMensaje1(true);
+
 
       return;
     }
     //check que la contraseña tenga mas de 8 caracteres
     else if (values.password.length < 8) {
-      setShowMensaje1(false);
-      setShowMensajeEmail(false);
-      setShowMensajeCompletar(false);
-      setShowMensaje2(true);
+
       return;
     }
     //check del email valido
     else if (!validarEmail(values.email)) {
-      setShowMensaje1(false);
-      setShowMensaje2(false);
-      setShowMensajeCompletar(false);
-      setShowMensajeEmail(true);
       return;
     }
     setVisibleRegistro(false);
@@ -440,7 +427,7 @@ function Index() {
                 <div className="row text-center">
                   <input
                     onClick={cambiarDisplayRegistro2}
-                    type="button"
+                    type="submit"
                     className=" botonsiguiente "
                     value="Siguiente"
                     name="submit"
