@@ -54,50 +54,55 @@ app.post("/registro", (req, res) => {
 });
 
 //Endpoint / ExisteRegistro
-app.post("/existeregistro", (req, res) => {
+app.post("/existeregistro", async (req, res) => {
   const consultaUsuario = "SELECT * FROM USUARIOS WHERE USUARIO=?";
   const consultaEmail = "SELECT * FROM USUARIOS WHERE EMAIL=?";
 
   const usuario = req.body.usuario;
   const email = req.body.email;
-  let existe= false;
 
-  db.query(consultaUsuario, usuario, (err, result, campos) => {
-    if (err) {
-      console.error("Error en la base de datos:", err);
-      return res
-        .status(500)
-        .json({ Error: "Error al comprobar existencia del registro" });
-    } else {
-      if (campos.length > 0) {
-        existe= true;
-        return res.status(500).json({ Status: "Existe el usuario" });
-        
-      } else {
-        result;
-        return res.json({ Status: "Success" });
-      }
-    }
-  });
+  let existeUsuario = false;
+  let existeEmail = false;
 
-  db.query(consultaEmail, email, (err, result, campos) => {
-    if (err) {
-      console.error("Error en la base de datos:", err);
-      return res
-        .status(500)
-        .json({ Error: "Error al comprobar existencia del registro" });
-    } else {
-      if (campos.length > 0) {
-        existe= true;
-        return res.status(500).json({ Status: "Existe el email" });
-        
-      } else {
-        result;
-        return res.json({ Status: "Success" });
-      }
+  function consultarDB(consulta, parametro) {
+    return new Promise((resolve, reject) => {
+      db.query(consulta, parametro, (err, result, campos) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  }
+
+  try {
+    const usuarioResult = await consultarDB(consultaUsuario, usuario);
+    if (usuarioResult.length > 0) {
+      existeUsuario = true;
     }
-  });
+
+    const emailResult = await consultarDB(consultaEmail, email);
+    if (emailResult.length > 0) {
+      existeEmail = true;
+    }
+
+    if (existeUsuario) {
+      return res.json({ Status: "Existe el usuario" });
+    } else if (existeEmail) {
+      return res.json({ Status: "Existe el email" });
+    } else {
+      return res.json({ Status: "Success" });
+    }
+    
+  } catch (error) {
+    console.error("Error en la base de datos:", error);
+    return res.json({ Error: "Erroral comprobar existencia del registro" });
+  }
 });
+
+
+
 
 
 

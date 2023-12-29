@@ -449,7 +449,7 @@ const ComprobarReg = (event) => {
               <div className="container-fluid mt-3 mb-5">
                 <div className="row text-center">
                   <input
-                    onClick={cambiarDisplayRegistro2}
+                    // onClick={cambiarDisplayRegistro2}
                     type="submit"
                     className=" botonsiguiente "
                     value="Siguiente"
