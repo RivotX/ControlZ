@@ -9,9 +9,9 @@ function Features({ imagen, titulo, descripcion, link }) {
           <div class="card-body bg-dark ">
             <h5 class="card-title text-white">{titulo}</h5>
             <p class="card-text text-secondary cartas">{descripcion}</p>
-            <a href={link} class="btn btn-outline-info">
+            <span href={link} class="btn btn-outline-info">
               Acceder
-            </a>
+            </span>
           </div>
         </div>{" "}
       </div>

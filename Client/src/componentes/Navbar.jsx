@@ -5,22 +5,22 @@ import ChatComponent from "./ChatComponent";
 function Navbar({ linkHome }) {
   return (
     <nav
-      class=" navbar bg-black navbar-expand-lg fixed-top "
+      className=" navbar bg-black navbar-expand-lg fixed-top "
       data-bs-theme="dark"
     >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="principal">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="principal">
           <img
             src={logo}
             alt="Logo"
             width="30"
             height="30"
-            class="d-inline-block align-text-top"
+            className="d-inline-block align-text-top"
           />
           ControlZ
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -28,23 +28,23 @@ function Navbar({ linkHome }) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href={linkHome}>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href={linkHome}>
                 Home
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#ejercicios">
+            <li className="nav-item">
+              <a className="nav-link" href="#ejercicios">
                 Ejercicios
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -53,11 +53,11 @@ function Navbar({ linkHome }) {
                 Rutina
               </a>
 
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
                   <a
-                    class="dropdown-item"
-                    onclick="rutinadias(this)"
+                    className="dropdown-item"
+                    
                     href="rutina"
                   >
                     Lunes
@@ -65,8 +65,8 @@ function Navbar({ linkHome }) {
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="perfil">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="perfil">
                 Perfil
               </a>
             </li>

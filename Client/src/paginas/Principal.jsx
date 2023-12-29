@@ -28,20 +28,20 @@ function Principal() {
     if (isset($_SESSION["usuario"])) {     
     ?> */}
 
-      <div class="d-flex justify-content-center align-items-center kkk">
-        <div class="logo-container animate__animated animate__backInDown ">
+      <div className="d-flex justify-content-center align-items-center kkk">
+        <div className="logo-container animate__animated animate__backInDown ">
           <a href="perfil">
-            <div id="logo" class="logo">
+            <div id="logo" className="logo">
               <div></div>
             </div>
           </a>
         </div>
       </div>
-      <div class="container-fluid cont">
-        <div class="row ">
-          <div class="col-6 caja animate__animated animate__fadeInLeft">
-            <a class="ApartadosAElegir" href="gym">
-              <h2 class="descripcion1 text-center">
+      <div className="container-fluid cont">
+        <div className="row ">
+          <div className="col-6 caja animate__animated animate__fadeInLeft">
+            <a className="ApartadosAElegir" href="gym">
+              <h2 className="descripcion1 text-center">
                 En esta sección de nuestro sitio web de gimnasio, te sumergirás
                 en un mundo de rutinas de entrenamiento diseñadas para abordar
                 diversos objetivos fitness. Ya seas un principiante en busca de
@@ -56,14 +56,14 @@ function Principal() {
                 onMouseEnter={() => ampliar(elementoRefGym.current, "190%")}
                 onMouseLeave={() => desampliar(elementoRefGym.current)}
               >
-                <h1 class="apartado">Gym</h1>
+                <h1 className="apartado">Gym</h1>
               </div>
             </a>
           </div>
 
-          <div class="col-6 caja animate__animated  animate__fadeInRight">
-            <a class="ApartadosAElegir" href="dieta">
-              <h2 class="descripcion2 text-center">
+          <div className="col-6 caja animate__animated  animate__fadeInRight">
+            <a className="ApartadosAElegir" href="dieta">
+              <h2 className="descripcion2 text-center">
                 Con esta herramienta interactiva, te empoderamos para que
                 diseñes una dieta adaptada a tu estilo de vida y objetivos
                 personales, asegurándote de obtener los nutrientes necesarios
@@ -78,7 +78,7 @@ function Principal() {
                 onMouseEnter={() => ampliar(elementoRefDieta.current, "190%")}
                 onMouseLeave={() => desampliar(elementoRefDieta.current)}
               >
-                <h1 class="apartado1 ">Dieta</h1>
+                <h1 className="apartado1 ">Dieta</h1>
               </div>
             </a>
           </div>

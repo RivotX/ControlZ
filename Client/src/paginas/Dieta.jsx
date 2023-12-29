@@ -5,10 +5,10 @@ import fotoPaint from "../img/image.png";
 
 function Dieta() {
   return (
-    <div class="container-fluid bodyDieta">
-      <div class="container-fluid">
+    <div className="container-fluid bodyDieta">
+      <div className="container-fluid">
         <button
-          class="botonDieta  btn "
+          className="botonDieta  btn "
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions"
@@ -19,22 +19,22 @@ function Dieta() {
             width="40"
             height="40"
             fill="currentColor"
-            class="bi bi-filter-left"
+            className="bi bi-filter-left"
             viewBox="0 0 16 16"
           >
             <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
           </svg>
         </button>
 
-        <div class=" container fs-1">
+        <div className=" container fs-1">
           <b>
-            <a class="titulo1Dieta" href="/gym">
+            <a className="titulo1Dieta" href="/gym">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
                 height="40"
                 fill="currentColor"
-                class="bi bi-arrow-left"
+                className="bi bi-arrow-left"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -49,59 +49,59 @@ function Dieta() {
         </div>
 
         <div
-          class="offcanvas offcanvas-start"
+          className="offcanvas offcanvas-start"
           data-bs-scroll="true"
           tabindex="-1"
           id="offcanvasWithBothOptions"
           aria-labelledby="offcanvasWithBothOptionsLabel"
         >
-          <div class="offcanvas-header">
-            <h2 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+          <div className="offcanvas-header">
+            <h2 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
               ControlZ
             </h2>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             ></button>
           </div>
-          <div class="offcanvas-body">
+          <div className="offcanvas-body">
             <p>
               Try scrolling the rest of the page to see this option in action.
             </p>
           </div>
         </div>
 
-        <div class="container imagenDieta"></div>
-        <div class="contCalorias containe">
-          <img class="imgK" src={fotoPaint} alt="" />
+        <div className="container imagenDieta"></div>
+        <div className="contCalorias containe">
+          <img className="imgK" src={fotoPaint} alt="" />
         </div>
-        <div class="alimentos container">
-          <div class="row">
-            <div class="col-3 desayuno">
+        <div className="alimentos container">
+          <div className="row">
+            <div className="col-3 desayuno">
               Desayuno{" "}
-              <button class="bi1">
+              <button className="bi1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
                   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
                 </svg>
               </button>
-              <div class="container cuadroInfo mt-5 w-75">
+              <div className="container cuadroInfo mt-5 w-75">
                 Por favor pulse el icono &nbsp
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
@@ -111,29 +111,29 @@ function Dieta() {
               </div>
             </div>
 
-            <div class="col-3 almuerzo">
+            <div className="col-3 almuerzo">
               Almuerzo{" "}
-              <button class="bi1">
+              <button className="bi1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
                   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
                 </svg>
               </button>
-              <div class="container cuadroInfo mt-5 w-75">
+              <div className="container cuadroInfo mt-5 w-75">
                 Por favor pulse el icono &nbsp
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
@@ -143,29 +143,29 @@ function Dieta() {
               </div>
             </div>
 
-            <div class="col-3 cena">
+            <div className="col-3 cena">
               Cena{" "}
-              <button class="bi1">
+              <button className="bi1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
                   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
                 </svg>
               </button>
-              <div class="container cuadroInfo mt-5 w-75">
+              <div className="container cuadroInfo mt-5 w-75">
                 Por favor pulse el icono &nbsp
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
@@ -175,29 +175,29 @@ function Dieta() {
               </div>
             </div>
 
-            <div class="col-3 extra">
+            <div className="col-3 extra">
               Extra{" "}
-              <button class="bi1">
+              <button className="bi1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
                   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
                 </svg>
               </button>
-              <div class="container cuadroInfo mt-5 w-75">
+              <div className="container cuadroInfo mt-5 w-75">
                 Por favor pulse el icono &nbsp
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-file-plus"
+                  className="bi bi-file-plus"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />

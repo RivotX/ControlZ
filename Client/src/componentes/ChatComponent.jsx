@@ -135,15 +135,15 @@ function ChatComponent() {
               textAlign: "justify",
             }}
           >
-            <nav class="navbar ">
-              <div class="container-fluid  d-flex justify-content-center align-items-center">
-                <span class="navbar-brand fw-bold" >
+            <nav className="navbar ">
+              <div className="container-fluid  d-flex justify-content-center align-items-center">
+                <span className="navbar-brand fw-bold" >
                   <img
                     src={fotoasist}
                     alt="Logo"
                     width="35"
                     height="35"
-                    class="d-inline-block me-3 mb-2 align-text-top"
+                    className="d-inline-block me-3 mb-2 align-text-top"
                   />
                   Control Z Asistente
                 </span>
