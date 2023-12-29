@@ -144,6 +144,7 @@ function Index() {
   }
 
   //servidor
+
   const SumbitRegistro = (event) => {
     event.preventDefault();
     IrInicioSesion();
@@ -154,6 +155,20 @@ function Index() {
       })
       .catch(err => console.error(err))
   }
+
+const ComprobarReg = (event) => {
+  console.log("loqesea");
+    event.preventDefault();
+    
+    
+    axios.post('http://localhost:8081/existeregistro', values) //envia values a "servidor/registro"
+      .then((ccc) => {
+        console.log(ccc)
+      })
+      .catch(err => console.error(err))
+  }
+
+
 
   //mandamos a servidor/login los datos para trabajar con ellos
   const SumbitLogin = (event) => {
@@ -167,6 +182,8 @@ function Index() {
       .catch(err => console.log(err))
   }
 
+
+  
   return (
     <div className="fondoindex min-vh-100">
       <div id="containerPagEntera" className="container-fluid">
@@ -346,7 +363,7 @@ function Index() {
           <div className="loginRegistro login-box reg " id="registrar" style={{ display: VisibleRegistro ? 'block' : 'none', opacity: "100%" }}>
             <h2>Crea tu Perfil</h2>
 
-            <form id="enviarphp2">
+            <form id="enviarphp2" onSubmit={ComprobarReg}>
               <div className="text-center mb-3">
                 <p className="text-white">Sign up with:</p>
                 <button
