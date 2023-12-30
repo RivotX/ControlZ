@@ -101,15 +101,6 @@ app.post("/existeregistro", async (req, res) => {
   }
 });
 
-
-
-
-
-
-
-
-
-
 // Endpoint /login
 app.post("/login", async (req, res) => {
   const consulta = "SELECT password FROM usuarios WHERE usuario = ?";
@@ -147,4 +138,3 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// Endpoint Existe-Usuario-Email (vaamo yeison vamo jason)
