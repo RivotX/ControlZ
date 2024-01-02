@@ -44,7 +44,7 @@ function Tienda() {
         <div className="tw-flex tw-justify-center ">
           <h1 className="tw-font-bold tw-text-white tw-mt-16 tw-mb-1 tw-text-7xl">carrito D</h1>
         </div>
-        <div className="tw-flex tw-flex-wrap tw-gap-4 tw-mt-1"> {/* tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-4*/}
+        <div className="tw-flex tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center tw-mx-2"> {/* tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-4*/}
 
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",

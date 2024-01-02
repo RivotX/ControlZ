@@ -11,7 +11,7 @@
   ); /* Ajusta el último valor (0.75) para la opacidad deseada */
 }
 .PosCruzModal {
-  margin-top: -7.5%;
+  margin-top: -3.5vh;
   margin-right: 0.5%;
 }
 .ModalDescText {
