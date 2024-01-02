@@ -16,8 +16,6 @@ const router = createBrowserRouter([
   { path: "/tienda", element: <Tienda /> },
   { path: "/", element: <Index /> },
 
-
-
 ]);
 function App() {
   return <RouterProvider router={router} />;

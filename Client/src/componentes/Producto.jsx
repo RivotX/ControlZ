@@ -1,6 +1,6 @@
 function Producto({ img, onClick, nombre, descripcion, precio, precioScam, descuento }) {
     return (
-        <div className="tw tw-mx-auto tw-h-60 tw-grow tw-flex sm:tw-block tw-transform tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-duration-300" onClick={onClick}> {/* falta hover*/}
+        <div className="tw-mx-auto sm:tw-w-1/3 tw-h-60 tw-grow tw-flex sm:tw-block sm:tw-grid-cols-2 tw-transform tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md tw-duration-300" onClick={onClick}> {/* falta hover*/}
             <div className="tw-h-full tw-flex tw-w-2/5 tw-items-center tw-justify-center tw-bg-gray-300" >
                 <img className="tw-h-full tw-w-full tw-object-center" src={img} alt="Product Image" />
             </div>
@@ -10,7 +10,7 @@ function Producto({ img, onClick, nombre, descripcion, precio, precioScam, descu
                 <div className="tw-flex tw-flex-grow tw-items-end tw-justify-between">
                     <p className="tw-mr-2 tw-text-lg tw-font-semibold tw-text-gray-900 tw-dark:text-white">{precio}</p>
                     <p className="tw-text-base tw-font-medium tw-text-gray-500 tw-line-through">{precioScam}</p>
-                    <p className="tw-ml-auto tw-text-base tw-font-medium tw-text-green-500">{descuento}</p>
+                    <p className="tw-ml-auto tw-text-base tw-font-medium tw-text-green-500 ">{descuento}</p>
                 </div>
             </div>
         </div>
