@@ -4,7 +4,7 @@ import Producto from "../componentes/Producto";
 import ProductoModal from "../componentes/ProductoModal";
 import proteinaPolvo from "../img/proteinaPolvo.png"
 import barraProteina from "../img/barraProteina.png"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Tienda() {
   //funcion para usar tailwind solo aqui y que de problemas en los otros sitios con bootstrap 
@@ -31,10 +31,27 @@ function Tienda() {
     setModalAbierto(true);
   };
 
+
   const CerrarModal = () => {
     setProductoSeleccionado(null);
     setModalAbierto(false);
   };
+
+  const CerrarModalEsc = (event) => {
+    if (event.key === "Escape") {
+      CerrarModal();
+    }
+  };
+  useEffect(() => {
+    if (ModalAbierto) {
+      // Si el modal está abierto, añadir el event listener al montar el componente
+      document.addEventListener("keydown", CerrarModalEsc);
+    }
+    // Limpiar el event listener al desmontar el componente
+    return () => {
+      document.removeEventListener("keydown", CerrarModalEsc);
+    };
+  }, [ModalAbierto]);
 
   return (
     <>
@@ -55,6 +72,7 @@ function Tienda() {
             img: proteinaPolvo
           })}
             nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+
           />
           <Producto img={barraProteina} onClick={() => AbrirModal({
             nombre: "Barrita de Proteina",
@@ -63,7 +81,6 @@ function Tienda() {
             precioScam: "25€",
             descuento: "20%",
             img: barraProteina
-
           })}
             nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
