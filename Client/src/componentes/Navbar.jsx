@@ -66,6 +66,11 @@ function Navbar({ linkHome }) {
               </ul>
             </li>
             <li className="nav-item">
+              <a className="nav-link" href="/tienda">
+                Tienda
+              </a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="perfil">
                 Perfil
               </a>

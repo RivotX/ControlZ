@@ -54,7 +54,7 @@ function Tienda() {
 
   return (
     <>
-      <div className="tw-min-h-screen tw-bg-black">
+      <div className="tw-min-h-screen tw-bg-gradient-to-b tw-from-gray-700 tw-via-gray-900 tw-via-20% tw-to-black tw-to-50%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"gym"} />
 
         <div className="tw-flex tw-justify-center ">

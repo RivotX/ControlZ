@@ -17,11 +17,13 @@
 
 @media (min-width: 1024px) {
   .PosCruzModal {
+    margin-top: -3vh;
     margin-right: 19.5% !important;
   }
 }
 @media (min-width: 768px) {
   .PosCruzModal {
+    margin-top: -2.5vh;
     margin-right: 9.5%;
   }
 }
