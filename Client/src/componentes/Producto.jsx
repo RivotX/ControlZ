@@ -1,7 +1,7 @@
 function Producto({ img, onClick, nombre, descripcion, precio, precioScam, descuento }) {
     return (
 
-        <div id="divProducto" className="tw-h-3/5 tw-flex tw-grow sm:tw-flex-wrap sm:tw-h-auto sm:tw-w-5/12 lg:tw-flex-grow-0 lg:tw-w-1/4 lg:tw-h-1/3 tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md" onClick={onClick}> {/* falta hover*/}
+        <div id="divProducto" className="tw-h-3/5 tw-flex tw-grow sm:tw-flex-wrap sm:tw-h-auto sm:tw-w-5/12 lg:tw-flex-grow-0 lg:tw-w-1/4 lg:tw-h-1/3 tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md"> 
             <div className="tw-flex tw-justify-center tw-w-2/5 sm:tw-w-full sm:tw-h-3/4 lg:tw-h-2/4 tw-bg-gray-300">
                 <img className="tw-cursor-pointer tw-h-full tw-w-full" src={img} alt="Product Image" onClick={onClick} />
             </div>
