@@ -8,11 +8,22 @@
     0,
     0,
     0.75
-  ); /* Ajusta el último valor (0.75) para la opacidad deseada */
+  );
 }
 .PosCruzModal {
   margin-top: -3.5vh;
   margin-right: 0.5%;
+}
+
+@media (min-width: 1024px) {
+  .PosCruzModal {
+    margin-right: 19.5% !important;
+  }
+}
+@media (min-width: 768px) {
+  .PosCruzModal {
+    margin-right: 9.5%;
+  }
 }
 .ModalDescText {
   font-size: 15px;

@@ -31,7 +31,6 @@ function Tienda() {
     setModalAbierto(true);
   };
 
-
   const CerrarModal = () => {
     setProductoSeleccionado(null);
     setModalAbierto(false);
