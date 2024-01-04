@@ -1,39 +1,49 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import proteinaPolvo from "../img/proteinaPolvo.png"
+import barraProteina from "../img/barraProteina.png"
+
+
 
 const products = [
   {
     id: 1,
-    name: 'Throwback Hip Bag',
+    name: 'Proteina en polvo',
     href: '#',
-    color: 'Salmon',
-    price: '$90.00',
+    color: 'cacao',
+    price: '$20.00',
     quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
+    imageSrc: proteinaPolvo,
   },
   {
     id: 2,
-    name: 'Medium Stuff Satchel',
+    name: 'Barrita proteica',
     href: '#',
-    color: 'Blue',
-    price: '$32.00',
+    color: 'lechita',
+    price: '$20.00',
+    quantity: 2,
+    imageSrc: barraProteina,
+  },
+  {
+    id: 3,
+    name: 'SuperZapas',
+    href: '#',
+    color: 'Azul',
+    price: '$15',
     quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+
   },
   // More products...
 ];
 
 // Con el setOpen de este componente se hace la animacion, molaria manejarlo desde /tienda
-export default function CarritoCompra({onClose}) {
-  const [open, setOpen] = useState(true);
+export default function CarritoCompra({ visible, onClose }) {
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="tw-relative tw-z-10" onClose={setOpen}>
+    <Transition.Root show={visible} as={Fragment}>
+      <Dialog as="div" className="tw-relative tw-z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="tw-ease-in-out tw-duration-500"
@@ -102,7 +112,7 @@ export default function CarritoCompra({onClose}) {
                                     <p className="tw-mt-1 tw-text-sm tw-text-gray-500">{product.color}</p>
                                   </div>
                                   <div className="tw-flex tw-flex-1 tw-items-end tw-justify-between tw-text-sm">
-                                    <p className="tw-text-gray-500">Qty {product.quantity}</p>
+                                    <p className="tw-text-gray-500">Cantidad: {product.quantity}</p>
 
                                     <div className="tw-flex">
                                       <button
@@ -123,11 +133,11 @@ export default function CarritoCompra({onClose}) {
 
                     <div className="tw-border-t tw-border-gray-200 tw-px-4 tw-py-6 tw-sm:tw-px-6">
                       <div className="tw-flex tw-justify-between tw-text-base tw-font-medium tw-text-gray-900">
-                        <p>Subtotal</p>
+                        <p>Total</p>
                         <p>$262.00</p>
                       </div>
                       <p className="tw-mt-0.5 tw-text-sm tw-text-gray-500">
-                        Shipping and taxes calculated at checkout.
+                        Gastos de envio + IVA incluidos (160€ de impuestos, Happens)
                       </p>
                       <div className="tw-mt-6">
                         <a
@@ -137,15 +147,14 @@ export default function CarritoCompra({onClose}) {
                           Checkout
                         </a>
                       </div>
-                      <div className="tw-mt-6 tw-flex tw-justify-center tw-text-center tw-text-sm tw-text-gray-500">
+                      <div className="tw-mt-6 tw-flex tw-justify-center tw-text-center tw-text-sm tw-text-gray-500 ">
                         <p>
-                          or
                           <button
                             type="button"
                             className="tw-font-medium tw-text-indigo-600 tw-hover:text-indigo-500"
                             onClick={onClose}
                           >
-                            Continue Shopping
+                            Continuar comprando
                             <span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>

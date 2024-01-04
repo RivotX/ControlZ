@@ -55,9 +55,7 @@ function Tienda() {
 
   const [visibleCesta, setVisibleCesta] = useState(false);
 
-  const MostrarCesta = () => {
-    setVisibleCesta(true);
-  }
+
 
 
   return (
@@ -136,7 +134,7 @@ function Tienda() {
       )}
 
       {/* Renderizar cesta */}
-      {visibleCesta && <CarritoCompra onClose={() => setVisibleCesta(false)} />}
+      <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} />
 
       <Footer />
     </div>
