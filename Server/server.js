@@ -127,7 +127,7 @@ app.post("/login", async (req, res) => {
 
       return res.json(
         IsCorrect
-          ? { Status: "success", redirectTo: "/gym" }
+          ? { Status: "success", redirectTo: "/principal" }
           : { Error: "Contraseña incorrecta" }
       ); //le paso la url al cliente
     } else {
