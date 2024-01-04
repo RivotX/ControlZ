@@ -34,6 +34,24 @@ const products = [
     quantity: 1,
     imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
 
+  }, {
+    id: 4,
+    name: 'SuperZapas',
+    href: '#',
+    color: 'Azul',
+    price: '$15',
+    quantity: 1,
+    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+
+  }, {
+    id: 5,
+    name: 'SuperZapas',
+    href: '#',
+    color: 'Azul',
+    price: '$15',
+    quantity: 1,
+    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+
   },
   // More products...
 ];
@@ -69,17 +87,17 @@ export default function CarritoCompra({ visible, onClose }) {
                 leaveTo="tw-translate-x-full"
               >
                 <Dialog.Panel className="tw-pointer-events-auto tw-w-screen tw-max-w-md">
-                  <div className="tw-flex tw-h-full tw-flex-col tw-overflow-y-scroll tw-bg-white tw-shadow-xl">
-                    <div className="tw-flex-1 tw-overflow-y-auto tw-px-4 tw-py-6 tw-sm:tw-px-6">
+                  <div className="tw-flex tw-mt-14 tw-pt-0 tw-h-full tw-flex-col tw-overflow-y-scroll tw-bg-white tw-shadow-xl">
+                    <div className="tw-flex-1 tw-overflow-y-auto tw-px-4 tw-pb-6 tw-pt-3 tw-sm:tw-px-6">
                       <div className="tw-flex tw-items-start tw-justify-between">
                         <Dialog.Title className="tw-text-lg tw-font-medium tw-text-gray-900">
-                          Shopping cart
+                          Carrito de la compra
                         </Dialog.Title>
                         <div className="tw-ml-3 tw-flex tw-h-7 tw-items-center">
                           <button
                             type="button"
                             className="tw-relative tw--m-2 tw-p-2 tw-text-gray-400 tw-hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={onClose}
                           >
                             <span className="tw-absolute tw--inset-0.5" />
                             <span className="tw-sr-only">Close panel</span>
@@ -92,7 +110,7 @@ export default function CarritoCompra({ visible, onClose }) {
                         <div className="tw-flow-root">
                           <ul role="list" className="tw--my-6 tw-divide-y tw-divide-gray-200">
                             {products.map((product) => (
-                              <li key={product.id} className="tw-flex tw-py-6">
+                              <li key={product.id} className="tw-flex tw-py-6"> {/*cambio*/}
                                 <div className="tw-h-24 tw-w-24 tw-flex-shrink-0 tw-overflow-hidden tw-rounded-md tw-border tw-border-gray-200">
                                   <img
                                     src={product.imageSrc}
@@ -131,15 +149,15 @@ export default function CarritoCompra({ visible, onClose }) {
                       </div>
                     </div>
 
-                    <div className="tw-border-t tw-border-gray-200 tw-px-4 tw-py-6 tw-sm:tw-px-6">
+                    <div className="tw-border-t tw-h-1/3 tw-border-gray-200 tw-px-4 tw-py-6">
                       <div className="tw-flex tw-justify-between tw-text-base tw-font-medium tw-text-gray-900">
                         <p>Total</p>
                         <p>$262.00</p>
                       </div>
                       <p className="tw-mt-0.5 tw-text-sm tw-text-gray-500">
-                        Gastos de envio + IVA incluidos (160€ de impuestos, Happens)
+                        Gastos de envio + IVA incluidos (207€ de impuestos, Happens)
                       </p>
-                      <div className="tw-mt-6">
+                      <div className="tw-mt-4">
                         <a
                           href="#"
                           className="tw-flex tw-items-center tw-justify-center tw-rounded-md tw-border tw-border-transparent tw-bg-indigo-600 tw-px-6 tw-py-3 tw-text-base tw-font-medium tw-text-white tw-shadow-sm tw-hover:bg-indigo-700"
@@ -147,7 +165,7 @@ export default function CarritoCompra({ visible, onClose }) {
                           Checkout
                         </a>
                       </div>
-                      <div className="tw-mt-6 tw-flex tw-justify-center tw-text-center tw-text-sm tw-text-gray-500 ">
+                      <div className="tw-mt-3 tw-flex tw-justify-center tw-text-center tw-text-sm tw-text-gray-500 ">
                         <p>
                           <button
                             type="button"
