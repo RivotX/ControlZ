@@ -88,16 +88,16 @@ app.post("/existeregistro", async (req, res) => {
     }
 
     if (existeUsuario) {
-      return res.json({ Status: "Existe el usuario" });
+      return res.status(201).json({ Status: "Existe el usuario" });
     } else if (existeEmail) {
-      return res.json({ Status: "Existe el email" });
+      return res.status(201).json({ Status: "Existe el email" });
     } else {
       return res.json({ Status: "Success" });
     }
     
   } catch (error) {
     console.error("Error en la base de datos:", error);
-    return res.json({ Error: "Erroral comprobar existencia del registro" });
+    return res.status(500).json({ Error: "Error al comprobar existencia del registro" });
   }
 });
 
@@ -124,13 +124,14 @@ app.post("/login", async (req, res) => {
       const IsCorrect = await bcrypt.compare(values[1], passwordFromDB);
 
       console.log("IsCorrect:", IsCorrect);
+
       return res.json(
         IsCorrect
           ? { Status: "success", redirectTo: "/gym" }
           : { Error: "Contraseña incorrecta" }
       ); //le paso la url al cliente
     } else {
-      return res.json({ Error: "No existe el usuario" });
+      return res.status(201).json({ Error: "No existe el usuario" });
     }
   } catch (error) {
     console.error("Error general:", error);

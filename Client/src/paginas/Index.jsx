@@ -35,11 +35,14 @@ function Index() {
   const [VisibleRegistro2, setVisibleRegistro2] = useState(false);
   const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
 
+  
   const [showMensaje1, setShowMensaje1] = useState(false);
   const [showMensaje2, setShowMensaje2] = useState(false);
   const [showMensajeEmail, setShowMensajeEmail] = useState(false);
   const [showMensajeCompletar, setShowMensajeCompletar] = useState(false);
-
+  const [showErrorRegistro, setshowErrorRegistro]= useState(false);
+  const [showMensajeInicio, setshowMensajeInicio] = useState(false);
+  const [showMensajeNoExiste, setshowMensajeNoExiste] = useState(false);
 
   const btnComenzar = () => {
     vaciarCampos();
@@ -54,6 +57,7 @@ function Index() {
     setShowMensaje1(false);
     setShowMensaje2(false);
     setShowMensajeEmail(false);
+    setshowErrorRegistro(false);
     setShowMensajeCompletar(false);
     setVisibleIniciarSesion(false);
     setVisibleRegistro(true);
@@ -67,11 +71,13 @@ function Index() {
         setShowMensaje1(false);
         setShowMensajeCompletar(false);
         setShowMensajeEmail(false);
+        setshowErrorRegistro(false);
         setShowMensaje2(true);
       } else if (values.password !== values.password2) {
         setShowMensajeCompletar(false);
         setShowMensajeEmail(false);
         setShowMensaje2(false);
+        setshowErrorRegistro(false);
         setShowMensaje1(true);
       } else {
         setShowMensaje1(false);
@@ -91,6 +97,7 @@ function Index() {
         setShowMensajeCompletar(false);
         setShowMensaje1(false);
         setShowMensaje2(false);
+        setshowErrorRegistro(false);
         setShowMensajeEmail(true);
       } else {
         setShowMensajeEmail(false);
@@ -101,7 +108,7 @@ function Index() {
   const cambiarDisplayRegistro2 = (e) => {
 
     if(values.usuario&&values.email&&values.password&&values.password2){
-      e.preventDefault();
+      
     }
 
 
@@ -143,6 +150,10 @@ function Index() {
     setVisibleIniciarSesion(true);
   }
 
+  const RegistroExistente= () =>  {
+
+  }
+
   //servidor
 
   const SumbitRegistro = (event) => {
@@ -152,6 +163,7 @@ function Index() {
     axios.post('http://localhost:8081/registro', values) //envia values a "servidor/registro"
       .then((res) => {
         console.log(res)
+
       })
       .catch(err => console.error(err))
   }
@@ -164,6 +176,35 @@ const ComprobarReg = (event) => {
     axios.post('http://localhost:8081/existeregistro', values) //envia values a "servidor/registro"
       .then((ccc) => {
         console.log(ccc)
+        
+          console.log(ccc.status)
+
+          if(ccc.status==200){
+
+            cambiarDisplayRegistro2();
+            console.log("entro al 200");
+
+          }else{
+
+            console.log("entro al 201");
+
+            setshowErrorRegistro(true);
+            setShowMensaje1(false);
+            setShowMensajeCompletar(false);
+            setShowMensajeEmail(false);
+            setShowMensaje2(false);
+
+
+
+
+
+
+
+
+
+          }
+
+        
       })
       .catch(err => console.error(err))
   }
@@ -175,8 +216,21 @@ const ComprobarReg = (event) => {
     event.preventDefault();
     axios.post('http://localhost:8081/login', { usuario: values.usuario, password: values.password })
       .then(res => {
+        console.log(res);
         if (res.data.redirectTo != undefined) {
           window.location.href = res.data.redirectTo
+
+        } else if(res.request.response== "{\"Error\":\"Contraseña incorrecta\"}"){
+          setshowMensajeNoExiste(false);
+          setshowMensajeInicio(true);
+
+      }else{
+          console.log("entro al 201");
+          setshowMensajeInicio(false);
+          setshowMensajeNoExiste(true);
+
+
+
         }
       })
       .catch(err => console.log(err))
@@ -336,6 +390,15 @@ const ComprobarReg = (event) => {
                 <input type="password" name="claveInicio" required value={values.password} onChange={(e) => setValues({ ...values, password: e.target.value })} />
                 <label>Contraseña</label>
               </div>
+
+              <p id="mensajeConstraseñaincorrectaInicio" className="text-danger position-absolute" style={{ display: showMensajeInicio ? 'block' : 'none', height: "10px" }}>
+                Constraseña Incorrecta
+              </p>
+
+              <p id="mensajeConstraseñaincorrectaInicio" className="text-danger position-absolute" style={{ display: showMensajeNoExiste ? 'block' : 'none', height: "10px" }}>
+                No existe El usuario
+              </p>
+
               <div className="container-fluid">
                 <div className="row">
                   <u className="col-8"></u>
@@ -425,7 +488,10 @@ const ComprobarReg = (event) => {
                 <input type="password" name="clave2" id="clave2" value={values.password2} onChange={(e) => setValues({ ...values, password2: e.target.value })} required />
                 <label>Repetir contraseña</label>
 
-              </div>
+              </div> 
+              <p id="mensajeRegError" className="text-danger position-absolute" style={{ display: showErrorRegistro ? 'block' : 'none', height: "10px" }}>
+                El usuario o el Email ya existen
+              </p>
               <p id="mensaje1" className="text-danger position-absolute" style={{ display: showMensaje1 ? 'block' : 'none', height: "10px" }}>
                 Las contraseñas no coinciden
               </p>
