@@ -8,8 +8,33 @@ import fototiendaserv from "../img/fototiendaserv.jpg";
 import fotodietaserv from "../img/fotodietaserv.jpg";
 import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.webp";
+import { useState } from "react";
 
 function Gym() {
+
+  const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
+  if (window.location.pathname === '/gym') {
+    if (!existingLink) {
+
+      const head = document.head;
+      const link = document.createElement('link');
+
+      link.type = 'text/css';
+      link.rel = 'stylesheet';
+      link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
+
+      head.appendChild(link);
+    }
+  }
+
+  const [mostrarTexto, setmostrarTexto] = useState(false)
+
+  const cambiarDisplay = () => {
+    setmostrarTexto(!mostrarTexto)
+  }
+
+
+
   return (
     <div className=" bg-black min-vh-100 bodygym">
 
@@ -24,8 +49,25 @@ function Gym() {
               </div>
               <div className="card-body textobienvenidagimnasio">
                 <blockquote className="blockquote ">
-                  <p>¡Bienvenido a ControlZ, tu destino digital para transformar tu cuerpo y recuperar el control de tu salud y bienestar! Sumérgete en un mundo fitness donde cada click te acerca a la mejor versión de ti mismo. Desde rutinas de entrenamiento personalizadas hasta consejos de nutrición, en ControlZ, desafiamos tus límites y te guiamos hacia un estilo de vida activo, saludable y enérgico. Rompe con la rutina y reinicia tu camino hacia la forma física con ControlZ, donde cada movimiento es un paso más hacia la grandeza. ¡Es hora de pulsar el botón de reinicio en tu fitness y descubrir el poder de un nuevo tú en ControlZ!</p>
-                  <footer className="blockquote-footer mt-5">El equipo de <cite title="Source Title">ControlZ</cite></footer>
+                  <p id="textoprincipalgym">¡Bienvenido a ControlZ, tu destino digital para transformar tu cuerpo y recuperar el control de tu salud y bienestar! </p>
+                  {mostrarTexto && (
+                    <p id="textosecundariogym">
+                      <br></br>
+                      Explora ControlZ, un mundo fitness que te impulsa a la mejor versión de ti mismo con rutinas personalizadas y consejos de nutrición. Desafiamos límites, promovemos un estilo de vida activo y saludable, invitándote a reiniciar tu camino hacia la forma física y descubrir un nuevo tú.
+                    </p>
+                  )}
+                  <button id="mostrarbutton" className="btn btn-outline-info w-50 tw-mt-3  " type="button" onClick={cambiarDisplay} >
+                    {
+
+                      mostrarTexto ? (
+                        <span className=" tw-text-white  tw-font-semibold">Ocultar</span>
+                      ) : (
+                        <span className=" tw-text-white tw-font-semibold">Ver más</span>
+                      )
+
+                    }
+                  </button>
+                  <footer className="blockquote-footer mt-4">El equipo de <cite title="Source Title">ControlZ</cite></footer>
                 </blockquote>
               </div>
             </div>
@@ -37,8 +79,8 @@ function Gym() {
       <div className="container-fluid">
         <div className="container text-center">
           <div className="mb-3">
-            <div className=" text-center mb-2 mx-auto d-flex align-items-center justify-content-center">
-              <h1 className=" container titulobienvenidagym fw-semibold">Servicios</h1>
+            <div className=" text-center mb-2 tw-justify-center d-flex tw-w-full">
+              <h1 className="titulobienvenidagym fw-semibold">Servicios</h1>
             </div>
           </div>
           <div className="container mx-auto d-flex align-items-center justify-content-center ">
@@ -85,68 +127,59 @@ function Gym() {
         <div className="mt-3 mb-4 container contenedortitulogym ">
           <div className="mb-3">
             <div className=" text-center mb-2 mt-4 mx-auto d-flex align-items-center justify-content-center">
-              <h1 className=" container mt-4 titulobienvenidagym fw-semibold">
+              <h1 className="  mt-4 titulobienvenidagym fw-semibold tw-text-4xl md:tw-text-5xl lg:tw-text-6xl  tw-w-full">
                 Comienza el cambio (usuario)
               </h1>
             </div>
           </div>
 
           <div className=" mt-4 descgym text-secondary mx-auto d-flex align-items-center justify-content-center">
-            <p className="mb-4">
-              Aquí, no solo te ayudaremos a fortalecer tu cuerpo, sino que
-              también fomentaremos la construcción de una mentalidad fuerte y
-              resiliente. Creemos que el camino hacia la salud y la forma física
-              es único para cada persona, y estamos comprometidos a ofrecerte un
-              apoyo personalizado para que logres tus objetivos de la manera que
-              mejor se adapte a ti. En nuestro gimnasio, no solo encontrarás una
-              variedad de clases y programas de entrenamiento, sino también un
-              ambiente inclusivo y amigable. La diversidad de nuestras
-              instalaciones y la comunidad que las llena hacen que este sea un
-              lugar especial donde todos son bienvenidos, sin importar su nivel
-              de condición física o experiencia previa. ¡Bienvenido a nuestro
-              gimnasio, donde el cambio positivo comienza hoy!
+            <p className="mb-4 tw-text-center tw-w-4/5">
+              En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo. ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
             </p>
           </div>
         </div>
       </div>
 
-      <div className="container mb-5 mt-5 mx-auto d-flex align-items-center justify-content-center">
-        <div className="mt-5 contenedorgym text-center ">
+      <div className=" mx-auto d-flex align-items-center justify-content-center tw-mb-16">
+        <div className="contenedorgym text-center ">
           <h1 className="textgym">
             CONSTRUYE<span id="wanana">TU LEGADO</span>
           </h1>
           <h1 className="textgym">
             CREA<span id="wanana">TU FUTURO</span>
           </h1>
-          <h1 className="textgym mb-5">
+          <h1 className="textgym">
             DISFRUTA<span id="wanana">EL CAMINO</span>
           </h1>
         </div>
       </div>
 
-      <div className="  container-fluid bg-dark bg-gradient bg-opacity-10">
-        <div className="container mt-5 mb-5">
-          <div className="row mt-5">
-            <div className="col-6 mt-3">
-              <img
-                src={fotogym}
-                className="img-fluid rounded-start-pill"
-                alt="..."
-              />
+      <div className=" bg-dark  bg-opacity-10 tw-flex tw-flex-wrap  tw-w-full tw-px-3 ">
+
+        <div className="card border-secondary bg-dark text-secondary mb-3 tw-rounded-lg sm:tw-flex-nowrap sm:tw-flex-row sm:tw-justify-between" > {/* rounded-start-pill  rounded-end */}
+          <div className="tw-w-full sm:tw-w-3/5">
+            <img
+              src={fotogym}
+              className="img-fluid tw-rounded-s-lg tw-h-full"
+              alt="..."
+            />
+          </div>
+          <div className="tw-w-full sm:tw-w-4/5">
+            <div className="card-header fs-2 fw-semibold tw-text-center tw-text-gray-300 ">
+              Contáctanos
             </div>
-            <div className="col-6 mt-3 mx-auto " >
-              <div className="card border-secondary bg-dark text-secondary mb-3  rounded-end-circle " style={{height:'37vh'}}>
-                <div className="card-header fs-2 fw-semibold mt-4">Contáctanos</div>
-                <div className="card-body ">
-                  <p className="card-text mt-4 mb-4">
-                    En ControlZ, valoramos la comunicación directa y estamos aquí para responder a todas tus preguntas, escuchar tus comentarios y apoyarte en tu viaje hacia un estilo de vida más saludable. No dudes en ponerte en contacto con nosotros a través de los siguientes canales:
-                  </p>
-                  <button type="button" className="btn btn-outline-info mt-4">Contactar</button>
-                </div>
+            <div className="card-body ">
+              <p className="card-text mb-2">
+                En ControlZ, valoramos la comunicación directa y estamos aquí para responder a todas tus preguntas, escuchar tus comentarios y apoyarte en tu viaje hacia un estilo de vida más saludable. No dudes en ponerte en contacto con nosotros a través de los siguientes canales:
+              </p>
+              <div className="tw-flex tw-w-full tw-justify-center">
+                <button type="button" className="btn btn-outline-info tw-mt-4 ">Contactar</button>
               </div>
             </div>
           </div>
         </div>
+
       </div>
       <Footer />
     </div>
