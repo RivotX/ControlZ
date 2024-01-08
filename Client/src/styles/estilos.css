@@ -47,14 +47,8 @@
 
 .titulobienvenidagym {
     font-size: 4rem;
-    width: 70%;
     text-shadow: 0px 0px 300px white;
     color:#c7c7c7;
-}
-.descgym{
-    text-align: center;
-    width: 80%;
-    font-size: 17px;
 }
 
 .bodygym {
@@ -444,7 +438,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 30%;
   }
   
   .textgym {
