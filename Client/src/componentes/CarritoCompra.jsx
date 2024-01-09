@@ -111,7 +111,7 @@ export default function CarritoCompra({ visible, onClose }) {
                           <ul role="list" className="tw--my-6 tw-divide-y tw-divide-gray-200">
                             {products.map((product) => (
                               <li key={product.id} className="tw-flex tw-py-6"> {/*cambio*/}
-                                <div className="tw-h-24 tw-w-24 tw-flex-shrink-0 tw-overflow-hidden tw-rounded-md tw-border tw-border-gray-200">
+                                <div className="tw-h-28 tw-w-24 tw-flex-shrink-0 tw-overflow-hidden tw-rounded-md tw-border tw-border-gray-200">
                                   <img
                                     src={product.imageSrc}
                                     alt={product.imageAlt}
@@ -149,7 +149,7 @@ export default function CarritoCompra({ visible, onClose }) {
                       </div>
                     </div>
 
-                    <div className="tw-border-t tw-h-1/3 tw-border-gray-200 tw-px-4 tw-py-6">
+                    <div className="tw-border-t alturaflipante tw-border-gray-200 tw-px-4 tw-py-6">
                       <div className="tw-flex tw-justify-between tw-text-base tw-font-medium tw-text-gray-900">
                         <p>Total</p>
                         <p>$262.00</p>
