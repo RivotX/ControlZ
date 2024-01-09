@@ -62,7 +62,7 @@ function Gym() {
                       mostrarTexto ? (
                         <span className=" tw-text-white  tw-font-semibold">Ocultar</span>
                       ) : (
-                        <span className=" tw-text-white tw-font-semibold">Ver más</span>
+                        <span className=" tw-text-white tw-font-semibold">Ver    </span>
                       )
 
                     }

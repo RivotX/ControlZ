@@ -3,11 +3,63 @@ import express from "express";
 import mysql from "mysql";
 import cors from "cors";
 import bcrypt from "bcrypt";
+import Mongoose  from "mongoose";
+
 const salt = 10;
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+
+
+
+
+//Mongoose mongodb base de datos rutina
+
+Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
+  .then(() => {
+    console.log("Conexión exitosa a MongoDB");
+  })
+  .catch((error) => {
+    console.error("Error de conexión a MongoDB:", error);
+  });
+
+ 
+const mongodb = Mongoose.connection;
+
+
+
+
+const diasSchema= new Mongoose.Schema({
+  ejercicio:{
+    id:Number,
+    series:Number,
+    repeticiones:Number,
+}});
+
+
+const rutinaSchema= new Mongoose.Schema({
+  id: String,
+  lunes:[diasSchema],
+  martes:[diasSchema],
+  miercoles:[diasSchema],
+  jueves:[diasSchema],
+  viernes:[diasSchema],
+  sabado:[diasSchema],
+  domingo:[diasSchema],
+  
+});
+
+const CreaRutina = Mongoose.model("rutina", rutinaSchema)
+
+
+
+
+
+
+
+
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -39,6 +91,27 @@ app.post("/registro", (req, res) => {
         req.body.direccion,
         // req.body.sexo
       ];
+      const rutina = new CreaRutina({
+        id:req.body.usuario,
+        
+        lunes:[],
+        martes:[],
+        miercoles:[],
+        jueves:[],
+        viernes:[],
+        sabado:[],
+        domingo:[],
+      });
+
+      rutina.save((err)=>{
+        if (err) {
+          console.error("Error al crear usuario:", err);
+        } else {
+          console.log("Usuario creado exitosamente");
+        }
+
+      });
+
       db.query(consulta, values, (err, result) => {
         if (err) {
           console.error("Error al insertar en la base de datos:", err);
