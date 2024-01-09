@@ -2,7 +2,11 @@ export default Navbar;
 
 import logo from "../img/logo.png";
 import ChatComponent from "./ChatComponent";
+import CarritoCompra from "./CarritoCompra";
+import { useState } from "react";
 function Navbar({ linkHome }) {
+  const [visibleCesta, setVisibleCesta] = useState(false);
+
   return (
     <nav
       className="bg-black navbar navbar-expand-lg fixed-top"
@@ -81,7 +85,7 @@ function Navbar({ linkHome }) {
 
           <div className="tw-relative tw-bottom-1">
             <div className="tw-absolute tw-left-3 tw-top-0">
-              <p className="tw-flex tw-h-2 tw-w-2 tw-items-center tw-justify-center tw-rounded-full tw-bg-red-500 tw-p-3 tw-text-xs tw-text-white ">
+              <p className="tw-flex tw-h-2 tw-w-2 tw-items-center tw-justify-center tw-rounded-full tw-bg-red-500 tw-p-3 tw-text-xs tw-text-white tw-pointer-events-none">
                 3
               </p>
             </div>
@@ -92,6 +96,7 @@ function Navbar({ linkHome }) {
               strokeWidth="1.5"
               stroke="currentColor"
               className="flipaa tw-me-5 tw-mt-4 tw-h-6 tw-w-6 tw-cursor-pointer tw-text-white hover:tw-fill-current hover:tw-text-gray-400"
+              onClick={() => setVisibleCesta(true)}
             >
               <path
                 strokeLinecap="round"
@@ -106,6 +111,8 @@ function Navbar({ linkHome }) {
           </div>
         </div>
       </div>
+      {/* Renderizar cesta */}
+      <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} />
     </nav>
   );
 }
