@@ -12,21 +12,6 @@ import { useState } from "react";
 
 function Gym() {
 
-  const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
-  if (window.location.pathname === '/gym') {
-    if (!existingLink) {
-
-      const head = document.head;
-      const link = document.createElement('link');
-
-      link.type = 'text/css';
-      link.rel = 'stylesheet';
-      link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
-
-      head.appendChild(link);
-    }
-  }
-
   const [mostrarTexto, setmostrarTexto] = useState(false)
 
   const cambiarDisplay = () => {

@@ -396,12 +396,15 @@ svg:hover {
   background-color: #00f2ff;
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  font-weight: bold;
+  font-weight: 500;
   border: 0px;
+  border-radius: 5px;
   width: 100%;
-  transition: all 0.2s;
+  transition: all 0.6s;
 }
 .botonsiguiente:hover {
   box-shadow: 0px 0px 10px rgb(3, 85, 85);
+  transition: all 0.6s;
+  transform: scale(1.03);
 }
 

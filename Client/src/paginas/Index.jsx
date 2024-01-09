@@ -402,13 +402,13 @@ const ComprobarReg = (event) => {
               <div className="container-fluid">
                 <div className="row">
                   <u className="col-8"></u>
-                  <u href="" className="col-4 registro" onClick={cambiarDisplayRegistro}>
+                  <u href="" className="col-4 registro " onClick={cambiarDisplayRegistro}>
                     No tengo cuenta
                   </u>
                 </div>
               </div>
-              <div className="container-fluid mt-3 mb-5">
-                <div className="row text-center">
+              <div className="container-fluid mt-3 mb-5 ">
+                <div className="row text-center rounded-2">
                   <input
                     type="submit"
                     className=" botonsiguiente "
