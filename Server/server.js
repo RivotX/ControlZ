@@ -103,14 +103,14 @@ app.post("/registro", (req, res) => {
         domingo:[],
       });
 
-      rutina.save((err)=>{
-        if (err) {
-          console.error("Error al crear usuario:", err);
-        } else {
-          console.log("Usuario creado exitosamente");
-        }
-
-      });
+      rutina.save()
+        .then((resultado) => {
+          console.log(resultado);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      
 
       db.query(consulta, values, (err, result) => {
         if (err) {
