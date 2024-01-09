@@ -53,9 +53,6 @@ function Tienda() {
     };
   }, [ModalAbierto]);
 
-  const [visibleCesta, setVisibleCesta] = useState(false);
-
-
 
 
   return (
@@ -63,10 +60,6 @@ function Tienda() {
       <div className="tw-min-h-screen tw-pt-16 tw-bg-gradient-to-b tw-from-gray-700 tw-via-gray-900 tw-via-20% tw-to-black tw-to-50%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"gym"} />
 
-        <div className="tw-flex tw-justify-center">
-          <button className=" tw-bg-cyan-400 tw-rounded-lg tw-w-32" onClick={() => setVisibleCesta(true)}
-          >Ver cesta</button>
-        </div>
         <div className="tw-flex tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center sm:tw-mx-4"> {/* tw-grid md:tw-grid-cols-3 xl:tw-grid-cols-4*/}
 
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
@@ -151,7 +144,7 @@ function Tienda() {
           })}
             nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
-        
+
         </div>
         {/* Renderizar el modal */}
         {ModalAbierto && (
@@ -161,8 +154,7 @@ function Tienda() {
           />
         )}
 
-        {/* Renderizar cesta */}
-        <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} />
+
 
         <Footer />
       </div>
