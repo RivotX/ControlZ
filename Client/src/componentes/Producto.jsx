@@ -27,11 +27,6 @@ function Producto({ img, onClick, nombre, descripcion, precio, precioScam, descu
                             </svg>
                         </a>
                     </li>
-
-
-
-
-
                 </div>
             </div>
         </div>
