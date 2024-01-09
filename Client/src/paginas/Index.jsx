@@ -35,12 +35,12 @@ function Index() {
   const [VisibleRegistro2, setVisibleRegistro2] = useState(false);
   const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
 
-  
+
   const [showMensaje1, setShowMensaje1] = useState(false);
   const [showMensaje2, setShowMensaje2] = useState(false);
   const [showMensajeEmail, setShowMensajeEmail] = useState(false);
   const [showMensajeCompletar, setShowMensajeCompletar] = useState(false);
-  const [showErrorRegistro, setshowErrorRegistro]= useState(false);
+  const [showErrorRegistro, setshowErrorRegistro] = useState(false);
   const [showMensajeInicio, setshowMensajeInicio] = useState(false);
   const [showMensajeNoExiste, setshowMensajeNoExiste] = useState(false);
 
@@ -107,8 +107,8 @@ function Index() {
 
   const cambiarDisplayRegistro2 = (e) => {
 
-    if(values.usuario&&values.email&&values.password&&values.password2){
-      
+    if (values.usuario && values.email && values.password && values.password2) {
+
     }
 
 
@@ -150,7 +150,7 @@ function Index() {
     setVisibleIniciarSesion(true);
   }
 
-  const RegistroExistente= () =>  {
+  const RegistroExistente = () => {
 
   }
 
@@ -168,33 +168,31 @@ function Index() {
       .catch(err => console.error(err))
   }
 
-const ComprobarReg = (event) => {
-  console.log("loqesea");
+  const ComprobarReg = (event) => {
+    console.log("loqesea");
     event.preventDefault();
-    
-    
+
+
     axios.post('http://localhost:8081/existeregistro', values) //envia values a "servidor/registro"
       .then((ccc) => {
         console.log(ccc)
-        
-          console.log(ccc.status)
 
-          if(ccc.status==200){
+        console.log(ccc.status)
 
-            cambiarDisplayRegistro2();
-            console.log("entro al 200");
+        if (ccc.status == 200) {
 
-          }else{
+          cambiarDisplayRegistro2();
+          console.log("entro al 200");
 
-            console.log("entro al 201");
+        } else {
 
-            setshowErrorRegistro(true);
-            setShowMensaje1(false);
-            setShowMensajeCompletar(false);
-            setShowMensajeEmail(false);
-            setShowMensaje2(false);
+          console.log("entro al 201");
 
-
+          setshowErrorRegistro(true);
+          setShowMensaje1(false);
+          setShowMensajeCompletar(false);
+          setShowMensajeEmail(false);
+          setShowMensaje2(false);
 
 
 
@@ -202,9 +200,11 @@ const ComprobarReg = (event) => {
 
 
 
-          }
 
-        
+
+        }
+
+
       })
       .catch(err => console.error(err))
   }
@@ -220,11 +220,11 @@ const ComprobarReg = (event) => {
         if (res.data.redirectTo != undefined) {
           window.location.href = res.data.redirectTo
 
-        } else if(res.request.response== "{\"Error\":\"Contraseña incorrecta\"}"){
+        } else if (res.request.response == "{\"Error\":\"Contraseña incorrecta\"}") {
           setshowMensajeNoExiste(false);
           setshowMensajeInicio(true);
 
-      }else{
+        } else {
           console.log("entro al 201");
           setshowMensajeInicio(false);
           setshowMensajeNoExiste(true);
@@ -237,7 +237,7 @@ const ComprobarReg = (event) => {
   }
 
 
-  
+
   return (
     <div className="fondoindex min-vh-100">
       <div id="containerPagEntera" className="container-fluid">
@@ -400,14 +400,11 @@ const ComprobarReg = (event) => {
               </p>
 
               <div className="">
-                <div className="row">
-                  <u className="col-9"></u>
-                  <u href="" className="col-3 registro " onClick={cambiarDisplayRegistro}>
-                    No tengo cuenta
-                  </u>
-                </div>
+                <u href="" className=" registro float-end" onClick={cambiarDisplayRegistro}>
+                  No tengo cuenta
+                </u>
               </div>
-              <div className="container-fluid mt-3 mb-5 ">
+              <div className="container-fluid mt-5 mb-5 ">
                 <div className="row text-center rounded-2">
                   <input
                     type="submit"
@@ -474,7 +471,7 @@ const ComprobarReg = (event) => {
               </div>
 
               <div className="user-box regNormal">
-                <input  type="email" name="email" id="email" value={values.email} onChange={e => setValues({ ...values, email: e.target.value })} required />
+                <input type="email" name="email" id="email" value={values.email} onChange={e => setValues({ ...values, email: e.target.value })} required />
                 <label>Email</label>
               </div>
               <div className="user-box regNormal">
@@ -488,7 +485,7 @@ const ComprobarReg = (event) => {
                 <input type="password" name="clave2" id="clave2" value={values.password2} onChange={(e) => setValues({ ...values, password2: e.target.value })} required />
                 <label>Repetir contraseña</label>
 
-              </div> 
+              </div>
               <p id="mensajeRegError" className="text-danger position-absolute" style={{ display: showErrorRegistro ? 'block' : 'none', height: "10px" }}>
                 El usuario o el Email ya existen
               </p>
@@ -504,15 +501,12 @@ const ComprobarReg = (event) => {
               <p id="mensajeCompletar" className="text-danger position-absolute" style={{ display: showMensajeCompletar ? 'block' : 'none', height: "10px" }}>
                 Debes escribir en todos los campos
               </p>
-              <div className="container-fluid">
-                <div className="row">
-                  <u className="col-8"></u>
-                  <u href="" className="col-4 registro" onClick={btnComenzar}>
-                    Ya tienes cuenta
-                  </u>
-                </div>
+              <div className="">
+                <u href="" className=" registro float-end" onClick={btnComenzar}>
+                  Ya tienes cuenta
+                </u>
               </div>
-              <div className="container-fluid mt-3 mb-5">
+              <div className="container-fluid mt-5  mb-5">
                 <div className="row text-center">
                   <input
                     // onClick={cambiarDisplayRegistro2}
