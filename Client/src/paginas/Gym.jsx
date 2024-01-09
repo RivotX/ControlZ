@@ -155,7 +155,7 @@ function Gym() {
         </div>
       </div>
 
-      <div className=" bg-dark  bg-opacity-10 tw-flex tw-flex-wrap  tw-px-3 md:tw-w-11/12 lg:tw-w-3/5 xl:tw-w-3/5 tw-mx-auto">
+      <div className=" bg-dark  bg-opacity-10 tw-flex tw-flex-wrap  tw-px-3 md:tw-w-11/12 lg:tw-w-4/5 tw-mx-auto">
 
         <div className="card border-secondary bg-dark tw-text-center text-secondary mb-5 tw-rounded-lg sm:tw-flex-nowrap sm:tw-flex-row sm:tw-justify-between md:tw-text-lg lg:tw-text-xl" > {/* rounded-start-pill  rounded-end */}
           <div className="tw-w-full sm:tw-w-3/5">
