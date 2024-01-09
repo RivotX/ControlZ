@@ -144,6 +144,47 @@ function Tienda() {
           })}
             nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
+          <Producto img={barraProteina} onClick={() => AbrirModal({
+            nombre: "Barrita de Proteina",
+            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones",
+            precio: "20€",
+            precioScam: "25€",
+            descuento: "20%",
+            img: barraProteina
+          })}
+            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+          />
+          <Producto img={proteinaPolvo} onClick={() => AbrirModal({
+            nombre: "Proteina en polvo",
+            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger",
+            precio: "20€",
+            precioScam: "25€",
+            descuento: "20%",
+            img: proteinaPolvo
+          })}
+            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+          />
+          <Producto img={barraProteina} onClick={() => AbrirModal({
+            nombre: "Barrita de Proteina",
+            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones",
+            precio: "20€",
+            precioScam: "25€",
+            descuento: "20%",
+            img: barraProteina
+          })}
+            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+          />
+          <Producto img={proteinaPolvo} onClick={() => AbrirModal({
+            nombre: "Proteina en polvo",
+            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger",
+            precio: "20€",
+            precioScam: "25€",
+            descuento: "20%",
+            img: proteinaPolvo
+          })}
+            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+          />
+
 
         </div>
         {/* Renderizar el modal */}

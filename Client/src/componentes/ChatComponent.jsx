@@ -185,7 +185,7 @@ function ChatComponent() {
             })}
             <div className=" container row sticky-bottom d-flex justify-content-center align-align-items-center ">
               <input
-                className="border-0 text-center rounded-2 ms-2 col-8"
+                className="border-0 text-center text-white rounded-2 ms-2 col-8"
                 type="text"
                 value={message}
                 onChange={handleChange}
