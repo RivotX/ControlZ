@@ -12,6 +12,21 @@ import { useState } from "react";
 
 function Gym() {
 
+  const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
+  if (window.location.pathname === '/gym') {
+    if (!existingLink) {
+
+      const head = document.head;
+      const link = document.createElement('link');
+
+      link.type = 'text/css';
+      link.rel = 'stylesheet';
+      link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
+
+      head.appendChild(link);
+    }
+  }
+
   const [mostrarTexto, setmostrarTexto] = useState(false)
 
   const cambiarDisplay = () => {
@@ -21,15 +36,15 @@ function Gym() {
 
 
   return (
-    <div className=" bg-black min-vh-100 bodygym">
+    <div className="bg-black  min-vh-100 bodygym">
 
       <Navbar linkHome={"#"} />
 
       <div className=" bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <div className="container">
-          <div className="row d-flex flex-wrap flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1 mt-5">
-            <div className="col-sm-12 col-md-12 col-lg-12  border-0 mt-5 text-white justify-content-center tetito card bg-transparent ">
-              <div className="card-header mb-2 border-0 fw-semibold  " style={{ fontSize: '450%' }}>
+          <div className="flex-wrap mt-5 row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
+            <div className="mt-5 text-white bg-transparent border-0 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
+              <div className="mb-2 border-0 card-header fw-semibold " style={{ fontSize: '450%' }}>
                 ControlZ
               </div>
               <div className="card-body textobienvenidagimnasio">
@@ -41,22 +56,22 @@ function Gym() {
                       Explora ControlZ, un mundo fitness que te impulsa a la mejor versión de ti mismo con rutinas personalizadas y consejos de nutrición. Desafiamos límites, promovemos un estilo de vida activo y saludable, invitándote a reiniciar tu camino hacia la forma física y descubrir un nuevo tú.
                     </p>
                   )}
-                  <button id="mostrarbutton" className="btn btn-outline-info w-50 tw-mt-3  " type="button" onClick={cambiarDisplay} >
+                  <button id="mostrarbutton" className="btn btn-outline-info w-50 tw-mt-3 " type="button" onClick={cambiarDisplay} >
                     {
 
                       mostrarTexto ? (
-                        <span className=" tw-text-white  tw-font-semibold">Ocultar</span>
+                        <span className=" tw-text-white tw-font-semibold">Ocultar</span>
                       ) : (
                         <span className=" tw-text-white tw-font-semibold">Ver    </span>
                       )
 
                     }
                   </button>
-                  <footer className="blockquote-footer mt-4">El equipo de <cite title="Source Title">ControlZ</cite></footer>
+                  <footer className="mt-4 blockquote-footer">El equipo de <cite title="Source Title">ControlZ</cite></footer>
                 </blockquote>
               </div>
             </div>
-            <img src={foto1} className="col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0  rounded float-end" alt="..." />
+            <img src={foto1} className="rounded col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0 float-end" alt="..." />
           </div>
         </div>
       </div>
@@ -64,13 +79,13 @@ function Gym() {
       <div className="container-fluid">
         <div className="container text-center">
           <div className="mb-3">
-            <div className=" text-center mb-2 tw-justify-center d-flex tw-w-full">
+            <div className="mb-2 text-center  tw-justify-center d-flex tw-w-full">
               <h1 className="titulobienvenidagym fw-semibold">Servicios</h1>
             </div>
           </div>
           <div className="container mx-auto d-flex align-items-center justify-content-center ">
             <div className="card-group">
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4  ">
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 ">
                 <Features imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales y tu progreso gracias a la ayuda que ControlZ te brinda en el día a día."
                 }
                   link={"rutina"}
@@ -107,18 +122,18 @@ function Gym() {
 
       <div
         id="flecha"
-        className="mt-5 container-fluid bg-dark bg-gradient bg-opacity-10  contenidoGym"
+        className="mt-5 container-fluid bg-dark bg-gradient bg-opacity-10 contenidoGym"
       >
-        <div className="mt-3 mb-4 container contenedortitulogym ">
+        <div className="container mt-3 mb-4 contenedortitulogym ">
           <div className="mb-3">
-            <div className=" text-center mb-2 mt-4 mx-auto d-flex align-items-center justify-content-center">
-              <h1 className="  mt-4 titulobienvenidagym fw-semibold tw-text-4xl md:tw-text-5xl lg:tw-text-6xl  tw-w-full">
+            <div className="mx-auto mt-4 mb-2 text-center  d-flex align-items-center justify-content-center">
+              <h1 className="mt-4  titulobienvenidagym fw-semibold tw-text-4xl md:tw-text-5xl lg:tw-text-6xl tw-w-full">
                 Comienza el cambio (usuario)
               </h1>
             </div>
           </div>
 
-          <div className=" mt-4 descgym text-secondary mx-auto d-flex align-items-center justify-content-center">
+          <div className="mx-auto mt-4  descgym text-secondary d-flex align-items-center justify-content-center">
             <p className="mb-4 tw-text-center tw-w-4/5">
               En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo. ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
             </p>
@@ -126,8 +141,8 @@ function Gym() {
         </div>
       </div>
 
-      <div className=" mx-auto d-flex align-items-center justify-content-center tw-mb-16">
-        <div className="contenedorgym text-center ">
+      <div className="mx-auto  d-flex align-items-center justify-content-center tw-mb-16">
+        <div className="text-center contenedorgym ">
           <h1 className="textgym">
             CONSTRUYE<span id="wanana">TU LEGADO</span>
           </h1>
@@ -140,9 +155,9 @@ function Gym() {
         </div>
       </div>
 
-      <div className=" bg-dark  bg-opacity-10 tw-flex tw-flex-wrap  tw-px-3 md:tw-w-11/12 lg:tw-w-4/5 tw-mx-auto">
+      <div className=" bg-dark bg-opacity-10 tw-flex tw-flex-wrap tw-px-3 md:tw-w-11/12 lg:tw-w-4/5 tw-mx-auto">
 
-        <div className="card border-secondary bg-dark tw-text-center text-secondary mb-5 tw-rounded-lg sm:tw-flex-nowrap sm:tw-flex-row sm:tw-justify-between md:tw-text-lg lg:tw-text-xl" > {/* rounded-start-pill  rounded-end */}
+        <div className="mb-5 card border-secondary bg-dark tw-text-center text-secondary tw-rounded-lg sm:tw-flex-nowrap sm:tw-flex-row sm:tw-justify-between md:tw-text-lg lg:tw-text-xl" > {/* rounded-start-pill  rounded-end */}
           <div className="tw-w-full sm:tw-w-3/5">
             <img
               src={fotogym}
@@ -155,7 +170,7 @@ function Gym() {
               Contáctanos
             </div>
             <div className="card-body ">
-              <p className="card-text mb-2">
+              <p className="mb-2 card-text">
                 En ControlZ, valoramos la comunicación directa y estamos aquí para responder a todas tus preguntas, escuchar tus comentarios y apoyarte en tu viaje hacia un estilo de vida más saludable. No dudes en ponerte en contacto con nosotros a través de los siguientes canales:
               </p>
               <div className="tw-flex tw-w-full tw-justify-center">

@@ -8,6 +8,21 @@ import CarritoCompra from "../componentes/CarritoCompra";
 import { useState, useEffect } from "react";
 
 function Tienda() {
+
+  const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
+  if (window.location.pathname === '/tienda') {
+    if (!existingLink) {
+
+      const head = document.head;
+      const link = document.createElement('link');
+
+      link.type = 'text/css';
+      link.rel = 'stylesheet';
+      link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
+
+      head.appendChild(link);
+    }
+  }
  
   const [ModalAbierto, setModalAbierto] = useState(false);
   const [ProductoSeleccionado, setProductoSeleccionado] = useState(null);
