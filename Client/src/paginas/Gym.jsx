@@ -40,10 +40,10 @@ function Gym() {
 
       <Navbar linkHome={"#"} />
 
-      <div className="container-fluid  bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
-        <div className="container mb-3 p-3">
+      <div className=" bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
+        <div className="container">
           <div className="row d-flex flex-wrap flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1 mt-5">
-            <div className="col-sm-12 col-md-12 col-lg-12  mb-4 border-0 mt-5 text-white justify-content-center tetito card bg-transparent ">
+            <div className="col-sm-12 col-md-12 col-lg-12  border-0 mt-5 text-white justify-content-center tetito card bg-transparent ">
               <div className="card-header mb-2 border-0 fw-semibold  " style={{ fontSize: '450%' }}>
                 ControlZ
               </div>
@@ -155,9 +155,9 @@ function Gym() {
         </div>
       </div>
 
-      <div className=" bg-dark  bg-opacity-10 tw-flex tw-flex-wrap  tw-w-full tw-px-3 ">
+      <div className=" bg-dark  bg-opacity-10 tw-flex tw-flex-wrap  tw-px-3 md:tw-w-11/12 lg:tw-w-3/5 xl:tw-w-3/5 tw-mx-auto">
 
-        <div className="card border-secondary bg-dark text-secondary mb-3 tw-rounded-lg sm:tw-flex-nowrap sm:tw-flex-row sm:tw-justify-between" > {/* rounded-start-pill  rounded-end */}
+        <div className="card border-secondary bg-dark tw-text-center text-secondary mb-5 tw-rounded-lg sm:tw-flex-nowrap sm:tw-flex-row sm:tw-justify-between md:tw-text-lg lg:tw-text-xl" > {/* rounded-start-pill  rounded-end */}
           <div className="tw-w-full sm:tw-w-3/5">
             <img
               src={fotogym}
@@ -166,7 +166,7 @@ function Gym() {
             />
           </div>
           <div className="tw-w-full sm:tw-w-4/5">
-            <div className="card-header fs-2 fw-semibold tw-text-center tw-text-gray-300 ">
+            <div className="card-header fs-3 fw-semibold tw-text-center tw-text-gray-300 ">
               Contáctanos
             </div>
             <div className="card-body ">
