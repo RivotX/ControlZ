@@ -353,13 +353,19 @@ svg:hover {
 
 .registro {
   color: rgb(255, 255, 255);
-
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   font-weight: bold;
   font-size: 90%;
   cursor: pointer;
   user-select: none;
 }
+@media screen and (max-width: 755px){
+  .registro{
+    
+
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .titulocontenedor {
     font-size: 350%;

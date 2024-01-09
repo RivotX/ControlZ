@@ -399,10 +399,10 @@ const ComprobarReg = (event) => {
                 No existe El usuario
               </p>
 
-              <div className="container-fluid">
+              <div className="">
                 <div className="row">
-                  <u className="col-8"></u>
-                  <u href="" className="col-4 registro " onClick={cambiarDisplayRegistro}>
+                  <u className="col-9"></u>
+                  <u href="" className="col-3 registro " onClick={cambiarDisplayRegistro}>
                     No tengo cuenta
                   </u>
                 </div>
