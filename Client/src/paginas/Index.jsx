@@ -243,10 +243,10 @@ function Index() {
       <div id="containerPagEntera" className="container-fluid">
 
         {/* Navbar  */}
-        <div className="container-fluid Nav">
+        <div className=" Nav">
           <nav className="navbar">
-            <a className="navbar-brand col-6 text-left" href="/perfil" />
-            <a className="navbar-brand col-6 text-left" href="#">
+            <a className="navbar-brand col-md-6 col-sm-6" href="" />
+            <a className="navbar-brand col-md-6  col-sm-6 text-left pasta" href="#">
               <img
                 src="../src/img/logo.png"
                 alt="Logo"
@@ -258,7 +258,7 @@ function Index() {
                 ControlZ
               </span>
             </a>
-            <div className="row d-flex align-items-center justify-content-center">
+            <div className="row superflipadoelmigue d-flex align-items-center justify-content-center">
               <div className="col-4">
                 <a
                   className="btn text-white mb-2 w-100"

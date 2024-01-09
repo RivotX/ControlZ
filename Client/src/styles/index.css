@@ -90,7 +90,6 @@ svg:hover {
 
 .login-box {
   width: 80vh;
-
   padding-top: 2vh;
   padding-left: 10vh;
   padding-right: 10vh;
@@ -389,6 +388,7 @@ svg:hover {
 }
 .inicio {
   transform: scale(1);
+  margin-top: 4vh;
 }
 
 #submit {
@@ -412,5 +412,13 @@ svg:hover {
   box-shadow: 0px 0px 10px rgb(3, 85, 85);
   transition: all 0.6s;
   transform: scale(1.03);
+}
+
+@media screen and (max-width:455px) {
+
+  .pasta{
+    font-size: 100%;
+    margin-left: -15%;
+  }
 }
 
