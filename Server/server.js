@@ -4,13 +4,20 @@ import mysql from "mysql";
 import cors from "cors";
 import bcrypt from "bcrypt";
 import Mongoose  from "mongoose";
+import session from 'express-session';
 
 const salt = 10;
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+app.use(session({
+  secret: 'secreto', // Una clave secreta para firmar la cookie de sesión
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Configuración de la cookie (puede variar dependiendo del uso)
+}));
 
 
 
@@ -71,6 +78,31 @@ const db = mysql.createConnection({
 app.listen(8081, () => {
   console.log("servidor corriendo...");
 });
+
+
+
+
+//Endpoint /setSession
+
+app.get("/setSession",(req,res)=>{
+  req.session.usuario= req.body.usuario;
+  req.session.nombre= req.body.nombre,
+  req.session.email= req.body.email,
+  req.session.telefono= req.body.telefono,
+  req.session.direccion= req.body.direccion,
+
+  res.json({status: "session iniciada", user: req.session, ola: req.session.usuario});
+
+});
+
+
+
+
+
+
+
+
+
 
 // Endpoint /registro
 
