@@ -198,8 +198,7 @@
 .logo {
     background-repeat: no-repeat;
     background-image: url(../img/perfil.png);
-    background-size: 210%;
-    
+    background-size: 230%;
     background-position: center;
     z-index: 100000;
 
