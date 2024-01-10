@@ -233,7 +233,7 @@ function Index() {
         console.log(res);
         if (res.data.redirectTo != undefined) {
 
-          // window.location.href = res.data.redirectTo
+         window.location.href = res.data.redirectTo
 
         } else if (res.request.response == "{\"Error\":\"Contraseña incorrecta\"}") {
           setshowMensajeNoExiste(false);
