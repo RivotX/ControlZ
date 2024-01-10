@@ -215,6 +215,9 @@ app.post("/existeregistro", async (req, res) => {
   }
 });
 
+
+
+//SESSION Y LOGIN MEJORADO --las sessiones inician al logearse¡¡¡¡
 app.post("/login", async (req, res) => {
   const consulta = "SELECT * FROM usuarios WHERE usuario = ?";
   const values = [req.body.usuario];
@@ -243,7 +246,7 @@ app.post("/login", async (req, res) => {
         req.session.direccion = result[0].direccion;
         req.session.sexo = result[0].sexo;
 
-        return res.json( req.session );
+        return res.json({ Status: "success", redirectTo: "/principal" });
       } else {
         return res.json({ Error: "Contraseña incorrecta" });
       }
