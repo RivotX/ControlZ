@@ -8,7 +8,7 @@ import CarritoCompra from "../componentes/CarritoCompra";
 import { useState, useEffect } from "react";
 
 function Tienda() {
-  //funcion para usar tailwind solo aqui y que de problemas en los otros sitios con bootstrap 
+
   const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
   if (window.location.pathname === '/tienda') {
     if (!existingLink) {
@@ -23,7 +23,7 @@ function Tienda() {
       head.appendChild(link);
     }
   }
-
+ 
   const [ModalAbierto, setModalAbierto] = useState(false);
   const [ProductoSeleccionado, setProductoSeleccionado] = useState(null);
 
@@ -60,7 +60,7 @@ function Tienda() {
       <div className="tw-min-h-screen tw-pt-16 tw-bg-gradient-to-b tw-from-gray-700 tw-via-gray-900 tw-via-20% tw-to-black tw-to-50%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"gym"} />
 
-        <div className="tw-flex tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center sm:tw-mx-4"> {/* tw-grid md:tw-grid-cols-3 xl:tw-grid-cols-4*/}
+        <div className="tw-flex p-2 tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center sm:tw-mx-4"> {/* tw-grid md:tw-grid-cols-3 xl:tw-grid-cols-4*/}
 
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
