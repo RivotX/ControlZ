@@ -4,6 +4,8 @@ import axios from "axios";
 
 function Index() {
 
+  
+
   const [values, setValues] = useState({
     usuario: "",
     password: "",
@@ -50,6 +52,8 @@ function Index() {
     setVisibleRegistro(false);
     setVisibleRegistro2(false);
     setVisibleIniciarSesion(true);
+
+    
   }
 
   const cambiarDisplayRegistro = () => {
@@ -217,7 +221,7 @@ function Index() {
     axios.post('http://localhost:8081/login', { usuario: values.usuario, password: values.password })
       .then(res => {
 
-          axios.get('http://localhost:8081/setSession',values)
+          axios.post('http://localhost:8081/verSession',{values})
           .then((res)=>{
             console.log(res);
 
@@ -229,7 +233,7 @@ function Index() {
         console.log(res);
         if (res.data.redirectTo != undefined) {
 
-          window.location.href = res.data.redirectTo
+          // window.location.href = res.data.redirectTo
 
         } else if (res.request.response == "{\"Error\":\"Contraseña incorrecta\"}") {
           setshowMensajeNoExiste(false);

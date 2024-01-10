@@ -80,18 +80,27 @@ app.listen(8081, () => {
 });
 
 
+//Endpoint /logout
+
+app.get("/logout", (req, res) => {
+  // Destruir la sesión actual
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error al cerrar sesión:', err);
+    } else {
+      console.log('Sesión cerrada exitosamente');
+      
+    }
+  });
+});
+
 
 
 //Endpoint /setSession
 
-app.get("/setSession",(req,res)=>{
-  req.session.usuario= req.body.usuario;
-  req.session.nombre= req.body.nombre,
-  req.session.email= req.body.email,
-  req.session.telefono= req.body.telefono,
-  req.session.direccion= req.body.direccion,
-
-  res.json({status: "session iniciada", user: req.session, ola: req.session.usuario});
+app.post("/verSession",(req,res)=>{
+  
+  
 
 });
 
@@ -206,14 +215,13 @@ app.post("/existeregistro", async (req, res) => {
   }
 });
 
-// Endpoint /login
 app.post("/login", async (req, res) => {
-  const consulta = "SELECT password FROM usuarios WHERE usuario = ?";
-  const values = [req.body.usuario, req.body.password];
+  const consulta = "SELECT * FROM usuarios WHERE usuario = ?";
+  const values = [req.body.usuario];
 
   try {
-    const promesaDB = await new Promise((resolve, reject) => {
-      db.query(consulta, values[0], (err, result) => {
+    const result = await new Promise((resolve, reject) => {
+      db.query(consulta, values, (err, result) => {
         if (err) {
           console.log("Error en la consulta:", err);
           reject("Error en la consulta a la base de datos");
@@ -222,25 +230,109 @@ app.post("/login", async (req, res) => {
         }
       });
     });
-    console.log("Valor de promesaDB:", promesaDB); // Agregar esta línea para imprimir promesaDB
 
-    if (promesaDB.length > 0) {
-      const passwordFromDB = promesaDB[0].password;
-      const IsCorrect = await bcrypt.compare(values[1], passwordFromDB);
+    if (result.length > 0) {
+      const passwordFromDB = result[0].password;
+      const IsCorrect = await bcrypt.compare(req.body.password, passwordFromDB);
 
-      console.log("IsCorrect:", IsCorrect);
+      if (IsCorrect) {
+        req.session.usuario = result[0].usuario;
+        req.session.nombre = result[0].nombre;
+        req.session.email = result[0].email;
+        req.session.telefono = result[0].telefono;
+        req.session.direccion = result[0].direccion;
+        req.session.sexo = result[0].sexo;
 
-      return res.json(
-        IsCorrect
-          ? { Status: "success", redirectTo: "/principal" }
-          : { Error: "Contraseña incorrecta" }
-      ); //le paso la url al cliente
+        return res.json( req.session );
+      } else {
+        return res.json({ Error: "Contraseña incorrecta" });
+      }
     } else {
-      return res.status(201).json({ Error: "No existe el usuario" });
+      return res.status(404).json({ Error: "No existe el usuario" });
     }
   } catch (error) {
     console.error("Error general:", error);
     return res.status(500).json({ Error: "Error interno del servidor" });
   }
 });
+
+
+
+
+
+// // Endpoint /login
+// app.post("/login", async (req, res) => {
+
+
+
+//   //funcion para iniciar session con los valores del usuario
+// const  SessionStart=()=>{
+//   const  consulta = "SELECT * FROM usuarios WHERE usuario = ?";
+//   // try {
+//     // const promesaDB = await new Promise((resolve, reject) => {
+//     db.query(consulta, values[0], (err, result) => {
+//     if (err) {
+//       console.log("Error en la consulta:", err);
+//           reject("Error en la consulta a la base de datos");
+//     } else {
+          
+//                req.session.usuario= result[0].usuario;
+//                req.session.nombre= result[0].nombre;
+//                req.session.email= result[0].email;
+//                req.session.telefono= result[0].telefono;
+//                req.session.direccion= result[0].direccion;
+//                req.session.sexo= result[0].sexo;
+
+//               console.log(req.session);
+//        }
+//       });
+
+//     // });
+
+
+//   //     }catch (error) {
+//   //   console.error("Error general:", error);
+//   //   return res.status(500).json({ Error: "Error interno del servidor" });
+//   // }
+// }
+
+//   const consulta = "SELECT password FROM usuarios WHERE usuario = ?";
+//   const values = [req.body.usuario, req.body.password];
+
+//   try {
+//     const promesaDB = await new Promise((resolve, reject) => {
+//       db.query(consulta, values[0], (err, result) => {
+//         if (err) {
+//           console.log("Error en la consulta:", err);
+//           reject("Error en la consulta a la base de datos");
+//         } else {
+//           resolve(result);
+//         }
+//       });
+//     });
+//     console.log("Valor de promesaDB:", promesaDB); // Agregar esta línea para imprimir promesaDB
+
+//     if (promesaDB.length > 0) {
+//       const passwordFromDB = promesaDB[0].password;
+//       const IsCorrect = await bcrypt.compare(values[1], passwordFromDB);
+
+//       console.log("IsCorrect:", IsCorrect);
+      
+//       if(IsCorrect){
+//         SessionStart();
+//       }
+
+//       return res.json(
+//         IsCorrect
+//           ?(req.session)
+//           : { Error: "Contraseña incorrecta" }
+//       ); //le paso la url al cliente
+//     } else {
+//       return res.status(201).json({ Error: "No existe el usuario" });
+//     }
+//   } catch (error) {
+//     console.error("Error general:", error);
+//     return res.status(500).json({ Error: "Error interno del servidor" });
+//   }
+// });
 
