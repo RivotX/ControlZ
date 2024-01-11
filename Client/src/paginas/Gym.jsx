@@ -11,7 +11,7 @@ import foto1 from "../img/foto1.webp";
 import { useState } from "react";
 
 function Gym() {
-
+  console.log("ola");
   const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
   if (window.location.pathname === '/gym') {
     if (!existingLink) {

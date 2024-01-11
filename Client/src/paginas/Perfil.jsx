@@ -20,11 +20,24 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
+import axios from "axios";
+import { useState } from "react";
 
 function Perfil() {
-  // // <?php
-  // // session_start();
-  // // ?>
+  const [nombre, setNombre]= useState("");
+  const [email, setEmail]= useState("")
+  const [Telefono, setTelefono]= useState("")
+  const [direccion, setDireccion]= useState("")
+
+  
+  console.log("ola");
+
+  
+
+
+ 
+
+
   return (
     <div className="container-fluid min-vh-100 bodyperfil px-0">
       <Navbar linkHome={"/gym"} />
@@ -34,6 +47,7 @@ function Perfil() {
             <div className="borde mb-2 mt-2">
               <div className="card-body text-center mt-5  ">
                 <img
+               
                   id="flecha"
                   src={fotoMujer}
                   alt="avatar"
@@ -45,6 +59,7 @@ function Perfil() {
                 </h5>
                 <p className="mb-1 text-white">Full Stack Developer</p>
                 <p className="mb-2 text-white">Cullar Zaidin</p>
+                
               </div>
             </div>
           </div>
@@ -105,7 +120,7 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    Johnatan Smith
+                   {nombre}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -116,7 +131,7 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    example@example.com
+                    {email}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -127,29 +142,20 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    (097) 234-5678
+                    {Telefono}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
               <hr />
-              <MDBRow>
-                <MDBCol sm="3">
-                  <MDBCardText>Mobile</MDBCardText>
-                </MDBCol>
-                <MDBCol sm="9">
-                  <MDBCardText className="text-muted">
-                    (098) 765-4321
-                  </MDBCardText>
-                </MDBCol>
-              </MDBRow>
-              <hr />
+              
+              
               <MDBRow>
                 <MDBCol sm="3">
                   <MDBCardText>Address</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    Bay Area, San Francisco, CA
+                    {direccion}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>

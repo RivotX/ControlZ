@@ -5,19 +5,41 @@ import cors from "cors";
 import bcrypt from "bcrypt";
 import Mongoose  from "mongoose";
 import session from 'express-session';
+import MySQLStoreImport from 'express-mysql-session';
 
+const MySQLStore = MySQLStoreImport(session);
+
+
+
+
+//hash para contraseña
 const salt = 10;
 
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
+
+
+//sessiones guardar
+const sessionStore = new MySQLStore({
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: '',
+  database: 'controlz_sessions', // Ajusta esto según tu configuración
+});
+
 app.use(session({
-  secret: 'secreto', // Una clave secreta para firmar la cookie de sesión
+  secret: 'secreto',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // Configuración de la cookie (puede variar dependiendo del uso)
+  store:sessionStore,
 }));
+
 
 
 
@@ -98,11 +120,14 @@ app.get("/logout", (req, res) => {
 
 //Endpoint /setSession
 
-app.post("/verSession",(req,res)=>{
-  
-  
+app.get("/getSession",(req,res)=>{
+  req.session.reload
+        
 
+        
+res.json(req.session)
 });
+
 
 
 
@@ -245,13 +270,14 @@ app.post("/login", async (req, res) => {
         req.session.telefono = result[0].telefono;
         req.session.direccion = result[0].direccion;
         req.session.sexo = result[0].sexo;
+        req.session.save();
 
         return res.json({ Status: "success", redirectTo: "/principal" });
       } else {
         return res.json({ Error: "Contraseña incorrecta" });
       }
     } else {
-      return res.status(404).json({ Error: "No existe el usuario" });
+      return res.status(201).json({ Error: "No existe el usuario" });
     }
   } catch (error) {
     console.error("Error general:", error);

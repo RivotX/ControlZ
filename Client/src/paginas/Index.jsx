@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Index() {
-
+console.log("222222222222222222222222222222222222222222222222222222222");
   
 
   const [values, setValues] = useState({
