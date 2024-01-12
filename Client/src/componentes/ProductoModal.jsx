@@ -6,14 +6,14 @@ const ProductoModal = ({ product, closeModal }) => { //arreglar respnsive en iph
     return (
         <div className="tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen NegroOpacidad75 tw-flex tw-items-center tw-justify-center">
 
-            <div className="tw-bg-white tw-p-8 tw-rounded-lg tw-w-full tw-h-4/6 md:tw-w-4/5 lg:tw-w-3/5 tw-opacity-100 ">
+            <div className="tw-bg-white tw-mx-2 tw-p-8 tw-rounded-lg tw-w-full tw-h-4/6 md:tw-w-4/5 lg:tw-w-3/5 tw-opacity-100 ">
                 <img onClick={closeModal} className="tw-fixed PosCruzModal tw-h-10 tw-cursor-pointer tw-right-0 " src={cruzCerrar} />
                 <div className='tw-flex tw-justify-center tw-h-2/3' >
                     <img className="tw-object-center" src={product.img} />
                 </div>
                 <div className='tw-flex tw-flex-wrap tw-h-1/3'>
                     <div className='tw-flex tw-justify-between tw-items-center tw-w-full tw-h-1/6'>
-                        <h2 className="tw-text-xl tw-mt-6 tw-font-bold sm:tw-text-2xl  ">{product.nombre}</h2>
+                        <h2 className="tw-text-xl tw-mt-6 tw-font-bold sm:tw-text-2xl ">{product.nombre}</h2>
                         <p className="tw-flex tw-mt-6 tw-justify-center tw-items-center tw-text-lg sm:tw-text-xl ">
                             <span>{product.precio}</span>
                         </p>
