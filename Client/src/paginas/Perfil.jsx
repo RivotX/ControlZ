@@ -31,14 +31,27 @@ function Perfil() {
   const [Telefono, setTelefono]= useState("")
   const [direccion, setDireccion]= useState("")
 
-  const countRef = useRef(count);
- 
-  useEffect(() => {
-    console.log(window.onload);
-  }, [countRef]);
 
 
- 
+
+
+
+  axios.get('http://localhost:8081/getSession') //envia values a "servidor/registro"
+      .then((res) => {
+        setNombre(res.data.nombre);
+        setEmail(res.data.email);
+        setTelefono(res.data.telefono);
+        setDireccion(res.data.direccion);
+        console.log(res)
+
+      })
+      .catch(err => console.error(err))
+
+
+
+
+
+ console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
 
 
   return (

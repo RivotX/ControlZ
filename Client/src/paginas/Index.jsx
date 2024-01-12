@@ -221,14 +221,6 @@ function Index() {
     axios.post('http://localhost:8081/login', { usuario: values.usuario, password: values.password })
       .then(res => {
 
-          axios.post('http://localhost:8081/verSession',{values})
-          .then((res)=>{
-            console.log(res);
-
-          }).catch((err)=>{
-            console.log(err);
-          })
-
 
         console.log(res);
         if (res.data.redirectTo != undefined) {

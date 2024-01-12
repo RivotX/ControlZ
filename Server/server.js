@@ -36,7 +36,7 @@ const sessionStore = new MySQLStore({
 app.use(session({
   secret: 'secreto',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store:sessionStore,
 }));
 
@@ -83,13 +83,6 @@ const rutinaSchema= new Mongoose.Schema({
 const CreaRutina = Mongoose.model("rutina", rutinaSchema)
 
 
-
-
-
-
-
-
-
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -118,24 +111,15 @@ app.get("/logout", (req, res) => {
 
 
 
-//Endpoint /setSession
+//Endpoint /getSession
 
 app.get("/getSession",(req,res)=>{
-  req.session.reload
-        
 
-        
-res.json(req.session)
+                  
+
+                  
+  res.json(req.session)
 });
-
-
-
-
-
-
-
-
-
 
 
 // Endpoint /registro
@@ -286,82 +270,4 @@ app.post("/login", async (req, res) => {
 });
 
 
-
-
-
-// // Endpoint /login
-// app.post("/login", async (req, res) => {
-
-
-
-//   //funcion para iniciar session con los valores del usuario
-// const  SessionStart=()=>{
-//   const  consulta = "SELECT * FROM usuarios WHERE usuario = ?";
-//   // try {
-//     // const promesaDB = await new Promise((resolve, reject) => {
-//     db.query(consulta, values[0], (err, result) => {
-//     if (err) {
-//       console.log("Error en la consulta:", err);
-//           reject("Error en la consulta a la base de datos");
-//     } else {
-          
-//                req.session.usuario= result[0].usuario;
-//                req.session.nombre= result[0].nombre;
-//                req.session.email= result[0].email;
-//                req.session.telefono= result[0].telefono;
-//                req.session.direccion= result[0].direccion;
-//                req.session.sexo= result[0].sexo;
-
-//               console.log(req.session);
-//        }
-//       });
-
-//     // });
-
-
-//   //     }catch (error) {
-//   //   console.error("Error general:", error);
-//   //   return res.status(500).json({ Error: "Error interno del servidor" });
-//   // }
-// }
-
-//   const consulta = "SELECT password FROM usuarios WHERE usuario = ?";
-//   const values = [req.body.usuario, req.body.password];
-
-//   try {
-//     const promesaDB = await new Promise((resolve, reject) => {
-//       db.query(consulta, values[0], (err, result) => {
-//         if (err) {
-//           console.log("Error en la consulta:", err);
-//           reject("Error en la consulta a la base de datos");
-//         } else {
-//           resolve(result);
-//         }
-//       });
-//     });
-//     console.log("Valor de promesaDB:", promesaDB); // Agregar esta línea para imprimir promesaDB
-
-//     if (promesaDB.length > 0) {
-//       const passwordFromDB = promesaDB[0].password;
-//       const IsCorrect = await bcrypt.compare(values[1], passwordFromDB);
-
-//       console.log("IsCorrect:", IsCorrect);
-      
-//       if(IsCorrect){
-//         SessionStart();
-//       }
-
-//       return res.json(
-//         IsCorrect
-//           ?(req.session)
-//           : { Error: "Contraseña incorrecta" }
-//       ); //le paso la url al cliente
-//     } else {
-//       return res.status(201).json({ Error: "No existe el usuario" });
-//     }
-//   } catch (error) {
-//     console.error("Error general:", error);
-//     return res.status(500).json({ Error: "Error interno del servidor" });
-//   }
-// });
 
