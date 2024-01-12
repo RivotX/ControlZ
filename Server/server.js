@@ -114,8 +114,9 @@ app.get("/logout", (req, res) => {
 //Endpoint /getSession
 
 app.get("/getSession",(req,res)=>{
+console.log(req.session);
 
-                  
+  sessionStore.get
 
                   
   res.json(req.session)
@@ -254,8 +255,9 @@ app.post("/login", async (req, res) => {
         req.session.telefono = result[0].telefono;
         req.session.direccion = result[0].direccion;
         req.session.sexo = result[0].sexo;
-        req.session.save();
+        
 
+        console.log(req.session);
         return res.json({ Status: "success", redirectTo: "/principal" });
       } else {
         return res.json({ Error: "Contraseña incorrecta" });
