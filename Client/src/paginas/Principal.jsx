@@ -9,7 +9,7 @@ function Principal() {
   
   const elementoRefGym = useRef(null);
   const elementoRefDieta = useRef(null);
-
+  console.log("ola");
 
   const ampliar = (elemento, number) => {
     elemento.style.backgroundSize = number;

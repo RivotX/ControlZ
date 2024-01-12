@@ -3,6 +3,7 @@ import Navbar from "../componentes/Navbar";
 import Footer from "../componentes/Footer";
 
 function Rutina() {
+  console.log("ola");
   return (
     <div className="container-fluid bg-black min-vh-100 ">
       <Navbar linkHome={"gym"} />

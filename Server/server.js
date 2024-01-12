@@ -4,12 +4,41 @@ import mysql from "mysql";
 import cors from "cors";
 import bcrypt from "bcrypt";
 import Mongoose  from "mongoose";
+import session from 'express-session';
+import MySQLStoreImport from 'express-mysql-session';
 
+const MySQLStore = MySQLStoreImport(session);
+
+
+
+
+//hash para contraseña
 const salt = 10;
+
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
+
+
+//sessiones guardar
+const sessionStore = new MySQLStore({
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: '',
+  database: 'controlz_sessions', // Ajusta esto según tu configuración
+});
+
+app.use(session({
+  secret: 'secreto',
+  resave: false,
+  saveUninitialized: false,
+  store:sessionStore,
+}));
 
 
 
@@ -54,13 +83,6 @@ const rutinaSchema= new Mongoose.Schema({
 const CreaRutina = Mongoose.model("rutina", rutinaSchema)
 
 
-
-
-
-
-
-
-
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -71,6 +93,35 @@ const db = mysql.createConnection({
 app.listen(8081, () => {
   console.log("servidor corriendo...");
 });
+
+
+//Endpoint /logout
+
+app.get("/logout", (req, res) => {
+  // Destruir la sesión actual
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error al cerrar sesión:', err);
+    } else {
+      console.log('Sesión cerrada exitosamente');
+      
+    }
+  });
+});
+
+
+
+//Endpoint /getSession
+
+app.get("/getSession",(req,res)=>{
+console.log(req.session);
+
+  sessionStore.get
+
+                  
+  res.json(req.session)
+});
+
 
 // Endpoint /registro
 
@@ -174,14 +225,16 @@ app.post("/existeregistro", async (req, res) => {
   }
 });
 
-// Endpoint /login
+
+
+//SESSION Y LOGIN MEJORADO --las sessiones inician al logearse¡¡¡¡
 app.post("/login", async (req, res) => {
-  const consulta = "SELECT password FROM usuarios WHERE usuario = ?";
-  const values = [req.body.usuario, req.body.password];
+  const consulta = "SELECT * FROM usuarios WHERE usuario = ?";
+  const values = [req.body.usuario];
 
   try {
-    const promesaDB = await new Promise((resolve, reject) => {
-      db.query(consulta, values[0], (err, result) => {
+    const result = await new Promise((resolve, reject) => {
+      db.query(consulta, values, (err, result) => {
         if (err) {
           console.log("Error en la consulta:", err);
           reject("Error en la consulta a la base de datos");
@@ -190,19 +243,25 @@ app.post("/login", async (req, res) => {
         }
       });
     });
-    console.log("Valor de promesaDB:", promesaDB); // Agregar esta línea para imprimir promesaDB
 
-    if (promesaDB.length > 0) {
-      const passwordFromDB = promesaDB[0].password;
-      const IsCorrect = await bcrypt.compare(values[1], passwordFromDB);
+    if (result.length > 0) {
+      const passwordFromDB = result[0].password;
+      const IsCorrect = await bcrypt.compare(req.body.password, passwordFromDB);
 
-      console.log("IsCorrect:", IsCorrect);
+      if (IsCorrect) {
+        req.session.usuario = result[0].usuario;
+        req.session.nombre = result[0].nombre;
+        req.session.email = result[0].email;
+        req.session.telefono = result[0].telefono;
+        req.session.direccion = result[0].direccion;
+        req.session.sexo = result[0].sexo;
+        
 
-      return res.json(
-        IsCorrect
-          ? { Status: "success", redirectTo: "/principal" }
-          : { Error: "Contraseña incorrecta" }
-      ); //le paso la url al cliente
+        console.log(req.session);
+        return res.json({ Status: "success", redirectTo: "/principal" });
+      } else {
+        return res.json({ Error: "Contraseña incorrecta" });
+      }
     } else {
       return res.status(201).json({ Error: "No existe el usuario" });
     }
@@ -211,4 +270,6 @@ app.post("/login", async (req, res) => {
     return res.status(500).json({ Error: "Error interno del servidor" });
   }
 });
+
+
 

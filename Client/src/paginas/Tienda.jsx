@@ -53,7 +53,7 @@ function Tienda() {
     };
   }, [ModalAbierto]);
 
-
+  console.log("ola");
 
   return (
     <>
