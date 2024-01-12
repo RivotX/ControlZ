@@ -36,7 +36,7 @@ function Gym() {
 
 
   return (
-    <div className="bg-black  min-vh-100 bodygym">
+    <div className="bg-black min-vh-100 bodygym">
 
       <Navbar linkHome={"#"} />
 
@@ -62,7 +62,7 @@ function Gym() {
                       mostrarTexto ? (
                         <span className=" tw-text-white tw-font-semibold">Ocultar</span>
                       ) : (
-                        <span className=" tw-text-white tw-font-semibold">Ver    </span>
+                        <span className=" tw-text-white tw-font-semibold">Ver más</span>
                       )
 
                     }
@@ -79,7 +79,7 @@ function Gym() {
       <div className="container-fluid">
         <div className="container text-center">
           <div className="mb-3">
-            <div className="mb-2 text-center  tw-justify-center d-flex tw-w-full">
+            <div className="mb-2 text-center tw-justify-center d-flex tw-w-full">
               <h1 className="titulobienvenidagym fw-semibold">Servicios</h1>
             </div>
           </div>
@@ -126,14 +126,14 @@ function Gym() {
       >
         <div className="container mt-3 mb-4 contenedortitulogym ">
           <div className="mb-3">
-            <div className="mx-auto mt-4 mb-2 text-center  d-flex align-items-center justify-content-center">
-              <h1 className="mt-4  titulobienvenidagym fw-semibold tw-text-4xl md:tw-text-5xl lg:tw-text-6xl tw-w-full">
+            <div className="mx-auto mt-4 mb-2 text-center d-flex align-items-center justify-content-center">
+              <h1 className="mt-4 titulobienvenidagym fw-semibold tw-text-4xl md:tw-text-5xl lg:tw-text-6xl tw-w-full">
                 Comienza el cambio (usuario)
               </h1>
             </div>
           </div>
 
-          <div className="mx-auto mt-4  descgym text-secondary d-flex align-items-center justify-content-center">
+          <div className="mx-auto mt-4 descgym text-secondary d-flex align-items-center justify-content-center">
             <p className="mb-4 tw-text-center tw-w-4/5">
               En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo. ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
             </p>
@@ -141,7 +141,7 @@ function Gym() {
         </div>
       </div>
 
-      <div className="mx-auto  d-flex align-items-center justify-content-center tw-mb-16">
+      <div className="mx-auto d-flex align-items-center justify-content-center tw-mb-16">
         <div className="text-center contenedorgym ">
           <h1 className="textgym">
             CONSTRUYE<span id="wanana">TU LEGADO</span>

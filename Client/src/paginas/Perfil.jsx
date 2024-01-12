@@ -55,13 +55,13 @@ function Perfil() {
 
 
   return (
-    <div className="container-fluid min-vh-100 bodyperfil px-0">
+    <div className="px-0 container-fluid min-vh-100 bodyperfil">
       <Navbar linkHome={"/gym"} />
-      <div className="container-fluid fondoperfil mb-4 ">
-        <div className="circulo container-fluid mb-3">
+      <div className="mb-4 container-fluid fondoperfil ">
+        <div className="mb-3 circulo container-fluid">
           <div className=" justify-content-center d-flex">
-            <div className="borde mb-2 mt-2">
-              <div className="card-body text-center mt-5  ">
+            <div className="mt-2 mb-2 borde">
+              <div className="mt-5 text-center card-body ">
                 <img
                
                   id="flecha"
@@ -82,13 +82,13 @@ function Perfil() {
         </div>
       </div>
       <div className="container-fluid col-lg-8">
-        {/* <div className="card mb-4">
+        {/* <div className="mb-4 card">
             <div className="row">
               <div className="col-sm-3">
                 <p className="mb-0">Nombre Completo</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">
+                <p className="mb-0 text-muted">
                   <?php echo $_SESSION["nombre"]; ?> 
                 </p>
             </div>
@@ -99,7 +99,7 @@ function Perfil() {
               <p className="mb-0">Email</p>
             </div>
             <div className="col-sm-9">
-              <p className="text-muted mb-0">
+              <p className="mb-0 text-muted">
                  <?php echo $_SESSION["email"]; ?> 
               </p>
             </div>
@@ -110,7 +110,7 @@ function Perfil() {
               <p className="mb-0">Teléfono Móvil</p>
             </div>
             <div className="col-sm-9">
-              <p className="text-muted mb-0">
+              <p className="mb-0 text-muted">
                  <?php echo $_SESSION["telefono"]; ?> 
               </p>
             </div>
@@ -121,7 +121,7 @@ function Perfil() {
               <p className="mb-0">Dirección</p>
             </div>
             <div className="col-sm-9">
-              <p className="text-muted mb-0">
+              <p className="mb-0 text-muted">
                 <?php echo $_SESSION["direccion"]; ?> 
               </p>
             </div>
@@ -180,7 +180,7 @@ function Perfil() {
         </MDBCol>
         <div className="row ">
           <div className="col-md-6">
-            <div className="card mb-4 mb-md-0">
+            <div className="mb-4 card mb-md-0">
               <div className="card-body">
                 <p className="mb-4">
                   <span className="text-primary font-italic me-1">Progreso</span>{" "}
@@ -189,7 +189,7 @@ function Perfil() {
                 <p className="mb-1" style={{ fontSize: "0.77rem" }}>
                   Brazos
                 </p>
-                <div className="progress rounded" style={{ height: "5px;" }}>
+                <div className="rounded progress" style={{ height: "5px;" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -202,7 +202,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Pecho
                 </p>
-                <div className="progress rounded" style={{ height: "5px" }}>
+                <div className="rounded progress" style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -215,7 +215,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Espalda
                 </p>
-                <div className="progress rounded" style={{ height: "5px" }}>
+                <div className="rounded progress" style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -228,7 +228,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Piernas
                 </p>
-                <div className="progress rounded" style={{ height: "5px" }}>
+                <div className="rounded progress" style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -241,7 +241,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Abdominales
                 </p>
-                <div className="progress rounded mb-2 " style={{ height: "5px" }}>
+                <div className="mb-2 rounded progress " style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -254,8 +254,8 @@ function Perfil() {
               </div>
             </div>
           </div>
-          <div className="col-md-6 mb-3">
-            <div className="card mb-4 mb-md-0">
+          <div className="mb-3 col-md-6">
+            <div className="mb-4 card mb-md-0">
               <div className="card-body">
                 <p className="mb-4">
                   <span className="text-primary font-italic me-1">Progreso</span>{" "}
@@ -264,7 +264,7 @@ function Perfil() {
                 <p className="mb-1" style={{ fontSize: "0.77rem" }}>
                   Proteínas
                 </p>
-                <div className="progress rounded" style={{ height: "5px" }}>
+                <div className="rounded progress" style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -277,7 +277,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Hidratos
                 </p>
-                <div className="progress rounded" style={{ height: "5px" }}>
+                <div className="rounded progress" style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -290,7 +290,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Verduras
                 </p>
-                <div className="progress rounded" style={{ height: "5px" }}>
+                <div className="rounded progress" style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -303,7 +303,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Cantidad de Agua
                 </p>
-                <div className="progress rounded" style={{ height: "5px" }}>
+                <div className="rounded progress" style={{ height: "5px" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -316,7 +316,7 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Fruta
                 </p>
-                <div className="progress rounded mb-2" style={{ height: "5px;" }}>
+                <div className="mb-2 rounded progress" style={{ height: "5px;" }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
