@@ -3,6 +3,7 @@ import Navbar from "../componentes/Navbar";
 import Footer from "../componentes/Footer";
 import fotoHombre from "../img/hombre.png";
 import fotoMujer from "../img/mujer.png";
+import { useRef } from "react";
 import {
   MDBCol,
   MDBContainer,
@@ -22,6 +23,7 @@ import {
 } from "mdb-react-ui-kit";
 import axios from "axios";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function Perfil() {
   const [nombre, setNombre]= useState("");
@@ -29,10 +31,11 @@ function Perfil() {
   const [Telefono, setTelefono]= useState("")
   const [direccion, setDireccion]= useState("")
 
-  
-  console.log("ola");
-
-  
+  const countRef = useRef(count);
+ 
+  useEffect(() => {
+    console.log(window.onload);
+  }, [countRef]);
 
 
  
