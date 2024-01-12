@@ -1,4 +1,4 @@
-export default ola;
+export default Ola;
 
 function Ola() {
   console.log("ola");
