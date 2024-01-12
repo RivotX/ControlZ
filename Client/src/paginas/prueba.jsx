@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-export default Ola;
+export default ola;
 
 function Ola() {
   useEffect(),[];
