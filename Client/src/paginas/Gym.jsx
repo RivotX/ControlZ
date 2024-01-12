@@ -43,9 +43,9 @@ function Gym() {
       <div className=" bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <div className="container">
           <div className="flex-wrap mt-5 row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
-            <div className="tw-mt-3 md:tw-mt-4 lg:tw-mt-10 xl:tw-mt-12 text-white bg-transparent border-0 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
+            <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-10 xl:tw-mt-12 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
-              <div className="mb-2 border-0 card-header fw-semibold " style={{ fontSize: '450%' }}>
+              <div className="border-0 md:tw-mb-2 card-header fw-semibold " style={{ fontSize: '450%' }}>
                 ControlZ
               </div>
               <div className="card-body textobienvenidagimnasio">
