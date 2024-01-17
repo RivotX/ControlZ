@@ -5,9 +5,9 @@ import cors from "cors";
 import bcrypt from "bcrypt";
 import Mongoose  from "mongoose";
 import session from 'express-session';
-import MySQLStoreImport from 'express-mysql-session';
 
-const MySQLStore = MySQLStoreImport(session);
+
+
 
 
 
@@ -17,28 +17,29 @@ const salt = 10;
 
 
 const app = express();
+
 app.use(express.json());
+
 app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true,
 }));
 
 
-//sessiones guardar
-const sessionStore = new MySQLStore({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: '',
-  database: 'controlz_sessions', // Ajusta esto según tu configuración
-});
+
 
 app.use(session({
+  key: 'tu_clave_personalizada',
   secret: 'secreto',
-  resave: false,
-  saveUninitialized: false,
-  store:sessionStore,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24, // 1 día en milisegundos
+    httpOnly: true,
+    secure: false, // Establece a true si estás usando HTTPS
+  },
+  resave: true,
+  saveUninitialized: true,
 }));
+
 
 
 
@@ -99,14 +100,17 @@ app.listen(8081, () => {
 
 app.get("/logout", (req, res) => {
   // Destruir la sesión actual
+
+   
+
   req.session.destroy((err) => {
-    if (err) {
-      console.error('Error al cerrar sesión:', err);
-    } else {
-      console.log('Sesión cerrada exitosamente');
+     if (err) {
+       console.error('Error al cerrar sesión:', err);
+     } else {
+       console.log('Sesión cerrada exitosamente');
       
-    }
-  });
+     }
+   });
 });
 
 
@@ -116,7 +120,7 @@ app.get("/logout", (req, res) => {
 app.get("/getSession",(req,res)=>{
 console.log(req.session);
 
-  sessionStore.get
+  
 
                   
   res.json(req.session)
@@ -258,7 +262,7 @@ app.post("/login", async (req, res) => {
         
 
         console.log(req.session);
-        return res.json({ Status: "success", redirectTo: "/principal" });
+        return res.send({status: "correcto", redirectTo: "/principal"});
       } else {
         return res.json({ Error: "Contraseña incorrecta" });
       }

@@ -36,7 +36,7 @@ function Perfil() {
 
 
 
-  axios.get('http://localhost:8081/getSession') //envia values a "servidor/registro"
+  axios.get('http://localhost:8081/getSession',{ withCredentials: true }) //envia values a "servidor/registro"
       .then((res) => {
         setNombre(res.data.nombre);
         setEmail(res.data.email);
