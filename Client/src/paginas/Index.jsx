@@ -5,7 +5,7 @@ import amorr from "../img/amorr.png"
 
 function Index() {
 
- 
+
 
   const [values, setValues] = useState({
     usuario: "",
@@ -47,7 +47,7 @@ function Index() {
   const [showMensajeInicio, setshowMensajeInicio] = useState(false);
   const [showMensajeNoExiste, setshowMensajeNoExiste] = useState(false);
 
-  
+
 
   const btnComenzar = () => {
     vaciarCampos();
@@ -56,7 +56,7 @@ function Index() {
     setVisibleRegistro2(false);
     setVisibleIniciarSesion(true);
 
-    
+
 
 
 
@@ -226,18 +226,18 @@ function Index() {
     event.preventDefault();
     axios.post('http://localhost:8081/login', { usuario: values.usuario, password: values.password }, { withCredentials: true })
       .then(res => {
- axios.get('http://localhost:8081/getSession', { withCredentials: true }) //envia values a "servidor/registro"
-      .then((res) => {
-        
-        console.log(res)
+        axios.get('http://localhost:8081/getSession', { withCredentials: true }) //envia values a "servidor/registro"
+          .then((res) => {
 
-      })
-      .catch(err => console.error(err))
+            console.log(res)
+
+          })
+          .catch(err => console.error(err))
 
         console.log(res);
         if (res.data.redirectTo != undefined) {
 
-         window.location.href = res.data.redirectTo
+          window.location.href = res.data.redirectTo
 
         } else if (res.request.response == "{\"Error\":\"Contraseña incorrecta\"}") {
           setshowMensajeNoExiste(false);
@@ -603,5 +603,5 @@ function Index() {
 
     </div>
   );
-  
+
 }
