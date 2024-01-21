@@ -281,7 +281,7 @@ function Index() {
               <div className="col-4">
                 <a
                   className="mb-2 text-white btn w-100"
-                  style={{ backgroundColor: "#ffe60000" }} //aqui hay un error
+                  style={{ backgroundColor: "#ffe60000" }}
                   href="https://www.whatsapp.com"
                   role="button"
                 >
