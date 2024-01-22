@@ -3,47 +3,36 @@ import express from "express";
 import mysql from "mysql";
 import cors from "cors";
 import bcrypt from "bcrypt";
-import Mongoose  from "mongoose";
-import session from 'express-session';
-
-
-
-
-
-
+import Mongoose from "mongoose";
+import session from "express-session";
 
 //hash para contraseña
 const salt = 10;
-
 
 const app = express();
 
 app.use(express.json());
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
-
-
-
-app.use(session({
-  key: 'tu_clave_personalizada',
-  secret: 'secreto',
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24, // 1 día en milisegundos
-    httpOnly: true,
-    secure: false, // Establece a true si estás usando HTTPS
-  },
-  resave: true,
-  saveUninitialized: true,
-}));
-
-
-
-
-
+app.use(
+  session({
+    key: "tu_clave_personalizada",
+    secret: "secreto",
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // 1 día en milisegundos
+      httpOnly: true,
+      secure: false, // Establece a true si estás usando HTTPS
+    },
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 //Mongoose mongodb base de datos rutina
 
@@ -55,32 +44,28 @@ Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
     console.error("Error de conexión a MongoDB:", error);
   });
 
- 
 const mongodb = Mongoose.connection;
 
-
-const diasSchema= new Mongoose.Schema({
-  ejercicio:{
-    id:Number,
-    series:Number,
-    repeticiones:Number,
-}});
-
-
-const rutinaSchema= new Mongoose.Schema({
-  id: String,
-  lunes:[diasSchema],
-  martes:[diasSchema],
-  miercoles:[diasSchema],
-  jueves:[diasSchema],
-  viernes:[diasSchema],
-  sabado:[diasSchema],
-  domingo:[diasSchema],
-  
+const diasSchema = new Mongoose.Schema({
+  ejercicio: {
+    id: Number,
+    series: Number,
+    repeticiones: Number,
+  },
 });
 
-const CreaRutina = Mongoose.model("rutina", rutinaSchema)
+const rutinaSchema = new Mongoose.Schema({
+  id: String,
+  lunes: [diasSchema],
+  martes: [diasSchema],
+  miercoles: [diasSchema],
+  jueves: [diasSchema],
+  viernes: [diasSchema],
+  sabado: [diasSchema],
+  domingo: [diasSchema],
+});
 
+const CreaRutina = Mongoose.model("rutina", rutinaSchema);
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -93,33 +78,43 @@ app.listen(8081, () => {
   console.log("servidor corriendo...");
 });
 
-
 //Endpoint /logout
 
 app.get("/logout", (req, res) => {
   // Destruir la sesión actual
 
-   
-
   req.session.destroy((err) => {
-     if (err) {
-       console.error('Error al cerrar sesión:', err);
-     } else {
-       console.log('Sesión cerrada exitosamente');
-      
-     }
-   });
+    if (err) {
+      console.error("Error al cerrar sesión:", err);
+    } else {
+      console.log("Sesión cerrada exitosamente");
+    }
+  });
 });
-
 
 //Endpoint /getSession
 
-app.get("/getSession",(req,res)=>{
-console.log(req.session);
+app.get("/getSession", (req, res) => {
+  console.log(req.session);
 
-  res.json(req.session)
+  res.json(req.session);
 });
 
+//Endpoint /getrutina
+app.post("/getrutina", async (req, res) => {
+  const user = req.body.usuario;
+  
+  try {
+    const Schema = new Mongoose.Schema({}, { strict: false });
+    
+    const datos = await CreaRutina.find({ id: user });
+    console.log(datos);
+    res.json(datos);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ mensaje: "Error al obtener datos" });
+  }
+});
 
 // Endpoint /registro
 
@@ -141,25 +136,25 @@ app.post("/registro", (req, res) => {
         // req.body.sexo
       ];
       const rutina = new CreaRutina({
-        id:req.body.usuario,
-        
-        lunes:[],
-        martes:[],
-        miercoles:[],
-        jueves:[],
-        viernes:[],
-        sabado:[],
-        domingo:[],
+        id: req.body.usuario,
+
+        lunes: [],
+        martes: [],
+        miercoles: [],
+        jueves: [],
+        viernes: [],
+        sabado: [],
+        domingo: [],
       });
 
-      rutina.save()
+      rutina
+        .save()
         .then((resultado) => {
           console.log(resultado);
         })
         .catch((err) => {
           console.error(err);
         });
-      
 
       db.query(consulta, values, (err, result) => {
         if (err) {
@@ -216,14 +211,13 @@ app.post("/existeregistro", async (req, res) => {
     } else {
       return res.json({ Status: "Success" });
     }
-    
   } catch (error) {
     console.error("Error en la base de datos:", error);
-    return res.status(500).json({ Error: "Error al comprobar existencia del registro" });
+    return res
+      .status(500)
+      .json({ Error: "Error al comprobar existencia del registro" });
   }
 });
-
-
 
 //SESSION Y LOGIN MEJORADO --las sessiones inician al logearse¡¡¡¡
 app.post("/login", async (req, res) => {
@@ -253,10 +247,9 @@ app.post("/login", async (req, res) => {
         req.session.telefono = result[0].telefono;
         req.session.direccion = result[0].direccion;
         req.session.sexo = result[0].sexo;
-        
 
         console.log(req.session);
-        return res.send({status: "correcto", redirectTo: "/principal"});
+        return res.send({ status: "correcto", redirectTo: "/principal" });
       } else {
         return res.json({ Error: "Contraseña incorrecta" });
       }
@@ -268,6 +261,3 @@ app.post("/login", async (req, res) => {
     return res.status(500).json({ Error: "Error interno del servidor" });
   }
 });
-
-
-
