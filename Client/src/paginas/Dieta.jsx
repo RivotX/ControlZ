@@ -87,7 +87,7 @@ function Dieta() {
 // <div className="container-fluid bodyDieta">
 //   <div className="container-fluid">
 //     <button
-//       className="botonDieta  btn "
+//       className="botonDieta btn "
 //       type="button"
 //       data-bs-toggle="offcanvas"
 //       data-bs-target="#offcanvasWithBothOptions"
@@ -105,7 +105,7 @@ function Dieta() {
 //       </svg>
 //     </button>
 
-//     <div className=" container fs-1">
+//     <div className="container fs-1">
 //       <b>
 //         <a className="titulo1Dieta" href="/gym">
 //           <svg
@@ -156,7 +156,7 @@ function Dieta() {
 //     <div className="contCalorias containe">
 //       <img className="imgK" src={fotoPaint} alt="" />
 //     </div>
-//     <div className="alimentos container">
+//     <div className="container alimentos">
 //       <div className="row">
 //         <div className="col-3 desayuno">
 //           Desayuno{" "}
@@ -173,7 +173,7 @@ function Dieta() {
 //               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
 //             </svg>
 //           </button>
-//           <div className="container cuadroInfo mt-5 w-75">
+//           <div className="container mt-5 cuadroInfo w-75">
 //             Por favor pulse el icono &nbsp
 //             <svg
 //               xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +205,7 @@ function Dieta() {
 //               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
 //             </svg>
 //           </button>
-//           <div className="container cuadroInfo mt-5 w-75">
+//           <div className="container mt-5 cuadroInfo w-75">
 //             Por favor pulse el icono &nbsp
 //             <svg
 //               xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +237,7 @@ function Dieta() {
 //               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
 //             </svg>
 //           </button>
-//           <div className="container cuadroInfo mt-5 w-75">
+//           <div className="container mt-5 cuadroInfo w-75">
 //             Por favor pulse el icono &nbsp
 //             <svg
 //               xmlns="http://www.w3.org/2000/svg"
@@ -269,7 +269,7 @@ function Dieta() {
 //               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
 //             </svg>
 //           </button>
-//           <div className="container cuadroInfo mt-5 w-75">
+//           <div className="container mt-5 cuadroInfo w-75">
 //             Por favor pulse el icono &nbsp
 //             <svg
 //               xmlns="http://www.w3.org/2000/svg"

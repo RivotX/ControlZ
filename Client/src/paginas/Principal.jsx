@@ -6,7 +6,7 @@ import 'animate.css';
 
 function Principal() {
 
-  
+
   const elementoRefGym = useRef(null);
   const elementoRefDieta = useRef(null);
   console.log("ola");
@@ -19,7 +19,7 @@ function Principal() {
     elemento.style.backgroundSize = "180%";
   };
   return (
-    <div className="bg-bg-black " style={{overflow:"hidden"}}>
+    <div className="bg-bg-black " style={{ overflow: "hidden" }}>
       {/* <?php
     include_once("../php/consultas.php");
     if(isset($_POST["usuarioInicio"])&&isset($_POST["claveInicio"])&&Consultas::ComprobarInicio($_POST["usuarioInicio"],$_POST["claveInicio"]) ){ 
@@ -41,7 +41,7 @@ function Principal() {
         <div className="row ">
           <div className="col-6 caja animate__animated animate__fadeInLeft">
             <a className="ApartadosAElegir" href="gym">
-              <h2 className="descripcion1 text-center">
+              <h2 className="text-center descripcion1">
                 En esta sección de nuestro sitio web de gimnasio, te sumergirás
                 en un mundo de rutinas de entrenamiento diseñadas para abordar
                 diversos objetivos fitness. Ya seas un principiante en busca de
@@ -61,9 +61,9 @@ function Principal() {
             </a>
           </div>
 
-          <div className="col-6 caja animate__animated  animate__fadeInRight">
+          <div className="col-6 caja animate__animated animate__fadeInRight">
             <a className="ApartadosAElegir" href="dieta">
-              <h2 className="descripcion2 text-center">
+              <h2 className="text-center descripcion2">
                 Con esta herramienta interactiva, te empoderamos para que
                 diseñes una dieta adaptada a tu estilo de vida y objetivos
                 personales, asegurándote de obtener los nutrientes necesarios
