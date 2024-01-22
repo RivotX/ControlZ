@@ -59,8 +59,6 @@ Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
 const mongodb = Mongoose.connection;
 
 
-
-
 const diasSchema= new Mongoose.Schema({
   ejercicio:{
     id:Number,
@@ -114,15 +112,11 @@ app.get("/logout", (req, res) => {
 });
 
 
-
 //Endpoint /getSession
 
 app.get("/getSession",(req,res)=>{
 console.log(req.session);
 
-  
-
-                  
   res.json(req.session)
 });
 
