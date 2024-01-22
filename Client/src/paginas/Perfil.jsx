@@ -26,32 +26,32 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function Perfil() {
-  const [nombre, setNombre]= useState("");
-  const [email, setEmail]= useState("")
-  const [Telefono, setTelefono]= useState("")
-  const [direccion, setDireccion]= useState("")
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("")
+  const [Telefono, setTelefono] = useState("")
+  const [direccion, setDireccion] = useState("")
 
 
 
 
 
 
-  axios.get('http://localhost:8081/getSession',{ withCredentials: true }) //envia values a "servidor/registro"
-      .then((res) => {
-        setNombre(res.data.nombre);
-        setEmail(res.data.email);
-        setTelefono(res.data.telefono);
-        setDireccion(res.data.direccion);
-        console.log(res)
+  axios.get('http://localhost:8081/getSession', { withCredentials: true }) //envia values a "servidor/registro"
+    .then((res) => {
+      setNombre(res.data.nombre);
+      setEmail(res.data.email);
+      setTelefono(res.data.telefono);
+      setDireccion(res.data.direccion);
+      console.log(res)
 
-      })
-      .catch(err => console.error(err))
-
-
+    })
+    .catch(err => console.error(err))
 
 
 
- console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
+
+
+  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
 
 
   return (
@@ -63,7 +63,7 @@ function Perfil() {
             <div className="mt-2 mb-2 borde">
               <div className="mt-5 text-center card-body ">
                 <img
-               
+
                   id="flecha"
                   src={fotoMujer}
                   alt="avatar"
@@ -75,7 +75,7 @@ function Perfil() {
                 </h5>
                 <p className="mb-1 text-white">Full Stack Developer</p>
                 <p className="mb-2 text-white">Cullar Zaidin</p>
-                
+
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                   {nombre}
+                    {nombre}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -163,8 +163,8 @@ function Perfil() {
                 </MDBCol>
               </MDBRow>
               <hr />
-              
-              
+
+
               <MDBRow>
                 <MDBCol sm="3">
                   <MDBCardText>Address</MDBCardText>
