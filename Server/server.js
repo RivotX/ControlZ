@@ -101,6 +101,23 @@ app.get("/getSession", (req, res) => {
 });
 
 
+//Endpoint /getrutina
+app.post("/getrutina", async (req, res) => {
+  const user = req.body.usuario;
+  
+  try {
+    const Schema = new Mongoose.Schema({}, { strict: false });
+    
+    const datos = await CreaRutina.find({ id: user });
+    console.log(datos);
+    res.json(datos);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ mensaje: "Error al obtener datos" });
+  }
+});
+
+
 // Endpoint /registro
 
 app.post("/registro", (req, res) => {
