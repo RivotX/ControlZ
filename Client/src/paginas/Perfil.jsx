@@ -27,32 +27,22 @@ import { useEffect } from "react";
 
 function Perfil() {
   const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("")
-  const [Telefono, setTelefono] = useState("")
-  const [direccion, setDireccion] = useState("")
+  const [email, setEmail] = useState("");
+  const [Telefono, setTelefono] = useState("");
+  const [direccion, setDireccion] = useState("");
 
-
-
-
-
-
-  axios.get('http://localhost:8081/getSession', { withCredentials: true }) //envia values a "servidor/registro"
+  axios
+    .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
     .then((res) => {
       setNombre(res.data.nombre);
       setEmail(res.data.email);
       setTelefono(res.data.telefono);
       setDireccion(res.data.direccion);
-      console.log(res)
-
+      console.log(res);
     })
-    .catch(err => console.error(err))
+    .catch((err) => console.error(err));
 
-
-
-
-
-  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
-
+  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
 
   return (
     <div className="px-0 container-fluid min-vh-100 bodyperfil">
@@ -63,7 +53,6 @@ function Perfil() {
             <div className="mt-2 mb-2 borde">
               <div className="mt-5 text-center card-body ">
                 <img
-
                   id="flecha"
                   src={fotoMujer}
                   alt="avatar"
@@ -75,7 +64,6 @@ function Perfil() {
                 </h5>
                 <p className="mb-1 text-white">Full Stack Developer</p>
                 <p className="mb-2 text-white">Cullar Zaidin</p>
-
               </div>
             </div>
           </div>
@@ -135,9 +123,7 @@ function Perfil() {
                   <MDBCardText>Full Name</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">
-                    {nombre}
-                  </MDBCardText>
+                  <MDBCardText className="text-muted">{nombre}</MDBCardText>
                 </MDBCol>
               </MDBRow>
               <hr />
@@ -146,9 +132,7 @@ function Perfil() {
                   <MDBCardText>Email</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">
-                    {email}
-                  </MDBCardText>
+                  <MDBCardText className="text-muted">{email}</MDBCardText>
                 </MDBCol>
               </MDBRow>
               <hr />
@@ -157,22 +141,17 @@ function Perfil() {
                   <MDBCardText>Phone</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">
-                    {Telefono}
-                  </MDBCardText>
+                  <MDBCardText className="text-muted">{Telefono}</MDBCardText>
                 </MDBCol>
               </MDBRow>
               <hr />
-
 
               <MDBRow>
                 <MDBCol sm="3">
                   <MDBCardText>Address</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">
-                    {direccion}
-                  </MDBCardText>
+                  <MDBCardText className="text-muted">{direccion}</MDBCardText>
                 </MDBCol>
               </MDBRow>
             </MDBCardBody>
@@ -183,7 +162,9 @@ function Perfil() {
             <div className="mb-4 card mb-md-0">
               <div className="card-body">
                 <p className="mb-4">
-                  <span className="text-primary font-italic me-1">Progreso</span>{" "}
+                  <span className="text-primary font-italic me-1">
+                    Progreso
+                  </span>{" "}
                   Gimnasio
                 </p>
                 <p className="mb-1" style={{ fontSize: "0.77rem" }}>
@@ -241,7 +222,10 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Abdominales
                 </p>
-                <div className="mb-2 rounded progress " style={{ height: "5px" }}>
+                <div
+                  className="mb-2 rounded progress "
+                  style={{ height: "5px" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -258,7 +242,9 @@ function Perfil() {
             <div className="mb-4 card mb-md-0">
               <div className="card-body">
                 <p className="mb-4">
-                  <span className="text-primary font-italic me-1">Progreso</span>{" "}
+                  <span className="text-primary font-italic me-1">
+                    Progreso
+                  </span>{" "}
                   Dieta
                 </p>
                 <p className="mb-1" style={{ fontSize: "0.77rem" }}>
@@ -316,7 +302,10 @@ function Perfil() {
                 <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
                   Fruta
                 </p>
-                <div className="mb-2 rounded progress" style={{ height: "5px;" }}>
+                <div
+                  className="mb-2 rounded progress"
+                  style={{ height: "5px;" }}
+                >
                   <div
                     className="progress-bar"
                     role="progressbar"
