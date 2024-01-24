@@ -4,6 +4,7 @@ import Footer from "../componentes/Footer";
 import TablaRutina from "../componentes/TablaRutina";
 import axios from "axios";
 
+
 function Rutina() {
   
   return (

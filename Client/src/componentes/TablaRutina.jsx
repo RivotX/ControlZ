@@ -10,28 +10,36 @@ const TablaRutina = () => {
   const [sabado, setSabado] = useState([]);
   const [domingo, setDomingo] = useState([]);
 
-  
+  var usuario={};
+  useEffect(() => {
+    axios.get('http://localhost:8081/getSession',{ withCredentials: true }) //envia values a "servidor/registro"
+    .then((res) => {
+      usuario = {"usuario": res.data.usuario};
+console.log(res);
+      axios.post('http://localhost:8081/getrutina',usuario)
+      .then((res)=>{
+        console.log(res.data[0]);
+        
+        setLunes(res.data[0].lunes);
+        setMartes(res.data[0].martes);
+        setMiercoles(res.data[0].miercoles);
+        setJueves(res.data[0].jueves);
+        setViernes(res.data[0].viernes);
+        setSabado(res.data[0].sabado);
+        setDomingo(res.data[0].domingo);
+      
+        
+      })
+      .catch()
+    })
+    .catch(err => console.error(err)) // Llamada a la función al cargar el componente
+
+  }, []); // El segundo argumento (un array vacío) asegura que useEffect se ejecute solo una vez al montar el componente
  
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miercoles</th>
-            <th>Jueves</th>
-            <th>Viernes</th>
-            <th>Sabado</th>
-            <th>Domingo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            
-          </tr>
-        </tbody>
-      </table>
+      
+      
     </div>
   );
 };
