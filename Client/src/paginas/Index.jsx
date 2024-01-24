@@ -153,7 +153,7 @@ function Index() {
     setVisibleIniciarSesion(true);
   };
 
-  const RegistroExistente = () => {};
+  const RegistroExistente = () => { };
 
   //servidor
 

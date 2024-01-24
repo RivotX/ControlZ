@@ -1,10 +1,14 @@
 // set up
 import express from "express";
 import mysql from "mysql";
-import cors from "cors";
+import cors from "cors"; 
 import bcrypt from "bcrypt";
 import Mongoose from "mongoose";
 import session from "express-session";
+import { getRutina } from "./controllers/rutinaController.js";
+import { db } from "./config/db.js";
+import { CreaRutina } from "./models/rutinaModel.js";
+
 
 //hash para contraseña
 const salt = 10;
@@ -65,14 +69,9 @@ const rutinaSchema = new Mongoose.Schema({
   domingo: [diasSchema],
 });
 
-const CreaRutina = Mongoose.model("rutina", rutinaSchema);
+// const CreaRutina = Mongoose.model("rutina", rutinaSchema);
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "controlz",
-});
+
 
 app.listen(8081, () => {
   console.log("servidor corriendo...");
@@ -100,21 +99,24 @@ app.get("/getSession", (req, res) => {
   res.json(req.session);
 });
 
-//Endpoint /getrutina
-app.post("/getrutina", async (req, res) => {
-  const user = req.body.usuario;
+// //Endpoint /getrutina
+// app.post("/getrutina", async (req, res) => {
+//   const user = req.body.usuario;
 
-  try {
-    const Schema = new Mongoose.Schema({}, { strict: false });
+//   try {
+//     const Schema = new Mongoose.Schema({}, { strict: false });
 
-    const datos = await CreaRutina.find({ id: user });
-    console.log(datos);
-    res.json(datos);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ mensaje: "Error al obtener datos" });
-  }
-});
+//     const datos = await CreaRutina.find({ id: user });
+//     console.log(datos);
+//     res.json(datos);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ mensaje: "Error al obtener datos" });
+//   }
+// });
+
+app.use("/getrutina", getRutina);
+
 
 // Endpoint /registro
 
