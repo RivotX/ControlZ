@@ -116,6 +116,14 @@ app.post("/getrutina", async (req, res) => {
   }
 });
 
+//End /saveRutina
+app.post("/saveRutina",async (req,res)=>{
+
+  const {user, lunes, martes, miercoles, jueves, viernes, sabado, domingo } = req.body;
+
+
+});
+
 // Endpoint /registro
 
 app.post("/registro", (req, res) => {
