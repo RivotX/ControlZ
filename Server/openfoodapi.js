@@ -34,7 +34,7 @@ function obtenerInformacionProductos(nombreProducto) {
         // Extraer información específica de cada producto
         const nombre = producto.product_name || "Nombre no disponible";
         const calorias =
-          producto.nutriments?.["energy-kcal_100g"] || "No disponible";
+          producto.nutriments?.["energy-kcal_100g"] || "No disponible"; //las interrogaciones son para que si profucto.nutriments es null o undefined la espuesta sea undefined en vez de un error
         const proteinas =
           producto.nutriments?.["proteins_100g"] || "No disponible";
         const grasas = producto.nutriments?.["fat_100g"] || "No disponible";
