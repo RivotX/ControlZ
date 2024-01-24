@@ -118,6 +118,14 @@ app.get("/getSession", (req, res) => {
 app.use("/getrutina", getRutina);
 
 
+//End /saveRutina
+app.post("/saveRutina",async (req,res)=>{
+
+  const {user, lunes, martes, miercoles, jueves, viernes, sabado, domingo } = req.body;
+
+
+});
+
 // Endpoint /registro
 
 app.post("/registro", (req, res) => {
