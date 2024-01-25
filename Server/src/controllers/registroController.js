@@ -8,7 +8,7 @@ const registro = async (req, res) => {
     "INSERT INTO usuarios (`usuario`, `password`,`nombre`,`email` ,`telefono` ,`direccion` ) VALUES (?,?,?,?,?,?)";
   //hasheo de la contraseña, (error,hash) es el ultimo parametro que recibe la funcion de bcrypt, llamado funcion de callback.
 
-  const salt = 10; 
+  const salt = 10;
 
   bcrypt.hash(req.body.password.toString(), salt, (error, hash) => {
     if (error) {
@@ -58,7 +58,7 @@ const registro = async (req, res) => {
   });
 };
 
-//existe registro 
+//existe registro
 const existeRegistro = async (req, res) => {
   const consultaUsuario = "SELECT * FROM USUARIOS WHERE USUARIO=?";
   const consultaEmail = "SELECT * FROM USUARIOS WHERE EMAIL=?";
@@ -110,4 +110,3 @@ const existeRegistro = async (req, res) => {
 export { existeRegistro };
 
 export { registro };
-

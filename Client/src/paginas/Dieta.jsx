@@ -30,48 +30,66 @@ function Dieta() {
   const closeModal = () => {
     SetShowFoodModal(false);
   }
-  const [valorRegex, setValorRegex] = useState('');
+  const [userInput, setuserInput] = useState('');
   const [resultados, setResultados] = useState(null);
 
 
 
-  const handleConsulta = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/api/consultar_comidas', {
-        valor_regex: valorRegex
-      });
-
-      setResultados(response.data.resultados);
-    } catch (error) {
-      console.error('Error al consultar comidas:', error);
+  const handleClick = (event) => {
+    event.preventDefault();
+    axios.post(
+      "http://localhost:8081/obtenerAlimento",
+      { userInput: userInput },
+    ).then(res => {
+      console.log(res.data)
+      setResultados(res.data);
     }
+    );
   }
+  const resultContainer = document.getElementById('resultContainer');
 
   return (
     <div className="tw-min-h-screen tw-pt-16 tw-bg-gradient-to-b tw-from-gray-700 tw-via-gray-900 tw-via-20% tw-to-black tw-to-50%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
-      {/* Navbar es una referencia a otro componente que debes tener definido */}
       <Navbar linkHome={"/gym"} />
       <div className="tw-flex tw-justify-center tw-flex-wrap">
         <button className="tw-w-full tw-bg-blue-500 tw-hover:bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded" onClick={AbrirModal}>Añadir Alimento</button>
       </div>
 
-      <div>
-        <label htmlFor="valorRegex">Valor del Regex:</label>
+      <div className="tw-ms-5 tw-flex">
         <input
           type="text"
-          id="valorRegex"
-          value={valorRegex}
-          onChange={(e) => setValorRegex(e.target.value)}
+          id="userInput"
+          value={userInput}
+          onChange={(e) => setuserInput(e.target.value)}
         />
-        <button onClick={handleConsulta}>Consultar Comidas</button>
+        <button onClick={handleClick} className="tw-ms-5 tw-bg-green-500 tw-p-3 tw-rounded-md tw-text-black">Consultar Comidas</button>
 
-        {resultados && (
-          <div>
-            <h2>Resultados:</h2>
-            <pre>{JSON.stringify(resultados, null, 2)}</pre>
-          </div>
-        )}
+
       </div>
+      <div id='resultContainer' className="tw-flex tw-text-white tw-gap-2"></div>
+      {
+        resultados && (
+          <div>{resultados.map(producto => {
+            const productoDiv = document.createElement('div');
+            productoDiv.className = 'tw-'
+            productoDiv.innerHTML = `
+              <h3>${producto.nombre}</h3>
+              <img src="${producto.imagenUrl}" alt="Imagen del producto" style="max-width: 200px;">
+              <p>Calorías: ${producto.calorias}</p>
+              <p>Proteínas: ${producto.proteinas}</p>
+              <p>Grasas: ${producto.grasas}</p>
+              <p>Grasas Saturadas: ${producto.grasasSaturadas}</p>
+              <p>Carbohidratos: ${producto.carbohidratos}</p>
+              <p>Azúcar: ${producto.azucar}</p>
+              <p>ID: ${producto.id}</p>
+              <hr>
+            `;
+            resultContainer.appendChild(productoDiv);
+
+
+          })}</div>
+        )
+      }
 
       {/* Renderizar el modal */}
       {ShowFoodModal && (

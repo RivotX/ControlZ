@@ -131,21 +131,6 @@ function Index() {
     setVisibleRegistro2(true);
   };
 
-  const checkCamposCompletados = () => {
-    var bool = false;
-    if (
-      values.nombre.trim() === "" ||
-      values.telefono.trim() === "" ||
-      values.direccion.trim() === "" ||
-      values.usuario.trim() === "" ||
-      values.email.trim() === "" ||
-      values.password.trim() === ""
-    ) {
-      bool = true;
-    }
-    console.log(values);
-    return bool;
-  };
 
   const IrInicioSesion = () => {
     setVisibleRegistro(false);
@@ -153,7 +138,6 @@ function Index() {
     setVisibleIniciarSesion(true);
   };
 
-  const RegistroExistente = () => { };
 
   //servidor
 

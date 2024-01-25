@@ -9,21 +9,20 @@ import { existeRegistro } from "./controllers/registroController.js";
 import { getRutina } from "./controllers/rutinaController.js";
 import { db } from "./config/db.js";
 import { CreaRutina } from "./models/rutinaModel.js";
-import { login } from "./controllers/authController.js";
-
-//hash para contraseña
+import { login } from "./controllers/loginController.js";
+import {
+  obtenerInformacionProductos,
+  buscarProductosPorNombre,
+} from "./controllers/obtenerAlimento.js";
 
 const app = express();
-
 app.use(express.json());
-
 app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
   })
 );
-
 app.use(
   session({
     key: "tu_clave_personalizada",
@@ -39,7 +38,6 @@ app.use(
 );
 
 //Mongoose mongodb base de datos rutina
-
 Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
   .then(() => {
     console.log("Conexión exitosa a MongoDB");
@@ -53,7 +51,6 @@ Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
 app.listen(8081, () => {
   console.log("servidor corriendo...");
 });
-
 
 app.get("/logout", (req, res) => {
   // Destruir la sesión actual
@@ -85,3 +82,19 @@ app.post("/registro", registro);
 app.post("/existeregistro", existeRegistro);
 
 app.post("/login", login);
+
+app.post("/obtenerAlimento", async (req, res) => {
+  try {
+    const { userInput } = req.body;
+    console.log(
+      `Recibida solicitud para obtener alimento con userInput: ${userInput}`
+    );
+    const datosBusqueda = await obtenerInformacionProductos(userInput);
+    console.log(`Información de productos obtenida:`, datosBusqueda);
+
+    res.json(datosBusqueda);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error interno del servidor");
+  }
+});
