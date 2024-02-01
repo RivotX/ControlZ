@@ -23,7 +23,6 @@
 }
 @media (min-width: 768px) {
   .PosCruzModal {
-    margin-top: -2.5vh;
     margin-right: 9.5%;
   }
 }
@@ -41,7 +40,8 @@
 }
 
 .PosCruzModal2 {
-  margin-top: -3.5vh;
-  margin-right: 30%;
+  margin-top: -2.5vh;
+
+  margin-right: 3%;
 }
 
