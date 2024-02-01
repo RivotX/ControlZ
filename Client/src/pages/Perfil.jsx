@@ -1,6 +1,6 @@
 export default Perfil;
-import Navbar from "../componentes/Navbar";
-import Footer from "../componentes/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import fotoHombre from "../img/hombre.png";
 import fotoMujer from "../img/mujer.png";
 import { useRef } from "react";

@@ -1,7 +1,7 @@
 export default Gym;
-import Navbar from "../componentes/Navbar";
-import Footer from "../componentes/Footer";
-import Features from "../componentes/Features";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Features from "../components/Features";
 import fotorutinaserv from "../img/fotorutinaserv.jpg";
 import fotoejerciciosexpli from "../img/fotoejerciciosexpli.jpg";
 import fototiendaserv from "../img/fototiendaserv.jpg";

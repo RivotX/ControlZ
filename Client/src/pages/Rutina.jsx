@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../componentes/Navbar";
-import Footer from "../componentes/Footer";
-import TablaRutina from "../componentes/TablaRutina";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import TablaRutina from "../components/TablaRutina";
 import axios from "axios";
 
 
 function Rutina() {
   
   return (
-    <div className="bg-black container-fluid min-vh-100 mt-5 ">
+    <div className="mt-5 bg-black container-fluid min-vh-100 ">
       <Navbar linkHome={"gym"} />
 
       <div className="container-fluid containercompelto">

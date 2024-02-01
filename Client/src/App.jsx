@@ -1,12 +1,11 @@
-import Gym from "./paginas/Gym.jsx";
-import Rutina from "./paginas/Rutina.jsx";
-import Dieta from "./paginas/Dieta.jsx";
-import Perfil from "./paginas/Perfil.jsx";
-import Principal from "./paginas/Principal.jsx";
-import Tienda from "./paginas/Tienda.jsx";
+import Gym from "./pages/Gym.jsx";
+import Rutina from "./pages/Rutina.jsx";
+import Dieta from "./pages/Dieta.jsx";
+import Perfil from "./pages/Perfil.jsx";
+import Principal from "./pages/Principal.jsx";
+import Tienda from "./pages/Tienda.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Index from "./paginas/Index.jsx";
-import Ola from "./paginas/prueba.jsx";
+import Index from "./pages/Index.jsx";
 
 const router = createBrowserRouter([
   { path: "/gym", element: <Gym /> },
@@ -16,7 +15,6 @@ const router = createBrowserRouter([
   { path: "/principal", element: <Principal /> },
   { path: "/tienda", element: <Tienda /> },
   { path: "/", element: <Index /> },
-  { path: "/ola", element: <Ola /> },
 
 ]);
 function App() {

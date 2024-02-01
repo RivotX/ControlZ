@@ -1,10 +1,10 @@
-import Navbar from "../componentes/Navbar";
-import Footer from "../componentes/Footer";
-import Producto from "../componentes/Producto";
-import ProductoModal from "../componentes/ProductoModal";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Producto from "../components/Producto";
+import ProductoModal from "../components/ProductoModal";
 import proteinaPolvo from "../img/proteinaPolvo.png"
 import barraProteina from "../img/barraProteina.png"
-import CarritoCompra from "../componentes/CarritoCompra";
+import CarritoCompra from "../components/CarritoCompra";
 import { useState, useEffect } from "react";
 
 function Tienda() {

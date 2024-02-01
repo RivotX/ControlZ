@@ -1,19 +1,13 @@
 // set up
 import express from "express";
-import mysql from "mysql";
 import cors from "cors";
 import Mongoose from "mongoose";
 import session from "express-session";
 import { registro } from "./controllers/registroController.js";
 import { existeRegistro } from "./controllers/registroController.js";
 import { getRutina } from "./controllers/rutinaController.js";
-import { db } from "./config/db.js";
-import { CreaRutina } from "./models/rutinaModel.js";
 import { login } from "./controllers/loginController.js";
-import {
-  obtenerInformacionProductos,
-  buscarProductosPorNombre,
-} from "./controllers/obtenerAlimento.js";
+import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
 
 const app = express();
 app.use(express.json());

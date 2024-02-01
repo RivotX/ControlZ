@@ -1,8 +1,8 @@
 export default Dieta;
-import Navbar from "../componentes/Navbar";
-import Footer from "../componentes/Footer";
-import fotoPaint from "../img/image.png";
-import FoodModal from "../componentes/FoodModal";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+import FoodModal from "../components/FoodModal";
 import axios from "axios";
 import { useState } from "react";
 
@@ -54,50 +54,49 @@ function Dieta() {
       <div className="tw-flex tw-justify-center tw-flex-wrap">
         <button className="tw-w-full tw-bg-blue-500 tw-hover:bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded" onClick={AbrirModal}>Añadir Alimento</button>
       </div>
-
-      <div className="tw-ms-5 tw-flex">
+    
+      <div className="tw-ms-5 tw-flex tw-h-10">
         <input
           type="text"
           id="userInput"
           value={userInput}
           onChange={(e) => setuserInput(e.target.value)}
+          
         />
-        <button onClick={handleClick} className="tw-ms-5 tw-bg-green-500 tw-p-3 tw-rounded-md tw-text-black">Consultar Comidas</button>
-
-
+        <button onClick={handleClick} className="tw-ms-5 tw-bg-green-500 tw-p-1 tw-rounded-md tw-text-black tw-text-sm">Consultar Comidas</button>
       </div>
-      <div id='resultContainer' className="tw-flex tw-text-white tw-gap-2"></div>
-      {
-        resultados && (
-          <div>{resultados.map(producto => {
-            const productoDiv = document.createElement('div');
-            productoDiv.className = 'tw-'
-            productoDiv.innerHTML = `
-              <h3>${producto.nombre}</h3>
-              <img src="${producto.imagenUrl}" alt="Imagen del producto" style="max-width: 200px;">
-              <p>Calorías: ${producto.calorias}</p>
-              <p>Proteínas: ${producto.proteinas}</p>
-              <p>Grasas: ${producto.grasas}</p>
-              <p>Grasas Saturadas: ${producto.grasasSaturadas}</p>
-              <p>Carbohidratos: ${producto.carbohidratos}</p>
-              <p>Azúcar: ${producto.azucar}</p>
-              <p>ID: ${producto.id}</p>
-              <hr>
-            `;
-            resultContainer.appendChild(productoDiv);
 
+      <div id='resultContainer' className="tw-flex tw-flex-wrap tw-text-white tw-gap-2 tw-w-full tw-justify-center">
+        {resultados && (
+          resultados.map(producto => (
+            <div key={producto.id} className="producto tw-text-white tw-gap-2 tw-flex tw-text-sm tw-justify-between ">
+              <div className="tw-w-1/2 tw-h-full">
+                <h3 className="text-center">{producto.nombre}</h3>
 
-          })}</div>
-        )
-      }
+                <img className="tw-w-full tw-h-4/5 tw-max-h-80" src={producto.imagenUrl} alt="Imagen del producto" />
+              </div>
+              <div className="tw-w-1/2 tw-flex tw-flex-wrap tw-items-center">
+                <div className="tw-flex tw-flex-wrap tw-gap-2">
+                  <p className="tw-w-full" >Calorías: <span className="tw-text-orange-500">{producto.calorias}</span> / 100g</p>
+                  <p className="tw-w-full">Proteínas: <span className="tw-text-orange-500">{producto.proteinas}</span> / 100g</p>
+                  <p className="tw-w-full">Grasas:<span className="tw-text-orange-500"> {producto.grasas}</span> / 100g</p>
+                  <p className="tw-w-full">Grasas Saturadas: <span className="tw-text-orange-500">{producto.grasasSaturadas}</span>/ 100g</p>
+                  <p className="tw-w-full">Carbohidratos: <span className="tw-text-orange-500">{producto.carbohidratos}</span> / 100g</p>
+                  <p className="tw-w-full">Azúcar: <span className="tw-text-orange-500">{producto.azucar}</span> / 100g</p>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
 
       {/* Renderizar el modal */}
-      {ShowFoodModal && (
-        <FoodModal closeModal={closeModal} />
-      )}
+      {ShowFoodModal && <FoodModal closeModal={closeModal} />}
+      {/* <Footer /> */}
+
     </div>
   );
-};
+}
 
 
 
