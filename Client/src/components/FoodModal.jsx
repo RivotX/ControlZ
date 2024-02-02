@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import notAviable from '../img/Image_not_available.png'
 
 const FoodModal = ({ closeModal }) => {
     const [userInput, setuserInput] = useState('');
@@ -72,7 +73,7 @@ const FoodModal = ({ closeModal }) => {
                                     <div className="tw-flex tw-gap-2 tw-items-center tw-justify-center tw-bg-gray-300">
                                         {!CaracteristicasVisibles && (
                                             <div className=" tw-h-[12rem]">
-                                                <img className="tw-w-full tw-h-full tw-max-h-80 tw-rounded-md" src={producto.imagenUrl} alt="Imagen del producto" />
+                                                <img className="tw-w-full tw-h-full tw-max-h-80 tw-rounded-md" src={producto.imagenUrl !== "URL de imagen no disponible" ? producto.imagenUrl : notAviable} alt="Imagen del producto" />
                                             </div>
                                         )}
                                         {CaracteristicasVisibles && (
