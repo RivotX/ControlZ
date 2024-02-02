@@ -1,7 +1,6 @@
 export default Index;
 import { useState, useEffect } from "react";
 import axios from "axios";
-import amorr from "../img/amorr.png";
 
 function Index() {
   const [values, setValues] = useState({
