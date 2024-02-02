@@ -53,10 +53,8 @@ const products = [
     imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
 
   },
-  // More products...
 ];
 
-// Con el setOpen de este componente se hace la animacion, molaria manejarlo desde /tienda
 export default function CarritoCompra({ visible, onClose }) {
 
   return (
