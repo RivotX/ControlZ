@@ -26,7 +26,7 @@ const Alimento = ({ producto }) => {
                         </div>
                     )}
                     {caracteristicasVisibles && (
-                        <div className="tw-w-2/3 tw-flex tw-flex-wrap tw-h-[12rem] tw-text-pretty tw-text-center tw-p-2">
+                        <div className="tw-w-4/5 tw-flex tw-flex-wrap tw-h-[12rem] tw-text-pretty tw-text-center tw-p-2">
                             <div className="tw-text-xs tw-flex tw-flex-wrap tw-gap-2 tw-h-full tw-bg-opacity-25 tw-py-4 tw-rounded-md tw-bg-gray-200 tw-p-2">
                                 <p className="tw-w-full"><span className="tw-font-bold">Calorías:</span> <span className="tw-text-orange-500">{producto.calorias}</span> / 100g</p>
                                 <p className="tw-w-full"><span className="tw-font-bold">Proteínas:</span> <span className="tw-text-orange-500">{producto.proteinas}</span> / 100g</p>
