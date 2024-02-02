@@ -7,7 +7,6 @@ const FoodModal = ({ closeModal }) => {
     const [resultados, setResultados] = useState(null);
 
     const handleClick = (event) => {
-        event.preventDefault();
         axios.post(
             "http://localhost:8081/obtenerAlimento",
             { userInput: userInput },
@@ -30,6 +29,8 @@ const FoodModal = ({ closeModal }) => {
                             value={userInput}
                             onChange={(e) => setuserInput(e.target.value)}
                             className="tw-text-black tw-px-2 tw-w-1/2"
+                            onKeyDown={(e) => { if (e.key === "Enter") handleClick(); }}
+
 
                         />
                         <button onClick={handleClick} className="tw-ms-2 tw-w-2/5 tw-bg-green-500 tw-p-1 tw-rounded-md tw-text-black tw-text-xs">Consultar Comidas</button>
@@ -37,13 +38,12 @@ const FoodModal = ({ closeModal }) => {
 
                     </div>
                 </div>
-                <div id='resultContainer' className="tw-flex tw-h-5/6 tw-flex-wrap tw-text-white tw-gap-2 tw-w-full tw-justify-center">
+                <div id='resultContainer' className="tw-flex tw-h-full tw-flex-wrap tw-text-white tw-gap-2 tw-w-full tw-justify-center">
                     {resultados && (
                         resultados.map(producto => (
-                            <div key={producto.id} className="producto tw-text-white tw-gap-2 tw-flex tw-text-sm tw-justify-between ">
+                            <div key={producto.id} className="producto tw-text-white tw-gap-2 tw-flex tw-text-sm tw-justify-between tw-h-1/2">
                                 <div className="tw-w-1/2 tw-h-full">
-                                    <h3 className="text-center">{producto.nombre}</h3>
-
+                                    <h3 className="text-center tw-font-bold">{producto.nombre}</h3>
                                     <img className="tw-w-full tw-h-4/5 tw-max-h-80" src={producto.imagenUrl} alt="Imagen del producto" />
                                 </div>
                                 <div className="tw-w-1/2 tw-flex tw-flex-wrap tw-items-center ">
