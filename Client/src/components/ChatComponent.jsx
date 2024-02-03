@@ -118,7 +118,7 @@ function ChatComponent() {
       <div className="">
         {
           !showChat ? (
-            <div className="tw-cursor-pointer tw-z-50 tw-bg-white tw-w-16 tw-h-16 tw-fixed tw-right-[2%] tw-bottom-[2%]  tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+            <div className="tw-cursor-pointer tw-z-50 tw-bg-white tw-w-14 tw-h-14 tw-fixed tw-right-[2%] tw-bottom-[6%]  tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
               onClick={desplegarChat}>
               <svg
                 className="tw-pointer-events-none"
@@ -135,7 +135,7 @@ function ChatComponent() {
             </div>
           ) : (
             PantallaPequeña ? (
-              <div className="tw-cursor-pointer tw-w-8 tw-h-8 tw-fixed tw-right-[2%] tw-top-[2.6%]  tw-z-50 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+              <div className="tw-cursor-pointer tw-w-14 tw-h-14 tw-fixed tw-right-[2%] tw-top-[2.6%]  tw-z-50 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
                 onClick={desplegarChat}>
                 <svg
                   className="tw-pointer-events-none"
@@ -155,7 +155,8 @@ function ChatComponent() {
                 </svg>
               </div>
             ) :
-              <div className="tw-cursor-pointer tw-z-50 tw-bg-white tw-w-16 tw-h-16 tw-fixed tw-right-[2%] tw-bottom-[2%]  tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+              //pantalla no-mobile
+              <div className="tw-cursor-pointer tw-z-50 tw-bg-white tw-w-14 tw-h-14 tw-fixed tw-right-[2%] tw-bottom-[6%]  tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
                 onClick={desplegarChat}>
                 <svg
                   className="tw-pointer-events-none"
@@ -184,89 +185,90 @@ function ChatComponent() {
 
       {
         showChat && (
-          PantallaPequeña ? (<div
-            ref={chatRef}
-            id="chat"
-            className="animate__fadeInUpBig border border-light tw-bg-gray-200 tw-overflow-y-visible tw-p-1  tw-top-0 tw-left-0 tw-fixed tw-min-h-screen tw-w-full tw-z-40"
-            style={{
-              maxHeight: "600px",
-              maxWidth: "500px",
-              backdropFilter: "blur(10px)",
-              textAlign: "justify",
-            }}
-          >
-            <nav className="navbar ">
-              <div className="container-fluid  d-flex justify-content-left align-items-center">
-                <span className="navbar-brand fw-bold" >
-                  <img
-                    src={fotoasist}
-                    alt="Logo"
-                    width="35"
-                    height="35"
-                    className="d-inline-block me-3 mb-2 align-text-top"
-                  />
-                  Control Z Asistente
-                </span>
-              </div>
-            </nav>
-            {/*funcion de Mapeo de la conversación para mostrar preguntas y respuestas */}
-            {conversation.map((interaction, index) => {
-              const regex = /(https?:\/\/[^\s]+)/g;
-              const urls = interaction.assistantResponse.match(regex); // Encuentra todas las URLs en la respuesta
-
-              let responseContent = interaction.assistantResponse;
-
-              if (urls && urls.length > 0) {
-                urls.forEach((url) => {
-                  responseContent = responseContent.replace(
-                    url,
-                    `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
-                  );
-                });
-              }
-
-              return (
-                <div key={index} className="mb-3 tw-text-black">
-                  <p className="mb-3 row">
-                    <strong className="col-3">Tú:</strong>
-                    <span className="col-9 bg-success rounded-bottom-3 rounded-end-3  ">
-                      {interaction.userQuestion}
-                    </span>
-                  </p>
-                  <div className="d-flex row">
-                    <strong className="text-info col-3">Asistente:</strong>
-                    <span
-                      className="col-9 bg-dark  rounded-bottom-3 rounded-end-3   "
-                      dangerouslySetInnerHTML={{ __html: responseContent }}
+          PantallaPequeña ?
+            (<div
+              ref={chatRef}
+              id="chat"
+              className="animate__fadeInUpBig border border-light tw-bg-gray-200 tw-overflow-y-visible tw-p-1  tw-top-0 tw-left-0 tw-fixed tw-min-h-screen tw-min-w-full tw-z-40"
+              style={{
+                maxHeight: "600px",
+                maxWidth: "500px",
+                backdropFilter: "blur(10px)",
+                textAlign: "justify",
+              }}
+            >
+              <nav className="navbar ">
+                <div className="container-fluid  d-flex justify-content-left align-items-center">
+                  <span className="navbar-brand fw-bold" >
+                    <img
+                      src={fotoasist}
+                      alt="Logo"
+                      width="35"
+                      height="35"
+                      className="d-inline-block me-3 mb-2 align-text-top"
                     />
-                  </div>
+                    Control Z Asistente
+                  </span>
                 </div>
-              );
-            })}
-            <div className="sticky-bottom d-flex justify-content-center align-align-items-center ">
-              <input
-                className="border-0 text-center tw-me-1 tw-text-black rounded-2 ms-2 col-8"
-                type="text"
-                value={message}
-                onChange={handleChange}
-                onKeyDown={handleKeyPress}
-                placeholder="Consulta Asistente..."
-              />
-              <svg onClick={sendMessage} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-300 tw-cursor-pointer  ">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-              </svg>
-            </div>
-          </div>)
+              </nav>
+              {/*funcion de Mapeo de la conversación para mostrar preguntas y respuestas */}
+              {conversation.map((interaction, index) => {
+                const regex = /(https?:\/\/[^\s]+)/g;
+                const urls = interaction.assistantResponse.match(regex); // Encuentra todas las URLs en la respuesta
+
+                let responseContent = interaction.assistantResponse;
+
+                if (urls && urls.length > 0) {
+                  urls.forEach((url) => {
+                    responseContent = responseContent.replace(
+                      url,
+                      `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+                    );
+                  });
+                }
+
+                return (
+                  <div key={index} className="mb-3 tw-text-black">
+                    <p className="mb-3 row">
+                      <strong className="col-3">Tú:</strong>
+                      <span className="col-9 bg-success rounded-bottom-3 rounded-end-3  ">
+                        {interaction.userQuestion}
+                      </span>
+                    </p>
+                    <div className="d-flex row">
+                      <strong className="text-info col-3">Asistente:</strong>
+                      <span
+                        className="col-9 bg-dark  rounded-bottom-3 rounded-end-3   "
+                        dangerouslySetInnerHTML={{ __html: responseContent }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="sticky-bottom d-flex justify-content-center align-align-items-center ">
+                <input
+                  className="border-0 text-center tw-me-1 tw-text-black rounded-2 ms-2 col-8"
+                  type="text"
+                  value={message}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyPress}
+                  placeholder="Consulta Asistente..."
+                />
+                <svg onClick={sendMessage} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-300 tw-cursor-pointer  ">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                </svg>
+              </div>
+            </div>)
 
             :
+            //pantallas no- mobile
 
             (<div
               ref={chatRef}
               id="chat"
-              className="animate__fadeInUpBig border border-light tw-bg-gray-200 tw-overflow-y-visible tw-p-1  tw-top-0 tw-right-4 tw-fixed tw-min-h-[80%] tw-w-full tw-z-40"
+              className="animate__fadeInUpBig border border-light  tw-bg-gray-200 tw-overflow-y-visible tw-p-1 tw-bottom-[14.5%] tw-right-[2%] tw-fixed tw-min-h-[73%] tw-min-w-[40%] lg:tw-min-w-[30%] tw-rounded-lg tw-z-40"
               style={{
-                maxHeight: "600px",
-                maxWidth: "500px",
+
                 backdropFilter: "blur(10px)",
                 textAlign: "justify",
               }}
