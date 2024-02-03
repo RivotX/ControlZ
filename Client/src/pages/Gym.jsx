@@ -21,13 +21,12 @@ function Gym() {
     setmostrarTexto(!mostrarTexto)
   }
 
+  
 
 
   return (
     <div>
-      <div className="">
-        <ChatComponent />
-      </div>
+     
 
       <div className="bg-black min-vh-100 bodygym">
 
@@ -36,7 +35,8 @@ function Gym() {
         <div className="tw-pt-[4.87rem] bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
 
 
-          <div className="container">
+          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-44">
+
             <div className="flex-wrap row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
               <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-10 xl:tw-mt-12 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 

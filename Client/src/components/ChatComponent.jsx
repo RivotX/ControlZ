@@ -6,6 +6,20 @@ import 'animate.css'
 
 
 function ChatComponent() {
+  const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const actualizarAnchoVentana = () => {
+      setPantallaPequeña(window.innerWidth < 640);
+    };
+
+    window.addEventListener('resize', actualizarAnchoVentana);
+
+    // Limpiar el listener del evento resize cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('resize', actualizarAnchoVentana);
+    };
+  }, []);
   // Estados del componente utilizando el hook useState
   const [message, setMessage] = useState(""); // Estado para el mensaje del usuario
   const [conversation, setConversation] = useState([]); // Estado para la conversación
@@ -99,53 +113,78 @@ function ChatComponent() {
     }
   }, [conversation]); // Esto se ejecutará cada vez que la conversación cambie
   return (
-    <>  
+    <>
 
       <div className="">
-        {!showChat ? (
-          <div className="tw-cursor-pointer tw-z-50 tw-bg-white tw-w-16 tw-h-16 tw-fixed tw-right-[2%] tw-bottom-[2%]  tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
-            onClick={desplegarChat}>
-            <svg
-              className="tw-pointer-events-none"
-              width="38px"
-              height="38px"
-              viewBox="0 0 24 24"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              fill="rgb(51, 51, 51)"
-            >
-              <path d="M10,18 L6,22 L6,18 L10,18 Z M17,6 C19.7614237,6 22,8.23857625 22,11 C22,13.7614237 19.7614237,16 17,16 L17,16 L7,16 C4.23857625,16 2,13.7614237 2,11 C2,8.23857625 4.23857625,6 7,6 L7,6 Z" transform="translate(12.000000, 14.000000) scale(-1, 1) translate(-12.000000, -14.000000)"></path>
-            </svg>
-          </div>) : (
-          <div className="tw-cursor-pointer tw-w-8 tw-h-8 tw-fixed tw-right-[2%] tw-top-[2.6%] tw-z-50 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
-            onClick={desplegarChat}>
-            <svg
-              className="tw-pointer-events-none"
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="20"
-              viewBox="0 0 21 13"
-              focusable="false"
-              role="presentation"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                fill="currentColor"
-                d="M20.1005 2.7169L10.9931 11.8244C10.4724 12.3451 9.62815 12.3451 9.10745 11.8244L-8.00829e-06 2.7169L1.88561 0.831278L10.0503 8.99593L18.2149 0.831278L20.1005 2.7169Z"
-              ></path>
-            </svg>
-          </div>)
+        {
+          !showChat ? (
+            <div className="tw-cursor-pointer tw-z-50 tw-bg-white tw-w-16 tw-h-16 tw-fixed tw-right-[2%] tw-bottom-[2%]  tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+              onClick={desplegarChat}>
+              <svg
+                className="tw-pointer-events-none"
+                width="38px"
+                height="38px"
+                viewBox="0 0 24 24"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                fill="rgb(51, 51, 51)"
+              >
+                <path d="M10,18 L6,22 L6,18 L10,18 Z M17,6 C19.7614237,6 22,8.23857625 22,11 C22,13.7614237 19.7614237,16 17,16 L17,16 L7,16 C4.23857625,16 2,13.7614237 2,11 C2,8.23857625 4.23857625,6 7,6 L7,6 Z" transform="translate(12.000000, 14.000000) scale(-1, 1) translate(-12.000000, -14.000000)"></path>
+              </svg>
+            </div>
+          ) : (
+            PantallaPequeña ? (
+              <div className="tw-cursor-pointer tw-w-8 tw-h-8 tw-fixed tw-right-[2%] tw-top-[2.6%]  tw-z-50 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+                onClick={desplegarChat}>
+                <svg
+                  className="tw-pointer-events-none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="20"
+                  viewBox="0 0 21 13"
+                  focusable="false"
+                  role="presentation"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    fill="currentColor"
+                    d="M20.1005 2.7169L10.9931 11.8244C10.4724 12.3451 9.62815 12.3451 9.10745 11.8244L-8.00829e-06 2.7169L1.88561 0.831278L10.0503 8.99593L18.2149 0.831278L20.1005 2.7169Z"
+                  ></path>
+                </svg>
+              </div>
+            ) :
+              <div className="tw-cursor-pointer tw-z-50 tw-bg-white tw-w-16 tw-h-16 tw-fixed tw-right-[2%] tw-bottom-[2%]  tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+                onClick={desplegarChat}>
+                <svg
+                  className="tw-pointer-events-none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="20"
+                  viewBox="0 0 21 13"
+                  focusable="false"
+                  role="presentation"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    fill="currentColor"
+                    d="M20.1005 2.7169L10.9931 11.8244C10.4724 12.3451 9.62815 12.3451 9.10745 11.8244L-8.00829e-06 2.7169L1.88561 0.831278L10.0503 8.99593L18.2149 0.831278L20.1005 2.7169Z"
+                  ></path>
+                </svg>
+              </div>
+          )
         }
 
-      </div>
+
+      </div >
 
 
 
       {
         showChat && (
-          <div
+          PantallaPequeña ? (<div
             ref={chatRef}
             id="chat"
             className="animate__fadeInUpBig border border-light tw-bg-gray-200 tw-overflow-y-visible tw-p-1  tw-top-0 tw-left-0 tw-fixed tw-min-h-screen tw-w-full tw-z-40"
@@ -217,7 +256,84 @@ function ChatComponent() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
               </svg>
             </div>
-          </div>
+          </div>)
+
+            :
+
+            (<div
+              ref={chatRef}
+              id="chat"
+              className="animate__fadeInUpBig border border-light tw-bg-gray-200 tw-overflow-y-visible tw-p-1  tw-top-0 tw-right-4 tw-fixed tw-min-h-[80%] tw-w-full tw-z-40"
+              style={{
+                maxHeight: "600px",
+                maxWidth: "500px",
+                backdropFilter: "blur(10px)",
+                textAlign: "justify",
+              }}
+            >
+              <nav className="navbar ">
+                <div className="container-fluid  d-flex justify-content-center align-items-center">
+                  <span className="navbar-brand fw-bold" >
+                    <img
+                      src={fotoasist}
+                      alt="Logo"
+                      width="35"
+                      height="35"
+                      className="d-inline-block me-3 mb-2 align-text-top"
+                    />
+                    Control Z Asistente
+                  </span>
+                </div>
+              </nav>
+              {/*funcion de Mapeo de la conversación para mostrar preguntas y respuestas */}
+              {conversation.map((interaction, index) => {
+                const regex = /(https?:\/\/[^\s]+)/g;
+                const urls = interaction.assistantResponse.match(regex); // Encuentra todas las URLs en la respuesta
+
+                let responseContent = interaction.assistantResponse;
+
+                if (urls && urls.length > 0) {
+                  urls.forEach((url) => {
+                    responseContent = responseContent.replace(
+                      url,
+                      `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+                    );
+                  });
+                }
+
+                return (
+                  <div key={index} className="mb-3 tw-text-black">
+                    <p className="mb-3 row">
+                      <strong className="col-3">Tú:</strong>
+                      <span className="col-9 bg-success rounded-bottom-3 rounded-end-3  ">
+                        {interaction.userQuestion}
+                      </span>
+                    </p>
+                    <div className="d-flex row">
+                      <strong className="text-info col-3">Asistente:</strong>
+                      <span
+                        className="col-9 bg-dark  rounded-bottom-3 rounded-end-3   "
+                        dangerouslySetInnerHTML={{ __html: responseContent }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="sticky-bottom d-flex justify-content-center align-align-items-center ">
+                <input
+                  className="border-0 text-center tw-me-1 tw-text-black rounded-2 ms-2 col-8"
+                  type="text"
+                  value={message}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyPress}
+                  placeholder="Consulta Asistente..."
+                />
+                <svg onClick={sendMessage} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-300 tw-cursor-pointer  ">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                </svg>
+              </div>
+            </div>)
+
         )
       }
     </>
