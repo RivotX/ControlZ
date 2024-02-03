@@ -98,34 +98,54 @@ function ChatComponent() {
   }, [conversation]); // Esto se ejecutará cada vez que la conversación cambie
   return (
     <>
-      {/* //   <div className="container-fluid bg-dark ">
-    //   <div
-    //     className="d-flex align-items-center justify-content-center flex-column"
-    //     style={{ minHeight: "100vh" }}
-    //   > */}
-      {/* <h1 className="text-white mb-5 h1 ">ChatGPT - Asistente Virtual</h1> */}
-      <div className="d-flex ">
-        <button
-          id="mostrar"
-          type="button"
-          className="btn me-2 w-100 btn-dark"
-          onClick={desplegarChat}
-        >
-          {showChat ? (
-            <span style={{ width: "80px" }}>Cerrar Asistente</span>
-          ) : (
-            <span style={{ width: "80px" }}>Abrir Asistente</span>
-          )}
-        </button>
-      </div>
+
+      <div className="">
+        <div className="tw-bg-white tw-w-14 tw-fixed  tw-h-14 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+          onClick={desplegarChat}>
+          {!showChat ? (<svg
+            className=""
+            width="32px"
+            height="32px"
+            viewBox="0 0 24 24"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            fill="rgb(51, 51, 51)"
+          >
+            <path d="M10,18 L6,22 L6,18 L10,18 Z M17,6 C19.7614237,6 22,8.23857625 22,11 C22,13.7614237 19.7614237,16 17,16 L17,16 L7,16 C4.23857625,16 2,13.7614237 2,11 C2,8.23857625 4.23857625,6 7,6 L7,6 Z" transform="translate(12.000000, 14.000000) scale(-1, 1) translate(-12.000000, -14.000000)"></path>
+          </svg>) : (<svg
+            class="sc-1k07fow-0 izowCc"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="13"
+            viewBox="0 0 21 13"
+            focusable="false"
+            role="presentation"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              fill="currentColor"
+              d="M20.1005 2.7169L10.9931 11.8244C10.4724 12.3451 9.62815 12.3451 9.10745 11.8244L-8.00829e-06 2.7169L1.88561 0.831278L10.0503 8.99593L18.2149 0.831278L20.1005 2.7169Z"
+            ></path>
+          </svg>
+          )
+          }
+
+        </div>
+        {showChat ? (
+          <span className="tw-w-4">Cerrar Asistente</span>
+        ) : (
+          <span className="tw-w-4">Abrir Asistente</span>
+        )}
+      </div >
 
       {
-        /* {conversation.length > 0 && */ showChat && ( // Primero verifica el primer boolean, si es cierto se renderiza el elemento(el div),
-          // en caso de que sea falso, no se renderiza porque "cortocircuita", no llega la segunda verificacion al no cumplirse el booleano
+        showChat && (
           <div
             ref={chatRef}
             id="chat"
-            className="border border-light p-3 rounded-3 position-fixed  h-100 w-100 mt-4 "
+            className="border border-light p-3 rounded-3    h-100 w-100 mt-4 "
             style={{
               maxHeight: "600px",
               maxWidth: "500px",

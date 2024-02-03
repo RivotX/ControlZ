@@ -59,7 +59,7 @@ export default function CarritoCompra({ visible, onClose }) {
 
   return (
     <Transition.Root show={visible} as={Fragment}>
-      <Dialog as="div" className="tw-relative tw-z-10" onClose={onClose}>
+      <Dialog as="div" className="tw-relative tw-z-10 " onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="tw-ease-in-out tw-duration-500"

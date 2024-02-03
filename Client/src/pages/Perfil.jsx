@@ -47,7 +47,7 @@ function Perfil() {
   return (
     <div className="px-0 container-fluid min-vh-100 bodyperfil">
       <Navbar linkHome={"/gym"} />
-      <div className="mb-4 container-fluid fondoperfil ">
+      <div className="mb-4 tw-pt-[4.87rem] container-fluid fondoperfil ">
         <div className="mb-3 circulo container-fluid">
           <div className=" justify-content-center d-flex">
             <div className="mt-2 mb-2 borde">

@@ -3,20 +3,21 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TablaRutina from "../components/TablaRutina";
 import axios from "axios";
+import habilitarTailwind from "../components/habilitarTailwind";
 
 
 function Rutina() {
-  
+  habilitarTailwind()
   return (
-    <div className="mt-5 bg-black container-fluid min-vh-100 ">
-      <Navbar linkHome={"gym"} />
+    <div className="tw-min-h-screen">
+      <Navbar />
+      <div className=" tw-py-[4.87rem]">
 
-      <div className="container-fluid containercompelto">
-        <h1 className="text-center text-white"> $Variable dia</h1>
+        <TablaRutina />
+        <Footer />
       </div>
-      <TablaRutina />
-      <Footer />
     </div>
+
   );
 }
 

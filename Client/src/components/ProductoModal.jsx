@@ -13,8 +13,8 @@ const ProductoModal = ({ product, closeModal }) => { //arreglar respnsive en iph
                 </div>
                 <div className='tw-flex tw-flex-wrap tw-h-1/3'>
                     <div className='tw-flex tw-justify-between tw-items-center tw-w-full tw-h-1/6'>
-                        <h2 className="tw-text-xl tw-mt-6 tw-font-bold sm:tw-text-2xl ">{product.nombre}</h2>
-                        <p className="tw-flex tw-mt-6 tw-justify-center tw-items-center tw-text-lg sm:tw-text-xl ">
+                        <h2 className="tw-text-xl  tw-font-bold sm:tw-text-2xl ">{product.nombre}</h2>
+                        <p className="tw-flex  tw-justify-center tw-items-center tw-text-lg sm:tw-text-xl ">
                             <span>{product.precio}</span>
                         </p>
                     </div>

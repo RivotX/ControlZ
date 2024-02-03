@@ -4,25 +4,13 @@ import Producto from "../components/Producto";
 import ProductoModal from "../components/ProductoModal";
 import proteinaPolvo from "../img/proteinaPolvo.png"
 import barraProteina from "../img/barraProteina.png"
-import CarritoCompra from "../components/CarritoCompra";
 import { useState, useEffect } from "react";
+import habilitarTailwind from "../components/habilitarTailwind";
+
 
 function Tienda() {
 
-  const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
-  if (window.location.pathname === '/tienda') {
-    if (!existingLink) {
-
-      const head = document.head;
-      const link = document.createElement('link');
-
-      link.type = 'text/css';
-      link.rel = 'stylesheet';
-      link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
-
-      head.appendChild(link);
-    }
-  }
+  habilitarTailwind()
 
   const [ModalAbierto, setModalAbierto] = useState(false);
   const [ProductoSeleccionado, setProductoSeleccionado] = useState(null);
@@ -57,8 +45,8 @@ function Tienda() {
 
   return (
     <>
-      <div className="tw-min-h-screen tw-pt-16 tw-bg-gradient-to-b tw-from-gray-700 tw-via-gray-900 tw-via-20% tw-to-black tw-to-50%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
-        <Navbar linkHome={"gym"} />
+      <div className="tw-min-h-screen tw-py-[4.87rem] tw-bg-gradient-to-b tw-from-gray-700 tw-via-gray-900 tw-via-20% tw-to-black tw-to-50%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
+        <Navbar linkHome={"/gym"} />
 
         <div className="p-2 tw-flex tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center sm:tw-mx-4"> {/* tw-grid md:tw-grid-cols-3 xl:tw-grid-cols-4*/}
 

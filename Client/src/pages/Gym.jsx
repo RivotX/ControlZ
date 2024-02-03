@@ -9,23 +9,11 @@ import fotodietaserv from "../img/fotodietaserv.jpg";
 import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.webp";
 import { useState } from "react";
+import habilitarTailwind from "../components/habilitarTailwind";
+import ChatComponent from "../components/ChatComponent";
 
 function Gym() {
-  console.log("ola");
-  const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
-  if (window.location.pathname === '/gym') {
-    if (!existingLink) {
-
-      const head = document.head;
-      const link = document.createElement('link');
-
-      link.type = 'text/css';
-      link.rel = 'stylesheet';
-      link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
-
-      head.appendChild(link);
-    }
-  }
+  habilitarTailwind()
 
   const [mostrarTexto, setmostrarTexto] = useState(false)
 
@@ -40,16 +28,18 @@ function Gym() {
 
       <Navbar linkHome={"#"} />
 
-      <div className=" bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
+      <div className="tw-pt-[4.87rem] bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
+        <ChatComponent />
+
         <div className="container">
-          <div className="flex-wrap mt-5 row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
+          <div className="flex-wrap row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
             <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-10 xl:tw-mt-12 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
-              <div className="border-0 md:tw-mb-2 card-header fw-semibold " style={{ fontSize: '450%' }}>
+              <div className="border-0 md:tw-mb-2 card-header fw-semibold tw-text-center sm:tw-text-start " style={{ fontSize: '450%' }}>
                 ControlZ
               </div>
               <div className="card-body textobienvenidagimnasio">
-                <blockquote className="blockquote ">
+                <blockquote className="blockquote tw-text-center tw-text-pretty sm:tw-text-start">
                   <p id="textoprincipalgym">¡Bienvenido a ControlZ, tu destino digital para transformar tu cuerpo y recuperar el control de tu salud y bienestar! </p>
                   {mostrarTexto && (
                     <p id="textosecundariogym">
@@ -171,7 +161,7 @@ function Gym() {
               Contáctanos
             </div>
             <div className="card-body ">
-              <p className="mb-2 card-text">
+              <p className="mb-2 tw-text-pretty">
                 En ControlZ, valoramos la comunicación directa y estamos aquí para responder a todas tus preguntas, escuchar tus comentarios y apoyarte en tu viaje hacia un estilo de vida más saludable. No dudes en ponerte en contacto con nosotros a través de los siguientes canales:
               </p>
               <div className="tw-flex tw-w-full tw-justify-center">
