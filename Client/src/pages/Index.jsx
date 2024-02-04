@@ -434,7 +434,7 @@ function Index() {
                   height: "10px",
                 }}
               >
-                No existe El usuario
+                Usuario inexistente
               </p>
 
               <div className="">

@@ -125,7 +125,7 @@ function Perfil() {
                 <p className="mb-1" style={{ fontSize: "0.77rem" }}>
                   Brazos
                 </p>
-                <div className="rounded progress" style={{ height: "5px;" }}>
+                <div className="rounded progress" style={{ height: '5px' }}>
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -259,7 +259,7 @@ function Perfil() {
                 </p>
                 <div
                   className="mb-2 rounded progress"
-                  style={{ height: "5px;" }}
+                  style={{ height: '5px' }}
                 >
                   <div
                     className="progress-bar"

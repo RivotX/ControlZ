@@ -20,14 +20,7 @@ function Principal() {
   };
   return (
     <div className="bg-bg-black " style={{ overflow: "hidden" }}>
-      {/* <?php
-    include_once("../php/consultas.php");
-    if(isset($_POST["usuarioInicio"])&&isset($_POST["claveInicio"])&&Consultas::ComprobarInicio($_POST["usuarioInicio"],$_POST["claveInicio"]) ){ 
-        Consultas::recolectarDatos($_POST["usuarioInicio"]); 
-        }
-    if (isset($_SESSION["usuario"])) {     
-    ?> */}
-
+   
       <div className="d-flex justify-content-center align-items-center kkk">
         <div className="logo-container animate__animated animate__backInDown ">
           <a href="perfil">
@@ -84,11 +77,7 @@ function Principal() {
           </div>
         </div>
       </div>
-      {/* <?php
-    }else{
-        header("location:../?inicioincorrecto=''");
-    }
-    ?> */}
+   
     </div>
   );
 }
