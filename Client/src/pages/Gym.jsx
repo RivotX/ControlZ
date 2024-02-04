@@ -49,14 +49,14 @@ function Gym() {
 
           <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-44  ">
 
-            <div className="flex-wrap row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
-              <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-14 xl:tw-mt-[4.2rem] lg:tw-w-1/2 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
+            <div className="flex-wrap row d-flex tw-pb-8 sm:tw-pt-10 flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
+              <div className="text-white bg-transparent border-0 lg:tw-w-1/2 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
                 <div className="border-0 card-header fw-semibold tw-text-center sm:tw-text-start tw-py-0" style={{ fontSize: '450%' }}>
                   Control<span className="tw-text-[#03e9f4]">Z</span>
                 </div>
-                <div className="card-body tw-py-3">
-                  <blockquote className="blockquote tw-text-center tw-text-pretty sm:tw-text-start tw-text-lg">
+                <div className="card-body tw-pt-2">
+                  <blockquote className="blockquote tw-mb-0 tw-text-center tw-text-pretty sm:tw-text-start tw-text-lg">
                     <p id="textoprincipalgym">¡Bienvenido a ControlZ, tu destino digital para transformar tu cuerpo y recuperar el control de tu salud y bienestar! </p>
                     {mostrarTexto && (
                       <p id="textosecundariogym" className="tw-text-lg tw-mt-6">
@@ -80,7 +80,7 @@ function Gym() {
                 </div>
               </div>
               <div className="lg:tw-w-1/2 tw-flex tw-items-center tw-justify-center">
-                <img src={foto1} className="rounded tw-w-2/3 tw-h- col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0 float-end" alt="..." />
+                <img src={foto1} className="rounded tw-w-2/3  col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0 float-end" alt="..." />
               </div>
             </div>
           </div>
