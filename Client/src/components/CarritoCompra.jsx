@@ -57,6 +57,58 @@ const products = [
 
 export default function CarritoCompra({ visible, onClose }) {
 
+  const [products, setProducts] = useState([{
+    id: 1,
+    name: 'Proteina en polvo',
+    href: '#',
+    color: 'cacao',
+    price: '$20.00',
+    quantity: 1,
+    imageSrc: proteinaPolvo,
+  },
+  {
+    id: 2,
+    name: 'Barrita proteica',
+    href: '#',
+    color: 'lechita',
+    price: '$20.00',
+    quantity: 2,
+    imageSrc: barraProteina,
+  },
+  {
+    id: 3,
+    name: 'SuperZapas',
+    href: '#',
+    color: 'Azul',
+    price: '$15',
+    quantity: 1,
+    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+
+  }, {
+    id: 4,
+    name: 'SuperZapas',
+    href: '#',
+    color: 'Azul',
+    price: '$15',
+    quantity: 1,
+    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+
+  }, {
+    id: 5,
+    name: 'SuperZapas',
+    href: '#',
+    color: 'Azul',
+    price: '$15',
+    quantity: 1,
+    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+
+  },])
+
+  const handleRemove = (productToRemove) => {
+    setProducts(products.filter(product => product !== productToRemove)); //devuelve cada producto si no es igual al que hay que eliminar
+  };
+
+
   return (
     <Transition.Root show={visible} as={Fragment}>
       <Dialog as="div" className="tw-relative tw-z-10 " onClose={onClose}>
@@ -85,7 +137,7 @@ export default function CarritoCompra({ visible, onClose }) {
                 leaveTo="tw-translate-x-full"
               >
                 <Dialog.Panel className="tw-pointer-events-auto tw-w-screen tw-max-w-md">
-                  <div className="tw-flex tw-mt-14 tw-pt-0 tw-h-full tw-flex-col tw-overflow-y-scroll tw-bg-white tw-shadow-xl">
+                  <div className="tw-flex tw-mt-[4.9rem]  tw-pt-0 tw-h-full tw-flex-col tw-overflow-y-scroll tw-bg-white tw-shadow-xl">
                     <div className="tw-flex-1 tw-overflow-y-auto tw-px-4 tw-pb-6 tw-pt-3 tw-sm:tw-px-6">
                       <div className="tw-flex tw-items-start tw-justify-between">
                         <Dialog.Title className="tw-text-lg tw-font-medium tw-text-gray-900">
@@ -104,12 +156,12 @@ export default function CarritoCompra({ visible, onClose }) {
                         </div>
                       </div>
 
-                      <div className="tw-mt-8">
+                      <div className="">
                         <div className="tw-flow-root">
-                          <ul role="list" className="tw--my-6 tw-divide-y tw-divide-gray-200">
+                          <ul role="list" className=" tw-divide-y tw-divide-gray-200">
                             {products.map((product) => (
-                              <li key={product.id} className="tw-flex tw-py-6"> {/*cambio*/}
-                                <div className="tw-h-28 tw-w-24 tw-flex-shrink-0 tw-overflow-hidden tw-rounded-md tw-border tw-border-gray-200">
+                              <li key={product.id} className="tw-flex tw-py-4"> {/*cambio*/}
+                                <div className=" tw-w-[38%] tw-flex-shrink-0 tw-overflow-hidden tw-rounded-md tw-border tw-border-gray-200">
                                   <img
                                     src={product.imageSrc}
                                     alt={product.imageAlt}
@@ -134,9 +186,11 @@ export default function CarritoCompra({ visible, onClose }) {
                                       <button
                                         type="button"
                                         className="tw-font-medium tw-text-indigo-600 tw-hover:text-indigo-500"
+                                        onClick={() => handleRemove(product)}
                                       >
                                         Remove
                                       </button>
+
                                     </div>
                                   </div>
                                 </div>
@@ -147,7 +201,7 @@ export default function CarritoCompra({ visible, onClose }) {
                       </div>
                     </div>
 
-                    <div className="tw-border-t alturaflipante tw-border-gray-200 tw-px-4 tw-py-6">
+                    <div className="tw-border-t alturaResp tw-border-gray-200 tw-px-4 tw-py-6">
                       <div className="tw-flex tw-justify-between tw-text-base tw-font-medium tw-text-gray-900">
                         <p>Total</p>
                         <p>$262.00</p>

@@ -15,16 +15,14 @@ function Navbar({ linkHome }) {
     setMenuOpen(!menuOpen);
   };
 
-  //cambiar chatcomponent cuando se enseñe carritocompra
-
 
   return (
     <>
       <nav className="tw-bg-black tw-fixed tw-w-full tw-z-20 tw-top-0 tw-start-0 ">
         <div className="tw-max-w-screen-xl tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mx-auto tw-p-4">
           <a href="/principal" className="tw-flex tw-items-center tw-space-x-3 rtl:tw-space-x-reverse">
-            <img src={logo} className="tw-h-8" alt="" />
-            <span className="tw-self-center tw-text-2xl tw-font-semibold tw-whitespace-nowrap tw-text-white ">ControlZ</span>
+            <img src={logo} className="tw-h-9 tw-mt-2 " alt="" />
+            <span className="tw-self-center tw-text-2xl tw-font-semibold tw-whitespace-nowrap tw-text-white ">Control<span className="tw-text-2xl tw-font-semibold tw-whitespace-nowrap tw-text-[#03e9f4] ">Z</span></span>
           </a>
           <div className="tw-flex md:tw-order-2 tw-space-x-3 md:tw-space-x-0 rtl:tw-space-x-reverse">
             <div className="tw-relative tw-bottom-1">
@@ -56,7 +54,7 @@ function Navbar({ linkHome }) {
               </svg>
             </button>
           </div>
-          <div className={`tw-items-center tw-justify-between tw-w-full md:tw-flex md:tw-w-auto xl:tw-me-16 md:tw-order-1 ${menuOpen ? "" : "tw-hidden"}`} id="navbar-sticky">
+          <div className={`tw-items-center tw-justify-between tw-w-full md:tw-flex md:tw-w-auto xl:tw-me-[4.5rem] md:tw-order-1 ${menuOpen ? "" : "tw-hidden"}`} id="navbar-sticky">
             <ul className="tw-text-white tw-flex tw-flex-col tw-px-4  tw-mt-4 tw-font-medium tw-border tw-border-gray-100 tw-rounded-xl tw-bg-gray-950 md:tw-space-x-8 rtl:tw-space-x-reverse md:tw-flex-row md:tw-mt-0 md:tw-border-0">
               <li >
                 <a href={linkHome} className="tw-block tw-py-2 tw-rounded md:tw-bg-transparent hover:tw-text-gray-400 " aria-current="page">Home</a>

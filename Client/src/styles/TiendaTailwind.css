@@ -3,12 +3,7 @@
 @tailwind utilities;
 
 .NegroOpacidad75 {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.75
-  );
+  background-color: rgba(0, 0, 0, 0.75);
 }
 .PosCruzModal {
   margin-top: -3.5vh;
@@ -31,13 +26,26 @@
   line-height: 1.375rem;
 }
 
-.flipaa{
+.flipaa {
   height: 30px;
   width: 30px;
 }
-.alturaflipante{
-  height: 27.5%;
+
+.alturaResp {
+  height: 42%;
 }
-
-
-
+@media (min-height: 700px) {
+  .alturaResp {
+    height: 36%;
+  }
+}
+@media (min-height: 800px) {
+  .alturaResp {
+    height: 33.5%;
+  }
+}
+@media (min-height: 1000px) {
+  .alturaResp {
+    height: 26%;
+  }
+}

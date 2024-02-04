@@ -8,7 +8,7 @@ import fototiendaserv from "../img/fototiendaserv.jpg";
 import fotodietaserv from "../img/fotodietaserv.jpg";
 import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.webp";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import habilitarTailwind from "../components/habilitarTailwind";
 import ChatComponent from "../components/ChatComponent";
 
@@ -19,6 +19,21 @@ function Gym() {
   const cambiarDisplay = () => {
     setmostrarTexto(!mostrarTexto)
   }
+
+  const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const actualizarAnchoVentana = () => {
+      setPantallaPequeña(window.innerWidth < 640);
+    };
+
+    window.addEventListener('resize', actualizarAnchoVentana);
+
+    // Limpiar el listener del evento resize cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('resize', actualizarAnchoVentana);
+    };
+  }, []);
 
 
   return (
@@ -35,17 +50,17 @@ function Gym() {
           <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-10 xl:tw-px-44  ">
 
             <div className="flex-wrap row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
-              <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-10 xl:tw-mt-[4.5rem] col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
+              <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-14 xl:tw-mt-[4.2rem] col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
                 <div className="border-0 card-header fw-semibold tw-text-center sm:tw-text-start tw-py-0" style={{ fontSize: '450%' }}>
-                  ControlZ
+                  Control<span className="tw-text-[#03e9f4]">Z</span>
                 </div>
-                <div className="card-body">
+                <div className="card-body tw-py-3">
                   <blockquote className="blockquote tw-text-center tw-text-pretty sm:tw-text-start tw-text-lg">
                     <p id="textoprincipalgym">¡Bienvenido a ControlZ, tu destino digital para transformar tu cuerpo y recuperar el control de tu salud y bienestar! </p>
                     {mostrarTexto && (
-                      <p id="textosecundariogym" className="tw-text-lg">
-                        <br></br>
+                      <p id="textosecundariogym" className="tw-text-lg tw-mt-6">
+
                         Explora ControlZ, un mundo fitness que te impulsa a la mejor versión de ti mismo con rutinas personalizadas y consejos de nutrición. Desafiamos límites, promovemos un estilo de vida activo y saludable, invitándote a reiniciar tu camino hacia la forma física y descubrir un nuevo tú.
                       </p>
                     )}
@@ -127,26 +142,29 @@ function Gym() {
             </div>
 
             <div className="mx-auto mt-4 descgym text-secondary d-flex align-items-center justify-content-center">
-              <p className="mb-4 tw-text-center tw-w-4/5">
+              <p className="mb-4   tw-text-center tw-w-4/5">
                 En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo. ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
               </p>
             </div>
           </div>
         </div>
-
-        <div className="mx-auto d-flex align-items-center justify-content-center tw-mb-16">
-          <div className="text-center contenedorgym ">
-            <h1 className="textgym">
-              CONSTRUYE<span id="wanana">TU LEGADO</span>
-            </h1>
-            <h1 className="textgym">
-              CREA<span id="wanana">TU FUTURO</span>
-            </h1>
-            <h1 className="textgym">
-              DISFRUTA<span id="wanana">EL CAMINO</span>
-            </h1>
+        {!PantallaPequeña && (
+          <div className="mx-auto d-flex align-items-center justify-content-center tw-mb-16">
+            <div className="text-center contenedorgym ">
+              <h1 className="textgym">
+                CONSTRUYE<span id="wanana">TU LEGADO</span>
+              </h1>
+              <h1 className="textgym">
+                CREA<span id="wanana">TU FUTURO</span>
+              </h1>
+              <h1 className="textgym">
+                DISFRUTA<span id="wanana">EL CAMINO</span>
+              </h1>
+            </div>
           </div>
-        </div>
+        )
+
+        }
 
         <div className=" bg-dark bg-opacity-10 tw-flex tw-flex-wrap tw-px-3 md:tw-w-11/12 lg:tw-w-4/5 tw-mx-auto">
 
