@@ -7,7 +7,7 @@ import fotoejerciciosexpli from "../img/fotoejerciciosexpli.jpg";
 import fototiendaserv from "../img/fototiendaserv.jpg";
 import fotodietaserv from "../img/fotodietaserv.jpg";
 import fotogym from "../img/contact.jpg";
-import foto1 from "../img/foto1.webp";
+import foto1 from "../img/foto1.png";
 import { useState, useEffect } from "react";
 import habilitarTailwind from "../components/habilitarTailwind";
 import ChatComponent from "../components/ChatComponent";
@@ -47,10 +47,10 @@ function Gym() {
         <div className="tw-pt-[4.87rem] bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
 
 
-          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-10 xl:tw-px-44  ">
+          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-44  ">
 
             <div className="flex-wrap row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
-              <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-14 xl:tw-mt-[4.2rem] col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
+              <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-14 xl:tw-mt-[4.2rem] lg:tw-w-1/2 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
                 <div className="border-0 card-header fw-semibold tw-text-center sm:tw-text-start tw-py-0" style={{ fontSize: '450%' }}>
                   Control<span className="tw-text-[#03e9f4]">Z</span>
@@ -79,7 +79,9 @@ function Gym() {
                   </blockquote>
                 </div>
               </div>
-              <img src={foto1} className="rounded col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0 float-end" alt="..." />
+              <div className="lg:tw-w-1/2 tw-flex tw-items-center tw-justify-center">
+                <img src={foto1} className="rounded tw-w-2/3 tw-h- col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0 float-end" alt="..." />
+              </div>
             </div>
           </div>
         </div>
