@@ -60,7 +60,6 @@ function Perfil() {
                   style={{ width: "150px" }}
                 />
                 <h5 className="my-3 text-white">
-                  {/* <?php echo $_SESSION["usuario"]; ?> */}
                 </h5>
                 <p className="mb-1 text-white">Full Stack Developer</p>
                 <p className="mb-2 text-white">Cullar Zaidin</p>
@@ -70,51 +69,7 @@ function Perfil() {
         </div>
       </div>
       <div className="container-fluid col-lg-8">
-        {/* <div className="mb-4 card">
-            <div className="row">
-              <div className="col-sm-3">
-                <p className="mb-0">Nombre Completo</p>
-              </div>
-              <div className="col-sm-9">
-                <p className="mb-0 text-muted">
-                  <?php echo $_SESSION["nombre"]; ?> 
-                </p>
-            </div>
-          </div>
-          <hr />
-          <div className="row">
-            <div className="col-sm-3">
-              <p className="mb-0">Email</p>
-            </div>
-            <div className="col-sm-9">
-              <p className="mb-0 text-muted">
-                 <?php echo $_SESSION["email"]; ?> 
-              </p>
-            </div>
-          </div>
-          <hr />
-          <div className="row">
-            <div className="col-sm-3">
-              <p className="mb-0">Teléfono Móvil</p>
-            </div>
-            <div className="col-sm-9">
-              <p className="mb-0 text-muted">
-                 <?php echo $_SESSION["telefono"]; ?> 
-              </p>
-            </div>
-          </div>
-          <hr />
-          <div className="row">
-            <div className="col-sm-3">
-              <p className="mb-0">Dirección</p>
-            </div>
-            <div className="col-sm-9">
-              <p className="mb-0 text-muted">
-                <?php echo $_SESSION["direccion"]; ?> 
-              </p>
-            </div>
-          </div>
-        </div> */}
+
         <MDBCol lg="12">
           <MDBCard className="mb-4">
             <MDBCardBody>

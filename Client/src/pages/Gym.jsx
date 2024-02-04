@@ -1,7 +1,7 @@
 export default Gym;
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Features from "../components/Features";
+import CartasFeatures from "../components/CartasFeatures";
 import fotorutinaserv from "../img/fotorutinaserv.jpg";
 import fotoejerciciosexpli from "../img/fotoejerciciosexpli.jpg";
 import fototiendaserv from "../img/fototiendaserv.jpg";
@@ -13,7 +13,6 @@ import habilitarTailwind from "../components/habilitarTailwind";
 import ChatComponent from "../components/ChatComponent";
 
 function Gym() {
-  habilitarTailwind()
 
   const [mostrarTexto, setmostrarTexto] = useState(false)
 
@@ -21,12 +20,10 @@ function Gym() {
     setmostrarTexto(!mostrarTexto)
   }
 
-  
-
 
   return (
     <div>
-     
+
 
       <div className="bg-black min-vh-100 bodygym">
 
@@ -35,19 +32,19 @@ function Gym() {
         <div className="tw-pt-[4.87rem] bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
 
 
-          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-44">
+          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-10 xl:tw-px-44  ">
 
             <div className="flex-wrap row d-flex flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
-              <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-10 xl:tw-mt-12 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
+              <div className="text-white bg-transparent border-0 tw-mt-3 md:tw-mt-4 lg:tw-mt-10 xl:tw-mt-[4.5rem] col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
-                <div className="border-0 md:tw-mb-2 card-header fw-semibold tw-text-center sm:tw-text-start " style={{ fontSize: '450%' }}>
+                <div className="border-0 card-header fw-semibold tw-text-center sm:tw-text-start tw-py-0" style={{ fontSize: '450%' }}>
                   ControlZ
                 </div>
-                <div className="card-body textobienvenidagimnasio">
-                  <blockquote className="blockquote tw-text-center tw-text-pretty sm:tw-text-start">
+                <div className="card-body">
+                  <blockquote className="blockquote tw-text-center tw-text-pretty sm:tw-text-start tw-text-lg">
                     <p id="textoprincipalgym">¡Bienvenido a ControlZ, tu destino digital para transformar tu cuerpo y recuperar el control de tu salud y bienestar! </p>
                     {mostrarTexto && (
-                      <p id="textosecundariogym">
+                      <p id="textosecundariogym" className="tw-text-lg">
                         <br></br>
                         Explora ControlZ, un mundo fitness que te impulsa a la mejor versión de ti mismo con rutinas personalizadas y consejos de nutrición. Desafiamos límites, promovemos un estilo de vida activo y saludable, invitándote a reiniciar tu camino hacia la forma física y descubrir un nuevo tú.
                       </p>
@@ -82,11 +79,11 @@ function Gym() {
             <div className="container mx-auto d-flex align-items-center justify-content-center ">
               <div className="card-group">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 ">
-                  <Features imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales y tu progreso gracias a la ayuda que ControlZ te brinda en el día a día."
+                  <CartasFeatures imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales y tu progreso gracias a la ayuda que ControlZ te brinda en el día a día."
                   }
                     link={"rutina"}
                   />
-                  <Features
+                  <CartasFeatures
                     imagen={fotoejerciciosexpli}
                     titulo={"Guia ejercicios"}
                     descripcion={
@@ -94,7 +91,7 @@ function Gym() {
                     }
                     link={"#"}
                   />
-                  <Features
+                  <CartasFeatures
                     imagen={fotodietaserv}
                     titulo={"Dieta"}
                     descripcion={
@@ -102,7 +99,7 @@ function Gym() {
                     }
                     link={"dieta"}
                   />{" "}
-                  <Features
+                  <CartasFeatures
                     imagen={fototiendaserv}
                     titulo={"Tienda"}
                     descripcion={

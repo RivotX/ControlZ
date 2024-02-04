@@ -10,7 +10,6 @@ import habilitarTailwind from "../components/habilitarTailwind";
 
 function Tienda() {
 
-  habilitarTailwind()
 
   const [ModalAbierto, setModalAbierto] = useState(false);
   const [ProductoSeleccionado, setProductoSeleccionado] = useState(null);
@@ -40,8 +39,6 @@ function Tienda() {
       document.removeEventListener("keydown", CerrarModalEsc);
     };
   }, [ModalAbierto]);
-
-  console.log("ola");
 
   return (
     <>

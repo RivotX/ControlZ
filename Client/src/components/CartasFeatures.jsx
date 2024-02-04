@@ -1,6 +1,6 @@
-export default Features;
+export default CartasFeatures;
 
-function Features({ imagen, titulo, descripcion, link }) {
+function CartasFeatures({ imagen, titulo, descripcion, link }) {
   return (
     <a href={link} className="text-decoration-none">
       <div className="col ">
@@ -8,7 +8,7 @@ function Features({ imagen, titulo, descripcion, link }) {
           <img src={imagen} className="card-img-top " alt="..." />
           <div className="card-body bg-dark ">
             <h5 className="text-white card-title">{titulo}</h5>
-            <p className="card-text text-secondary cartas">{descripcion}</p>
+            <p className="card-text text-secondary cartas tw-text-pretty">{descripcion}</p>
             <span href={link} className="btn btn-outline-info">
               Acceder
             </span>

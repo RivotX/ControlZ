@@ -3,14 +3,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TablaRutina from "../components/TablaRutina";
 import axios from "axios";
-import habilitarTailwind from "../components/habilitarTailwind";
 
 
 function Rutina() {
-  habilitarTailwind()
   return (
     <div className="tw-min-h-screen">
-      <Navbar />
+      <Navbar linkHome="/gym" />
       <div className=" tw-py-[4.87rem]">
 
         <TablaRutina />

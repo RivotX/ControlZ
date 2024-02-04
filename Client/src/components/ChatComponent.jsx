@@ -135,7 +135,7 @@ function ChatComponent() {
             </div>
           ) : (
             PantallaPequeña ? (
-              <div className="tw-cursor-pointer tw-w-14 tw-h-14 tw-fixed tw-right-[2%] tw-top-[2.6%]  tw-z-50 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
+              <div className="tw-cursor-pointer tw-w-14 tw-h-14 tw-fixed tw-right-[2%] tw-top-[1%]  tw-z-50 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-p-1"
                 onClick={desplegarChat}>
                 <svg
                   className="tw-pointer-events-none"
@@ -177,7 +177,6 @@ function ChatComponent() {
               </div>
           )
         }
-
 
       </div >
 

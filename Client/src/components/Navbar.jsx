@@ -15,7 +15,7 @@ function Navbar({ linkHome }) {
     setMenuOpen(!menuOpen);
   };
 
-
+  //cambiar chatcomponent cuando se enseñe carritocompra
 
 
   return (
@@ -56,7 +56,7 @@ function Navbar({ linkHome }) {
               </svg>
             </button>
           </div>
-          <div className={`tw-items-center tw-justify-between tw-w-full md:tw-flex md:tw-w-auto md:tw-order-1 ${menuOpen ? "" : "tw-hidden"}`} id="navbar-sticky">
+          <div className={`tw-items-center tw-justify-between tw-w-full md:tw-flex md:tw-w-auto xl:tw-me-16 md:tw-order-1 ${menuOpen ? "" : "tw-hidden"}`} id="navbar-sticky">
             <ul className="tw-text-white tw-flex tw-flex-col tw-px-4  tw-mt-4 tw-font-medium tw-border tw-border-gray-100 tw-rounded-xl tw-bg-gray-950 md:tw-space-x-8 rtl:tw-space-x-reverse md:tw-flex-row md:tw-mt-0 md:tw-border-0">
               <li >
                 <a href={linkHome} className="tw-block tw-py-2 tw-rounded md:tw-bg-transparent hover:tw-text-gray-400 " aria-current="page">Home</a>
@@ -80,7 +80,10 @@ function Navbar({ linkHome }) {
         {/* Renderizar cesta */}
         <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} />
       </nav>
-      <ChatComponent />
+      {!visibleCesta && (
+        <ChatComponent />
+
+      )}
     </>
   );
 
