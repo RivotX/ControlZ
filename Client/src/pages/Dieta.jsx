@@ -25,10 +25,10 @@ function Dieta() {
       </div>
 
       {/* Renderizar el modal */}
-      {ShowFoodModal && <FoodModal closeModal={closeModal} />}
+        {ShowFoodModal && <FoodModal closeModal={closeModal} />}
       {/* <Footer /> */}
+      <Footer />
 
-      
 
     </div>
   );
