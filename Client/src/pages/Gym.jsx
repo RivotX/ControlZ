@@ -9,8 +9,6 @@ import fotodietaserv from "../img/fotodietaserv.jpg";
 import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.png";
 import { useState, useEffect } from "react";
-import habilitarTailwind from "../components/habilitarTailwind";
-import ChatComponent from "../components/ChatComponent";
 
 function Gym() {
 
@@ -47,7 +45,7 @@ function Gym() {
         <div className="tw-pt-[4.87rem] bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
 
 
-          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-44  ">
+          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-64  ">
 
             <div className="flex-wrap row d-flex tw-pb-8 sm:tw-pt-10 flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
               <div className="text-white bg-transparent border-0 lg:tw-w-1/2 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">

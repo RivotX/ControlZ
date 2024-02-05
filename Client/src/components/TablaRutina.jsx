@@ -9,6 +9,7 @@ const TablaRutina = () => {
   const [viernes, setViernes] = useState([]);
   const [sabado, setSabado] = useState([]);
   const [domingo, setDomingo] = useState([]);
+  
 
   var usuario = {};
   useEffect(() => {
