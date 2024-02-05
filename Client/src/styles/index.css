@@ -4,10 +4,13 @@
 }
 
 .fondoindex {
-  background-image: url("../img/fondoindex.jpg");
+  background:fixed url("../img/espalda.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  filter: contrast(-2);
+  background-position-x: center; 
+  background-position-y: 36vh; 
+  background-color: black;
+  /* background: radial-gradient(rgb(35, 47, 62), rgb(14, 19, 25),#000000); */
 }
 
 .logoindex {

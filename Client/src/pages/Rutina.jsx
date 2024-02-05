@@ -9,7 +9,7 @@ function Rutina() {
   return (
     <div className="tw-min-h-screen">
       <Navbar linkHome="/gym" />
-      <div className=" tw-py-[4.87rem]">
+      <div className=" tw-py-[4.87rem] bg-black min-vh-100">
 
         <TablaRutina />
         <Footer />

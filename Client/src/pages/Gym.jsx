@@ -9,10 +9,12 @@ import fotodietaserv from "../img/fotodietaserv.jpg";
 import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.png";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Gym() {
 
   const [mostrarTexto, setmostrarTexto] = useState(false)
+  const [nombreUsuario, setNombreUsuario]=useState("");
 
   const cambiarDisplay = () => {
     setmostrarTexto(!mostrarTexto)
@@ -21,6 +23,13 @@ function Gym() {
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
   useEffect(() => {
+    axios.get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+    .then((res) => {
+      setNombreUsuario(res.data.usuario);
+      
+    })
+    .catch((err) => console.error(err));
+    
     const actualizarAnchoVentana = () => {
       setPantallaPequeña(window.innerWidth < 640);
     };
@@ -136,7 +145,7 @@ function Gym() {
             <div className="mb-3">
               <div className="mx-auto mt-4 mb-2 text-center d-flex align-items-center justify-content-center">
                 <h1 className="mt-4 titulobienvenidagym fw-semibold tw-text-4xl md:tw-text-5xl lg:tw-text-6xl tw-w-full">
-                  Comienza el cambio (usuario)
+                  Comienza el cambio <span className="tw-text-[#03e9f4]">{nombreUsuario}</span>
                 </h1>
               </div>
             </div>
