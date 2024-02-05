@@ -22,10 +22,10 @@ const FoodModal = ({ closeModal }) => {
 
     return (
         <div className=" tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen NegroOpacidad75 tw-flex tw-items-center tw-justify-center tw-z-[51]">
-            <div className="tw-text-white  tw-bg-gray-800 tw-mx-2 tw-px-4 tw-py-8 tw-rounded-lg tw-w-full tw-h-4/5 md:tw-w-4/5 lg:tw-w-2/5 tw-opacity-100 tw-overflow-x-hidden tw-overflow-y-scroll">
+            <div className="tw-text-white tw-bg-gray-800 tw-mx-2 tw-px-4 tw-pb-8 tw-rounded-lg tw-w-full tw-h-4/5 md:tw-w-4/5 lg:tw-w-2/5 tw-opacity-100 tw-overflow-x-hidden tw-overflow-y-scroll">
 
                 <div className="tw-flex tw-w-full tw-justify-end">
-                    <span onClick={closeModal} className="tw-h-10 tw-cursor-pointer tw-text-white tw-text-3xl tw-mt-[-4.5vh] tw-px-4 tw-mr-[-4%]">x</span>
+                    <span onClick={closeModal} className="tw-h-10 tw-cursor-pointer tw-text-white tw-text-3xl ">x</span>
                 </div>
 
                 <div className="tw-flex tw-h-[6%] tw-w-full tw-flex-wrap tw-justify-center tw-gap-1">
@@ -37,9 +37,12 @@ const FoodModal = ({ closeModal }) => {
                         className="tw-text-black tw-px-2 tw-w-4/5 tw-text-center tw-text-sm tw-rounded-md "
                         onKeyDown={(e) => { if (e.key === "Enter") handleClick(); }}
                     />
-                    <svg onClick={handleClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] tw-cursor-pointer hover:tw-fill-gray-500">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-                    </svg>
+                    <div className="tw-flex tw-items-center tw-justify-center">
+                        <svg onClick={handleClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] tw-cursor-pointer hover:tw-fill-gray-500">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                        </svg>
+                    </div>
+
                 </div>
 
                 <div id='resultContainer' className="tw-flex tw-h-full tw-flex-wrap tw-text-black tw-gap-1 tw-w-full tw-justify-center tw-mt-3">
