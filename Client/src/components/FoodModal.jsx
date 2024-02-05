@@ -22,7 +22,7 @@ const FoodModal = ({ closeModal }) => {
 
     return (
         <div className=" tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen NegroOpacidad75 tw-flex tw-items-center tw-justify-center tw-z-[51]">
-            <div className="tw-text-white tw-bg-gray-800 tw-mx-2 tw-px-4 tw-pb-8 tw-rounded-lg tw-w-full tw-h-4/5 md:tw-w-4/5 lg:tw-w-2/5 tw-opacity-100 tw-overflow-x-hidden tw-overflow-y-scroll">
+            <div className="tw-text-white tw-bg-[#292929] tw-mx-2 tw-px-4 tw-pb-8 tw-rounded-lg tw-w-full tw-h-4/5 md:tw-w-4/5 lg:tw-w-2/5 tw-opacity-100 tw-overflow-x-hidden tw-overflow-y-scroll">
 
                 <div className="tw-flex tw-w-full tw-justify-end">
                     <span onClick={closeModal} className="tw-h-10 tw-cursor-pointer tw-text-white tw-text-3xl ">x</span>
