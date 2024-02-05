@@ -321,7 +321,7 @@ function Index() {
           className="completo"
           style={{ display: VisibleWelcome ? "block" : "none" }}
         >
-          <div className=" tw-pt-28 titulocontenedor tw-text-3xl sm:tw-text-5xl md:tw-text-6xl lg:tw-text-7xl">
+          <div className=" tw-pt-[8.7vh] titulocontenedor tw-text-3xl sm:tw-text-5xl md:tw-text-6xl lg:tw-text-7xl">
             <p>
               Nosotros te ayudamos a
               <br />
