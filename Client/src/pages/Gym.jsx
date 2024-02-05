@@ -9,12 +9,12 @@ import fotodietaserv from "../img/fotodietaserv.jpg";
 import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.png";
 import { useState, useEffect } from "react";
-import habilitarTailwind from "../components/habilitarTailwind";
-import ChatComponent from "../components/ChatComponent";
+import axios from "axios";
 
 function Gym() {
 
   const [mostrarTexto, setmostrarTexto] = useState(false)
+  const [nombreUsuario, setNombreUsuario]=useState("");
 
   const cambiarDisplay = () => {
     setmostrarTexto(!mostrarTexto)
@@ -23,6 +23,13 @@ function Gym() {
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
   useEffect(() => {
+    axios.get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+    .then((res) => {
+      setNombreUsuario(res.data.usuario);
+      
+    })
+    .catch((err) => console.error(err));
+    
     const actualizarAnchoVentana = () => {
       setPantallaPequeña(window.innerWidth < 640);
     };
@@ -47,7 +54,7 @@ function Gym() {
         <div className="tw-pt-[4.87rem] bg-dark bg-gradient bg-opacity-10" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
 
 
-          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-44  ">
+          <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-[14.5rem] ">
 
             <div className="flex-wrap row d-flex tw-pb-8 sm:tw-pt-10 flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
               <div className="text-white bg-transparent border-0 lg:tw-w-1/2 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
@@ -80,7 +87,7 @@ function Gym() {
                 </div>
               </div>
               <div className="lg:tw-w-1/2 tw-flex tw-items-center tw-justify-center">
-                <img src={foto1} className="rounded tw-w-2/3  col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0 float-end" alt="..." />
+                <img src={foto1} className="rounded tw-w-2/3 col-sm-12 col-md-12 col-lg-9 offset-lg-1 col-xl-6 offset-xl-0 float-end" alt="..." />
               </div>
             </div>
           </div>
@@ -138,13 +145,13 @@ function Gym() {
             <div className="mb-3">
               <div className="mx-auto mt-4 mb-2 text-center d-flex align-items-center justify-content-center">
                 <h1 className="mt-4 titulobienvenidagym fw-semibold tw-text-4xl md:tw-text-5xl lg:tw-text-6xl tw-w-full">
-                  Comienza el cambio (usuario)
+                  Comienza el cambio <span className="tw-text-[#03e9f4]">{nombreUsuario}</span>
                 </h1>
               </div>
             </div>
 
             <div className="mx-auto mt-4 descgym text-secondary d-flex align-items-center justify-content-center">
-              <p className="mb-4   tw-text-center tw-w-4/5">
+              <p className="mb-4 tw-text-center tw-w-4/5">
                 En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo. ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
               </p>
             </div>

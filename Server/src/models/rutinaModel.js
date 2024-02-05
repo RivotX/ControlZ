@@ -2,11 +2,12 @@
 import Mongoose from "mongoose";
 
 const diasSchema = new Mongoose.Schema({
-  ejercicio: {
+  
     id: Number,
+    nombre:
     series: Number,
     repeticiones: Number,
-  },
+  
 });
 
 const rutinaSchema = new Mongoose.Schema({
