@@ -1,8 +1,27 @@
 export default Index;
 import { useState, useEffect } from "react";
 import axios from "axios";
+import habilitarTailwind from "../components/habilitarTailwind";
 
 function Index() {
+
+  const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const actualizarAnchoVentana = () => {
+      setPantallaPequeña(window.innerWidth < 640);
+    };
+
+    window.addEventListener('resize', actualizarAnchoVentana);
+
+    // Limpiar el listener del evento resize cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('resize', actualizarAnchoVentana);
+    };
+  }, []);
+
+  habilitarTailwind()
+
   const [values, setValues] = useState({
     usuario: "",
     password: "",
@@ -215,7 +234,7 @@ function Index() {
 
   return (
     <div className="fondoindex min-vh-100">
-      <div id="containerPagEntera" className="container-fluid">
+      <div id="containerPagEntera" className="">
         {/* Navbar  */}
         <div className=" Nav">
           <nav className="navbar">
@@ -299,10 +318,10 @@ function Index() {
 
         {/* Pantalla inicial */}
         <div
-          className="container completo"
+          className="completo"
           style={{ display: VisibleWelcome ? "block" : "none" }}
         >
-          <div className="container titulocontenedor">
+          <div className=" tw-pt-28 titulocontenedor tw-text-3xl sm:tw-text-5xl md:tw-text-6xl lg:tw-text-7xl">
             <p>
               Nosotros te ayudamos a
               <br />
@@ -310,23 +329,35 @@ function Index() {
             </p>
           </div>
           <br />
-          <div className="fixed descripcionindex">
-            <p id="frasesuelta">
-              No esperes más para comenzar tu viaje hacia una mejor versión de
-              ti mismo. En el gimnasio, no solo transformamos cuerpos;
-              transformamos vidas. Únete a nosotros para descubrir el placer del
-              ejercicio, la emoción del logro y el apoyo inquebrantable de una
-              comunidad dedicada. Estamos aquí para ayudarte a alcanzar tus
-              metas y superar tus límites.
-            </p>
-            <br />
-            <p id="frasesuelta">
-              ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu
-              historia de éxito!
-            </p>
+          <div className="fixed descripcionindex tw-text-sm tw-text-pretty sm:tw-text-5xl">
+            {PantallaPequeña ?
+              (<p id="frasesuelta">No esperes más para comenzar tu viaje hacia una mejor versión de
+                ti mismo. 
+                <br></br>
+                <br></br>
+                ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu
+                historia de éxito!</p>)
+
+              :
+
+              (<>
+                < p id="frasesuelta">
+                  No esperes más para comenzar tu viaje hacia una mejor versión de
+                  ti mismo. En el gimnasio, no solo transformamos cuerpos;
+                  transformamos vidas. Únete a nosotros para descubrir el placer del
+                  ejercicio, la emoción del logro y el apoyo inquebrantable de una
+                  comunidad dedicada. Estamos aquí para ayudarte a alcanzar tus
+                  metas y superar tus límites.
+                </p>
+                <br />
+                <p id="frasesuelta">
+                  ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu
+                  historia de éxito!
+                </p>
+              </>)}
           </div>
 
-          <div className="d-flex justify-content-center align-items-center">
+          <div className="d-flex tw-text-sm tw-pt-1 justify-content-center align-items-center">
             <button className="iniciar" type="button" onClick={btnComenzar}>
               <span></span>
               <span></span>
@@ -446,7 +477,7 @@ function Index() {
                   No tengo cuenta
                 </u>
               </div>
-              <div className="mt-5 mb-5 container-fluid ">
+              <div className="mt-5 mb-5 ">
                 <div className="text-center row rounded-2">
                   <input
                     type="submit"
@@ -627,7 +658,7 @@ function Index() {
                   Ya tienes cuenta
                 </u>
               </div>
-              <div className="mt-5 mb-5 container-fluid">
+              <div className="mt-5 mb-5 ">
                 <div className="text-center row">
                   <input
                     // onClick={cambiarDisplayRegistro2}
@@ -703,7 +734,7 @@ function Index() {
                 Ya tienes cuenta
               </u>
 
-              <div className="mt-3 mb-5 container-fluid">
+              <div className="mt-3 mb-5 ">
                 <div className="text-center row">
                   <input
                     type="submit"
@@ -729,6 +760,6 @@ function Index() {
           crossOrigin="anonymous"
         ></script>
       </div>
-    </div>
+    </div >
   );
 }
