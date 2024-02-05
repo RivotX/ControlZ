@@ -4,6 +4,7 @@ import add from '../img/add (1).png'
 import FoodModal from "../components/FoodModal";
 import { useState } from "react";
 import cafe from "../img/Deus_Coffee.png"
+import image from "../img/image.png"
 
 function Dieta() {
   const [ShowFoodModal, SetShowFoodModal] = useState(false);
@@ -20,17 +21,11 @@ function Dieta() {
     <div className="tw-min-h-screen tw-bg-gradient-to-b tw-bg-[#121212] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
       <Navbar linkHome={"/gym"} />
       <div className="tw-flex tw-justify-center tw-w-full tw-flex-wrap tw-text-white tw-rounded-md">
-        <p className="tw-w-full tw-bg-[#292929] tw-mb-5">sd</p>
-        <p className="tw-w-full tw-bg-[#292929] tw-mb-5">sd</p>
-        <p className="tw-w-full tw-bg-[#292929] tw-mb-5">sd</p>
+        <p className="tw-w-full tw-bg-[#292929] tw-mt-3 tw-text-center tw-p-3">(anterior)---- HOY ---(siguente)</p>
+      <img src={image}></img>
+        <div className="tw-w-full tw-min-h-[60vh] tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap  tw-justify-between tw-p-3 tw-rounded-md tw-mt-5 tw-px-5">
 
-        <div className="tw-w-full tw-min-h-[60vh] tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-justify-between tw-p-3 tw-rounded-md">
-
-
-         
-
-
-        <div className="tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 tw-border-b ">
+          <div className="tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 tw-border-b " >
             <div className="gap-2 tw-w-full tw-flex tw-items-center">
               <img src={cafe} className="tw-w-1/5" />
               <div className="tw-w-full tw-flex tw-items-center tw-flex-wrap tw-justify-between">
@@ -38,7 +33,7 @@ function Dieta() {
                   <span className="tw-w-full tw-font-bold">Desayuno</span>
                   <span className="tw-w-full tw-text-xs tw-text-gray-200">500 kcal</span>
                 </div>
-                <img src={add} className="tw-w-2/12" onClick={AbrirModal}/>
+                <img src={add} className="tw-w-2/12" onClick={AbrirModal} />
               </div>
             </div>
           </div>
@@ -50,7 +45,7 @@ function Dieta() {
                   <span className="tw-w-full tw-font-bold">Desayuno</span>
                   <span className="tw-w-full tw-text-xs">500 kcal</span>
                 </div>
-                <img src={add} className="tw-w-2/12" onClick={AbrirModal}/>
+                <img src={add} className="tw-w-2/12" onClick={AbrirModal} />
               </div>
             </div>
           </div>
@@ -62,11 +57,11 @@ function Dieta() {
                   <span className="tw-w-full tw-font-bold">Desayuno</span>
                   <span className="tw-w-full tw-text-xs">500 kcal</span>
                 </div>
-                <img src={add} className="tw-w-2/12" onClick={AbrirModal}/>
+                <img src={add} className="tw-w-2/12" onClick={AbrirModal} />
               </div>
             </div>
           </div>
-          <div className="tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 tw-border-b ">
+          <div className="tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 ">
             <div className="gap-2 tw-w-full tw-flex tw-items-center">
               <img src={cafe} className="tw-w-1/5" />
               <div className="tw-w-full tw-flex tw-items-center tw-flex-wrap tw-justify-between">
@@ -74,7 +69,7 @@ function Dieta() {
                   <span className="tw-w-full tw-font-bold">Desayuno</span>
                   <span className="tw-w-full tw-text-xs">500 kcal</span>
                 </div>
-                <img src={add} className="tw-w-2/12" onClick={AbrirModal}/>
+                <img src={add} className="tw-w-2/12" onClick={AbrirModal} />
               </div>
             </div>
           </div>
