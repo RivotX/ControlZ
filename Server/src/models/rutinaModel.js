@@ -4,7 +4,7 @@ import Mongoose from "mongoose";
 const diasSchema = new Mongoose.Schema({
   
     id: Number,
-    nombre:
+    nombre:String, 
     series: Number,
     repeticiones: Number,
   
