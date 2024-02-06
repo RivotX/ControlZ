@@ -326,7 +326,7 @@ function Index() {
             </p>
           </div>
           <br />
-          <div className="fixed tw-mt-3 descripcionindex tw-text-sm tw-text-pretty sm:tw-text-md md:tw-text-lg lg:tw-text-md xl:tw-text-lg">
+          <div className="fixed tw-mt-3 descripcionindex tw-text-sm tw-text-pretty sm:tw-text-lg md:tw-text-lg lg:tw-text-lg xl:tw-text-lg">
             {PantallaPequeña ?
               (<p id="frasesuelta">No esperes más para comenzar tu viaje hacia una mejor versión de ti mismo.
                 <br></br>
