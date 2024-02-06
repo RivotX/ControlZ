@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Ejercicio from  './Ejercicio.jsx';
 
 const TablaRutina = () => {
   const [lunes, setLunes] = useState([
@@ -26,8 +27,10 @@ const TablaRutina = () => {
   const [rutina, setRutina] = useState([]);
   const [diaVisible, setDiaVisible] = useState(0)
   const [nombredias, setnombredias]=useState(["Lunes","Martes","Miércoles","Jueves","Viernes","Sabado","Domingo"])
-
-  var usuario = {};
+  const [rutinacambiada, setrutinacambiada]=useState(false)
+  const [usuarioSession,setUsuarioSession]= useState({})
+  
+  const [ModalRutina,setModalRutina]= useState(false)
   useEffect(() => {
     const obtenerRutina = async () => {
       try {
@@ -35,7 +38,7 @@ const TablaRutina = () => {
           withCredentials: true,
         });
         const usuario = { usuario: resUsuario.data.usuario };
-
+        setUsuarioSession({ usuario: resUsuario.data.usuario })
         const resRutina = await axios.post(
           "http://localhost:8081/getrutina",
           usuario,
@@ -55,15 +58,30 @@ const TablaRutina = () => {
     };
 
     obtenerRutina();
-  }, []);
+  }, [rutinacambiada]);
 
   useEffect(() => {
     setRutina([lunes, martes, miercoles, jueves, viernes, sabado, domingo]);
   }, [lunes, martes, miercoles, jueves, viernes, sabado, domingo]);
 
+
+
   useEffect(() => {
-    console.log(rutina);
+
+   const actualizarRutina=async()=>{
+    try{
+      const actualizar = await axios.post("http://localhost:8081/ActualizarRutina",usuarioSession, {rutina:rutina});
+
+      console.log(actualizar)
+
+      setrutinacambiada(!rutinacambiada)
+    }catch (error) {
+        console.error(error);
+      }}
+      console.log("CAMBIO RUTINA")
   }, [rutina]);
+
+
 
   const Botondias=(numero)=>{
 
@@ -73,6 +91,30 @@ const TablaRutina = () => {
 
 setDiaVisible(diaVisible+numero)
 }
+  }
+
+  const eliminarRutina=(i)=>{
+    var copiarutina= [...rutina]
+    copiarutina[diaVisible].splice(i,1);
+    setRutina(copiarutina)
+
+
+    
+  }
+
+  const añadirRutina=(nombre, series, repeticiones, peso)=>{
+    var copiarutina= [...rutina]
+
+    copiarutina[diaVisible].push({nombre:nombre,series:series, repeticiones: repeticiones, kg:peso  })
+    setRutina(copiarutina)
+    setModalRutina(false)
+
+    
+  }
+
+  const ModalAñadirRutina=()=>{
+  setModalRutina(true)
+    
   }
 
   return (
@@ -95,22 +137,13 @@ setDiaVisible(diaVisible+numero)
   index === diaVisible && (
     dia.length > 0 ? (
       dia.map((ejercicio, indexe) => (
-        <div className="tw-mb-[20%]  flex tw-flex-row-reverse " key={indexe}>
-          <div className="tw-border celdadiv">{ejercicio.nombre}</div>
-          <div className="tw-border celdadiv">Series: {ejercicio.series}</div>
-          <div className="tw-border celdadiv">Repeticiones: {ejercicio.repeticiones}</div>
-          <div className="tw-border celdadiv">Kg: {ejercicio.kg}</div>
-        </div>
-        
-        
+        !indexe==dia.length-1?
+        <Ejercicio nombre={ejercicio.nombre} series={ejercicio.series} repeticiones={ejercicio.repeticiones} eliminar={()=>{eliminarRutina(indexe)}} last={false} peso={ejercicio.kg} key={indexe} vacio={false} />
+        :
+        <Ejercicio nombre={ejercicio.nombre} series={ejercicio.series} repeticiones={ejercicio.repeticiones} eliminar={()=>{eliminarRutina(indexe)}} last={true } peso={ejercicio.kg} key={indexe} vacio={false} />
       ))
     ) : (
-      <div className="tw-mb-[20%]  flex tw-flex-row-reverse " key={index}>
-        <div className="tw-border celdadiv"></div>
-        <div className="tw-border celdadiv">Series:</div>
-        <div className="tw-border celdadiv">Repeticiones:</div>
-        <div className="tw-border celdadiv">Kg:</div>
-      </div>
+      <Ejercicio nombre={""} series={""} repeticiones={""} eliminar={()=>{eliminarRutina()}} last={false} peso={""} vacio={true} añadir={()=>{añadirRutina()}}  />
     )
   )
 
