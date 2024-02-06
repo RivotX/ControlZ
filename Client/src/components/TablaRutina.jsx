@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 const TablaRutina = () => {
   const [lunes, setLunes] = useState([
     [{ nombre: "", series: 0, repeticiones: 0, kg: 0 }],
@@ -24,6 +25,7 @@ const TablaRutina = () => {
   ]);
   const [rutina, setRutina] = useState([]);
   const [diaVisible, setDiaVisible] = useState(0)
+  const [nombredias, setnombredias]=useState(["Lunes","Martes","Miércoles","Jueves","Viernes","Sabado","Domingo"])
 
   var usuario = {};
   useEffect(() => {
@@ -74,34 +76,50 @@ setDiaVisible(diaVisible+numero)
   }
 
   return (
-    <div className="tw-m-7 tw-text-white tw-flex tw-justify-center tw-items-center ">
-      <button className="tw-bg-slate-400 tw-h-10 tw-w-20 tw-text-center tw-rounded-full tw-text-white tw-font-semibold tw-m-4" onClick={()=>{Botondias(-1)}}>{"<"}</button>
-      <table className="tw-border tw-border-white tw-rounded-full">
-        <thead>
-          {rutina.map(
-            (dia, index) =>
-              index === diaVisible &&
-              dia.map((ejercicio, indexe) => (
-                <tr key={indexe}>
-                  <td className="tw-border" >
-                    Ejercicio:{ejercicio.nombre}
-                  </td>
-                  <td className="tw-border" >
-                    Series:{ejercicio.series}
-                  </td>
-                  <td className="tw-border" >
-                    Repeticiones:{ejercicio.repeticiones}
-                  </td>
-                  <td className="tw-border" >
-                    Kg:{ejercicio.kg}
-                  </td>
-                </tr>
-              )),
-          )}
+    <div className="  tw-text-center tw-w-[70%] tw-m-auto tw-text-white tw-flex tw-flex-wrap flex-column tw-justify-center tw-items-center ">
+      
+      <div className="tw-text-4xl tw-font-bold">Rutina</div>
+      
+      <div className="tw-w-full tw-flex tw-flex-row tw-justify-center tw-items-center">
+        <button className="tw-bg-slate-400 tw-h-10 tw-w-20 tw-text-center tw-rounded-full tw-text-white tw-font-semibold tw-m-4" onClick={()=>{Botondias(-1)}}>{"<"}</button>
+        <h1 className="tw-font-semibold tw-text-2xl"> {nombredias[diaVisible]} </h1>
+        <button className="tw-bg-slate-400 tw-h-10 tw-w-20 tw-text-center tw-rounded-full tw-text-white tw-font-semibold tw-m-4" onClick={()=>{Botondias(1)}}>{">"}</button>
+      </div>
+      <div className="tw-overflow-auto flex tw-bg-slate-500 tw-h-[] tw-w-[90%] tw-p-[5%] tw-mt-4 tw-rounded-3xl">
+        
+      <div className=" tw-border-white tw-bg-black tw-rounded-2xl tw-p-[5%] ">
+        
 
-        </thead>
-      </table>
-      <button className="tw-bg-slate-400 tw-h-10 tw-w-20 tw-text-center tw-rounded-full tw-text-white tw-font-semibold tw-m-4" onClick={()=>{Botondias(1)}}>{">"}</button>
+
+        {rutina.map((dia, index) => (
+  index === diaVisible && (
+    dia.length > 0 ? (
+      dia.map((ejercicio, indexe) => (
+        <div className="tw-mb-[20%]  flex tw-flex-row-reverse " key={indexe}>
+          <div className="tw-border celdadiv">{ejercicio.nombre}</div>
+          <div className="tw-border celdadiv">Series: {ejercicio.series}</div>
+          <div className="tw-border celdadiv">Repeticiones: {ejercicio.repeticiones}</div>
+          <div className="tw-border celdadiv">Kg: {ejercicio.kg}</div>
+        </div>
+        
+        
+      ))
+    ) : (
+      <div className="tw-mb-[20%]  flex tw-flex-row-reverse " key={index}>
+        <div className="tw-border celdadiv"></div>
+        <div className="tw-border celdadiv">Series:</div>
+        <div className="tw-border celdadiv">Repeticiones:</div>
+        <div className="tw-border celdadiv">Kg:</div>
+      </div>
+    )
+  )
+
+))}
+
+        
+      </div>
+      </div>
+     
 
       
 
