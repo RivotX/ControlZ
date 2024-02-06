@@ -5,7 +5,7 @@ import '../styles/custom.css';
 const Grafica = () => {
     let percentage = 70;
     return (
-        <div className="tw-relative tw-w-32 tw-h-32"> {/* Contenedor para la gráfica */}
+        <div className="tw-relative tw-w-32 tw-h-32 sm:tw-w-48 sm:tw-h-48 sm:tw-text-lg md:tw-w-64 md:tw-h-64 md:tw-text-5xl"> {/* Contenedor para la gráfica */}
             <CircularProgressbar
                 value={percentage}
                 text={""} // No necesitamos el texto aquí
@@ -19,7 +19,7 @@ const Grafica = () => {
                     strokeLinecap: 'butt',
 
                     // Text size
-                    textSize: '10px',
+                   
 
                     // How long animation takes to go from one percentage to another, in seconds
                     pathTransitionDuration: 0.5,

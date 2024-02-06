@@ -17,11 +17,9 @@
   
   .text-container::before {
     content: attr(data-text-line1);
-    font-size: 10px;
   }
   
   .text-container::after {
     content: attr(data-text-line2);
-    font-size: 8px;
   }
   
