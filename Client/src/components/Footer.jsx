@@ -3,7 +3,7 @@ export default Footer;
 function Footer() {
   return (
     <div className="">
-      <footer className="text-center tw-bg-[#0d0d0d] text-white">
+      <footer className="text-center text-white tw-bg-[#0d0d0d]">
         {/* <!-- Grid container --> */}
         <div className="container pt-4 ">
           {/* <!-- Section: Social media --> */}
@@ -11,7 +11,7 @@ function Footer() {
             {/* <!-- Facebook --> */}
             <a
               data-mdb-ripple-init
-              className="btn btn-link btn-floating btn-lg text-body m-1"
+              className="m-1 btn btn-link btn-floating btn-lg text-body"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
@@ -22,7 +22,7 @@ function Footer() {
             {/* <!-- Twitter --> */}
             <a
               data-mdb-ripple-init
-              className="btn btn-link btn-floating btn-lg text-body m-1"
+              className="m-1 btn btn-link btn-floating btn-lg text-body"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
@@ -35,7 +35,7 @@ function Footer() {
             {/* <!-- Instagram --> */}
             <a
               data-mdb-ripple-init
-              className="btn btn-link btn-floating btn-lg text-body m-1"
+              className="m-1 btn btn-link btn-floating btn-lg text-body"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
@@ -44,7 +44,7 @@ function Footer() {
             {/* <!-- Github --> */}
             <a
               data-mdb-ripple-init
-              className="btn btn-link btn-floating btn-lg text-body m-1"
+              className="m-1 btn btn-link btn-floating btn-lg text-body"
               href="https://github.com/RivotX/ControlZ"
               role="button"
               data-mdb-ripple-color="dark"
@@ -58,7 +58,7 @@ function Footer() {
         {/* <!-- Grid container --> */}
 
         {/* <!-- Copyright --> */}
-        <div className="text-center p-2" >
+        <div className="p-2 text-center" >
           © 2023 Copyright:
           <a className="text-light ms-2" href="https://Controlz.kesug.com/">Controlz.kesug.com</a>
         </div>

@@ -18,7 +18,7 @@ function Navbar({ linkHome }) {
 
   return (
     <>
-      <nav className="tw-bg-black tw-fixed tw-w-full tw-z-20 tw-top-0 tw-start-0 ">
+      <nav className="tw-bg-[#0d0d0d] tw-fixed tw-w-full tw-z-20 tw-top-0 tw-start-0 ">
         <div className="tw-max-w-screen-xl tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mx-auto tw-p-4">
           <a href="/principal" className="tw-flex tw-items-center tw-space-x-3 rtl:tw-space-x-reverse">
             <img src={logo} className="tw-h-9 tw-mt-2 " alt="" />
@@ -54,22 +54,22 @@ function Navbar({ linkHome }) {
               </svg>
             </button>
           </div>
-          <div className={`tw-items-center tw-justify-between tw-w-full md:tw-flex md:tw-w-auto lg:tw-me-[4.9rem] md:tw-order-1 ${menuOpen ? "" : "tw-hidden"}`} id="navbar-sticky">
-            <ul className="tw-text-white tw-flex tw-flex-col tw-px-4  tw-mt-4 tw-font-semibold tw-border tw-border-gray-800 tw-rounded-xl md:tw-space-x-8 rtl:tw-space-x-reverse md:tw-flex-row md:tw-mt-0 md:tw-border-0">
+          <div className={`tw-items-center tw-justify-between tw-w-full md:tw-flex md:tw-w-auto md:tw-me-[4.9rem] md:tw-order-1 ${menuOpen ? "" : "tw-hidden"}`} id="navbar-sticky">
+            <ul className="tw-text-white tw-flex tw-flex-col tw-px-4 tw-mt-4 tw-font-semibold tw-border tw-border-gray-800 tw-rounded-xl md:tw-space-x-8 rtl:tw-space-x-reverse md:tw-flex-row md:tw-mt-0 md:tw-border-0">
               <li >
                 <a href={linkHome} className="tw-block tw-py-2 tw-rounded md:tw-bg-transparent hover:tw-text-gray-400 " aria-current="page">Home</a>
               </li>
               <li>
-                <a href="/dieta" className="tw-block tw-py-2  tw-rounded hover:tw-text-gray-400  ">Dieta</a>
+                <a href="/dieta" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Dieta</a>
               </li>
               <li>
-                <a href="/rutina" className="tw-block tw-py-2   tw-rounded hover:tw-text-gray-400 ">Rutina</a>
+                <a href="/rutina" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Rutina</a>
               </li>
               <li>
-                <a href="/tienda" className="tw-block tw-py-2   tw-rounded hover:tw-text-gray-400 ">Tienda</a>
+                <a href="/tienda" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Tienda</a>
               </li>
               <li>
-                <a href="/perfil" className="tw-block tw-py-2   tw-rounded hover:tw-text-gray-400 ">Perfil</a>
+                <a href="/perfil" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Perfil</a>
               </li>
             </ul>
           </div>

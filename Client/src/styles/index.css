@@ -10,7 +10,8 @@
   background-position-x: center; 
   background-position-y: 36vh; 
   background-color: black;
-  /* background: radial-gradient(rgb(35, 47, 62), rgb(14, 19, 25),#000000); */
+  overflow: hidden;
+  background: radial-gradient(rgb(35, 47, 62), rgb(14, 19, 25),#000000);
 }
 
 .logoindex {
@@ -47,11 +48,10 @@
 }
 
 .descripcionindex {
-  font-size: 100%;
   font-family:system-ui, -apple-system, BlinkMacSystemFont;
   color: aliceblue;
-  width: 67.5%;
-  margin-left: 15%;
+  width: 50%;
+  margin-left: 25%;
   text-align: justify;
 }
 
@@ -93,7 +93,7 @@ svg:hover {
 
 .login-box {
   width: 80vh;
-  padding-top: 2vh;
+  padding-top: 1vh;
   padding-left: 10vh;
   padding-right: 10vh;
   padding-bottom: 2vh;
@@ -412,7 +412,7 @@ svg:hover {
   transition: all 0.6s;
 }
 .botonsiguiente:hover {
-  box-shadow: 0px 0px 10px rgb(3, 85, 85);
+  box-shadow: 0px 0px 10px rgb(0, 255, 255);
   transition: all 0.6s;
   transform: scale(1.03);
 }
