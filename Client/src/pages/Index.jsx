@@ -318,7 +318,7 @@ function Index() {
 
         {/* Pantalla inicial */}
         <div className="" style={{ display: VisibleWelcome ? "block" : "none" }} >
-          <div className=" tw-pt-28 titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
+          <div className=" tw-pt-[8vh] titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
             <p>
               Nosotros te ayudamos a
               <br />
@@ -347,8 +347,8 @@ function Index() {
               </>)}
           </div>
 
-          <div className="d-flex tw-text-sm tw-pt-1 justify-content-center align-items-center">
-            <button className="iniciar" type="button" onClick={btnComenzar}>
+          <div className="d-flex tw-text-sm tw-pt-[3vh] justify-content-center align-items-center">
+            <button className="iniciar tw-p-5" type="button" onClick={btnComenzar}>
               <span></span>
               <span></span>
               <span></span>
@@ -359,22 +359,22 @@ function Index() {
         </div>
 
         {/* Inicio de sesion */}
-        <div className="inicio d-flex justify-content-center align-items-center">
+        <div className="inicio d-flex justify-content-center align-items-center tw-px-2 sm:tw-px-12">
           <div
-            className="login-box "
+            className="login-box tw-border-[1px] tw-border-cyan-50 tw-p-8 sm:tw-p-14"
             id="logearse"
             style={{
               display: VisibleIniciarSesion ? "block" : "none",
               opacity: 1,
             }}
           >
-            <h2>Iniciar Sesion</h2>
+            <h2 className="tw-text-white tw-text-2xl text-center sm:tw-text-[4.5rem] tw-font-bold ">Iniciar Sesion</h2>
             <form onSubmit={SumbitLogin} method="post">
-              <div className="mb-2 text-center">
-                <p className="text-white">Sign in with:</p>
+              <div className="text-center tw-flex tw-gap-1 tw-flex-wrap tw-justify-center tw-items-center ">
+                <p className="text-white tw-w-full tw-pt-6 sm:tw-text-3xl sm:tw-mt-10 sm:tw-mb-8">Sign in with:</p>
                 <button
                   type="button"
-                  className="mx-1 btn btn-secondary btn-floating"
+                  className="mx-1 btn btn-secondary btn-floating "
                 >
                   <i className="fab fa-facebook-f">
                     <svg
@@ -410,32 +410,32 @@ function Index() {
                   </i>
                 </button>
               </div>
-
-              <div className="user-box">
-                <input
-                  type="text"
-                  name="usuarioInicio"
-                  required
-                  value={values.usuario}
-                  onChange={(e) =>
-                    setValues({ ...values, usuario: e.target.value })
-                  }
-                />
-                <label>Usuario</label>
+              <div className="tw-pt-16 sm:tw-h-[40vh] tw-flex tw-flex-wrap tw-gap-6 sm:tw-gap-0">
+                <div className="user-box tw-w-full tw-pb-6">
+                  <input
+                    type="text"
+                    name="usuarioInicio"
+                    required
+                    value={values.usuario}
+                    onChange={(e) =>
+                      setValues({ ...values, usuario: e.target.value })
+                    }
+                  />
+                  <label className="sm:tw-text-2xl tw-top-[-20%]">Usuario</label>
+                </div>
+                <div className="user-box tw-w-full tw-mb-4">
+                  <input
+                    type="password"
+                    name="claveInicio"
+                    required
+                    value={values.password}
+                    onChange={(e) =>
+                      setValues({ ...values, password: e.target.value })
+                    }
+                  />
+                  <label className="sm:tw-text-2xl tw-top-[-20%]">Contraseña</label>
+                </div>
               </div>
-              <div className="user-box">
-                <input
-                  type="password"
-                  name="claveInicio"
-                  required
-                  value={values.password}
-                  onChange={(e) =>
-                    setValues({ ...values, password: e.target.value })
-                  }
-                />
-                <label>Contraseña</label>
-              </div>
-
               <p
                 id="mensajeConstraseñaincorrectaInicio"
                 className="text-danger position-absolute"
@@ -461,17 +461,17 @@ function Index() {
               <div className="">
                 <u
                   href=""
-                  className=" registro float-end"
+                  className=" registro float-end tw-text-lg"
                   onClick={cambiarDisplayRegistro}
                 >
                   No tengo cuenta
                 </u>
               </div>
-              <div className="mt-5 mb-5 ">
+              <div className="tw-pt-[8vh] ">
                 <div className="text-center row rounded-2">
                   <input
                     type="submit"
-                    className=" botonsiguiente"
+                    className=" botonsiguiente tw-text-3xl"
                     value="Siguiente"
                     name="submit"
                   />
@@ -482,20 +482,20 @@ function Index() {
         </div>
 
         {/* Registro 1 */}
-        <div className=" d-flex justify-content-center align-items-center">
+        <div className=" d-flex justify-content-center align-items-center tw-px-2 sm:tw-px-14">
           <div
-            className="loginRegistro login-box reg "
+            className=" login-box tw-border-[1px] tw-border-cyan-50 tw-pt-10 tw-px-6 sm:tw-px-10 sm:tw-h-[75vh]"
             id="registrar"
             style={{
               display: VisibleRegistro ? "block" : "none",
               opacity: "100%",
             }}
           >
-            <h2>Crea tu Perfil</h2>
+            <h2 className="tw-mb-3">Crea tu Perfil</h2>
 
-            <form id="enviarphp2" onSubmit={ComprobarReg}>
-              <div className="mb-3 text-center">
-                <p className="text-white">Sign up with:</p>
+            <form id="" onSubmit={ComprobarReg}>
+              <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-1 ">
+                <p className="text-white tw-w-full">Sign up with:</p>
                 <button
                   type="button"
                   className="mx-1 btn btn-secondary btn-floating"
@@ -535,58 +535,60 @@ function Index() {
                 </button>
               </div>
 
-              <div className="user-box regNormal">
-                <input
-                  type="text"
-                  name="usuario"
-                  id="usuario"
-                  value={values.usuario}
-                  onChange={(e) =>
-                    setValues({ ...values, usuario: e.target.value })
-                  }
-                  required
-                />
-                <label>Usuario</label>
-              </div>
-              <div className="user-box regNormal ">
-                <input
-                  type="text"
-                  name="email"
-                  id="email"
-                  value={values.email}
-                  onChange={(e) =>
-                    setValues({ ...values, email: e.target.value })
-                  }
-                  required
-                />
-                <label>Email</label>
-              </div>
-              <div className="user-box regNormal ">
-                <input
-                  type="password"
-                  name="clave1"
-                  id="clave1"
-                  value={values.password}
-                  required
-                  onChange={(e) =>
-                    setValues({ ...values, password: e.target.value })
-                  }
-                />
-                <label>Contraseña</label>
-              </div>
+              <div className="tw-flex tw-flex-wrap tw-gap-7 tw-pt-7 sm:tw-h-[40vh] sm:tw-pt-14">
+                <div className="user-box tw-w-full ">
+                  <input
+                    type="text"
+                    name="usuario"
+                    id="usuario"
+                    value={values.usuario}
+                    onChange={(e) =>
+                      setValues({ ...values, usuario: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Usuario</label>
+                </div>
+                <div className="user-box tw-w-full ">
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    value={values.email}
+                    onChange={(e) =>
+                      setValues({ ...values, email: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Email</label>
+                </div>
+                <div className="user-box tw-w-full ">
+                  <input
+                    type="password"
+                    name="clave1"
+                    id="clave1"
+                    value={values.password}
+                    required
+                    onChange={(e) =>
+                      setValues({ ...values, password: e.target.value })
+                    }
+                  />
+                  <label>Contraseña</label>
+                </div>
 
-              <div className="user-box regNormal">
-                <input
-                  type="password"
-                  name="clave2"
-                  id="clave2"
-                  value={values.password2}
-                  onChange={(e) =>
-                    setValues({ ...values, password2: e.target.value })
-                  }
-                  required
-                />
-                <label>Repetir contraseña</label>
+                <div className="user-box tw-w-full">
+                  <input
+                    type="password"
+                    name="clave2"
+                    id="clave2"
+                    value={values.password2}
+                    onChange={(e) =>
+                      setValues({ ...values, password2: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Repetir contraseña</label>
+                </div>
               </div>
               <p
                 id="mensajeRegError"
@@ -596,6 +598,7 @@ function Index() {
                   height: "10px",
                 }}
               >
+
                 El usuario o el Email ya existen
               </p>
               <p

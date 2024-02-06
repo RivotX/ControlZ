@@ -9,7 +9,6 @@
 
 .ancho {
   height: 100vh;
-
   color: rgb(250, 250, 250);
   font-family:
     system-ui,
@@ -252,7 +251,8 @@
 
 .bodyperfil {
   overflow: hidden;
-  background: fixed url(../img/fondoperfil2.jpg);
+  /* background: fixed url(../img/fondoperfil2.jpg); */
+  background:  #0d0d0d;
 }
 .bodygym {
   overflow: auto;

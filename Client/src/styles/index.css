@@ -93,10 +93,6 @@ svg:hover {
 
 .login-box {
   width: 80vh;
-  padding-top: 1vh;
-  padding-left: 10vh;
-  padding-right: 10vh;
-  padding-bottom: 2vh;
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
@@ -112,12 +108,7 @@ svg:hover {
 
 .login-box h2 {
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  font-weight: bold;
-  font-size: 200%;
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
-  text-align: center;
+ 
 }
 
 .login-box .user-box {
@@ -126,27 +117,19 @@ svg:hover {
 
 .login-box .user-box input {
   width: 100%;
-  padding: 15px 0;
-  margin-top: 10%;
   font-size: 16px;
   color: #fff;
-  margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
 }
-.reg .user-box input {
-  padding: 10px 0;
-  margin-top: 2%;
-}
+
+
 
 .login-box .user-box label {
   position: absolute;
-  top: 20%;
   left: 0;
-  padding: 10px 0;
-  font-size: 16px;
   color: #fff;
   pointer-events: none;
   transition: 0.5s;
@@ -157,13 +140,11 @@ svg:hover {
   top: -20px;
   left: 0;
   color: #03e9f4;
-  font-size: 12px;
 }
 
 .login-box form a {
   position: relative;
   display: inline-block;
-  padding: 10px 20px;
   color: #03e9f4;
   width: 60%;
   text-align: center;
@@ -172,21 +153,16 @@ svg:hover {
   text-transform: uppercase;
   overflow: hidden;
   transition: 0.5s;
-  margin-top: 15%;
-  margin-left: 20%;
   letter-spacing: 4px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   font-weight: bold;
 }
-.reg form a {
-  margin-top: 2%;
-}
+
 
 .iniciar {
   position: relative;
   background-color: #03e8f400;
   display: inline-block;
-  padding: 10px 20px;
   color: #03e9f4;
   text-shadow: 2px 2px 2px #004b4f;
   width: auto;
@@ -195,7 +171,6 @@ svg:hover {
   font-size: 200%;
   overflow: hidden;
   transition: 0.5s;
-  margin-top: 3vh;
   letter-spacing: 4px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   font-weight: bold;
@@ -361,12 +336,7 @@ svg:hover {
   cursor: pointer;
   user-select: none;
 }
-@media screen and (max-width: 755px){
-  .registro{
-    
 
-  }
-}
 
 @media screen and (max-width: 1000px) {
   .titulocontenedor {
@@ -384,11 +354,7 @@ svg:hover {
   }
 }
 
-@media screen and (max-width: 530px) {
-  .iniciar {
-    margin-bottom: 10%;
-  }
-}
+
 .inicio {
   transform: scale(1);
   margin-top: 4vh;

@@ -45,9 +45,9 @@ function Perfil() {
   console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
 
   return (
-    <div className="px-0 container-fluid min-vh-100 bodyperfil">
+    <div className="px-0 container-fluid min-vh-100 bodyperfil tw-bg-gradient-to-b tw-from-[#ffffff] tw-via-[#69AAFA] tw-via-[40%] tw-to-[#0d0d0d] tw-to-[75%]">
       <Navbar linkHome={"/gym"} />
-      <div className="mb-4 tw-pt-[4.87rem] container-fluid fondoperfil ">
+      <div className="mb-4 tw-pt-[4.87rem] container-fluid fondoperfil tw-border-b-2 tw-border-white">
         <div className="mb-3 circulo container-fluid">
           <div className=" justify-content-center d-flex">
             <div className="mt-2 mb-2 borde">
@@ -115,166 +115,97 @@ function Perfil() {
         <div className="row ">
           <div className="col-md-6">
             <div className="mb-4 card mb-md-0">
-              <div className="card-body">
-                <p className="mb-4">
-                  <span className="text-primary font-italic me-1">
+              <div className="card-body tw-h-64 tw-flex tw-flex-wrap tw-font-normal">
+                <p className="mb-4 tw-w-full tw-font-medium">
+                  <span className="tw-text-blue-400 font-italic me-1">
                     Progreso
                   </span>{" "}
                   Gimnasio
                 </p>
-                <p className="mb-1" style={{ fontSize: "0.77rem" }}>
-                  Brazos
-                </p>
-                <div className="rounded progress" style={{ height: '5px' }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "80%" }}
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
+                    Edad
+                  </p>
+                  <input className="tw-border tw-rounded-lg tw-border-blue-300 tw-text-center tw-w-1/3 " type="number" name="edad"></input>
                 </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Pecho
-                </p>
-                <div className="rounded progress" style={{ height: "5px" }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "72%" }}
-                    aria-valuenow="72"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
+                    Peso
+                  </p>
+                  <input className="mb-1 tw-border tw-rounded-lg tw-border-blue-300 tw-text-center tw-w-1/3 " type="number" name="edad"></input>
                 </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Espalda
-                </p>
-                <div className="rounded progress" style={{ height: "5px" }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "89%" }}
-                    aria-valuenow="89"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
+                    Altura
+                  </p>
+                  <input className="mb-1 tw-border tw-rounded-lg tw-border-blue-300 tw-text-center tw-w-1/3 " name="edad" placeholder="..."></input>
                 </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Piernas
-                </p>
-                <div className="rounded progress" style={{ height: "5px" }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "55%" }}
-                    aria-valuenow="55"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
+                    Actividad Física
+                  </p>
+                  <select className="tw-border tw-rounded-lg tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="edad" placeholder="...">
+                    <option selected>Seleccionar</option>
+                    <option value='1'>Nunca</option>
+                    <option value='1'>1 vez en semana</option>
+                    <option value='1'>2-3 vez en semana</option>
+                    <option value='2'>4-5 vez en semana</option>
+                    <option value='3'>Todos los días</option>
+                  </select>
                 </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Abdominales
-                </p>
-                <div
-                  className="mb-2 rounded progress "
-                  style={{ height: "5px" }}
-                >
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "66%" }}
-                    aria-valuenow="66"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+                <div className="mb-1 tw-justify-between tw-flex tw-w-full">
+                  <p className="tw-w-1/3 text-md">
+                    Sexo
+                  </p>
+                  <div className="inline-flex tw-items-center tw-justify-between">
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="" name="sexo"></input>
+                    <label htmlFor="sexo" className="tw-ml-1">M</label>
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="" name="sexo"></input>
+                    <label htmlFor="sexo" className="tw-ml-1">F</label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="mb-3 col-md-6">
             <div className="mb-4 card mb-md-0">
-              <div className="card-body">
-                <p className="mb-4">
-                  <span className="text-primary font-italic me-1">
+              <div className="card-body tw-flex tw-flex-wrap tw-font-normal tw-h-64">
+                <p className="mb-4 tw-w-full tw-font-medium">
+                  <span className="tw-text-blue-400 font-italic me-1">
                     Progreso
                   </span>{" "}
                   Dieta
                 </p>
-                <p className="mb-1" style={{ fontSize: "0.77rem" }}>
-                  Proteínas
-                </p>
-                <div className="rounded progress" style={{ height: "5px" }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "80%" }}
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
+                    Calorías
+                  </p>
+                  <h1 className=" tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
                 </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Hidratos
-                </p>
-                <div className="rounded progress" style={{ height: "5px" }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "72%" }}
-                    aria-valuenow="72"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
+                    Proteínas
+                  </p>
+                  <h1 className="mb-1 tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
                 </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Verduras
-                </p>
-                <div className="rounded progress" style={{ height: "5px" }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "89%" }}
-                    aria-valuenow="89"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Cantidad de Agua
-                </p>
-                <div className="rounded progress" style={{ height: "5px" }}>
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "55%" }}
-                    aria-valuenow="55"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p className="mt-4 mb-1" style={{ fontSize: "0.77rem" }}>
-                  Fruta
-                </p>
-                <div
-                  className="mb-2 rounded progress"
-                  style={{ height: '5px' }}
-                >
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: "66%" }}
-                    aria-valuenow="66"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
+                    Piezas de fruta
+                  </p>
+                  <h1 className="mb-1 tw-font-medium tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 " name="edad" >3</h1>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Footer></Footer>
     </div>
   );
 }

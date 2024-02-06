@@ -56,7 +56,7 @@ function Gym() {
 
           <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-[14.5rem] ">
 
-            <div className="tw-flex tw-flex-wrap  tw-pb-8 sm:tw-pt-10 ">
+            <div className="tw-flex tw-flex-wrap tw-pb-8 sm:tw-pt-10 ">
               <div className="text-white bg-transparent border-0 lg:tw-w-1/2 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
                 <div className="border-0 card-header fw-semibold tw-text-center sm:tw-text-start tw-py-0" style={{ fontSize: '450%' }}>
@@ -199,7 +199,7 @@ function Gym() {
                 alt="..."
               />
             </div>
-            <div className="tw-w-full sm:tw-w-4/5">
+            <div className="tw-w-full tw-h-full sm:tw-w-4/5">
               <div className="card-header fs-3 fw-semibold tw-text-center tw-text-gray-300 ">
                 Contáctanos
               </div>
