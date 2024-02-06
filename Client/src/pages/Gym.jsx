@@ -56,7 +56,7 @@ function Gym() {
 
           <div className="tw-px-2 sm:tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-[14.5rem] ">
 
-            <div className="flex-wrap row d-flex tw-pb-8 sm:tw-pt-10 flex-lg-wrap row-cols-lg-1 row-cols-xl-2 row-cols-md-1">
+            <div className="tw-flex tw-flex-wrap  tw-pb-8 sm:tw-pt-10 ">
               <div className="text-white bg-transparent border-0 lg:tw-w-1/2 col-sm-12 col-md-12 col-lg-12 justify-content-center tetito card ">
 
                 <div className="border-0 card-header fw-semibold tw-text-center sm:tw-text-start tw-py-0" style={{ fontSize: '450%' }}>
@@ -189,7 +189,7 @@ function Gym() {
 
         }
 
-        <div className=" bg-dark bg-opacity-10 tw-flex tw-flex-wrap tw-px-3 md:tw-w-11/12 lg:tw-w-4/5 tw-mx-auto">
+        <div className=" bg-opacity-10 tw-flex tw-flex-wrap tw-px-3 md:tw-w-11/12 lg:tw-w-4/5 tw-mx-auto">
 
           <div className="mb-5 card border-secondary bg-dark tw-text-center text-secondary tw-rounded-lg sm:tw-flex-nowrap sm:tw-flex-row sm:tw-justify-between md:tw-text-lg lg:tw-text-xl" > {/* rounded-start-pill  rounded-end */}
             <div className="tw-w-full sm:tw-w-3/5">

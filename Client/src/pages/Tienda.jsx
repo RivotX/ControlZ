@@ -5,7 +5,6 @@ import ProductoModal from "../components/ProductoModal";
 import proteinaPolvo from "../img/proteinaPolvo.png"
 import barraProteina from "../img/barraProteina.png"
 import { useState, useEffect } from "react";
-import habilitarTailwind from "../components/habilitarTailwind";
 
 
 function Tienda() {
@@ -42,10 +41,10 @@ function Tienda() {
 
   return (
     <>
-      <div className="tw-min-h-screen tw-py-[4.87rem] tw-bg-gradient-to-b tw-from-gray-700 tw-via-gray-900 tw-via-20% tw-to-black tw-to-50%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
+      <div className="tw-min-h-screen tw-pt-[4.87rem] tw-bg-gradient-to-b tw-from-[#292929] tw-via-[#121212] tw-via-40% tw-to-black tw-to-80%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"/gym"} />
 
-        <div className="p-2 tw-flex tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center sm:tw-mx-4"> {/* tw-grid md:tw-grid-cols-3 xl:tw-grid-cols-4*/}
+        <div className="tw-p-2 tw-mb-8 tw-flex tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center sm:tw-mx-4"> {/* tw-grid md:tw-grid-cols-3 xl:tw-grid-cols-4*/}
 
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
