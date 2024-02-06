@@ -264,7 +264,7 @@ function ChatComponent() {
             (<div
               ref={chatRef}
               id="chat"
-              className="animate__fadeInUpBig border border-light  tw-bg-gray-200 tw-overflow-y-visible tw-p-1 tw-bottom-[14.5%] tw-right-[2%] tw-fixed tw-min-h-[73%] tw-min-w-[40%] lg:tw-min-w-[30%] tw-rounded-lg tw-z-40"
+              className="animate__fadeInUpBig border border-light md:tw-w-2/3 xl:tw-w-1/3 tw-bg-gray-200 tw-overflow-y-visible tw-p-1 tw-bottom-[14.5%] tw-right-[2%] tw-fixed tw-min-h-[73%] tw-min-w-[40%] lg:tw-min-w-[30%] tw-rounded-lg tw-z-40"
               style={{
 
                 backdropFilter: "blur(10px)",

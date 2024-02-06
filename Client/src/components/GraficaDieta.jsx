@@ -5,7 +5,7 @@ import '../styles/custom.css';
 const Grafica = () => {
     let percentage = 70;
     return (
-        <div className="tw-relative tw-w-32 tw-h-32 sm:tw-w-48 sm:tw-h-48 sm:tw-text-lg md:tw-w-64 md:tw-h-64 md:tw-text-5xl"> {/* Contenedor para la gráfica */}
+        <div className="tw-relative sm:tw-text-lg md:tw-w-64 md:tw-h-64 md:tw-text-5xl"> {/* Contenedor para la gráfica */}
             <CircularProgressbar
                 value={percentage}
                 text={""} // No necesitamos el texto aquí
@@ -36,7 +36,7 @@ const Grafica = () => {
             />
             <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center text-container">
                 <div className="text-number tw-font-bold">579</div>
-                <div className="text-calories tw-text-sm">Calorías</div>
+                <div className="text-calories tw-text-sm sm:tw-text-xl">Calorías</div>
             </div>
         </div>
     );
