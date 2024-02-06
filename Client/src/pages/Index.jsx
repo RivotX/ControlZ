@@ -317,11 +317,8 @@ function Index() {
         </div>
 
         {/* Pantalla inicial */}
-        <div
-          className="completo"
-          style={{ display: VisibleWelcome ? "block" : "none" }}
-        >
-          <div className=" tw-pt-[8.7vh] titulocontenedor tw-text-3xl sm:tw-text-5xl md:tw-text-6xl lg:tw-text-7xl">
+        <div className="" style={{ display: VisibleWelcome ? "block" : "none" }} >
+          <div className=" tw-pt-28 titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
             <p>
               Nosotros te ayudamos a
               <br />
@@ -329,25 +326,18 @@ function Index() {
             </p>
           </div>
           <br />
-          <div className="fixed descripcionindex tw-text-sm tw-text-pretty sm:tw-text-5xl">
+          <div className="fixed tw-mt-3 descripcionindex tw-text-sm tw-text-pretty sm:tw-text-md md:tw-text-lg lg:tw-text-md xl:tw-text-lg">
             {PantallaPequeña ?
-              (<p id="frasesuelta">No esperes más para comenzar tu viaje hacia una mejor versión de
-                ti mismo. 
+              (<p id="frasesuelta">No esperes más para comenzar tu viaje hacia una mejor versión de ti mismo.
                 <br></br>
                 <br></br>
-                ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu
-                historia de éxito!</p>)
+                ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu historia de éxito!</p>)
 
               :
 
               (<>
                 < p id="frasesuelta">
-                  No esperes más para comenzar tu viaje hacia una mejor versión de
-                  ti mismo. En el gimnasio, no solo transformamos cuerpos;
-                  transformamos vidas. Únete a nosotros para descubrir el placer del
-                  ejercicio, la emoción del logro y el apoyo inquebrantable de una
-                  comunidad dedicada. Estamos aquí para ayudarte a alcanzar tus
-                  metas y superar tus límites.
+                  No esperes más para comenzar tu viaje hacia una mejor versión de ti mismo. Únete a nosotros para descubrir el placer del ejercicio, la emoción del logro y el apoyo inquebrantable de una comunidad dedicada.
                 </p>
                 <br />
                 <p id="frasesuelta">
@@ -558,10 +548,9 @@ function Index() {
                 />
                 <label>Usuario</label>
               </div>
-
-              <div className="user-box regNormal">
+              <div className="user-box regNormal ">
                 <input
-                  type="email"
+                  type="text"
                   name="email"
                   id="email"
                   value={values.email}
@@ -572,7 +561,7 @@ function Index() {
                 />
                 <label>Email</label>
               </div>
-              <div className="user-box regNormal">
+              <div className="user-box regNormal ">
                 <input
                   type="password"
                   name="clave1"
@@ -649,6 +638,7 @@ function Index() {
               >
                 Debes escribir en todos los campos
               </p>
+              <br></br>
               <div className="">
                 <u
                   href=""
@@ -672,80 +662,80 @@ function Index() {
               </div>
             </form>
           </div>
-        </div>
 
-        {/* Registro 2 */}
-        <div className=" d-flex justify-content-center align-items-center">
-          <div
-            className="loginRegistro login-box reg "
-            id="reg"
-            style={{ display: VisibleRegistro2 ? "block" : "none", opacity: 1 }}
-          >
-            <h2>Crea tu Perfil</h2>
+          {/* Registro 2 */}
+          <div className=" d-flex justify-content-center align-items-center">
+            <div
+              className="loginRegistro login-box reg "
+              id="reg"
+              style={{ display: VisibleRegistro2 ? "block" : "none", opacity: 1 }}
+            >
+              <h2>Crea tu Perfil</h2>
 
-            <form id="enviarphp" onSubmit={SumbitRegistro}>
-              <div className="user-box regPlus">
-                <input
-                  type="text"
-                  name="nombre"
-                  value={values.nombre}
-                  onChange={(e) =>
-                    setValues({ ...values, nombre: e.target.value })
-                  }
-                  required
-                />
-                <label>Nombre completo</label>
-              </div>
-
-              <div className="user-box regPlus">
-                <input
-                  type="text"
-                  name="telefono"
-                  value={values.telefono}
-                  onChange={(e) =>
-                    setValues({ ...values, telefono: e.target.value })
-                  }
-                  required
-                />
-                <label>Telefono</label>
-              </div>
-
-              <div className="user-box regPlus">
-                <input
-                  type="text"
-                  name="direccion"
-                  value={values.direccion}
-                  onChange={(e) =>
-                    setValues({ ...values, direccion: e.target.value })
-                  }
-                  required
-                />
-                <label>Direccion</label>
-              </div>
-
-              <div style={{ color: "white" }}>
-                <h3>Sexo</h3>
-                <label>Hombre</label>
-                <input type="radio" name="sexo" value="1" id="sexo" />
-                <br /> <label>Mujer</label>
-                <input type="radio" name="sexo" value="0" id="sexo2" />
-              </div>
-              <u href="" className="col-4 registro" onClick={btnComenzar}>
-                Ya tienes cuenta
-              </u>
-
-              <div className="mt-3 mb-5 ">
-                <div className="text-center row">
+              <form id="enviarphp" onSubmit={SumbitRegistro}>
+                <div className="user-box regPlus">
                   <input
-                    type="submit"
-                    className=" botonsiguiente"
-                    value="Siguiente"
-                    name="submit"
-                    id="submit"
+                    type="text"
+                    name="nombre"
+                    value={values.nombre}
+                    onChange={(e) =>
+                      setValues({ ...values, nombre: e.target.value })
+                    }
+                    required
                   />
+                  <label>Nombre completo</label>
                 </div>
-              </div>
-            </form>
+
+                <div className="user-box regPlus">
+                  <input
+                    type="text"
+                    name="telefono"
+                    value={values.telefono}
+                    onChange={(e) =>
+                      setValues({ ...values, telefono: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Telefono</label>
+                </div>
+
+                <div className="user-box regPlus">
+                  <input
+                    type="text"
+                    name="direccion"
+                    value={values.direccion}
+                    onChange={(e) =>
+                      setValues({ ...values, direccion: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Direccion</label>
+                </div>
+
+                <div style={{ color: "white" }}>
+                  <h3>Sexo</h3>
+                  <label>Hombre</label>
+                  <input type="radio" name="sexo" value="1" id="sexo" />
+                  <br /> <label>Mujer</label>
+                  <input type="radio" name="sexo" value="0" id="sexo2" />
+                </div>
+                <u href="" className="col-4 registro" onClick={btnComenzar}>
+                  Ya tienes cuenta
+                </u>
+
+                <div className="mt-3 mb-5 ">
+                  <div className="text-center row">
+                    <input
+                      type="submit"
+                      className=" botonsiguiente"
+                      value="Siguiente"
+                      name="submit"
+                      id="submit"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
