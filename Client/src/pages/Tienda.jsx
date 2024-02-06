@@ -5,7 +5,6 @@ import ProductoModal from "../components/ProductoModal";
 import proteinaPolvo from "../img/proteinaPolvo.png"
 import barraProteina from "../img/barraProteina.png"
 import { useState, useEffect } from "react";
-import habilitarTailwind from "../components/habilitarTailwind";
 
 
 function Tienda() {
