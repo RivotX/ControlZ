@@ -42,7 +42,7 @@ function Dieta() {
               <p className="tw-w-full tw-flex tw-justify-center tw-font-bold"><span>2421</span></p>
               <p className="tw-w-full tw-flex tw-justify-center"><span>Consumidas</span></p>
             </div>
-            <div className="tw-w-2/5">
+            <div className="tw-w-2/5 tw-flex tw-items-center tw-justify-center tw-h-full">
               <Grafica />
             </div>
             <div className="tw-flex tw-flex-wrap tw-justify-center tw-w-1/5" >
