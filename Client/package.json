@@ -17,6 +17,7 @@
     "axios": "^1.6.2",
     "mdb-react-ui-kit": "^7.0.0",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0"
   },
@@ -32,6 +33,7 @@
     "postcss": "^8.4.33",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.10",
+    "reactjs-percentage-circle": "^1.0.0",
     "tailwindcss": "^3.4.1",
     "vite": "^5.0.10"
   }
