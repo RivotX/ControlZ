@@ -14,7 +14,7 @@ import axios from "axios";
 function Gym() {
 
   const [mostrarTexto, setmostrarTexto] = useState(false)
-  const [nombreUsuario, setNombreUsuario]=useState("");
+  const [nombreUsuario, setNombreUsuario] = useState("");
 
   const cambiarDisplay = () => {
     setmostrarTexto(!mostrarTexto)
@@ -24,14 +24,14 @@ function Gym() {
 
   useEffect(() => {
     axios.get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
-    .then((res) => {
-      setNombreUsuario(res.data.usuario);
-      
-    })
-    .catch((err) => console.error(err));
-    
+      .then((res) => {
+        setNombreUsuario(res.data.usuario);
+
+      })
+      .catch((err) => console.error(err));
+
     const actualizarAnchoVentana = () => {
-      setPantallaPequeña(window.innerWidth < 640);
+      setPantallaPequeña(window.innerWidth < 1024);
     };
 
     window.addEventListener('resize', actualizarAnchoVentana);
@@ -151,27 +151,41 @@ function Gym() {
             </div>
 
             <div className="mx-auto mt-4 descgym text-secondary d-flex align-items-center justify-content-center">
-              <p className="mb-4 tw-text-center tw-w-4/5">
-                En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo. ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
-              </p>
+              {PantallaPequeña ?
+                (<p className="mb-4 tw-text-center tw-w-4/5">
+                  En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo. ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
+                </p>)
+
+                :
+
+                (
+                  <p className="mb-4 tw-text-center tw-w-4/5">
+                    En nuestro gimnasio, fortalecemos cuerpo y mente con un enfoque personalizado en un ambiente inclusivo.
+                    Te damos la más cordial bienvenida a un lugar único, donde no importa tu nivel de experiencia o condición física, aquí, todos son bienvenidos para dar el primer paso hacia un cambio positivo en sus vidas.
+                    <br></br>
+                    <br></br>
+                    ¡Bienvenido a un lugar especial donde todos son bienvenidos para comenzar el cambio positivo hoy mismo!
+                  </p>
+                )}
             </div>
           </div>
         </div>
-        {!PantallaPequeña && (
-          <div className="mx-auto d-flex align-items-center justify-content-center tw-mb-16">
-            <div className="text-center contenedorgym ">
-              <h1 className="textgym">
-                CONSTRUYE<span id="wanana">TU LEGADO</span>
-              </h1>
-              <h1 className="textgym">
-                CREA<span id="wanana">TU FUTURO</span>
-              </h1>
-              <h1 className="textgym">
-                DISFRUTA<span id="wanana">EL CAMINO</span>
-              </h1>
+        {
+          !PantallaPequeña && (
+            <div className="mx-auto d-flex align-items-center justify-content-center tw-mb-16">
+              <div className="text-center contenedorgym ">
+                <h1 className="textgym">
+                  CONSTRUYE<span id="wanana">TU LEGADO</span>
+                </h1>
+                <h1 className="textgym">
+                  CREA<span id="wanana">TU FUTURO</span>
+                </h1>
+                <h1 className="textgym">
+                  DISFRUTA<span id="wanana">EL CAMINO</span>
+                </h1>
+              </div>
             </div>
-          </div>
-        )
+          )
 
         }
 
@@ -202,7 +216,7 @@ function Gym() {
 
         </div>
         <Footer />
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
