@@ -91,6 +91,11 @@ svg:hover {
   color: #1bad08;
 }
 
+.inicio {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
 .login-box {
   width: 80vh;
   background: rgba(0, 0, 0, 0.5);
@@ -355,10 +360,7 @@ svg:hover {
 }
 
 
-.inicio {
-  transform: scale(1);
-  margin-top: 4vh;
-}
+
 
 #submit {
   cursor: pointer;
@@ -391,3 +393,18 @@ svg:hover {
   }
 }
 
+.heighResponsive{
+  height:75vh
+}
+
+@media (min-height:800px){
+  .heighResponsive{
+    height:75vh
+  }
+}
+
+@media (min-height:1000px){
+  .heighResponsive{
+    height:85vh
+  }
+}

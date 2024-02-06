@@ -318,7 +318,7 @@ function Index() {
 
         {/* Pantalla inicial */}
         <div className="" style={{ display: VisibleWelcome ? "block" : "none" }} >
-          <div className=" tw-pt-[8vh] titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
+          <div className=" tw-mt-[8vh] titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
             <p>
               Nosotros te ayudamos a
               <br />
@@ -358,390 +358,391 @@ function Index() {
           </div>
         </div>
 
-        {/* Inicio de sesion */}
-        <div className="inicio d-flex justify-content-center align-items-center tw-px-2 sm:tw-px-12">
-          <div
-            className="login-box tw-border-[1px] tw-border-cyan-50 tw-p-8 sm:tw-p-14"
-            id="logearse"
-            style={{
-              display: VisibleIniciarSesion ? "block" : "none",
-              opacity: 1,
-            }}
-          >
-            <h2 className="tw-text-white tw-text-2xl text-center sm:tw-text-[4.5rem] tw-font-bold ">Iniciar Sesion</h2>
-            <form onSubmit={SumbitLogin} method="post">
-              <div className="text-center tw-flex tw-gap-1 tw-flex-wrap tw-justify-center tw-items-center ">
-                <p className="text-white tw-w-full tw-pt-6 sm:tw-text-3xl sm:tw-mt-10 sm:tw-mb-8">Sign in with:</p>
-                <button
-                  type="button"
-                  className="mx-1 btn btn-secondary btn-floating "
-                >
-                  <i className="fab fa-facebook-f">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-facebook"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                    </svg>
-                  </i>
-                </button>
-
-                <button
-                  type="button"
-                  className="mx-1 btn btn-secondary btn-floating"
-                >
-                  <i className="fab fa-google">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-google"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                    </svg>
-                  </i>
-                </button>
-              </div>
-              <div className="tw-pt-16 sm:tw-h-[40vh] tw-flex tw-flex-wrap tw-gap-6 sm:tw-gap-0">
-                <div className="user-box tw-w-full tw-pb-6">
-                  <input
-                    type="text"
-                    name="usuarioInicio"
-                    required
-                    value={values.usuario}
-                    onChange={(e) =>
-                      setValues({ ...values, usuario: e.target.value })
-                    }
-                  />
-                  <label className="sm:tw-text-2xl tw-top-[-20%]">Usuario</label>
-                </div>
-                <div className="user-box tw-w-full tw-mb-4">
-                  <input
-                    type="password"
-                    name="claveInicio"
-                    required
-                    value={values.password}
-                    onChange={(e) =>
-                      setValues({ ...values, password: e.target.value })
-                    }
-                  />
-                  <label className="sm:tw-text-2xl tw-top-[-20%]">Contraseña</label>
-                </div>
-              </div>
-              <p
-                id="mensajeConstraseñaincorrectaInicio"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensajeInicio ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Constraseña Incorrecta
-              </p>
-
-              <p
-                id="mensajeConstraseñaincorrectaInicio"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensajeNoExiste ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Usuario inexistente
-              </p>
-
-              <div className="">
-                <u
-                  href=""
-                  className=" registro float-end tw-text-lg"
-                  onClick={cambiarDisplayRegistro}
-                >
-                  No tengo cuenta
-                </u>
-              </div>
-              <div className="tw-pt-[8vh] ">
-                <div className="text-center row rounded-2">
-                  <input
-                    type="submit"
-                    className=" botonsiguiente tw-text-3xl"
-                    value="Siguiente"
-                    name="submit"
-                  />
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        {/* Registro 1 */}
-        <div className=" d-flex justify-content-center align-items-center tw-px-2 sm:tw-px-14">
-          <div
-            className=" login-box tw-border-[1px] tw-border-cyan-50 tw-pt-10 tw-px-6 sm:tw-px-10 sm:tw-h-[75vh]"
-            id="registrar"
-            style={{
-              display: VisibleRegistro ? "block" : "none",
-              opacity: "100%",
-            }}
-          >
-            <h2 className="tw-mb-3">Crea tu Perfil</h2>
-
-            <form id="" onSubmit={ComprobarReg}>
-              <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-1 ">
-                <p className="text-white tw-w-full">Sign up with:</p>
-                <button
-                  type="button"
-                  className="mx-1 btn btn-secondary btn-floating"
-                >
-                  <i className="fab fa-facebook-f">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-facebook"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                    </svg>
-                  </i>
-                </button>
-
-                <button
-                  type="button"
-                  className="mx-1 btn btn-secondary btn-floating"
-                >
-                  <i className="fab fa-google">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-google"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                    </svg>
-                  </i>
-                </button>
-              </div>
-
-              <div className="tw-flex tw-flex-wrap tw-gap-7 tw-pt-7 sm:tw-h-[40vh] sm:tw-pt-14">
-                <div className="user-box tw-w-full ">
-                  <input
-                    type="text"
-                    name="usuario"
-                    id="usuario"
-                    value={values.usuario}
-                    onChange={(e) =>
-                      setValues({ ...values, usuario: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Usuario</label>
-                </div>
-                <div className="user-box tw-w-full ">
-                  <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    value={values.email}
-                    onChange={(e) =>
-                      setValues({ ...values, email: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Email</label>
-                </div>
-                <div className="user-box tw-w-full ">
-                  <input
-                    type="password"
-                    name="clave1"
-                    id="clave1"
-                    value={values.password}
-                    required
-                    onChange={(e) =>
-                      setValues({ ...values, password: e.target.value })
-                    }
-                  />
-                  <label>Contraseña</label>
-                </div>
-
-                <div className="user-box tw-w-full">
-                  <input
-                    type="password"
-                    name="clave2"
-                    id="clave2"
-                    value={values.password2}
-                    onChange={(e) =>
-                      setValues({ ...values, password2: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Repetir contraseña</label>
-                </div>
-              </div>
-              <p
-                id="mensajeRegError"
-                className="text-danger position-absolute"
-                style={{
-                  display: showErrorRegistro ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-
-                El usuario o el Email ya existen
-              </p>
-              <p
-                id="mensaje1"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensaje1 ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Las contraseñas no coinciden
-              </p>
-              <p
-                id="mensaje2"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensaje2 ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                La contraseña es demasiado corta
-              </p>
-              <p
-                id="mensajeEmail"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensajeEmail ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Direccion de Email inválida
-              </p>
-              <p
-                id="mensajeCompletar"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensajeCompletar ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Debes escribir en todos los campos
-              </p>
-              <br></br>
-              <div className="">
-                <u
-                  href=""
-                  className=" registro float-end"
-                  onClick={btnComenzar}
-                >
-                  Ya tienes cuenta
-                </u>
-              </div>
-              <div className="mt-5 mb-5 ">
-                <div className="text-center row">
-                  <input
-                    // onClick={cambiarDisplayRegistro2}
-                    type="submit"
-                    className=" botonsiguiente"
-                    value="Siguiente"
-                    name="submit"
-                    id="sumbit"
-                  />
-                </div>
-              </div>
-            </form>
-          </div>
-
-          {/* Registro 2 */}
-          <div className=" d-flex justify-content-center align-items-center">
+        <div className="heighResponsive tw-px-2 tw-flex tw-flex-col tw-justify-center xl:tw-w-full ">
+          {/* Inicio de sesion */}
+          <div className="d-flex justify-content-center align-items-center sm:tw-py-10 sm:tw-px-12">
             <div
-              className="loginRegistro login-box reg "
-              id="reg"
-              style={{ display: VisibleRegistro2 ? "block" : "none", opacity: 1 }}
+              className=" login-box tw-border-[1px] tw-border-cyan-50 tw-pt-8 tw-px-6 sm:tw-px-10 sm:tw-h-[75vh]"
+              id="logearse"
+              style={{
+                display: VisibleIniciarSesion ? "block" : "none",
+                opacity: 1,
+              }}
             >
-              <h2>Crea tu Perfil</h2>
+              <h2 className="tw-text-white tw-text-2xl text-center sm:tw-text-[4rem] tw-font-bold ">Iniciar Sesion</h2>
+              <form onSubmit={SumbitLogin} method="post">
+                <div className="text-center tw-flex tw-gap-1 tw-flex-wrap tw-justify-center tw-items-center ">
+                  <p className="text-white tw-w-full tw-mt-6 sm:tw-text-3xl sm:tw-mt-10 sm:tw-mb-8">Sign in with:</p>
+                  <button
+                    type="button"
+                    className="mx-1 btn btn-secondary btn-floating "
+                  >
+                    <i className="fab fa-facebook-f">
+                      <svg
+                        id="svg1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-facebook"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                      </svg>
+                    </i>
+                  </button>
 
-              <form id="enviarphp" onSubmit={SumbitRegistro}>
-                <div className="user-box regPlus">
-                  <input
-                    type="text"
-                    name="nombre"
-                    value={values.nombre}
-                    onChange={(e) =>
-                      setValues({ ...values, nombre: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Nombre completo</label>
+                  <button
+                    type="button"
+                    className="mx-1 btn btn-secondary btn-floating"
+                  >
+                    <i className="fab fa-google">
+                      <svg
+                        id="svg1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-google"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                      </svg>
+                    </i>
+                  </button>
                 </div>
-
-                <div className="user-box regPlus">
-                  <input
-                    type="text"
-                    name="telefono"
-                    value={values.telefono}
-                    onChange={(e) =>
-                      setValues({ ...values, telefono: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Telefono</label>
+                <div className="tw-mt-16 tw-h-[20vh] sm:tw-h-[40vh] tw-flex tw-flex-wrap tw-gap-6 sm:tw-gap-0">
+                  <div className="user-box tw-w-full ">
+                    <input
+                      type="text"
+                      name="usuarioInicio"
+                      required
+                      value={values.usuario}
+                      onChange={(e) =>
+                        setValues({ ...values, usuario: e.target.value })
+                      }
+                    />
+                    <label className="sm:tw-text-2xl tw-top-[-20%]">Usuario</label>
+                  </div>
+                  <div className="user-box tw-w-full tw-mb-4">
+                    <input
+                      type="password"
+                      name="claveInicio"
+                      required
+                      value={values.password}
+                      onChange={(e) =>
+                        setValues({ ...values, password: e.target.value })
+                      }
+                    />
+                    <label className="sm:tw-text-2xl tw-top-[-20%]">Contraseña</label>
+                  </div>
                 </div>
+                <p
+                  id="mensajeConstraseñaincorrectaInicio"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensajeInicio ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  Constraseña Incorrecta
+                </p>
 
-                <div className="user-box regPlus">
-                  <input
-                    type="text"
-                    name="direccion"
-                    value={values.direccion}
-                    onChange={(e) =>
-                      setValues({ ...values, direccion: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Direccion</label>
+                <p
+                  id="mensajeConstraseñaincorrectaInicio"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensajeNoExiste ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  Usuario inexistente
+                </p>
+
+                <div className="">
+                  <u
+                    href=""
+                    className=" registro float-end tw-text-md tw-mt-1"
+                    onClick={cambiarDisplayRegistro}
+                  >
+                    No tengo cuenta
+                  </u>
                 </div>
-
-                <div style={{ color: "white" }}>
-                  <h3>Sexo</h3>
-                  <label>Hombre</label>
-                  <input type="radio" name="sexo" value="1" id="sexo" />
-                  <br /> <label>Mujer</label>
-                  <input type="radio" name="sexo" value="0" id="sexo2" />
-                </div>
-                <u href="" className="col-4 registro" onClick={btnComenzar}>
-                  Ya tienes cuenta
-                </u>
-
-                <div className="mt-3 mb-5 ">
-                  <div className="text-center row">
+                <div className="tw-mt-[8vh] sm:tw-mt-2 tw-flex tw-w-full tw-justify-center ">
+                  <div className="text-center row rounded-2">
                     <input
                       type="submit"
-                      className=" botonsiguiente"
+                      className=" botonsiguiente sm:tw-text-3xl"
                       value="Siguiente"
                       name="submit"
-                      id="submit"
                     />
                   </div>
                 </div>
               </form>
             </div>
           </div>
-        </div>
 
+          {/* Registro 1 */}
+          <div className=" d-flex justify-content-center align-items-center  sm:tw-px-14">
+            <div
+              className=" login-box tw-border-[1px] tw-border-cyan-50 tw-pt-8 tw-px-6 sm:tw-px-10 sm:tw-h-[75vh] lg:tw-p-5"
+              id="registrar"
+              style={{
+                display: VisibleRegistro ? "block" : "none",
+                opacity: "100%",
+              }}
+            >
+              <h2 className="tw-mb-3 tw-text-white tw-text-2xl tw-text-center">Crea tu Perfil</h2>
+
+              <form id="" onSubmit={ComprobarReg}>
+                <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-1 tw-h-full ">
+                  <p className="text-white tw-w-full tw-mt-3">Sign up with:</p>
+                  <button
+                    type="button"
+                    className="mx-1 btn btn-secondary btn-floating"
+                  >
+                    <i className="fab fa-facebook-f">
+                      <svg
+                        id="svg1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-facebook"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                      </svg>
+                    </i>
+                  </button>
+
+                  <button
+                    type="button"
+                    className="mx-1 btn btn-secondary btn-floating"
+                  >
+                    <i className="fab fa-google">
+                      <svg
+                        id="svg1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-google"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                      </svg>
+                    </i>
+                  </button>
+                </div>
+
+                <div className="tw-flex tw-flex-wrap tw-gap-7 tw-pt-7 sm:tw-h-[40vh] sm:tw-pt-14">
+                  <div className="user-box tw-w-full ">
+                    <input
+                      type="text"
+                      name="usuario"
+                      id="usuario"
+                      value={values.usuario}
+                      onChange={(e) =>
+                        setValues({ ...values, usuario: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Usuario</label>
+                  </div>
+                  <div className="user-box tw-w-full ">
+                    <input
+                      type="text"
+                      name="email"
+                      id="email"
+                      value={values.email}
+                      onChange={(e) =>
+                        setValues({ ...values, email: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Email</label>
+                  </div>
+                  <div className="user-box tw-w-full ">
+                    <input
+                      type="password"
+                      name="clave1"
+                      id="clave1"
+                      value={values.password}
+                      required
+                      onChange={(e) =>
+                        setValues({ ...values, password: e.target.value })
+                      }
+                    />
+                    <label>Contraseña</label>
+                  </div>
+
+                  <div className="user-box tw-w-full">
+                    <input
+                      type="password"
+                      name="clave2"
+                      id="clave2"
+                      value={values.password2}
+                      onChange={(e) =>
+                        setValues({ ...values, password2: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Repetir contraseña</label>
+                  </div>
+                </div>
+                <p
+                  id="mensajeRegError"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showErrorRegistro ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+
+                  El usuario o el Email ya existen
+                </p>
+                <p
+                  id="mensaje1"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensaje1 ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  Las contraseñas no coinciden
+                </p>
+                <p
+                  id="mensaje2"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensaje2 ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  La contraseña es demasiado corta
+                </p>
+                <p
+                  id="mensajeEmail"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensajeEmail ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  Direccion de Email inválida
+                </p>
+                <p
+                  id="mensajeCompletar"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensajeCompletar ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  Debes escribir en todos los campos
+                </p>
+                <br></br>
+                <div className="">
+                  <u
+                    href=""
+                    className=" registro float-end"
+                    onClick={btnComenzar}
+                  >
+                    Ya tienes cuenta
+                  </u>
+                </div>
+                <div className="mt-5 mb-5 ">
+                  <div className="text-center row">
+                    <input
+                      // onClick={cambiarDisplayRegistro2}
+                      type="submit"
+                      className=" botonsiguiente"
+                      value="Siguiente"
+                      name="submit"
+                      id="sumbit"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            {/* Registro 2 */}
+            <div className=" d-flex justify-content-center align-items-center">
+              <div
+                className="loginRegistro login-box reg "
+                id="reg"
+                style={{ display: VisibleRegistro2 ? "block" : "none", opacity: 1 }}
+              >
+                <h2>Crea tu Perfil</h2>
+
+                <form id="enviarphp" onSubmit={SumbitRegistro}>
+                  <div className="user-box regPlus">
+                    <input
+                      type="text"
+                      name="nombre"
+                      value={values.nombre}
+                      onChange={(e) =>
+                        setValues({ ...values, nombre: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Nombre completo</label>
+                  </div>
+
+                  <div className="user-box regPlus">
+                    <input
+                      type="text"
+                      name="telefono"
+                      value={values.telefono}
+                      onChange={(e) =>
+                        setValues({ ...values, telefono: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Telefono</label>
+                  </div>
+
+                  <div className="user-box regPlus">
+                    <input
+                      type="text"
+                      name="direccion"
+                      value={values.direccion}
+                      onChange={(e) =>
+                        setValues({ ...values, direccion: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Direccion</label>
+                  </div>
+
+                  <div style={{ color: "white" }}>
+                    <h3>Sexo</h3>
+                    <label>Hombre</label>
+                    <input type="radio" name="sexo" value="1" id="sexo" />
+                    <br /> <label>Mujer</label>
+                    <input type="radio" name="sexo" value="0" id="sexo2" />
+                  </div>
+                  <u href="" className="col-4 registro" onClick={btnComenzar}>
+                    Ya tienes cuenta
+                  </u>
+
+                  <div className="mt-3 mb-5 ">
+                    <div className="text-center row">
+                      <input
+                        type="submit"
+                        className=" botonsiguiente "
+                        value="Siguiente"
+                        name="submit"
+                        id="submit"
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
           integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
