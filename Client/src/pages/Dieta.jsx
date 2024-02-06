@@ -23,13 +23,13 @@ function Dieta() {
       <div className="tw-min-h-screen  tw-bg-[#0d0d0d] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"/gym"} />
         <div className="tw-flex tw-justify-center tw-w-full tw-flex-wrap tw-text-white tw-rounded-md">
-          <div className="tw-w-full tw-bg-[#292929] tw-mt-3 tw-text-center tw-p-3">
+          <div className="tw-w-full tw-bg-[#292929] tw-mt-3 tw-text-center tw-p-3 tw-rounded-md">
             <div className="tw-flex tw-justify-between tw-px-5">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px]">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
               </svg>
 
-              <span className="tw-w-full tw-font-bold"> HOY </span>
+              <span className="tw-w-full tw-font-bold "> HOY </span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px]">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
               </svg>
