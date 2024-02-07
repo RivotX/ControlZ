@@ -365,14 +365,14 @@ function Index() {
         {/* Inicio de sesion */}
         {VisibleIniciarSesion && (
 
-          <div className="tw-flex tw-justify-center tw-items-center tw-w-full">
-            <div className=" login-box tw-border-[1px] tw-border-cyan-50  tw-py-8 tw-px-20 md:tw-px-28 md:tw-py-20 tw-h-full"
+          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20">
+            <div className=" login-box  tw-border-cyan-50  tw-py-8 tw-px-20 md:tw-px-28 tw-h-full"
               id="logearse"
             >
-              <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[4.2rem] tw-font-semibold ">Iniciar Sesion</h2>
+              <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold ">Iniciar Sesión</h2>
               <form onSubmit={SumbitLogin} method="post" className="tw-h-1/2">
                 <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center ">
-                  <p className="text-white tw-w-full tw-text-[1.rem] sm:tw-text-[1.2rem] md:tw-text-[1.9rem] tw-py-5 ">Sign in with:</p>
+                  <p className="text-white tw-w-full tw-text-[1.rem] sm:tw-text-[1.2rem]  tw-py-5 ">Sign in with:</p>
                   <button
                     type="button"
                     className="mx-1 btn btn-secondary btn-floating "
@@ -411,7 +411,7 @@ function Index() {
                     </i>
                   </button>
                 </div>
-                <div className="tw-py-8 tw-flex tw-flex-wrap tw-gap-8 sm:tw-gap-8 md:tw-gap-20 md:tw-py-16">
+                <div className="tw-py-8 tw-flex tw-flex-wrap tw-gap-8 sm:tw-gap-8 md:tw-gap-20 md:tw-py-10">
                   <div className="user-box tw-w-full md:tw-gap-2">
                     <input
                       type="text"
@@ -422,7 +422,7 @@ function Index() {
                         setValues({ ...values, usuario: e.target.value })
                       }
                     />
-                    <label className="sm:tw-text-lg md:tw-text-2xl md:tw-top-[-80%] tw-top-[-20%]">Usuario</label>
+                    <label className="sm:tw-text-lg md:tw-text-xl md:tw-top-[-80%] tw-top-[-20%]">Usuario</label>
                   </div>
                   <div className="user-box tw-w-full md:tw-gap-2">
                     <input
@@ -434,7 +434,7 @@ function Index() {
                         setValues({ ...values, password: e.target.value })
                       }
                     />
-                    <label className="sm:tw-text-lg md:tw-text-2xl md:tw-top-[-80%] tw-top-[-20%]">Contraseña</label>
+                    <label className="sm:tw-text-lg md:tw-text-xl md:tw-top-[-80%] tw-top-[-20%]">Contraseña</label>
                   </div>
                 </div>
                 <p
@@ -462,7 +462,7 @@ function Index() {
                 <div className="">
                   <u
                     href=""
-                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1.3rem]"
+                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1rem]"
                     onClick={cambiarDisplayRegistro}
                   >
                     No tengo cuenta
@@ -472,7 +472,7 @@ function Index() {
                   <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
                     <input
                       type="submit"
-                      className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-xl md:tw-text-2xl "
+                      className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl "
                       value="Siguiente"
                       name="submit"
                     />
