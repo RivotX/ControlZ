@@ -392,19 +392,3 @@ svg:hover {
     margin-left: -15%;
   }
 }
-
-.heighResponsive{
-  height:75vh
-}
-
-@media (min-height:800px){
-  .heighResponsive{
-    height:75vh
-  }
-}
-
-@media (min-height:1000px){
-  .heighResponsive{
-    height:85vh
-  }
-}
