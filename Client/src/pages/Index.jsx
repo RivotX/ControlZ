@@ -354,21 +354,21 @@ function Index() {
         </div>
       </div>
 
-      <div className=" tw-px-2 tw-flex tw-flex- tw-justify-center xl:tw-w-full">
+      <div className=" tw-px-2 tw-flex tw-flex- tw-justify-center tw-items-center xl:tw-w-full">
         {/* Inicio de sesion */}
-        <div className="d-flex justify-content-center align-items-center tw-w-full">
+        <div className="tw-flex tw-flex- tw-justify-center tw-items-center tw-w-full">
           <div
-            className=" login-box tw-border-[1px] tw-border-cyan-50 tw-pt-8 tw-px-6  tw-h-full"
+            className=" login-box tw-border-[1px] tw-border-cyan-50 tw-mt-10 tw-py-8 tw-px-6  tw-h-full"
             id="logearse"
             style={{
               display: VisibleIniciarSesion ? "block" : "none",
               opacity: 1,
             }}
           >
-            <h2 className="tw-text-white tw-text-2xl text-center sm:tw-text-[4rem] tw-font-bold ">Iniciar Sesion</h2>
+            <h2 className="tw-text-white tw-text-[3rem] text-center sm:tw-text-[3.4rem] tw-font-bold ">Iniciar Sesion</h2>
             <form onSubmit={SumbitLogin} method="post">
               <div className="text-center tw-flex tw-gap-1 tw-flex-wrap tw-justify-center tw-items-center ">
-                <p className="text-white tw-w-full tw-mt-6 sm:tw-text-3xl sm:tw-mt-10 sm:tw-mb-8">Sign in with:</p>
+                <p className="text-white tw-w-full tw-mt-6 sm:tw-text-[1.2rem] sm:tw-mt-10 sm:tw-mb-8">Sign in with:</p>
                 <button
                   type="button"
                   className="mx-1 btn btn-secondary btn-floating "
@@ -407,7 +407,7 @@ function Index() {
                   </i>
                 </button>
               </div>
-              <div className="tw-mt-16 tw-h-[20vh] sm:tw-h-[40vh] tw-flex tw-flex-wrap tw-gap-6 sm:tw-gap-0">
+              <div className="tw-mt-[15%] sm:tw-mt-[10%] tw-h-[15vh] tw-flex tw-flex-wrap tw-gap-10 sm:tw-gap-24 sm:tw-mb-[5%]">
                 <div className="user-box tw-w-full ">
                   <input
                     type="text"
@@ -418,9 +418,9 @@ function Index() {
                       setValues({ ...values, usuario: e.target.value })
                     }
                   />
-                  <label className="sm:tw-text-2xl tw-top-[-20%]">Usuario</label>
+                  <label className="sm:tw-text-2xl tw-mt-[-2%]">Usuario</label>
                 </div>
-                <div className="user-box tw-w-full tw-mb-4">
+                <div className="user-box tw-w-full tw-h-20">
                   <input
                     type="password"
                     name="claveInicio"
@@ -430,7 +430,7 @@ function Index() {
                       setValues({ ...values, password: e.target.value })
                     }
                   />
-                  <label className="sm:tw-text-2xl tw-top-[-20%]">Contraseña</label>
+                  <label className="sm:tw-text-2xl tw-mt-[-2%]">Contraseña</label>
                 </div>
               </div>
               <p
@@ -458,17 +458,17 @@ function Index() {
               <div className="">
                 <u
                   href=""
-                  className=" registro float-end tw-text-md tw-mt-1"
+                  className=" registro float-end tw-text-md sm:tw-text-lg sm:tw-mb-[8%] "
                   onClick={cambiarDisplayRegistro}
                 >
                   No tengo cuenta
                 </u>
               </div>
-              <div className="tw-mt-[8vh] sm:tw-mt-2 tw-flex tw-w-full tw-justify-center ">
-                <div className="text-center row rounded-2">
+              <div className="tw-mt-[8vh] tw-flex tw-w-full tw-justify-center ">
+                <div className="text-center rounded-2 tw-w-[50%] sm:tw-w-[50%]">
                   <input
                     type="submit"
-                    className=" botonsiguiente sm:tw-text-3xl"
+                    className=" botonsiguiente tw-w-full tw-font-normal tw-text-lg sm:tw-text-2xl"
                     value="Siguiente"
                     name="submit"
                   />
@@ -648,12 +648,12 @@ function Index() {
                   Ya tienes cuenta
                 </u>
               </div>
-              <div className="mt-5 mb-5 ">
-                <div className="text-center row">
+              <div className="">
+                <div className="text-center">
                   <input
                     // onClick={cambiarDisplayRegistro2}
                     type="submit"
-                    className=" botonsiguiente"
+                    className=" botonsiguiente tw-w-20"
                     value="Siguiente"
                     name="submit"
                     id="sumbit"
