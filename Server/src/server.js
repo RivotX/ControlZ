@@ -5,7 +5,7 @@ import Mongoose from "mongoose";
 import session from "express-session";
 import { registro } from "./controllers/registroController.js";
 import { existeRegistro } from "./controllers/registroController.js";
-import { getRutina } from "./controllers/rutinaController.js";
+import { ActualizarRutina, getRutina } from "./controllers/rutinaController.js";
 import { login } from "./controllers/loginController.js";
 import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
 
@@ -72,6 +72,8 @@ app.post("/saveRutina", async (req, res) => {
 });
 
 app.post("/registro", registro);
+
+app.post("/ActualizarRutina",ActualizarRutina);
 
 app.post("/existeregistro", existeRegistro);
 

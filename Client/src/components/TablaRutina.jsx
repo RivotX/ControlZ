@@ -36,9 +36,9 @@ const TablaRutina = () => {
     "Domingo",
   ]);
   const [rutinacambiada, setrutinacambiada] = useState(false);
-  const [usuarioSession, setUsuarioSession] = useState({});
-
+  const [usuarioSession, setUsuarioSession] = useState("");
   const [ModalRutina, setModalRutina] = useState(false);
+  const [interaccion, setInteraccion] = useState(false);
   useEffect(() => {
     const obtenerRutina = async () => {
       try {
@@ -46,7 +46,7 @@ const TablaRutina = () => {
           withCredentials: true,
         });
         const usuario = { usuario: resUsuario.data.usuario };
-        setUsuarioSession({ usuario: resUsuario.data.usuario });
+        setUsuarioSession( resUsuario.data.usuario );
         const resRutina = await axios.post(
           "http://localhost:8081/getrutina",
           usuario,
@@ -75,10 +75,8 @@ const TablaRutina = () => {
   useEffect(() => {
     const actualizarRutina = async () => {
       try {
-        const actualizar = await axios.post(
-          "http://localhost:8081/ActualizarRutina",
-          usuarioSession,
-          { rutina: rutina },
+        const actualizar = await axios.post("http://localhost:8081/ActualizarRutina",
+         { id: usuarioSession, rutinaNueva: rutina },
         );
 
         console.log(actualizar);
@@ -88,6 +86,11 @@ const TablaRutina = () => {
         console.error(error);
       }
     };
+    if (interaccion) {
+      actualizarRutina();
+      setInteraccion(!interaccion);
+    }
+
     console.log("CAMBIO RUTINA");
   }, [rutina]);
 
@@ -102,6 +105,8 @@ const TablaRutina = () => {
     var copiarutina = [...rutina];
     copiarutina[diaVisible].splice(i, 1);
     setRutina(copiarutina);
+    console.log("Eliminar");
+    setInteraccion(true);
   };
 
   const añadirRutina = (nombre, series, repeticiones, peso) => {
@@ -123,11 +128,9 @@ const TablaRutina = () => {
 
   return (
     <div className="  flex-column tw-m-auto tw-flex tw-w-[100%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
-      <div className="tw-text-4xl tw-font-bold">Rutina</div>
-
-      <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-center">
+      <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
         <button
-          className="  tw-m-4  tw-h-10 tw-w-12 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-bg-slate-600 tw-text-center tw-font-semibold tw-text-white"
+          className="  botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
           onClick={() => {
             Botondias(-1);
           }}
@@ -136,23 +139,23 @@ const TablaRutina = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="3"
             stroke="currentColor"
-            class="tw-w-6 tw-h-6"
+            className="tw-pointer-events-none tw-h-6 tw-w-6"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
             />
           </svg>
         </button>
-        <h1 className="tw-text-2xl tw-font-semibold">
+        <h1 className="tw-text-shadow tw-text-2xl tw-font-semibold">
           {" "}
           {nombredias[diaVisible]}{" "}
         </h1>
         <button
-          className=" tw-m-4  tw-h-10 tw-w-12 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-bg-slate-600 tw-text-center tw-font-semibold tw-text-white"
+          className=" botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
           onClick={() => {
             Botondias(1);
           }}
@@ -161,9 +164,9 @@ const TablaRutina = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth="1.5"
+            strokeWidth="3"
             stroke="currentColor"
-            class="tw-w-6 tw-h-6"
+            className="tw-pointer-events-none tw-h-6 tw-w-6"
           >
             <path
               strokeLinecap="round"
@@ -173,8 +176,8 @@ const TablaRutina = () => {
           </svg>
         </button>
       </div>
-      <div className=" flex tw-mt-4  tw-h-[] tw-w-[90%] tw-overflow-auto tw-rounded-3xl tw-bg-slate-600 tw-p-[2%]">
-        <div className=" tw-rounded-2xl  tw-border-white tw-bg-black tw-p-[5%] ">
+      <div className=" flex tw-mt-4  tw-h-[] tw-w-[90%] tw-overflow-auto tw-rounded-3xl tw-bg-slate-800 tw-p-[2%]">
+        <div className=" tw-rounded-2xl  tw-border-white ">
           {rutina.map(
             (dia, index) =>
               index === diaVisible &&

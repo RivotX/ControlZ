@@ -3,11 +3,48 @@
 }
 .botoncerrar{
   cursor: pointer;
-  transition: all .2s;
+  transition: all .1s;
 }
 
 .botoncerrar:hover{
   transform: scale(1.1);
   color: red;
+  
+}
+
+.tw-text-shadow{
+  text-shadow: 2px 2px 10px white;
+}
+
+.botonlados{
+  transition: all .2s;
+}
+
+.botonlados:hover{
+  opacity: .8;
+  transform: scale(1.1);
+
+}
+
+.botonlados:active{
+  transform: scale(0.9);
+}
+
+.cadaEjercicio{
+  transition: all .2s;
+}
+
+.cadaEjercicio:hover{
+  filter: brightness(0.8);
+}
+
+.botoneditar{
+  cursor: pointer;
+  transition: all .1s;
+}
+
+.botoneditar:hover{
+  transform: scale(1.1);
+  color: rgb(255, 183, 0);
   
 }
