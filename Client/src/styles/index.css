@@ -10,8 +10,7 @@
   background-position-x: center; 
   background-position-y: 36vh; 
   background-color: black;
-  overflow: hidden;
-  background: radial-gradient(rgb(35, 47, 62), rgb(14, 19, 25),#000000);
+  /* background: radial-gradient(rgb(35, 47, 62), rgb(14, 19, 25),#000000); */
 }
 
 .logoindex {
@@ -22,10 +21,7 @@
   color: rgb(255, 255, 255);
 }
 
-.logearse{
-  opacity: 0%;
-  display: none;
-}
+
 
 .titulocontenedor {
   font-size: 450%;
@@ -97,18 +93,15 @@ svg:hover {
   align-items: center; /* Centrar verticalmente */
 }
 .login-box {
-  width: 80vh;
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0px 50px rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  font-weight: bold;
+  font-weight: 600;
   /*luego poner display:block en js */
   backdrop-filter: blur(6px);
   transition: all 1s;
-  opacity: 0%;
-  display: none;
 }
 
 .login-box h2 {
@@ -122,7 +115,7 @@ svg:hover {
 
 .login-box .user-box input {
   width: 100%;
-  font-size: 16px;
+  font-size: 10px;
   color: #fff;
   border: none;
   border-bottom: 1px solid #fff;
@@ -160,7 +153,7 @@ svg:hover {
   transition: 0.5s;
   letter-spacing: 4px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 
@@ -336,8 +329,6 @@ svg:hover {
 .registro {
   color: rgb(255, 255, 255);
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  font-weight: bold;
-  font-size: 90%;
   cursor: pointer;
   user-select: none;
 }
@@ -370,14 +361,12 @@ svg:hover {
   display: none;
 }
 .botonsiguiente {
-  background-color: #00f2ff;
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  font-weight: 500;
   border: 0px;
   border-radius: 5px;
-  width: 100%;
   transition: all 0.6s;
+  box-shadow: 0px 0px 20px rgb(0, 255, 255);
 }
 .botonsiguiente:hover {
   box-shadow: 0px 0px 10px rgb(0, 255, 255);
@@ -390,21 +379,5 @@ svg:hover {
   .pasta{
     font-size: 100%;
     margin-left: -15%;
-  }
-}
-
-.heighResponsive{
-  height:75vh
-}
-
-@media (min-height:800px){
-  .heighResponsive{
-    height:75vh
-  }
-}
-
-@media (min-height:1000px){
-  .heighResponsive{
-    height:85vh
   }
 }
