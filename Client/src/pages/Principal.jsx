@@ -1,15 +1,30 @@
 export default Principal;
 
+import { useState, useEffect } from "react"; 
 import { useRef } from "react";
 import 'animate.css';
 
 
 function Principal() {
 
+  const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const actualizarAnchoVentana = () => {
+      setPantallaPequeña(window.innerWidth < 640);
+    };
+
+    window.addEventListener('resize', actualizarAnchoVentana);
+
+    // Limpiar el listener del evento resize cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('resize', actualizarAnchoVentana);
+    };
+  }, []);
+
 
   const elementoRefGym = useRef(null);
   const elementoRefDieta = useRef(null);
-  console.log("ola");
 
   const ampliar = (elemento, number) => {
     elemento.style.backgroundSize = number;
@@ -20,7 +35,7 @@ function Principal() {
   };
   return (
     <div className="bg-bg-black " style={{ overflow: "hidden" }}>
-   
+
       <div className="d-flex justify-content-center align-items-center kkk">
         <div className="logo-container animate__animated animate__backInDown ">
           <a href="perfil">
@@ -34,14 +49,21 @@ function Principal() {
         <div className="row ">
           <div className="col-6 caja animate__animated animate__fadeInLeft">
             <a className="ApartadosAElegir" href="gym">
-              <h2 className="text-center descripcion1">
-                En esta sección de nuestro sitio web de gimnasio, te sumergirás
-                en un mundo de rutinas de entrenamiento diseñadas para abordar
-                diversos objetivos fitness. Ya seas un principiante en busca de
-                rutinas introductorias o un atleta experimentado buscando
-                desafíos avanzados, nuestras opciones de entrenamiento se
-                adaptan a todos los niveles.
-              </h2>
+              {PantallaPequeña ?
+                (
+                  <></>
+                )
+                :
+                (
+                  <h2 className="text-center descripcion1" >
+                    En esta sección de nuestro sitio web de gimnasio, te sumergirás
+                    en un mundo de rutinas de entrenamiento diseñadas para abordar
+                    diversos objetivos fitness.Ya seas un principiante en busca de
+                    rutinas introductorias o un atleta experimentado buscando
+                    desafíos avanzados, nuestras opciones de entrenamiento se
+                    adaptan a todos los niveles.
+                  </h2>
+                )}
 
               <div
                 className="ancho img1 d-flex justify-content-center align-items-center"
@@ -56,15 +78,22 @@ function Principal() {
 
           <div className="col-6 caja animate__animated animate__fadeInRight">
             <a className="ApartadosAElegir" href="dieta">
-              <h2 className="text-center descripcion2">
-                Con esta herramienta interactiva, te empoderamos para que
-                diseñes una dieta adaptada a tu estilo de vida y objetivos
-                personales, asegurándote de obtener los nutrientes necesarios
-                para alcanzar el éxito en tu jornada fitness. ¡Comienza a
-                construir tu camino hacia una nutrición personalizada y
-                efectiva!
-              </h2>
-
+              {PantallaPequeña ?
+                (
+                  <></>
+                )
+                :
+                (
+                  <h2 className="text-center descripcion2">
+                    Con esta herramienta interactiva, te empoderamos para que
+                    diseñes una dieta adaptada a tu estilo de vida y objetivos
+                    personales, asegurándote de obtener los nutrientes necesarios
+                    para alcanzar el éxito en tu jornada fitness. ¡Comienza a
+                    construir tu camino hacia una nutrición personalizada y
+                    efectiva!
+                  </h2>
+                )
+              }
               <div
                 className="ancho img2 d-flex justify-content-center align-items-center"
                 ref={elementoRefDieta}
@@ -76,8 +105,8 @@ function Principal() {
             </a>
           </div>
         </div>
-      </div>
-   
-    </div>
+      </div >
+
+    </div >
   );
 }
