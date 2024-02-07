@@ -23,7 +23,7 @@ function Dieta() {
     <>
       <div className="tw-min-h-screen  tw-bg-[#0d0d0d] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"/gym"} />
-        <div className="tw-flex tw-justify-center tw-w-full tw-flex-wrap tw-text-white tw-rounded-md tw-h-[100vh] tw-items-center ">
+        <section className="tw-flex tw-justify-center tw-w-full tw-flex-wrap tw-text-white tw-rounded-md tw-mb-[5vh] tw-h-[90vh] tw-items-center ">
           <div className="tw-w-full tw-bg-[#292929] tw-mt-3 tw-text-center tw-p-3 tw-rounded-md sm:tw-h-[10%] tw-flex tw-items-center">
             <div className="tw-flex tw-justify-between tw-px-5 tw-w-full">
               <div className="tw-cursor-pointer">
@@ -52,7 +52,7 @@ function Dieta() {
               <p className="tw-w-full tw-flex tw-justify-center sm:tw-text-xl"><span>Objetivo</span></p>
             </div>
           </div>
-          <div className="tw-w-full tw-h-3/5  lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-mb-[5vh] tw-justify-between tw-p-3 tw-rounded-md tw-mt-[5vh] tw-px-5">
+          <div className="tw-w-full tw-h-3/5  lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap  tw-justify-between tw-p-3 tw-rounded-md tw-mt-[5%] tw-px-5">
 
             <ComidaDia nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={AbrirModal} />
             <ComidaDia nombre={"Almuerzo"} calorias={"123123"} img={cafe} add={add} AbrirModal={AbrirModal} />
@@ -60,7 +60,7 @@ function Dieta() {
             <ComidaDia nombre={"Extra"} calorias={"123123"} img={cafe} add={add} AbrirModal={AbrirModal} last={true} />
 
           </div>
-        </div>
+        </section>
 
         {/* Renderizar el modal */}
         {ShowFoodModal && <FoodModal closeModal={closeModal} />}
