@@ -62,12 +62,6 @@ function Index() {
   const [showMensajeNoExiste, setshowMensajeNoExiste] = useState(false);
 
 
-  useEffect(() => {
-    console.log("registro", VisibleRegistro)
-    console.log("inicio", VisibleIniciarSesion)
-
-  }, [VisibleRegistro, VisibleIniciarSesion]);
-
   const btnComenzar = () => {
     vaciarCampos();
     setVisibleWelcome(false);
@@ -80,7 +74,6 @@ function Index() {
   const cambiarDisplayRegistro = () => {
     setVisibleRegistro(true);
 
-    console.log("buenas")
     vaciarCampos();
     setShowMensaje1(false);
     setShowMensaje2(false);
@@ -91,7 +84,6 @@ function Index() {
     setVisibleRegistro2(false);
     setVisibleRegistro(true);
 
-    console.log(VisibleRegistro)
   };
 
   useEffect(() => {
@@ -367,11 +359,11 @@ function Index() {
         </div>
       </div>
 
-      <div className=" tw-px-2 tw-flex tw-flex- tw-justify-center tw-items-center xl:tw-w-full">
+      <div className=" tw-px-2 tw-flex tw-justify-center tw-items-center xl:tw-w-full">
         {/* Inicio de sesion */}
         {VisibleIniciarSesion && (
 
-          <div className="tw-flex tw-flex- tw-justify-center tw-items-center tw-w-full">
+          <div className="tw-flex tw-justify-center tw-items-center tw-w-full">
             <div
               className=" login-box tw-border-[1px] tw-border-cyan-50 tw-mt-10 tw-py-8 tw-px-6  tw-h-full"
               id="logearse"
@@ -488,11 +480,12 @@ function Index() {
                 </div>
               </form>
             </div>
-          </div>)}
+          </div>
+        )}
 
-        <div className={'tw-px-2 tw-flex tw-flex- tw-justify-center xl:tw-w-full '}>
-          {/* Registro 1 */}
-          {VisibleRegistro && (<div
+        {/* Registro 1 */}
+        {VisibleRegistro && (
+          <div
             className='tw-w-full login-box tw-border-[1px]  tw-border-cyan-50 tw-pt-8 tw-px-6 sm:tw-px-10 sm:tw-h-[75vh] lg:tw-p-5 '
             id="registrar"
 
@@ -670,83 +663,83 @@ function Index() {
               </div>
             </form>
           </div>
-          )}
+        )}
 
 
-          {/* Registro 2 */}
-          <div className={`tw-px-2 tw-flex tw-flex- tw-justify-center xl:tw-w-full ${VisibleRegistro2 ? 'tw-block' : 'tw-hidden'}`}>
-            <div
-              className="loginRegistro login-box reg "
-              id="reg"
-            >
-              <h2>Crea tu Perfil</h2>
+        {/* Registro 2 */}
+        {VisibleRegistro2 && (<div className='tw-px-2 tw-flex tw-flex- tw-justify-center xl:tw-w-full'>
+          <div
+            className="loginRegistro login-box reg "
+            id="reg"
+          >
+            <h2>Crea tu Perfil</h2>
 
-              <form id="enviarphp" onSubmit={SumbitRegistro}>
-                <div className="user-box regPlus">
+            <form id="enviarphp" onSubmit={SumbitRegistro}>
+              <div className="user-box regPlus">
+                <input
+                  type="text"
+                  name="nombre"
+                  value={values.nombre}
+                  onChange={(e) =>
+                    setValues({ ...values, nombre: e.target.value })
+                  }
+                  required
+                />
+                <label>Nombre completo</label>
+              </div>
+
+              <div className="user-box regPlus">
+                <input
+                  type="text"
+                  name="telefono"
+                  value={values.telefono}
+                  onChange={(e) =>
+                    setValues({ ...values, telefono: e.target.value })
+                  }
+                  required
+                />
+                <label>Telefono</label>
+              </div>
+
+              <div className="user-box regPlus">
+                <input
+                  type="text"
+                  name="direccion"
+                  value={values.direccion}
+                  onChange={(e) =>
+                    setValues({ ...values, direccion: e.target.value })
+                  }
+                  required
+                />
+                <label>Direccion</label>
+              </div>
+
+              <div style={{ color: "white" }}>
+                <h3>Sexo</h3>
+                <label>Hombre</label>
+                <input type="radio" name="sexo" value="1" id="sexo" />
+                <br /> <label>Mujer</label>
+                <input type="radio" name="sexo" value="0" id="sexo2" />
+              </div>
+              <u href="" className="-4 registro" onClick={btnComenzar}>
+                Ya tienes cuenta
+              </u>
+
+              <div className="mt-3 mb-5 ">
+                <div className="text-center row">
                   <input
-                    type="text"
-                    name="nombre"
-                    value={values.nombre}
-                    onChange={(e) =>
-                      setValues({ ...values, nombre: e.target.value })
-                    }
-                    required
+                    type="submit"
+                    className=" botonsiguiente"
+                    value="Siguiente"
+                    name="submit"
+                    id="submit"
                   />
-                  <label>Nombre completo</label>
                 </div>
-
-                <div className="user-box regPlus">
-                  <input
-                    type="text"
-                    name="telefono"
-                    value={values.telefono}
-                    onChange={(e) =>
-                      setValues({ ...values, telefono: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Telefono</label>
-                </div>
-
-                <div className="user-box regPlus">
-                  <input
-                    type="text"
-                    name="direccion"
-                    value={values.direccion}
-                    onChange={(e) =>
-                      setValues({ ...values, direccion: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Direccion</label>
-                </div>
-
-                <div style={{ color: "white" }}>
-                  <h3>Sexo</h3>
-                  <label>Hombre</label>
-                  <input type="radio" name="sexo" value="1" id="sexo" />
-                  <br /> <label>Mujer</label>
-                  <input type="radio" name="sexo" value="0" id="sexo2" />
-                </div>
-                <u href="" className="-4 registro" onClick={btnComenzar}>
-                  Ya tienes cuenta
-                </u>
-
-                <div className="mt-3 mb-5 ">
-                  <div className="text-center row">
-                    <input
-                      type="submit"
-                      className=" botonsiguiente"
-                      value="Siguiente"
-                      name="submit"
-                      id="submit"
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
-        </div>
+        </div>)}
+
       </div>
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
