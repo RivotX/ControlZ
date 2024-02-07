@@ -238,10 +238,10 @@ function Index() {
   };
 
   return (
-    <div className="fondoindex tw-h-screen tw-w-full  ">
+    <div className="fondoindex tw-h-screen tw-w-full ">
       {/* Navbar  */}
       <div className="tw-flex tw-justify-center">
-        <nav className="tw-w-full tw-flex tw-justify-between tw-items-center tw-max-w-screen-2xl tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
+        <nav className="tw-w-full tw-absolute tw-flex tw-justify-between tw-items-center tw-max-w-screen-2xl tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
           <a className="tw-w-1/2 tw-flex tw-text-white tw-items-center " href="#">
             <img
               src="../src/img/logoicon.png"
