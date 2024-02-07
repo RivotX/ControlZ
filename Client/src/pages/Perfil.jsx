@@ -181,6 +181,12 @@ function Perfil() {
                 </p>
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
                   <p className="tw-text-md tw-w-1/3 " >
+                    objetivo
+                  </p>
+                  <h1 className="mb-1 tw-font-medium tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 " name="edad" >¿?¿?</h1>
+                </div>
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                  <p className="tw-text-md tw-w-1/3 " >
                     Calorías
                   </p>
                   <h1 className=" tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
@@ -193,12 +199,7 @@ function Perfil() {
                   <h1 className="mb-1 tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
                 </div>
 
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
-                  <p className="tw-text-md tw-w-1/3 " >
-                    Piezas de fruta
-                  </p>
-                  <h1 className="mb-1 tw-font-medium tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 " name="edad" >3</h1>
-                </div>
+                
               </div>
             </div>
           </div>
