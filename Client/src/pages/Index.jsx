@@ -2,6 +2,7 @@ export default Index;
 import { useState, useEffect } from "react";
 import axios from "axios";
 import habilitarTailwind from "../components/habilitarTailwind";
+import  "../styles/index.css"
 
 function Index() {
 
@@ -67,12 +68,12 @@ function Index() {
     setVisibleWelcome(false);
     setVisibleRegistro(false);
 
-    setVisibleRegistro2(false);
-    setVisibleIniciarSesion(true);
+    setVisibleRegistro2(true);
+    setVisibleIniciarSesion(false);
   };
 
   const cambiarDisplayRegistro = () => {
-    setVisibleRegistro(true);
+    setVisibleRegistro(false);
 
     vaciarCampos();
     setShowMensaje1(false);
@@ -80,7 +81,7 @@ function Index() {
     setShowMensajeEmail(false);
     setshowErrorRegistro(false);
     setShowMensajeCompletar(false);
-    setVisibleIniciarSesion(false);
+    setVisibleIniciarSesion(false); //pasar a true al acabar de editar
     setVisibleRegistro2(false);
     setVisibleRegistro(true);
 
@@ -675,7 +676,7 @@ function Index() {
           >
             <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold">Crea tu Perfil</h2>
 
-            <form id="enviarphp" onSubmit={SumbitRegistro}>
+            <form id="enviarphp" onSubmit={SumbitRegistro} className="tw-h-1/2">
               <div className="user-box regPlus">
                 <input
                   type="text"
