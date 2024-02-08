@@ -2,7 +2,7 @@ export default Index;
 import { useState, useEffect } from "react";
 import axios from "axios";
 import habilitarTailwind from "../components/habilitarTailwind";
-import  "../styles/index.css"
+import "../styles/index.css"
 
 function Index() {
 
@@ -50,9 +50,9 @@ function Index() {
 
   //js estética
   const [VisibleWelcome, setVisibleWelcome] = useState(true);
+  const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
   const [VisibleRegistro, setVisibleRegistro] = useState(false);
   const [VisibleRegistro2, setVisibleRegistro2] = useState(false);
-  const [VisibleIniciarSesion, setVisibleIniciarSesion] = useState(false);
 
   const [showMensaje1, setShowMensaje1] = useState(false);
   const [showMensaje2, setShowMensaje2] = useState(false);
@@ -68,12 +68,12 @@ function Index() {
     setVisibleWelcome(false);
     setVisibleRegistro(false);
 
-    setVisibleRegistro2(true);
-    setVisibleIniciarSesion(false);
+    setVisibleRegistro2(false);
+    setVisibleIniciarSesion(true);
   };
 
   const cambiarDisplayRegistro = () => {
-    setVisibleRegistro(false);
+    setVisibleRegistro(true);
 
     vaciarCampos();
     setShowMensaje1(false);
@@ -81,7 +81,7 @@ function Index() {
     setShowMensajeEmail(false);
     setshowErrorRegistro(false);
     setShowMensajeCompletar(false);
-    setVisibleIniciarSesion(false); //pasar a true al acabar de editar
+    setVisibleIniciarSesion(false);
     setVisibleRegistro2(false);
     setVisibleRegistro(true);
 
@@ -362,12 +362,12 @@ function Index() {
         </div>
       </div>
 
-      <div className=" tw-px-2 tw-flex tw-justify-center tw-items-center xl:tw-w-full">
+      <div className=" tw-px-2 tw-flex tw-justify-center tw-items-center">
         {/* Inicio de sesion */}
         {VisibleIniciarSesion && (
 
           <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-pt-20">
-            <div className=" login-box tw-border-cyan-50 tw-py-8 tw-px-20 md:tw-px-28 tw-h-full"
+            <div className=" login-box tw-border-cyan-50 tw-py-8 tw-px-20 tw-h-full"
               id="logearse"
             >
               <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold ">Iniciar Sesión</h2>
@@ -486,12 +486,12 @@ function Index() {
 
         {/* Registro 1 */}
         {VisibleRegistro && (
-          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-pt-20 tw-px-3 md:tw-px-20">
-            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-8 md:tw-px-20 tw-h-full'
+          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20">
+            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-10 tw-h-full'
               id="registrar"
 
             >
-              <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold">Crea tu Perfil</h2>
+              <h2 className="tw-text-white tw-text-[2.2rem] text-center sm:tw-text-[3.5rem] md:tw-text-[5rem] tw-font-semibold">Crea tu Perfil</h2>
 
               <form id="" onSubmit={ComprobarReg} className="tw-h-1/2">
                 <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center ">
@@ -535,8 +535,8 @@ function Index() {
                   </button>
                 </div>
 
-                <div className="tw-py-8 tw-flex tw-flex-wrap tw-gap-5 sm:tw-gap-5 md:tw-gap-16 md:tw-py-8">
-                  <div className="user-box tw-w-full md:tw-gap-2 ">
+                <div className="tw-pt-5 ">
+                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-2 md:tw-py-8">
                     <input
                       type="text"
                       name="usuario"
@@ -549,7 +549,7 @@ function Index() {
                     />
                     <label>Usuario</label>
                   </div>
-                  <div className="user-box tw-w-full md:tw-gap-2">
+                  <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
                     <input
                       type="text"
                       name="email"
@@ -562,7 +562,7 @@ function Index() {
                     />
                     <label>Email</label>
                   </div>
-                  <div className="user-box tw-w-full md:tw-gap-2 ">
+                  <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5 ">
                     <input
                       type="password"
                       name="clave1"
@@ -576,7 +576,7 @@ function Index() {
                     <label>Contraseña</label>
                   </div>
 
-                  <div className="user-box tw-w-full md:tw-gap-2">
+                  <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
                     <input
                       type="password"
                       name="clave2"
@@ -645,7 +645,7 @@ function Index() {
                 <div className="">
                   <u
                     href=""
-                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1rem]"
+                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1.1rem] lg:tw-text-[1.1rem]"
                     onClick={btnComenzar}
                   >
                     Ya tienes cuenta
@@ -671,67 +671,72 @@ function Index() {
         {/* Registro 2 */}
         {VisibleRegistro2 && (<div className='tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20'>
           <div
-            className="login-box tw-border-cyan-50 tw-py-8 tw-px-20 md:tw-px-28 tw-h-full "
+            className="login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-28 tw-h-full "
             id="reg"
           >
-            <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold">Crea tu Perfil</h2>
+            <h2 className="tw-text-white tw-text-[2.2rem] text-center sm:tw-text-[3.5rem] md:tw-text-[4rem] tw-font-semibold">Crea tu Perfil</h2>
 
             <form id="enviarphp" onSubmit={SumbitRegistro} className="tw-h-1/2">
-              <div className="user-box regPlus">
-                <input
-                  type="text"
-                  name="nombre"
-                  value={values.nombre}
-                  onChange={(e) =>
-                    setValues({ ...values, nombre: e.target.value })
-                  }
-                  required
-                />
-                <label>Nombre completo</label>
+              <div className="tw-pt-8">
+                <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
+                  <input
+                    type="text"
+                    name="nombre"
+                    value={values.nombre}
+                    onChange={(e) =>
+                      setValues({ ...values, nombre: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Nombre completo</label>
+                </div>
+
+                <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
+                  <input
+                    type="text"
+                    name="telefono"
+                    value={values.telefono}
+                    onChange={(e) =>
+                      setValues({ ...values, telefono: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Telefono</label>
+                </div>
+
+                <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
+                  <input
+                    type="text"
+                    name="direccion"
+                    value={values.direccion}
+                    onChange={(e) =>
+                      setValues({ ...values, direccion: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Direccion</label>
+                </div>
+
+                <div className="tw-text-white tw-py-5 tw-text-md lg:tw-text-xl tw-justify-between tw-flex tw-w-full">
+                  <h3 className="">Sexo</h3>
+                  <div className="inline-flex tw-items-center">
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="" name="sexo"></input>
+                    <label htmlFor="sexo" className="tw-ml-1">M</label>
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="" name="sexo"></input>
+                    <label htmlFor="sexo" className="tw-ml-1">F</label>
+                  </div>
+                </div>
               </div>
 
-              <div className="user-box regPlus">
-                <input
-                  type="text"
-                  name="telefono"
-                  value={values.telefono}
-                  onChange={(e) =>
-                    setValues({ ...values, telefono: e.target.value })
-                  }
-                  required
-                />
-                <label>Telefono</label>
-              </div>
-
-              <div className="user-box regPlus">
-                <input
-                  type="text"
-                  name="direccion"
-                  value={values.direccion}
-                  onChange={(e) =>
-                    setValues({ ...values, direccion: e.target.value })
-                  }
-                  required
-                />
-                <label>Direccion</label>
-              </div>
-
-              <div style={{ color: "white" }}>
-                <h3>Sexo</h3>
-                <label>Hombre</label>
-                <input type="radio" name="sexo" value="1" id="sexo" />
-                <br /> <label>Mujer</label>
-                <input type="radio" name="sexo" value="0" id="sexo2" />
-              </div>
-              <u href="" className="registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1rem]" onClick={btnComenzar}>
+              <u href="" className="registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1.1rem] lg:tw-text-[1rem]" onClick={btnComenzar}>
                 Ya tienes cuenta
               </u>
 
-              <div className="mt-3 mb-5 ">
-                <div className="text-center row">
+              <div className="tw-mt-[20%] sm:tw-mt-[12%] tw-flex tw-w-full tw-justify-center">
+                <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
                   <input
                     type="submit"
-                    className=" botonsiguiente"
+                    className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl"
                     value="Siguiente"
                     name="submit"
                     id="submit"
