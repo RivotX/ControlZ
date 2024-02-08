@@ -7,6 +7,8 @@ const diasSchema = new Mongoose.Schema({
     nombre:String, 
     series: Number,
     repeticiones: Number,
+    kg:Number,
+    id:Object
   
 });
 

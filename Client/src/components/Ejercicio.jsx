@@ -12,6 +12,7 @@ const Ejercicio = ({
   añadir,
   eliminar,
   editar,
+  idEditar,
 }) => {
   return (
     <>
@@ -33,7 +34,7 @@ const Ejercicio = ({
                 </span>
               </div>
 
-              <div className="botoneditar  tw-w-2/12" onClick={editar}>
+              <div className="botoneditar  tw-w-2/12" onClick={()=>{editar(idEditar)}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

@@ -33,7 +33,8 @@ const ActualizarRutina = async (req, res) => {
         jueves: rutinaNueva[3],
         viernes: rutinaNueva[4],
         sabado: rutinaNueva[5],
-        domingo: rutinaNueva[6]
+        domingo: rutinaNueva[6],
+        
       };
 
       console.log("RUTINA NUEVAAAAAA",rutinacambiar)

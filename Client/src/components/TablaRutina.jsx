@@ -39,8 +39,11 @@ const TablaRutina = () => {
   ]);
   const [rutinacambiada, setrutinacambiada] = useState(false);
   const [usuarioSession, setUsuarioSession] = useState("");
-  const [ModalRutina, setModalRutina] = useState(false);
+  const [visibleModalRutina, setvisibleModalRutina] = useState(false);
   const [interaccion, setInteraccion] = useState(false);
+  const [ModalEditar, setModalEditar] = useState(false);
+  const [idAEditar, setidAEditar] = useState(0);
+  
   useEffect(() => {
     const obtenerRutina = async () => {
       try {
@@ -53,6 +56,8 @@ const TablaRutina = () => {
           "http://localhost:8081/getrutina",
           usuario,
         );
+
+        console.log("RUTINA BASE DE DATOS", resRutina)
         const datosRutina = resRutina.data[0];
         console.log(resRutina.data[0]);
         setLunes(datosRutina.lunes);
@@ -123,11 +128,33 @@ const TablaRutina = () => {
     });
     setInteraccion(true);
     setRutina(copiarutina);
-    setModalRutina(false);
+    setvisibleModalRutina(false);
+  };
+
+  const editarRutina = (id,nombre, series, repeticiones, peso) => {
+    var copiarutina = [...rutina];
+
+    copiarutina[diaVisible][id]={
+      nombre: nombre,
+      series: series,
+      repeticiones: repeticiones,
+      kg: peso,
+    };
+    setInteraccion(true);
+    setRutina(copiarutina);
+    setvisibleModalRutina(false);
+    setModalEditar(false)
   };
 
   const ModalAñadirRutina = () => {
-    setModalRutina(true);
+    setvisibleModalRutina(true);
+    
+  };
+  const ModalEditarRutina = (indiceAEditar) => {
+    setidAEditar(indiceAEditar);
+    setvisibleModalRutina(true);
+    setModalEditar(true)
+    
   };
 
   return (
@@ -202,6 +229,8 @@ const TablaRutina = () => {
                           peso={ejercicio.kg}
                           key={indexe}
                           vacio={false}
+                          idEditar={indexe}
+                          editar={ModalEditarRutina}
                         />
                       ) : (
                         <Ejercicio
@@ -215,6 +244,7 @@ const TablaRutina = () => {
                           peso={ejercicio.kg}
                           key={indexe}
                           vacio={false}
+                          editar={ModalEditarRutina}
                         />
                       ),
                     )
@@ -241,7 +271,7 @@ const TablaRutina = () => {
           
         </div>
       </div>
-      <ModalEjercicio modalvisible={ModalRutina} setmodalvisible={setModalRutina} ></ModalEjercicio>
+      <ModalEjercicio  funcionañadir={añadirRutina} modalvisible={visibleModalRutina} setmodalvisible={setvisibleModalRutina} VisibleEditar={ModalEditar} setVisibleEditar={setModalEditar} id={idAEditar} funcionEditar={editarRutina} EjercicioAEditar={rutina[diaVisible]} ></ModalEjercicio>
       
     </div>
     
