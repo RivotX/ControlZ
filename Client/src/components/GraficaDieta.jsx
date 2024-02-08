@@ -27,10 +27,10 @@ const Grafica = () => {
                     // pathTransition: 'none',
 
                     // Colors
-                    pathColor: `rgba(62, 152, 199, ${percentage / 100})`,
+                    pathColor: `rgba(62,152,199, ${percentage / 100})`, 
                     textColor: 'white',
                     trailColor: '#d6d6d6',
-                    backgroundColor: '#3e98c7',
+                    backgroundColor: '#334155',
                 })}
             />
             <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center">
