@@ -4,7 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 const Grafica = () => {
     let percentage = 70;
     return (
-        <div className="tw-absolute sm:tw-text-xl tw-w-36 tw-h-36  sm:tw-w-52 sm:tw-h-52 md:tw-text-5xl"> {/* Contenedor para la gráfica */}
+        <div className="tw-absolute sm:tw-text-xl tw-w-36 tw-h-36 sm:tw-w-52 sm:tw-h-52 md:tw-text-5xl fold"> {/* Contenedor para la gráfica */}
             <CircularProgressbar
                 value={percentage}
                 text={""}
