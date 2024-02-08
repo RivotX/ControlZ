@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Ejercicio from "./Ejercicio.jsx";
+import Plus from "./plus.jsx";
+import ModalEjercicio from "./ModalEjercicio.jsx";
 
 const TablaRutina = () => {
   const [lunes, setLunes] = useState([
@@ -46,7 +48,7 @@ const TablaRutina = () => {
           withCredentials: true,
         });
         const usuario = { usuario: resUsuario.data.usuario };
-        setUsuarioSession( resUsuario.data.usuario );
+        setUsuarioSession(resUsuario.data.usuario);
         const resRutina = await axios.post(
           "http://localhost:8081/getrutina",
           usuario,
@@ -75,8 +77,9 @@ const TablaRutina = () => {
   useEffect(() => {
     const actualizarRutina = async () => {
       try {
-        const actualizar = await axios.post("http://localhost:8081/ActualizarRutina",
-         { id: usuarioSession, rutinaNueva: rutina },
+        const actualizar = await axios.post(
+          "http://localhost:8081/ActualizarRutina",
+          { id: usuarioSession, rutinaNueva: rutina },
         );
 
         console.log(actualizar);
@@ -118,6 +121,7 @@ const TablaRutina = () => {
       repeticiones: repeticiones,
       kg: peso,
     });
+    setInteraccion(true);
     setRutina(copiarutina);
     setModalRutina(false);
   };
@@ -127,6 +131,7 @@ const TablaRutina = () => {
   };
 
   return (
+    <>
     <div className="  flex-column tw-m-auto tw-flex tw-w-[100%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
       <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
         <button
@@ -180,58 +185,67 @@ const TablaRutina = () => {
         <div className=" tw-rounded-2xl  tw-border-white ">
           {rutina.map(
             (dia, index) =>
-              index === diaVisible &&
-              (dia.length > 0 ? (
-                dia.map((ejercicio, indexe) =>
-                  indexe == dia.length - 1 ? (
-                    <Ejercicio
-                      nombre={ejercicio.nombre}
-                      series={ejercicio.series}
-                      repeticiones={ejercicio.repeticiones}
-                      eliminar={() => {
-                        eliminarRutina(indexe);
-                      }}
-                      last={true}
-                      peso={ejercicio.kg}
-                      key={indexe}
-                      vacio={false}
-                    />
+              index === diaVisible && (
+                <div key={index}>
+                  {dia.length > 0 && <><button className="tw-my-4" onClick={()=>{ModalAñadirRutina()} }><Plus/></button> <hr/></>}
+                  {dia.length > 0 ? (
+                    dia.map((ejercicio, indexe) =>
+                      indexe == dia.length - 1 ? (
+                        <Ejercicio
+                          nombre={ejercicio.nombre}
+                          series={ejercicio.series}
+                          repeticiones={ejercicio.repeticiones}
+                          eliminar={() => {
+                            eliminarRutina(indexe);
+                          }}
+                          last={true}
+                          peso={ejercicio.kg}
+                          key={indexe}
+                          vacio={false}
+                        />
+                      ) : (
+                        <Ejercicio
+                          nombre={ejercicio.nombre}
+                          series={ejercicio.series}
+                          repeticiones={ejercicio.repeticiones}
+                          eliminar={() => {
+                            eliminarRutina(indexe);
+                          }}
+                          last={false}
+                          peso={ejercicio.kg}
+                          key={indexe}
+                          vacio={false}
+                        />
+                      ),
+                    )
                   ) : (
                     <Ejercicio
-                      nombre={ejercicio.nombre}
-                      series={ejercicio.series}
-                      repeticiones={ejercicio.repeticiones}
+                      nombre={""}
+                      series={""}
+                      repeticiones={""}
                       eliminar={() => {
-                        eliminarRutina(indexe);
+                        eliminarRutina();
                       }}
                       last={false}
-                      peso={ejercicio.kg}
-                      key={indexe}
-                      vacio={false}
+                      peso={""}
+                      vacio={true}
+                      añadir={() => {
+                        ModalAñadirRutina();
+                      }}
+                      key={index}
                     />
-                  ),
-                )
-              ) : (
-                <Ejercicio
-                  nombre={""}
-                  series={""}
-                  repeticiones={""}
-                  eliminar={() => {
-                    eliminarRutina();
-                  }}
-                  last={false}
-                  peso={""}
-                  vacio={true}
-                  añadir={() => {
-                    añadirRutina();
-                  }}
-                  key={index}
-                />
-              )),
+                  )}
+                </div>
+              ),
           )}
+          
         </div>
       </div>
+      <ModalEjercicio modalvisible={ModalRutina}></ModalEjercicio>
+      
     </div>
+    
+  </>
   );
 };
 export default TablaRutina;

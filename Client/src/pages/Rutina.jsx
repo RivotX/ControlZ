@@ -18,6 +18,7 @@ function Rutina() {
       </div>
       
     </div>
+    
   <Footer  />
 
   </>
