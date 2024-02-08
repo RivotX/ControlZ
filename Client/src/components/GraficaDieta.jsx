@@ -1,15 +1,14 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import '../styles/custom.css';
 
 const Grafica = () => {
     let percentage = 70;
     return (
-        <div className="tw-relative sm:tw-text-lg md:tw-w-64 md:tw-h-64 md:tw-text-5xl"> {/* Contenedor para la gráfica */}
+        <div className="tw-absolute sm:tw-text-xl tw-w-36 tw-h-36  sm:tw-w-52 sm:tw-h-52 md:tw-text-5xl"> {/* Contenedor para la gráfica */}
             <CircularProgressbar
                 value={percentage}
-                text={""} // No necesitamos el texto aquí
-                className="custom-text" // Aplica una clase CSS para el contenedor del texto
+                text={""}
+                className=""
 
                 styles={buildStyles({
                     // Rotation of path and trail, in number of turns (0-1)
@@ -19,7 +18,7 @@ const Grafica = () => {
                     strokeLinecap: 'butt',
 
                     // Text size
-                   
+
 
                     // How long animation takes to go from one percentage to another, in seconds
                     pathTransitionDuration: 0.5,
@@ -34,10 +33,14 @@ const Grafica = () => {
                     backgroundColor: '#3e98c7',
                 })}
             />
-            <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center text-container">
-                <div className="text-number tw-font-bold">579</div>
-                <div className="text-calories tw-text-sm sm:tw-text-xl">Calorías</div>
+            <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center">
+                <div className="text-container tw-relative tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-justify-center">
+
+                    <div className="text-number tw-font-bold sm:tw-text-2xl">579</div>
+                    <div className="text-calories tw-text-sm sm:tw-text-xl">Calorías restantes</div>
+                </div>
             </div>
+
         </div>
     );
 };

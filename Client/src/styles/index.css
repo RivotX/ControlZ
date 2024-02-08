@@ -95,7 +95,7 @@ svg:hover {
 .login-box {
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
-  box-shadow: 0 0px 50px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0px 10px rgb(255, 255, 255);
   border-radius: 10px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   font-weight: 600;
@@ -361,12 +361,12 @@ svg:hover {
   display: none;
 }
 .botonsiguiente {
-  color: white;
+  color:white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  border: 0px;
-  border-radius: 5px;
+  border: 1px;
+  border-radius: 50px;
   transition: all 0.6s;
-  box-shadow: 0px 0px 20px rgb(0, 255, 255);
+  background-color: #004b4f00;
 }
 .botonsiguiente:hover {
   box-shadow: 0px 0px 10px rgb(0, 255, 255);

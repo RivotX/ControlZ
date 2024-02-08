@@ -238,10 +238,10 @@ function Index() {
   };
 
   return (
-    <div className="fondoindex tw-h-screen tw-w-full  ">
+    <div className="fondoindex tw-h-screen tw-w-full ">
       {/* Navbar  */}
       <div className="tw-flex tw-justify-center">
-        <nav className="tw-w-full tw-flex tw-justify-between tw-items-center tw-max-w-screen-2xl tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
+        <nav className="tw-w-full tw-absolute tw-flex tw-justify-between tw-items-center tw-max-w-screen-2xl tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
           <a className="tw-w-1/2 tw-flex tw-text-white tw-items-center " href="#">
             <img
               src="../src/img/logoicon.png"
@@ -321,7 +321,7 @@ function Index() {
 
       {/* Pantalla inicial */}
       <div className="" style={{ display: VisibleWelcome ? "block" : "none" }} >
-        <div className=" tw-mt-[8vh] titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
+        <div className=" tw-mt-[8%] titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
           <p>
             Nosotros te ayudamos a
             <br />
@@ -350,7 +350,7 @@ function Index() {
             </>)}
         </div>
 
-        <div className="d-flex tw-text-sm tw-pt-[3vh] justify-content-center align-items-center">
+        <div className="d-flex tw-text-sm tw-pt-[3%] justify-content-center align-items-center">
           <button className="iniciar tw-p-5" type="button" onClick={btnComenzar}>
             <span></span>
             <span></span>
@@ -365,14 +365,14 @@ function Index() {
         {/* Inicio de sesion */}
         {VisibleIniciarSesion && (
 
-          <div className="tw-flex tw-justify-center tw-items-center tw-w-full">
-            <div className=" login-box tw-border-[1px] tw-border-cyan-50 tw-mt-10 tw-py-8 tw-px-6 tw-h-full"
+          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20">
+            <div className=" login-box  tw-border-cyan-50  tw-py-8 tw-px-20 md:tw-px-28 tw-h-full"
               id="logearse"
             >
-              <h2 className="tw-text-white tw-text-[3rem] text-center sm:tw-text-[3.4rem] tw-font-bold ">Iniciar Sesion</h2>
+              <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold ">Iniciar Sesión</h2>
               <form onSubmit={SumbitLogin} method="post" className="tw-h-1/2">
-                <div className="text-center tw-flex tw-gap-1 tw-flex-wrap tw-justify-center tw-items-center ">
-                  <p className="text-white tw-w-full tw-mt-6 sm:tw-text-[1.2rem] sm:tw-mt-10 sm:tw-mb-8">Sign in with:</p>
+                <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center ">
+                  <p className="text-white tw-w-full tw-text-[1.rem] sm:tw-text-[1.2rem]  tw-py-5 ">Sign in with:</p>
                   <button
                     type="button"
                     className="mx-1 btn btn-secondary btn-floating "
@@ -411,8 +411,8 @@ function Index() {
                     </i>
                   </button>
                 </div>
-                <div className="tw-mt-16  tw-flex tw-flex-wrap tw-gap-6 sm:tw-gap-0">
-                  <div className="user-box tw-w-full ">
+                <div className="tw-py-8 tw-flex tw-flex-wrap tw-gap-8 sm:tw-gap-8 md:tw-gap-20 md:tw-py-10">
+                  <div className="user-box tw-w-full md:tw-gap-2">
                     <input
                       type="text"
                       name="usuarioInicio"
@@ -422,9 +422,9 @@ function Index() {
                         setValues({ ...values, usuario: e.target.value })
                       }
                     />
-                    <label className="sm:tw-text-2xl tw-top-[-20%]">Usuario</label>
+                    <label className="sm:tw-text-lg md:tw-text-xl md:tw-top-[-80%] tw-top-[-20%]">Usuario</label>
                   </div>
-                  <div className="user-box tw-w-full tw-mb-4">
+                  <div className="user-box tw-w-full md:tw-gap-2">
                     <input
                       type="password"
                       name="claveInicio"
@@ -434,7 +434,7 @@ function Index() {
                         setValues({ ...values, password: e.target.value })
                       }
                     />
-                    <label className="sm:tw-text-2xl tw-top-[-20%]">Contraseña</label>
+                    <label className="sm:tw-text-lg md:tw-text-xl md:tw-top-[-80%] tw-top-[-20%]">Contraseña</label>
                   </div>
                 </div>
                 <p
@@ -462,17 +462,17 @@ function Index() {
                 <div className="">
                   <u
                     href=""
-                    className=" registro float-end tw-text-md tw-mt-1"
+                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1rem]"
                     onClick={cambiarDisplayRegistro}
                   >
                     No tengo cuenta
                   </u>
                 </div>
-                <div className="tw-mt-[8vh] sm:tw-mt-2 tw-flex tw-w-full tw-justify-center ">
-                  <div className="text-center row rounded-2">
+                <div className="tw-mt-[20%] sm:tw-mt-[20%] tw-flex tw-w-full tw-justify-center ">
+                  <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
                     <input
                       type="submit"
-                      className=" botonsiguiente sm:tw-text-3xl"
+                      className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl "
                       value="Siguiente"
                       name="submit"
                     />
@@ -486,7 +486,7 @@ function Index() {
         {/* Registro 1 */}
         {VisibleRegistro && (
           <div
-            className='tw-w-full login-box tw-border-[1px]  tw-border-cyan-50 tw-pt-8 tw-px-6 sm:tw-px-10 sm:tw-h-[75vh] lg:tw-p-5 '
+            className='tw-w-full login-box tw-border-[1px]  tw-border-cyan-50 tw-pt-8 tw-px-6 sm:tw-px-10 sm:tw-h-[75%] lg:tw-p-5 '
             id="registrar"
 
           >
@@ -534,7 +534,7 @@ function Index() {
                 </button>
               </div>
 
-              <div className="tw-flex tw-flex-wrap tw-gap-7 tw-pt-7 sm:tw-h-[40vh] sm:tw-pt-14">
+              <div className="tw-flex tw-flex-wrap tw-gap-7 tw-pt-7 sm:tw-h-[40%] sm:tw-pt-14">
                 <div className="user-box tw-w-full ">
                   <input
                     type="text"
