@@ -320,8 +320,8 @@ function Index() {
       </div>
 
       {/* Pantalla inicial */}
-      <div className="" style={{ display: VisibleWelcome ? "block" : "none" }} >
-        <div className=" tw-mt-[8%] titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
+      <div className="tw-py-32" style={{ display: VisibleWelcome ? "block" : "none" }} >
+        <div className="  titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
           <p>
             Nosotros te ayudamos a
             <br />
@@ -365,8 +365,8 @@ function Index() {
         {/* Inicio de sesion */}
         {VisibleIniciarSesion && (
 
-          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20">
-            <div className=" login-box  tw-border-cyan-50  tw-py-8 tw-px-20 md:tw-px-28 tw-h-full"
+          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-pt-20">
+            <div className=" login-box tw-border-cyan-50 tw-py-8 tw-px-20 md:tw-px-28 tw-h-full"
               id="logearse"
             >
               <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold ">Iniciar Sesión</h2>
@@ -485,194 +485,195 @@ function Index() {
 
         {/* Registro 1 */}
         {VisibleRegistro && (
-          <div
-            className='tw-w-full login-box tw-border-[1px]  tw-border-cyan-50 tw-pt-8 tw-px-6 sm:tw-px-10 sm:tw-h-[75%] lg:tw-p-5 '
-            id="registrar"
+          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-pt-20 tw-px-3 md:tw-px-20">
+            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-8 md:tw-px-20 tw-h-full'
+              id="registrar"
 
-          >
-            <h2 className="tw-mb-3 tw-text-white tw-text-2xl tw-text-center">Crea tu Perfil</h2>
+            >
+              <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold">Crea tu Perfil</h2>
 
-            <form id="" onSubmit={ComprobarReg}>
-              <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-1 tw-h-full ">
-                <p className="text-white tw-w-full tw-mt-3">Sign up with:</p>
-                <button
-                  type="button"
-                  className="mx-1 btn btn-secondary btn-floating"
+              <form id="" onSubmit={ComprobarReg} className="tw-h-1/2">
+                <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center ">
+                  <p className="text-white tw-w-full tw-text-[1.rem] sm:tw-text-[1.2rem]  tw-py-5">Sign up with:</p>
+                  <button
+                    type="button"
+                    className="mx-1 btn btn-secondary btn-floating"
+                  >
+                    <i className="fab fa-facebook-f">
+                      <svg
+                        id="svg1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-facebook"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                      </svg>
+                    </i>
+                  </button>
+
+                  <button
+                    type="button"
+                    className="mx-1 btn btn-secondary btn-floating"
+                  >
+                    <i className="fab fa-google">
+                      <svg
+                        id="svg1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-google"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                      </svg>
+                    </i>
+                  </button>
+                </div>
+
+                <div className="tw-py-8 tw-flex tw-flex-wrap tw-gap-5 sm:tw-gap-5 md:tw-gap-16 md:tw-py-8">
+                  <div className="user-box tw-w-full md:tw-gap-2 ">
+                    <input
+                      type="text"
+                      name="usuario"
+                      id="usuario"
+                      value={values.usuario}
+                      onChange={(e) =>
+                        setValues({ ...values, usuario: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Usuario</label>
+                  </div>
+                  <div className="user-box tw-w-full md:tw-gap-2">
+                    <input
+                      type="text"
+                      name="email"
+                      id="email"
+                      value={values.email}
+                      onChange={(e) =>
+                        setValues({ ...values, email: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Email</label>
+                  </div>
+                  <div className="user-box tw-w-full md:tw-gap-2 ">
+                    <input
+                      type="password"
+                      name="clave1"
+                      id="clave1"
+                      value={values.password}
+                      required
+                      onChange={(e) =>
+                        setValues({ ...values, password: e.target.value })
+                      }
+                    />
+                    <label>Contraseña</label>
+                  </div>
+
+                  <div className="user-box tw-w-full md:tw-gap-2">
+                    <input
+                      type="password"
+                      name="clave2"
+                      id="clave2"
+                      value={values.password2}
+                      onChange={(e) =>
+                        setValues({ ...values, password2: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Repetir contraseña</label>
+                  </div>
+                </div>
+                <p
+                  id="mensajeRegError"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showErrorRegistro ? "block" : "none",
+                    height: "10px",
+                  }}
                 >
-                  <i className="fab fa-facebook-f">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-facebook"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                    </svg>
-                  </i>
-                </button>
 
-                <button
-                  type="button"
-                  className="mx-1 btn btn-secondary btn-floating"
+                  El usuario o el Email ya existen
+                </p>
+                <p
+                  id="mensaje1"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensaje1 ? "block" : "none",
+                    height: "10px",
+                  }}
                 >
-                  <i className="fab fa-google">
-                    <svg
-                      id="svg1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-google"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                    </svg>
-                  </i>
-                </button>
-              </div>
-
-              <div className="tw-flex tw-flex-wrap tw-gap-7 tw-pt-7 sm:tw-h-[40%] sm:tw-pt-14">
-                <div className="user-box tw-w-full ">
-                  <input
-                    type="text"
-                    name="usuario"
-                    id="usuario"
-                    value={values.usuario}
-                    onChange={(e) =>
-                      setValues({ ...values, usuario: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Usuario</label>
-                </div>
-                <div className="user-box tw-w-full ">
-                  <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    value={values.email}
-                    onChange={(e) =>
-                      setValues({ ...values, email: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Email</label>
-                </div>
-                <div className="user-box tw-w-full ">
-                  <input
-                    type="password"
-                    name="clave1"
-                    id="clave1"
-                    value={values.password}
-                    required
-                    onChange={(e) =>
-                      setValues({ ...values, password: e.target.value })
-                    }
-                  />
-                  <label>Contraseña</label>
-                </div>
-
-                <div className="user-box tw-w-full">
-                  <input
-                    type="password"
-                    name="clave2"
-                    id="clave2"
-                    value={values.password2}
-                    onChange={(e) =>
-                      setValues({ ...values, password2: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Repetir contraseña</label>
-                </div>
-              </div>
-              <p
-                id="mensajeRegError"
-                className="text-danger position-absolute"
-                style={{
-                  display: showErrorRegistro ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-
-                El usuario o el Email ya existen
-              </p>
-              <p
-                id="mensaje1"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensaje1 ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Las contraseñas no coinciden
-              </p>
-              <p
-                id="mensaje2"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensaje2 ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                La contraseña es demasiado corta
-              </p>
-              <p
-                id="mensajeEmail"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensajeEmail ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Direccion de Email inválida
-              </p>
-              <p
-                id="mensajeCompletar"
-                className="text-danger position-absolute"
-                style={{
-                  display: showMensajeCompletar ? "block" : "none",
-                  height: "10px",
-                }}
-              >
-                Debes escribir en todos los campos
-              </p>
-              <br></br>
-              <div className="">
-                <u
-                  href=""
-                  className=" registro float-end"
-                  onClick={btnComenzar}
+                  Las contraseñas no coinciden
+                </p>
+                <p
+                  id="mensaje2"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensaje2 ? "block" : "none",
+                    height: "10px",
+                  }}
                 >
-                  Ya tienes cuenta
-                </u>
-              </div>
-              <div className="">
-                <div className="text-center">
-                  <input
-                    type="submit"
-                    className=" botonsiguiente tw-w-20"
-                    value="Siguiente"
-                    name="submit"
-                    id="sumbit"
-                  />
+                  La contraseña es demasiado corta
+                </p>
+                <p
+                  id="mensajeEmail"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensajeEmail ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  Direccion de Email inválida
+                </p>
+                <p
+                  id="mensajeCompletar"
+                  className="text-danger position-absolute"
+                  style={{
+                    display: showMensajeCompletar ? "block" : "none",
+                    height: "10px",
+                  }}
+                >
+                  Debes escribir en todos los campos
+                </p>
+                <br></br>
+                <div className="">
+                  <u
+                    href=""
+                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1rem]"
+                    onClick={btnComenzar}
+                  >
+                    Ya tienes cuenta
+                  </u>
                 </div>
-              </div>
-            </form>
+                <div className="tw-mt-[30%] sm:tw-mt-[10%] tw-flex tw-w-full tw-justify-center">
+                  <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
+                    <input
+                      type="submit"
+                      className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl"
+                      value="Siguiente"
+                      name="submit"
+                      id="sumbit"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         )}
 
 
         {/* Registro 2 */}
-        {VisibleRegistro2 && (<div className='tw-px-2 tw-flex tw-flex- tw-justify-center xl:tw-w-full'>
+        {VisibleRegistro2 && (<div className='tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20'>
           <div
-            className="loginRegistro login-box reg "
+            className="login-box tw-border-cyan-50 tw-py-8 tw-px-20 md:tw-px-28 tw-h-full "
             id="reg"
           >
-            <h2>Crea tu Perfil</h2>
+            <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold">Crea tu Perfil</h2>
 
             <form id="enviarphp" onSubmit={SumbitRegistro}>
               <div className="user-box regPlus">
@@ -721,7 +722,7 @@ function Index() {
                 <br /> <label>Mujer</label>
                 <input type="radio" name="sexo" value="0" id="sexo2" />
               </div>
-              <u href="" className="-4 registro" onClick={btnComenzar}>
+              <u href="" className="registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1rem]" onClick={btnComenzar}>
                 Ya tienes cuenta
               </u>
 
