@@ -155,7 +155,7 @@ const TablaRutina = () => {
             />
           </svg>
         </button>
-        <h1 className="tw-text-shadow tw-text-2xl tw-font-semibold">
+        <h1 className=" tw-text-2xl tw-font-semibold">
           {" "}
           {nombredias[diaVisible]}{" "}
         </h1>
@@ -241,7 +241,7 @@ const TablaRutina = () => {
           
         </div>
       </div>
-      <ModalEjercicio modalvisible={ModalRutina}></ModalEjercicio>
+      <ModalEjercicio modalvisible={ModalRutina} setmodalvisible={setModalRutina} ></ModalEjercicio>
       
     </div>
     
