@@ -487,11 +487,11 @@ function Index() {
         {/* Registro 1 */}
         {VisibleRegistro && (
           <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20">
-            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-10 tw-h-full'
+            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-10 tw-h-full sm:tw-w-3/5 xl:tw-w-1/2'
               id="registrar"
 
             >
-              <h2 className="tw-text-white tw-text-[2.2rem] text-center sm:tw-text-[3.5rem] md:tw-text-[5rem] tw-font-semibold">Crea tu Perfil</h2>
+              <h2 className="tw-text-white tw-text-[2.2rem] text-center  sm:tw-text-[3rem]  tw-font-semibold">Crea tu Perfil</h2>
 
               <form id="" onSubmit={ComprobarReg} className="tw-h-1/2">
                 <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center ">
