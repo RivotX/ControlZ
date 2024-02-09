@@ -43,6 +43,7 @@ const TablaRutina = () => {
   const [interaccion, setInteraccion] = useState(false);
   const [ModalEditar, setModalEditar] = useState(false);
   const [idAEditar, setidAEditar] = useState(0);
+  const [Rutinainiciada, setRutinainiciada] = useState(false);
   
   useEffect(() => {
     const obtenerRutina = async () => {
@@ -78,6 +79,7 @@ const TablaRutina = () => {
   useEffect(() => {
     setRutina([lunes, martes, miercoles, jueves, viernes, sabado, domingo]);
   }, [lunes, martes, miercoles, jueves, viernes, sabado, domingo]);
+  
 
   useEffect(() => {
     const actualizarRutina = async () => {
@@ -100,6 +102,7 @@ const TablaRutina = () => {
     }
 
     console.log("CAMBIO RUTINA");
+    setRutinainiciada(true)
   }, [rutina]);
 
   const Botondias = (numero) => {
@@ -140,6 +143,7 @@ const TablaRutina = () => {
       repeticiones: repeticiones,
       kg: peso,
     };
+    console.log("edita")
     setInteraccion(true);
     setRutina(copiarutina);
     setvisibleModalRutina(false);
@@ -244,6 +248,7 @@ const TablaRutina = () => {
                           peso={ejercicio.kg}
                           key={indexe}
                           vacio={false}
+                          idEditar={indexe}
                           editar={ModalEditarRutina}
                         />
                       ),
@@ -271,7 +276,7 @@ const TablaRutina = () => {
           
         </div>
       </div>
-      <ModalEjercicio  funcionañadir={añadirRutina} modalvisible={visibleModalRutina} setmodalvisible={setvisibleModalRutina} VisibleEditar={ModalEditar} setVisibleEditar={setModalEditar} id={idAEditar} funcionEditar={editarRutina} EjercicioAEditar={rutina[diaVisible]} ></ModalEjercicio>
+      <ModalEjercicio  funcionañadir={añadirRutina} modalvisible={visibleModalRutina} setmodalvisible={setvisibleModalRutina} VisibleEditar={ModalEditar} setVisibleEditar={setModalEditar} id={idAEditar} funcionEditar={editarRutina} EjercicioAEditar={Rutinainiciada?rutina[diaVisible][idAEditar]:""} ></ModalEjercicio>
       
     </div>
     
