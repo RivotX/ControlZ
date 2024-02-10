@@ -70,7 +70,11 @@ function AsistenteVirtual() {
   }, [conversation]); // Esto se ejecutará cada vez que la conversación cambie
 
   useEffect(() => {
-    const handleKeyDown = () => setShowChat(false);
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        setShowChat(false);
+      }
+    };
 
     if (showChat) {
       document.addEventListener("keydown", handleKeyDown);
