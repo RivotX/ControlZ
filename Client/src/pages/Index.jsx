@@ -282,7 +282,7 @@ function Index() {
               <a
                 className=""
                 style={{ backgroundColor: "#ffe60000" }}
-                href="https://www.facebook.com"
+               
                 role="button"
               >
                 <svg
@@ -297,16 +297,15 @@ function Index() {
                 </svg>
               </a>
             </div>
-            <div className="tw-cursor-pointer hover:tw-bg-[#cc4ccf] tw-rounded-full ">
+            <div className="tw-cursor-pointer hover:tw-bg-[#cc4ccf] tw-rounded-full " href="">
               <a
-                className="tw-pointer-events-none"
+                className=""
                 style={{ backgroundColor: "#ffe60000" }}
-                href="https://statics.memondo.com/p/s1/ccs/2022/10/CC_2795378_7e45a8644f28403f99ef1c5df2008edf_meme_otros_este_es_mierdon.jpg?cb=7121585"
+                href="https://www.instagram.com/miguerosso_/"
                 role="button"
+                target="_blank"
               >
-                <svg
-                  className="instagram bi bi-instagram"
-                  xmlns="http://www.w3.org/2000/svg"
+                <svg className="instagram bi bi-instagram tw-pointer-events-none" xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"

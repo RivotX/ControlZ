@@ -48,7 +48,7 @@ function Principal() {
       <div className="container-fluid cont">
         <div className="row ">
           <div className="col-6 caja animate__animated animate__fadeInLeft">
-            <a className="ApartadosAElegir" href="gym">
+            <a className="ApartadosAElegir" href="rutina">
               {PantallaPequeña ?
                 (
                   <></>
@@ -71,7 +71,7 @@ function Principal() {
                 onMouseEnter={() => ampliar(elementoRefGym.current, "190%")}
                 onMouseLeave={() => desampliar(elementoRefGym.current)}
               >
-                <h1 className="apartado">Gym</h1>
+                <h1 className="apartado">Rutina</h1>
               </div>
             </a>
           </div>
