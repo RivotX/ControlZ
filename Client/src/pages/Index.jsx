@@ -486,7 +486,7 @@ function Index() {
 
         {/* Registro 1 */}
         {VisibleRegistro && (
-          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20">
+          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-pt-20">
             <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-40 tw-h-full'
               id="registrar"
 
