@@ -8,6 +8,7 @@ import { existeRegistro } from "./controllers/registroController.js";
 import { ActualizarRutina, getRutina } from "./controllers/rutinaController.js";
 import { login } from "./controllers/loginController.js";
 import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
+import { virtualAssistant } from "./controllers/Assistant.js";
 
 const app = express();
 app.use(express.json());
@@ -46,6 +47,17 @@ app.listen(8081, () => {
   console.log("servidor corriendo...");
 });
 
+//Asistente virtual
+
+app.post("/assistant", async (req, res) => {
+  const { question } = req.body;
+  console.log(`Recibida pregunta: ${question}`);
+  const answer = await virtualAssistant(question);
+  console.log(`Respuesta generada: ${answer}`);
+  res.json({ answer });
+});
+
+
 app.get("/logout", (req, res) => {
   // Destruir la sesión actual
 
@@ -73,7 +85,7 @@ app.post("/saveRutina", async (req, res) => {
 
 app.post("/registro", registro);
 
-app.post("/ActualizarRutina",ActualizarRutina);
+app.post("/ActualizarRutina", ActualizarRutina);
 
 app.post("/existeregistro", existeRegistro);
 
