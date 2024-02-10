@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import fotoasist from "../img/logo_asistente.svg";
 import robot from "../img/robot.svg";
-import 'animate.css'
+import 'animate.css' //no funciona T.T
 
 
-function ChatComponent() {
+function AsistenteVirtual() {
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
   useEffect(() => {
@@ -20,14 +20,14 @@ function ChatComponent() {
       window.removeEventListener('resize', actualizarAnchoVentana);
     };
   }, []);
-  // Estados del componente utilizando el hook useState
-  const [message, setMessage] = useState(""); // Estado para el mensaje del usuario
-  const [conversation, setConversation] = useState([]); // Estado para la conversación
+
+  const [message, setMessage] = useState("");
+  const [conversation, setConversation] = useState([]);
   const chatRef = useRef(null); //para mover el scrollbar
 
   // Función para enviar el mensaje del usuario al servidor
   const sendMessage = async () => {
-    if (message.trim() === "") return; // No enviar mensajes vacíos
+    if (message.trim() === "") return;
     try {
       const response = await axios.post("http://localhost:8081/assistant", { question: message });
       const answer = response.data.answer;
@@ -68,6 +68,19 @@ function ChatComponent() {
       chatRef.current.scrollTop = chatRef.current.scrollHeight; //chatRef.current = div de la conversacion (que tiene scrollbar). Cada vez que cambie la conversacion, scrollbar.top será el valor de la alturaMaxima del div (se va a abajo).
     }
   }, [conversation]); // Esto se ejecutará cada vez que la conversación cambie
+
+  useEffect(() => {
+    const handleKeyDown = () => setShowChat(false);
+
+    if (showChat) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showChat]);
+
   return (
     <>
 
@@ -204,7 +217,7 @@ function ChatComponent() {
 
             (<div
               ref={chatRef} id="chat"
-              className="animate__fadeInUpBig tw-overflow-y-scroll  md:tw-w-2/3 xl:tw-w-1/3 tw-bg-gray-200  tw-p-1 tw-bottom-[14.5%] tw-right-[2%] tw-fixed tw-h-[73%] tw-min-h-[73%] tw-min-w-[40%] lg:tw-min-w-[30%] tw-rounded-lg tw-z-40"
+              className="animate__fadeInUpBig tw-overflow-y-scroll  sm:tw-w-3/5 md:tw-w-[55%] lg:tw-w-1/2 xl:tw-w-2/5 tw-bg-gray-200  tw-p-1 tw-bottom-[14.5%] tw-right-[2%] tw-fixed tw-h-[73%] tw-min-h-[73%] tw-min-w-[40%] lg:tw-min-w-[30%] tw-rounded-lg tw-z-40"
 
             >
               <nav className="navbar ">
@@ -259,4 +272,4 @@ function ChatComponent() {
   );
 }
 
-export default ChatComponent;
+export default AsistenteVirtual;

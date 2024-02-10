@@ -2,7 +2,7 @@
 import React from 'react';
 import cruzCerrar from "../img/cruzCerrar.png"
 
-const ProductoModal = ({ product, closeModal }) => { //arreglar respnsive en iphone SE ()
+const ProductoModal = ({ product, closeModal }) => { 
     return (
         <div className="tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen NegroOpacidad75 tw-flex tw-items-center tw-justify-center">
 

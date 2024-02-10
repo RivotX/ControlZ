@@ -1,7 +1,7 @@
 export default Navbar;
 
 import logo from "../img/logo.png";
-import ChatComponent from "./ChatComponent";
+import AsistenteVirtual from "./AsistenteVirtual";
 import CarritoCompra from "./CarritoCompra";
 import { useState } from "react";
 import habilitarTailwind from "./habilitarTailwind";
@@ -15,6 +15,7 @@ function Navbar({ linkHome }) {
     setMenuOpen(!menuOpen);
   };
 
+ 
 
   return (
     <>
@@ -79,7 +80,7 @@ function Navbar({ linkHome }) {
         <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} />
       </nav>
       {!visibleCesta && (
-        <ChatComponent />
+        <AsistenteVirtual />
 
       )}
     </>
