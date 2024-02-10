@@ -185,32 +185,32 @@ function AsistenteVirtual() {
               </nav>
 
               {conversation.map((msg, index) => (
-                <div key={index} className="tw-w-full ">
+                <div key={index} className="tw-w-full tw-py-1 tw-text-justify">
                   {msg.sender === "user" ?
-                    <p className="tw-w-full tw-flex tw-justify-between">
-                      <span className="lg:tw-w-1/4">Tu: </span>
-                      <span className="lg:tw-w-3/4">{msg.message}</span>
+                    <p className="tw-w-full tw-flex ">
+                      <span className=" tw-px-2 tw-pr-16 tw-font-bold">Tu:</span>
+                      <span className=" tw-pr-4">{msg.message}</span>
                     </p>
                     :
-                    <p className="tw-w-full tw-flex tw-justify-between">
-                      <span className="lg:tw-w-1/4">Asistente: </span>
-                      <span className="lg:tw-w-3/4">{msg.message}</span>
+                    <p className="tw-w-full tw-flex ">
+                      <span className="tw-font-bold tw-px-2 tw-pr-3 tw-text-cyan-700">Asistente:</span>
+                      <span className=" tw-pr-4">{msg.message}</span>
                     </p>}
                 </div>
               ))}
 
 
 
-              <div className=" sticky-bottom d-flex justify-content-center align-align-items-center ">
+              <div className="tw-pt-6 sticky-bottom d-flex justify-content-center align-align-items-center ">
                 <input
-                  className="border-0 text-center tw-me-1 tw-text-black rounded-2 ms-2 col-8"
+                  className=" tw-border-2 tw-border-cyan-700 text-center tw-me-1 tw-text-black rounded-2 ms-2 col-8"
                   type="text"
                   value={message}
                   onChange={handleChange}
                   onKeyDown={handleKeyPress}
-                  placeholder="Pregunta lo que quieras"
+                  placeholder="¿Alguna pregunta? ¡Cuéntame!"
                 />
-                <svg onClick={sendMessage} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-300 tw-cursor-pointer  ">
+                <svg onClick={sendMessage} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-300 tw-cursor-pointer tw-text-cyan-700">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                 </svg>
               </div>
@@ -238,33 +238,33 @@ function AsistenteVirtual() {
                   </span>
                 </div>
               </nav>
-              <div id="conversation" className="tw-w-full lg:tw-px-[5%] lg:tw-mb-[4%]">
+              <div id="conversation" className="tw-w-full  lg:tw-px-[5%] lg:tw-mb-[4%]">
                 {conversation.map((msg, index) => (
-                  <div key={index} className="tw-w-full ">
+                  <div key={index} className="tw-w-full tw-text-justify tw-py-2">
                     {msg.sender === "user" ?
-                      <p className="tw-w-full tw-flex tw-justify-between">
-                        <span className="lg:tw-w-1/4">Tu: </span>
-                        <span className="lg:tw-w-3/4">{msg.message}</span>
+                      <p className="tw-w-full tw-flex ">
+                        <span className="tw-px-2 tw-pr-16 tw-font-bold">Tu: </span>
+                        <span className="">{msg.message}</span>
                       </p>
                       :
-                      <p className="tw-w-full tw-flex tw-justify-between">
-                        <span className="lg:tw-w-1/4">Asistente: </span>
-                        <span className="lg:tw-w-3/4">{msg.message}</span>
+                      <p className="tw-w-full tw-flex ">
+                        <span className="tw-font-bold tw-px-2 tw-pr-3 tw-text-cyan-700">Asistente: </span>
+                        <span className="">{msg.message}</span>
                       </p>}
                   </div>
                 ))}
               </div>
 
-              <div className=" tw-sticky tw-bg-gray-200 tw-bottom-0 d-flex justify-content-center align-align-items-center ">
+              <div className=" tw-pt-6 tw-sticky tw-bg-gray-200 tw-bottom-0 d-flex justify-content-center align-align-items-center ">
                 <input
-                  className="border-0 text-center tw-me-1 tw-text-black rounded-2 ms-2 col-8"
+                  className="tw-border-2 tw-border-cyan-700 text-center tw-me-1 tw-text-black rounded-2 ms-2 col-8"
                   type="text"
                   value={message}
                   onChange={handleChange}
                   onKeyDown={handleKeyPress}
-                  placeholder="Pregunta lo que quieras"
+                  placeholder="¿Alguna pregunta? ¡Cuéntame!"
                 />
-                <svg onClick={sendMessage} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-300 tw-cursor-pointer  ">
+                <svg onClick={sendMessage} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-300 tw-cursor-pointer tw-text-cyan-700">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                 </svg>
               </div>

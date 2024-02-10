@@ -38,7 +38,7 @@ const Grafica = () => {
                 <div className="text-container tw-relative tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-justify-center ">
 
                     <div className="text-number tw-font-bold ">579</div>
-                    <div className="text-calories tw-text-sm  ">Calorías <span className=''>restantes</span></div>
+                    <div className="text-calories tw-text-xs  ">Calorías <span className=''>restantes</span></div>
                 </div>
             </div>
 
