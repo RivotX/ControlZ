@@ -15,8 +15,10 @@ function Producto({ img, onClick, nombre, descripcion, precio, precioScam, descu
                 <h2 className="tw-mb-2 tw-text-lg tw-font-medium tw-dark:text-white tw-text-gray-900 sm:tw-mb-0 sm:tw-w-full sm:tw-h-2/5">{nombre}</h2>
                 <p className="tw-mb-2 tw-text-base sm:tw-hidden tw-dark:text-gray-300 tw-text-gray-700">{descripcion}</p>
                 <div className="tw-flex tw-text-base tw-flex-grow tw-items-end tw-justify-between sm:tw-w-1/4 sm:tw-h-3/4 ">
-                    <p className="tw-mr-2 tw-font-semibold tw-text-gray-900 tw-dark:text-white">{precio}</p>
-                    <p className="tw-font-medium tw-text-gray-500 tw-line-through">{precioScam}</p>
+                    <div className="tw-w-1/2 tw-flex tw-items-center">
+                        <p className="tw-mr-2 tw-font-semibold tw-text-gray-900 tw-dark:text-white">{precio}</p>
+                        <p className="tw-font-medium tw-text-gray-500 tw-line-through tw-text-xs tw-mt-[6%]">{precioScam}</p>
+                    </div>
                     <p className="tw-ml-auto tw-font-medium tw-text-green-500 sm:tw-hidden">{descuento}</p>
 
                     {/*svg carrito*/}
