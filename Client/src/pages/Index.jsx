@@ -487,7 +487,7 @@ function Index() {
         {/* Registro 1 */}
         {VisibleRegistro && (
           <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20">
-            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-10 tw-h-full sm:tw-w-3/5 xl:tw-w-1/2'
+            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-40 tw-h-full'
               id="registrar"
 
             >
@@ -536,7 +536,7 @@ function Index() {
                 </div>
 
                 <div className="tw-pt-5 ">
-                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-2 md:tw-py-8">
+                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
                     <input
                       type="text"
                       name="usuario"
@@ -549,7 +549,7 @@ function Index() {
                     />
                     <label>Usuario</label>
                   </div>
-                  <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
+                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
                     <input
                       type="text"
                       name="email"
@@ -562,7 +562,7 @@ function Index() {
                     />
                     <label>Email</label>
                   </div>
-                  <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5 ">
+                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
                     <input
                       type="password"
                       name="clave1"
@@ -576,7 +576,7 @@ function Index() {
                     <label>Contraseña</label>
                   </div>
 
-                  <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
+                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
                     <input
                       type="password"
                       name="clave2"
@@ -645,13 +645,13 @@ function Index() {
                 <div className="">
                   <u
                     href=""
-                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1.1rem] lg:tw-text-[1.1rem]"
+                    className=" registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1.1rem] lg:tw-text-[1rem]"
                     onClick={btnComenzar}
                   >
                     Ya tienes cuenta
                   </u>
                 </div>
-                <div className="tw-mt-[30%] sm:tw-mt-[10%] tw-flex tw-w-full tw-justify-center">
+                <div className="tw-mt-[20%] sm:tw-mt-[12%] tw-flex tw-w-full tw-justify-center">
                   <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
                     <input
                       type="submit"
