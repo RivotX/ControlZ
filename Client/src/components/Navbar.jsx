@@ -64,14 +64,15 @@ function Navbar({ linkHome }) {
                 <a href="/dieta" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Dieta</a>
               </li>
               <li>
+                <a href="/perfil" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Perfil</a>
+              </li>
+              <li>
                 <a href="/rutina" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Rutina</a>
               </li>
               <li>
                 <a href="/tienda" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Tienda</a>
               </li>
-              <li>
-                <a href="/perfil" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Perfil</a>
-              </li>
+              
             </ul>
           </div>
         </div>

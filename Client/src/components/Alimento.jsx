@@ -7,19 +7,22 @@ const Alimento = ({ producto }) => {
     const toggleCaracteristicas = () => {
         setCaracteristicasVisibles(!caracteristicasVisibles);
     };
+    const addFood = () => {
+        console.log("calorias: ", producto.calorias, "proteinas: ", producto.proteinas, "grasas: ", producto.grasas, "grasasSaturadas: ", producto.grasasSaturadas, "carbohidratos: ", producto.carbohidratos, "azucar: ", producto.azucar, "nombre: ", producto.nombre, "id: ", producto.id, "imagenUrl: ", producto.imagenUrl);
+    }
 
     return (
         <div className="producto tw-min-h-[252px]" key={producto.id}>
-            <div className="tw-text-sm tw-justify-between tw-bg-gray-200 tw-rounded-md tw-w-[20.5rem]" onClick={toggleCaracteristicas}>
+            <div className="tw-text-sm tw-justify-between tw-bg-gray-200 tw-rounded-md tw-w-[20.5rem]" >
                 <div className="tw-px-2 tw-flex tw-justify-center tw-items-center tw-w-full">
                     <h3 className="tw-text-center tw-text-sm tw-text-black tw-font-bold tw-w-full tw-p-1 tw-h-[10%] tw-pt-2 tw-flex tw-items-center tw-justify-between">
                         <span>{producto.nombre}</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="tw-w-8 tw-h-8 md:tw-w-8 hover:tw-fill-gray-500 ">
+                        <svg onClick={addFood} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-500 tw-cursor-pointer">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                     </h3>
                 </div>
-                <div className="tw-flex tw-gap-2 tw-items-center tw-justify-center tw-bg-gray-300">
+                <div className="tw-flex tw-gap-2 tw-items-center tw-justify-center tw-bg-gray-300 tw-cursor-pointer" onClick={toggleCaracteristicas}>
                     {!caracteristicasVisibles && (
                         <div className="tw-h-[12rem]">
                             <img className="tw-w-full tw-h-full tw-max-h-80 tw-rounded-md" src={producto.imagenUrl !== "URL de imagen no disponible" ? producto.imagenUrl : notAviable} alt="Imagen del producto" />
