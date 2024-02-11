@@ -1,10 +1,9 @@
-export default Index;
 import { useState, useEffect } from "react";
 import axios from "axios";
 import habilitarTailwind from "../components/habilitarTailwind";
 import "../styles/index.css"
 
-function Index() {
+function Login() {
 
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
@@ -760,3 +759,5 @@ function Index() {
     </div>
   );
 }
+
+export default Login;

@@ -52,7 +52,7 @@ function Perfil() {
 
 return (
   <div className="px-0 container-fluid min-vh-100 bodyperfil tw-bg-gradient-to-b tw-from-[#ffffff] tw-via-[#69AAFA] tw-via-[40%] tw-to-[#0d0d0d] tw-to-[75%]">
-    <Navbar linkHome={"/gym"} />
+    <Navbar linkHome={"/"} />
     <div className="mb-4 tw-pt-[4.87rem] container-fluid fondoperfil tw-border-b-2 tw-border-white">
       <div className="mb-3 circulo container-fluid">
         <div className=" justify-content-center d-flex">

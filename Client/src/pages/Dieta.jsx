@@ -29,7 +29,7 @@ function Dieta() {
   return (
     <>
       <div className="tw-min-h-screen  tw-bg-[#0d0d0d] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
-        <Navbar linkHome={"/gym"} />
+        <Navbar linkHome={"/"} />
         <section className=" tw-w-full  tw-text-white tw-rounded-xl  tw-h-[100vh] ">
           <div className="lg:tw-px-[10%] tw-w-full tw-h-[38%] ">
             <div className="tw-w-full tw-text-center tw-h-full tw-px-3 tw-pb-3 tw-rounded-xl tw-flex tw-flex-wrap tw-items-center lg:tw-bg-[#292929]">
