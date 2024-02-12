@@ -4,6 +4,7 @@ import habilitarTailwind from "../components/habilitarTailwind";
 import "../styles/index.css"
 
 function Login() {
+  habilitarTailwind()
 
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
@@ -20,7 +21,6 @@ function Login() {
     };
   }, []);
 
-  habilitarTailwind()
 
   const [values, setValues] = useState({
     usuario: "",
@@ -203,6 +203,7 @@ function Login() {
       .catch((err) => console.error(err));
   };
 
+
   //mandamos a servidor/login los datos para trabajar con ellos
   const SumbitLogin = (event) => {
     event.preventDefault();
@@ -281,7 +282,7 @@ function Login() {
               <a
                 className=""
                 style={{ backgroundColor: "#ffe60000" }}
-               
+
                 role="button"
               >
                 <svg

@@ -18,6 +18,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(
   session({
     key: "tu_clave_personalizada",
@@ -41,7 +42,6 @@ Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
     console.error("Error de conexión a MongoDB:", error);
   });
 
-// const CreaRutina = Mongoose.model("rutina", rutinaSchema);
 
 app.listen(8081, () => {
   console.log("servidor corriendo...");
@@ -56,7 +56,6 @@ app.post("/assistant", async (req, res) => {
   console.log(`Respuesta generada: ${answer}`);
   res.json({ answer });
 });
-
 
 app.get("/logout", (req, res) => {
   // Destruir la sesión actual

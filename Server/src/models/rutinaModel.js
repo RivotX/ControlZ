@@ -2,14 +2,11 @@
 import Mongoose from "mongoose";
 
 const diasSchema = new Mongoose.Schema({
-  
-    id: Number,
-    nombre:String, 
-    series: Number,
-    repeticiones: Number,
-    kg:Number,
-    id:Object
-  
+  nombre: String,
+  series: Number,
+  repeticiones: Number,
+  kg: Number,
+  id: Object,
 });
 
 const rutinaSchema = new Mongoose.Schema({
@@ -23,6 +20,66 @@ const rutinaSchema = new Mongoose.Schema({
   domingo: [diasSchema],
 });
 
-const CreaRutina = Mongoose.model("rutina", rutinaSchema);
+// Dieta schema
+const DietaSchema = new Mongoose.Schema({
+  id: String,
+  dias: {
+    type: Map,
+    of: {
+      fecha: Date,
+      desayuno: [
+        {
+          comida: String,
+          calorias: Number,
+          proteinas: Number,
+          grasas: Number,
+          carbohidratos: Number,
+          azucar: Number,
+          imagenUrl: String,
+          id: String,
+        },
+      ],
+      almuerzo: [
+        {
+          comida: String,
+          calorias: Number,
+          proteinas: Number,
+          grasas: Number,
+          carbohidratos: Number,
+          azucar: Number,
+          imagenUrl: String,
+          id: String,
+        },
+      ],
+      cena: [
+        {
+          comida: String,
+          calorias: Number,
+          proteinas: Number,
+          grasas: Number,
+          carbohidratos: Number,
+          azucar: Number,
+          imagenUrl: String,
+          id: String,
+        },
+      ],
+      extra: [
+        {
+          comida: String,
+          calorias: Number,
+          proteinas: Number,
+          grasas: Number,
+          carbohidratos: Number,
+          azucar: Number,
+          imagenUrl: String,
+          id: String,
+        },
+      ],
+    },
+  },
+});
+
+const CreaRutina = Mongoose.model("rutina", rutinaSchema, DietaSchema);
+
 
 export { CreaRutina };
