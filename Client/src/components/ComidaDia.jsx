@@ -117,7 +117,6 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
 
 
 const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
-  const [reload, setReload] = useState(false);
 
   const [Comidas, setComidas] = useState([{}]);
   useEffect(() => {
@@ -130,7 +129,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
       });
-  }, [reload]);
+  }, []);
 
 
 
