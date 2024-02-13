@@ -88,7 +88,7 @@ function Dieta() {
               <Desayuno nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} />
               <Almuerzo nombre={"Almuerzo"} calorias={"800"} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} />
               <Cena nombre={"Cena"} calorias={"600"} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} />
-              <Extra nombre={"Extra"} calorias={"300"} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} />
+              <Extra nombre={"Extra"} calorias={"300"} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} />
             </div>
           </div>
         </section>
