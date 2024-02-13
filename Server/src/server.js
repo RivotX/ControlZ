@@ -9,7 +9,7 @@ import { ActualizarRutina, getRutina } from "./controllers/rutinaController.js";
 import { login } from "./controllers/loginController.js";
 import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
 import { virtualAssistant } from "./controllers/Assistant.js";
-
+import { addAlimento, getDieta } from "./controllers/DietaController.js";
 const app = express();
 app.use(express.json());
 app.use(
@@ -41,7 +41,6 @@ Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
   .catch((error) => {
     console.error("Error de conexión a MongoDB:", error);
   });
-
 
 app.listen(8081, () => {
   console.log("servidor corriendo...");
@@ -105,3 +104,7 @@ app.post("/obtenerAlimento", async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 });
+
+app.post("/AddAlimento", addAlimento);
+
+app.post("/getDieta", getDieta);

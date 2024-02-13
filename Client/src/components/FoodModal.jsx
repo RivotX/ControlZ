@@ -3,10 +3,17 @@ import axios from "axios";
 import Alimento from "./Alimento";
 import Loading from "./Loading";
 
-const FoodModal = ({ closeModal }) => {
+const FoodModal = ({ closeModal, Horavalor }) => {
     const [userInput, setUserInput] = useState('');
     const [resultados, setResultados] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    const addNewFood = (newFood) => {
+        setResultados([...resultados, newFood]);
+    }
+
+
+    console.log("Horavalor", Horavalor)
 
     const handleClick = () => {
         setLoading(true);
@@ -22,7 +29,7 @@ const FoodModal = ({ closeModal }) => {
 
     return (
         <div className=" tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen NegroOpacidad75 tw-flex tw-items-center tw-justify-center tw-z-[51]">
-            <div className="tw-text-white tw-bg-slate-700 tw-mx-2 tw-px-4 tw-pb-8 tw-rounded-lg tw-w-full tw-h-4/5 md:tw-w-4/5  tw-opacity-100 tw-overflow-x-hidden tw-overflow-y-scroll">
+            <div className="tw-text-white tw-bg-slate-700 tw-mx-2 tw-px-4 tw-pb-8 tw-rounded-lg tw-w-full tw-h-4/5 md:tw-w-4/5 tw-opacity-100 tw-overflow-x-hidden tw-overflow-y-scroll">
 
                 <div className="tw-flex tw-w-full tw-justify-end">
                     <span onClick={closeModal} className="tw-h-10 tw-cursor-pointer tw-text-white tw-text-3xl ">x</span>
@@ -51,7 +58,7 @@ const FoodModal = ({ closeModal }) => {
                     )}
                     {resultados && !loading && (
                         resultados.map(producto => (
-                            <Alimento key={producto.id} producto={producto} />
+                            <Alimento key={producto.id} producto={producto} Horavalor={Horavalor} />
                         ))
                     )}
                 </div>

@@ -7,14 +7,15 @@ import Tienda from "./pages/Tienda.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login.jsx";
 
+
 const router = createBrowserRouter([
-  { path: "/login", element: <Login />},
+  { path: "/login", element: <Login /> },
   { path: "/rutina", element: <Rutina /> },
   { path: "/dieta", element: <Dieta /> },
   { path: "/perfil", element: <Perfil /> },
   { path: "/principal", element: <Principal /> },
   { path: "/tienda", element: <Tienda /> },
-  { path: "/", element: <Gym />  },
+  { path: "/", element: <Gym /> },
 
 ]);
 function App() {

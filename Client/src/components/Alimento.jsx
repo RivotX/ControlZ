@@ -1,14 +1,39 @@
 import React, { useState } from 'react';
 import notAviable from '../img/Image_not_available.png'
+import axios from "axios";
 
-const Alimento = ({ producto }) => {
+
+const Alimento = ({ producto, Horavalor }) => {
+
+
     const [caracteristicasVisibles, setCaracteristicasVisibles] = useState(false);
+    const [nombreUsuario, setnombreUsuario] = useState("");
 
     const toggleCaracteristicas = () => {
         setCaracteristicasVisibles(!caracteristicasVisibles);
     };
+
+
+
     const addFood = () => {
-        console.log("calorias: ", producto.calorias, "proteinas: ", producto.proteinas, "grasas: ", producto.grasas, "grasasSaturadas: ", producto.grasasSaturadas, "carbohidratos: ", producto.carbohidratos, "azucar: ", producto.azucar, "nombre: ", producto.nombre, "id: ", producto.id, "imagenUrl: ", producto.imagenUrl);
+
+        axios.post('http://localhost:8081/AddAlimento', {
+
+            nombre: producto.nombre,
+            Horavalor: Horavalor,
+            calorias: producto.calorias,
+            proteinas: producto.proteinas,
+            grasas: producto.grasas,
+            grasasSaturadas: producto.grasasSaturadas,
+            carbohidratos: producto.carbohidratos,
+            azucar: producto.azucar,
+            imagenUrl: producto.imagenUrl,
+        })
+            .then((response) => {
+                console.log("Alimento añadido:", response);
+            }).catch((error) => {
+                console.error("Error al añadir alimento:", error);
+            });
     }
 
     return (

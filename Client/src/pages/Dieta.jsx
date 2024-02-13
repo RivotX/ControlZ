@@ -6,7 +6,8 @@ import { useState } from "react";
 import cafe from "../img/Deus_Coffee.png"
 import Footer from "../components/Footer";
 import Grafica from "../components/GraficaDieta";
-import ComidaDia from "../components/ComidaDia";
+import { Desayuno, Almuerzo, Cena, Extra } from "../components/ComidaDia";
+
 
 
 function Dieta() {
@@ -18,13 +19,20 @@ function Dieta() {
   const [HidratosConsumed, setHidratosConsumed] = useState(40);
   const [HidratosGoal, setHidratosGoal] = useState(100);
 
+  const [Horavalor, setHoravalor] = useState(null);
 
-  const AbrirModal = () => {
+  const AbrirModal = (value) => {
+    setHoravalor(value);
     SetShowFoodModal(true);
   };
   const closeModal = () => {
     SetShowFoodModal(false);
   }
+
+  const handleNewFood = () => {
+    // define your function here...
+  };
+
 
   return (
     <>
@@ -39,7 +47,7 @@ function Dieta() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </div>
-                <span className="tw-w-full tw-font-bold lg:tw-text-lg tw-text-center tw-flex tw-justify-center tw-items-center "> HOY </span>
+                <span className="tw-w-full tw-font-bold lg:tw-text-lg tw-text-center tw-flex tw-justify-center tw-items-center"> HOY </span>
                 <div className="tw-cursor-pointer">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-pointer-events-none hover:tw-pointer-events-none tw-w-[30px] tw-h-[30px] sm:tw-w-[50px] sm:tw-h-[50px] ">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -77,18 +85,16 @@ function Dieta() {
           </div>
           <div className="tw-w-full tw-h-1/2 lg:tw-h-2/5 sm:tw-h-1/2 xl:tw-px-[4%] tw-flex tw-items-start tw-mt-[5%] sm:tw-mt-[15%] lg:tw-mt-[5%]">
             <div className=" tw-w-full tw-h-full lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-justify-between tw-p-3 tw-rounded-xl tw-px-5">
-
-              <ComidaDia nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={AbrirModal} />
-              <ComidaDia nombre={"Almuerzo"} calorias={"123123"} img={cafe} add={add} AbrirModal={AbrirModal} />
-              <ComidaDia nombre={"Cena"} calorias={"123123"} img={cafe} add={add} AbrirModal={AbrirModal} />
-              <ComidaDia nombre={"Extra"} calorias={"123123"} img={cafe} add={add} AbrirModal={AbrirModal} last={true} />
-
+              <Desayuno nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} />
+              <Almuerzo nombre={"Almuerzo"} calorias={"800"} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} />
+              <Cena nombre={"Cena"} calorias={"600"} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} />
+              <Extra nombre={"Extra"} calorias={"300"} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} />
             </div>
           </div>
         </section>
 
         {/* Renderizar el modal */}
-        {ShowFoodModal && <FoodModal closeModal={closeModal} />}
+        {ShowFoodModal && <FoodModal closeModal={closeModal} Horavalor={Horavalor} />}
 
         <hr />
 

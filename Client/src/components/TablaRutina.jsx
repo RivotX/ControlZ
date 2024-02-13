@@ -44,7 +44,7 @@ const TablaRutina = () => {
   const [ModalEditar, setModalEditar] = useState(false);
   const [idAEditar, setidAEditar] = useState(0);
   const [Rutinainiciada, setRutinainiciada] = useState(false);
-  
+
   useEffect(() => {
     const obtenerRutina = async () => {
       try {
@@ -53,6 +53,7 @@ const TablaRutina = () => {
         });
         const usuario = { usuario: resUsuario.data.usuario };
         setUsuarioSession(resUsuario.data.usuario);
+
         const resRutina = await axios.post(
           "http://localhost:8081/getrutina",
           usuario,
@@ -79,7 +80,7 @@ const TablaRutina = () => {
   useEffect(() => {
     setRutina([lunes, martes, miercoles, jueves, viernes, sabado, domingo]);
   }, [lunes, martes, miercoles, jueves, viernes, sabado, domingo]);
-  
+
 
   useEffect(() => {
     const actualizarRutina = async () => {
@@ -134,10 +135,10 @@ const TablaRutina = () => {
     setvisibleModalRutina(false);
   };
 
-  const editarRutina = (id,nombre, series, repeticiones, peso) => {
+  const editarRutina = (id, nombre, series, repeticiones, peso) => {
     var copiarutina = [...rutina];
 
-    copiarutina[diaVisible][id]={
+    copiarutina[diaVisible][id] = {
       nombre: nombre,
       series: series,
       repeticiones: repeticiones,
@@ -152,135 +153,135 @@ const TablaRutina = () => {
 
   const ModalAñadirRutina = () => {
     setvisibleModalRutina(true);
-    
+
   };
   const ModalEditarRutina = (indiceAEditar) => {
     setidAEditar(indiceAEditar);
     setvisibleModalRutina(true);
     setModalEditar(true)
-    
+
   };
 
   return (
     <>
-    <div className="  flex-column tw-m-auto tw-flex tw-w-[100%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
-      <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
-        <button
-          className="  botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
-          onClick={() => {
-            Botondias(-1);
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="3"
-            stroke="currentColor"
-            className="tw-pointer-events-none tw-h-6 tw-w-6"
+      <div className="  flex-column tw-m-auto tw-flex tw-w-[100%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
+        <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
+          <button
+            className=" botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
+            onClick={() => {
+              Botondias(-1);
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-            />
-          </svg>
-        </button>
-        <h1 className=" tw-text-2xl tw-font-semibold">
-          {" "}
-          {nombredias[diaVisible]}{" "}
-        </h1>
-        <button
-          className=" botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
-          onClick={() => {
-            Botondias(1);
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="3"
-            stroke="currentColor"
-            className="tw-pointer-events-none tw-h-6 tw-w-6"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="3"
+              stroke="currentColor"
+              className="tw-pointer-events-none tw-h-6 tw-w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+              />
+            </svg>
+          </button>
+          <h1 className=" tw-text-2xl tw-font-semibold">
+            {" "}
+            {nombredias[diaVisible]}{" "}
+          </h1>
+          <button
+            className=" botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
+            onClick={() => {
+              Botondias(1);
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-            />
-          </svg>
-        </button>
-      </div>
-      <div className=" flex tw-mt-4  tw-h-[] tw-w-[90%] tw-overflow-auto tw-rounded-3xl tw-bg-slate-800 tw-p-[2%]">
-        <div className=" tw-rounded-2xl  tw-border-white ">
-          {rutina.map(
-            (dia, index) =>
-              index === diaVisible && (
-                <div key={index}>
-                  {dia.length > 0 && <><button className="tw-my-4" onClick={()=>{ModalAñadirRutina()} }><Plus/></button> <hr/></>}
-                  {dia.length > 0 ? (
-                    dia.map((ejercicio, indexe) =>
-                      indexe == dia.length - 1 ? (
-                        <Ejercicio
-                          nombre={ejercicio.nombre}
-                          series={ejercicio.series}
-                          repeticiones={ejercicio.repeticiones}
-                          eliminar={() => {
-                            eliminarRutina(indexe);
-                          }}
-                          last={true}
-                          peso={ejercicio.kg}
-                          key={indexe}
-                          vacio={false}
-                          idEditar={indexe}
-                          editar={ModalEditarRutina}
-                        />
-                      ) : (
-                        <Ejercicio
-                          nombre={ejercicio.nombre}
-                          series={ejercicio.series}
-                          repeticiones={ejercicio.repeticiones}
-                          eliminar={() => {
-                            eliminarRutina(indexe);
-                          }}
-                          last={false}
-                          peso={ejercicio.kg}
-                          key={indexe}
-                          vacio={false}
-                          idEditar={indexe}
-                          editar={ModalEditarRutina}
-                        />
-                      ),
-                    )
-                  ) : (
-                    <Ejercicio
-                      nombre={""}
-                      series={""}
-                      repeticiones={""}
-                      eliminar={() => {
-                        eliminarRutina();
-                      }}
-                      last={false}
-                      peso={""}
-                      vacio={true}
-                      añadir={() => {
-                        ModalAñadirRutina();
-                      }}
-                      key={index}
-                    />
-                  )}
-                </div>
-              ),
-          )}
-          
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="3"
+              stroke="currentColor"
+              className="tw-pointer-events-none tw-h-6 tw-w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </button>
         </div>
+        <div className=" flex tw-mt-4  tw-h-[] tw-w-[90%] tw-overflow-auto tw-rounded-3xl tw-bg-slate-800 tw-p-[2%]">
+          <div className=" tw-rounded-2xl tw-border-white">
+            {rutina.map(
+              (dia, index) =>
+                index === diaVisible && (
+                  <div key={index}>
+                    {dia.length > 0 && <><button className="tw-my-4" onClick={() => { ModalAñadirRutina() }}><Plus /></button> <hr /></>}
+                    {dia.length > 0 ? (
+                      dia.map((ejercicio, indexe) =>
+                        indexe == dia.length - 1 ? (
+                          <Ejercicio
+                            nombre={ejercicio.nombre}
+                            series={ejercicio.series}
+                            repeticiones={ejercicio.repeticiones}
+                            eliminar={() => {
+                              eliminarRutina(indexe);
+                            }}
+                            last={true}
+                            peso={ejercicio.kg}
+                            key={indexe}
+                            vacio={false}
+                            idEditar={indexe}
+                            editar={ModalEditarRutina}
+                          />
+                        ) : (
+                          <Ejercicio
+                            nombre={ejercicio.nombre}
+                            series={ejercicio.series}
+                            repeticiones={ejercicio.repeticiones}
+                            eliminar={() => {
+                              eliminarRutina(indexe);
+                            }}
+                            last={false}
+                            peso={ejercicio.kg}
+                            key={indexe}
+                            vacio={false}
+                            idEditar={indexe}
+                            editar={ModalEditarRutina}
+                          />
+                        ),
+                      )
+                    ) : (
+                      <Ejercicio
+                        nombre={""}
+                        series={""}
+                        repeticiones={""}
+                        eliminar={() => {
+                          eliminarRutina();
+                        }}
+                        last={false}
+                        peso={""}
+                        vacio={true}
+                        añadir={() => {
+                          ModalAñadirRutina();
+                        }}
+                        key={index}
+                      />
+                    )}
+                  </div>
+                ),
+            )}
+
+          </div>
+        </div>
+        <ModalEjercicio funcionañadir={añadirRutina} modalvisible={visibleModalRutina} setmodalvisible={setvisibleModalRutina} VisibleEditar={ModalEditar} setVisibleEditar={setModalEditar} id={idAEditar} funcionEditar={editarRutina} EjercicioAEditar={Rutinainiciada ? rutina[diaVisible][idAEditar] : ""} ></ModalEjercicio>
+
       </div>
-      <ModalEjercicio  funcionañadir={añadirRutina} modalvisible={visibleModalRutina} setmodalvisible={setvisibleModalRutina} VisibleEditar={ModalEditar} setVisibleEditar={setModalEditar} id={idAEditar} funcionEditar={editarRutina} EjercicioAEditar={Rutinainiciada?rutina[diaVisible][idAEditar]:""} ></ModalEjercicio>
-      
-    </div>
-    
-  </>
+
+    </>
   );
 };
 export default TablaRutina;

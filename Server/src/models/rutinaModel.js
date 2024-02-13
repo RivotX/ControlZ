@@ -79,7 +79,8 @@ const DietaSchema = new Mongoose.Schema({
   },
 });
 
-const CreaRutina = Mongoose.model("rutina", rutinaSchema, DietaSchema);
+const CreaRutina = Mongoose.model("rutinas", rutinaSchema); // Changed "rutina" to "rutinas"
 
+const CreaDieta = Mongoose.model("dieta", DietaSchema); // Created a new model for "dieta"
 
-export { CreaRutina };
+export { CreaRutina, CreaDieta }; // Export both models
