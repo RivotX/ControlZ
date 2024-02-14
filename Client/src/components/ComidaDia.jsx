@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
-const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
+const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -10,11 +10,13 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
   useEffect(() => {
     updateProteinConsumed(proteinConsumed);
   }, [proteinConsumed]);
+
   useEffect(() => {
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
+
   useEffect(() => {
-    updateKcal(calorias);
+    updateCaloriasConsumed(caloriasConsumed);
   }, [caloriasConsumed]);
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 
     axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
-        console.log("Dieta obtenida:", res);
+        console.log("Dieta obtenida DESAYUNO:", res);
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].desayuno;
           setComidas(Comidass)
@@ -37,7 +39,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
         }
@@ -97,7 +99,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 //Exact same component for Almuerzo
-const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
+const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -110,7 +112,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
   useEffect(() => {
-    updateKcal(calorias);
+    updateCaloriasConsumed(caloriasConsumed);
   }, [caloriasConsumed]);
 
   useEffect(() => {
@@ -119,7 +121,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 
     axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
-        console.log("Dieta obtenida:", res);
+        console.log("Dieta obtenida ALMUERZO:", res);
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].almuerzo;
           setComidas(Comidass)
@@ -133,7 +135,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           console.log("caloriasSum", caloriasSum);
           setCaloriasConsumed(caloriasSum);
@@ -194,7 +196,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 
-const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
+const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -207,7 +209,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
   useEffect(() => {
-    updateKcal(calorias);
+    updateCaloriasConsumed(caloriasConsumed);
   }, [caloriasConsumed]);
 
   useEffect(() => {
@@ -216,7 +218,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
 
     axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
-        console.log("Dieta obtenida:", res);
+        console.log("Dieta obtenida CENA:", res);
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].cena;
           setComidas(Comidass)
@@ -230,7 +232,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
         }
@@ -289,7 +291,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
   );
 };
 
-const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
+const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -302,7 +304,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
   useEffect(() => {
-    updateKcal(calorias);
+    updateCaloriasConsumed(caloriasConsumed);
   }, [caloriasConsumed]);
 
   useEffect(() => {
@@ -311,7 +313,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
 
     axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
-        console.log("Dieta obtenida:", res);
+        console.log("Dieta obtenida EXTRA:", res);
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].extra;
           setComidas(Comidass)
@@ -325,7 +327,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
         }
