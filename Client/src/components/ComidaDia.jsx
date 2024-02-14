@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
-const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
+const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
+  const [caloriasConsumed, setCaloriasConsumed] = useState(0);
 
   useEffect(() => {
     updateProteinConsumed(proteinConsumed);
@@ -12,6 +13,9 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
   useEffect(() => {
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
+  useEffect(() => {
+    updateKcal(calorias);
+  }, [caloriasConsumed]);
 
   useEffect(() => {
     const date = new Date();
@@ -27,13 +31,15 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let proteinas = Comidass.map((comida) => comida.proteinas);
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
-          console.log("proteinasSum", proteinasSum);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
           let hidratos = Comidass.map((comida) => comida.carbohidratos);
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
-          console.log("hidratosSum", hidratosSum);
           setHidratosConsumed(hidratosSum);
+          //same for calorias
+          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let caloriasSum = calorias.reduce((a, b) => a + b, 0);
+          setCaloriasConsumed(caloriasSum);
         }
       })
       .catch((error) => {
@@ -91,11 +97,11 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 //Exact same component for Almuerzo
-const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
+const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
   const [Comidas, setComidas] = useState([{}]);
-
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
+  const [caloriasConsumed, setCaloriasConsumed] = useState(0);
 
   useEffect(() => {
     updateProteinConsumed(proteinConsumed);
@@ -103,6 +109,9 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
   useEffect(() => {
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
+  useEffect(() => {
+    updateKcal(calorias);
+  }, [caloriasConsumed]);
 
   useEffect(() => {
     const date = new Date();
@@ -118,13 +127,16 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let proteinas = Comidass.map((comida) => comida.proteinas);
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
-          console.log("proteinasSum", proteinasSum);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
           let hidratos = Comidass.map((comida) => comida.carbohidratos);
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
-          console.log("hidratosSum", hidratosSum);
           setHidratosConsumed(hidratosSum);
+          //same for calorias
+          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let caloriasSum = calorias.reduce((a, b) => a + b, 0);
+          console.log("caloriasSum", caloriasSum);
+          setCaloriasConsumed(caloriasSum);
         }
       })
       .catch((error) => {
@@ -152,6 +164,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
             <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">
               {calorias && `${calorias} kcal`}
             </span>
+
             <div className="tw-hidden lg:tw-w-full lg:tw-block ">
               {/* mapa alimentos */}
               {
@@ -178,15 +191,14 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
       </div>
     </div>
   );
-}
+};
 
 
-const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
-
+const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
   const [Comidas, setComidas] = useState([{}]);
-
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
+  const [caloriasConsumed, setCaloriasConsumed] = useState(0);
 
   useEffect(() => {
     updateProteinConsumed(proteinConsumed);
@@ -194,13 +206,9 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
   useEffect(() => {
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
-
   useEffect(() => {
-    updateProteinConsumed(proteinConsumed);
-  }, [proteinConsumed]);
-  useEffect(() => {
-    updateHidratosConsumed(HidratosConsumed);
-  }, [HidratosConsumed]);
+    updateKcal(calorias);
+  }, [caloriasConsumed]);
 
   useEffect(() => {
     const date = new Date();
@@ -216,22 +224,21 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
           let proteinas = Comidass.map((comida) => comida.proteinas);
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
-          console.log("proteinasSum", proteinasSum);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
           let hidratos = Comidass.map((comida) => comida.carbohidratos);
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
-          console.log("hidratosSum", hidratosSum);
           setHidratosConsumed(hidratosSum);
+          //same for calorias
+          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let caloriasSum = calorias.reduce((a, b) => a + b, 0);
+          setCaloriasConsumed(caloriasSum);
         }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
       });
   }, [AbrirModal]);
-
-
-
 
   return (
     <div className={`tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 lg:tw-items-start  lg:tw-border-b-0 lg:tw-h-full ${last ? "" : "tw-border-b lg:tw-border-r-2"}`}>
@@ -250,7 +257,9 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
           <div className="tw-flex tw-ms-2 tw-flex-wrap tw-items-center sm:tw-px-2 lg:tw-text-left lg:tw-ms-0 lg:tw-px-0 lg:tw-w-full ">
 
             <span className="tw-w-full tw-font-bold sm:tw-text-base lg:tw-hidden lg:tw-text-left">{nombre}</span>
-            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">{calorias} kcal</span>
+            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">
+              {calorias && `${calorias} kcal`}
+            </span>
 
             <div className="tw-hidden lg:tw-w-full lg:tw-block ">
               {/* mapa alimentos */}
@@ -278,14 +287,13 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
       </div>
     </div>
   );
-}
+};
 
-
-const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
+const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateKcal }) => {
   const [Comidas, setComidas] = useState([{}]);
-
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
+  const [caloriasConsumed, setCaloriasConsumed] = useState(0);
 
   useEffect(() => {
     updateProteinConsumed(proteinConsumed);
@@ -293,13 +301,9 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
   useEffect(() => {
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
-
   useEffect(() => {
-    updateProteinConsumed(proteinConsumed);
-  }, [proteinConsumed]);
-  useEffect(() => {
-    updateHidratosConsumed(HidratosConsumed);
-  }, [HidratosConsumed]);
+    updateKcal(calorias);
+  }, [caloriasConsumed]);
 
   useEffect(() => {
     const date = new Date();
@@ -315,13 +319,15 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
           let proteinas = Comidass.map((comida) => comida.proteinas);
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
-          console.log("proteinasSum", proteinasSum);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
           let hidratos = Comidass.map((comida) => comida.carbohidratos);
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
-          console.log("hidratosSum", hidratosSum);
           setHidratosConsumed(hidratosSum);
+          //same for calorias
+          let calorias = Comidass.map((comida) => Number(comida.calorias));
+          let caloriasSum = calorias.reduce((a, b) => a + b, 0);
+          setCaloriasConsumed(caloriasSum);
         }
       })
       .catch((error) => {
@@ -346,7 +352,9 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
           <div className="tw-flex tw-ms-2 tw-flex-wrap tw-items-center sm:tw-px-2 lg:tw-text-left lg:tw-ms-0 lg:tw-px-0 lg:tw-w-full ">
 
             <span className="tw-w-full tw-font-bold sm:tw-text-base lg:tw-hidden lg:tw-text-left">{nombre}</span>
-            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">{calorias} kcal</span>
+            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">
+              {calorias && `${calorias} kcal`}
+            </span>
 
             <div className="tw-hidden lg:tw-w-full lg:tw-block ">
               {/* mapa alimentos */}
@@ -374,7 +382,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
       </div>
     </div>
   );
-}
+};
 
 
 export { Desayuno, Almuerzo, Cena, Extra }

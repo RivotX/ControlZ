@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Alimento from "./Alimento";
 import Loading from "./Loading";
@@ -8,13 +8,11 @@ const FoodModal = ({ closeModal, Horavalor }) => {
     const [resultados, setResultados] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const addNewFood = (newFood) => {
-        setResultados([...resultados, newFood]);
-    }
+    // const addNewFood = (newFood) => {
+    //     setResultados([...resultados, newFood]);
+    // }
 
-
-    console.log("Horavalor", Horavalor)
-
+    //obtener alimentos endpoint
     const handleClick = () => {
         setLoading(true);
         axios.post(
@@ -26,6 +24,22 @@ const FoodModal = ({ closeModal, Horavalor }) => {
             setResultados(res.data);
         });
     }
+
+    //cerrar modal usando esc
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [closeModal]);
+
 
     return (
         <div className=" tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen NegroOpacidad75 tw-flex tw-items-center tw-justify-center tw-z-[51]">

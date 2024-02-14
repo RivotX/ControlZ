@@ -18,6 +18,8 @@ function Dieta() {
 
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
   const [HidratosGoal, setHidratosGoal] = useState(100);
+  
+  const [CaloriasConsumed, setCaloriasConsumed] = useState(0);
 
   const [Horavalor, setHoravalor] = useState(null);
 
@@ -36,6 +38,13 @@ function Dieta() {
   const updateHidratosConsumed = (value) => {
     setHidratosConsumed(value);
   };
+  const updateKcal = (value) => {
+    setCaloriasConsumed(value);
+  };
+
+  useEffect(() => {
+    console.log('Calorias', CaloriasConsumed);
+  }, [CaloriasConsumed]);
 
   // useEffect(() => {
   //   console.log('Hidratos', proteinConsumed);
@@ -79,7 +88,7 @@ function Dieta() {
               <div className="tw-w-full tw-flex tw-justify-between tw-gap-1">
                 <div className="tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-gap-1 sm:tw-gap-3">
 
-                  <div>Proteinas</div>
+                  <div>Proteinas{CaloriasConsumed}</div>
                   <progress value={proteinConsumed} max={proteinGoal} className="tw-h-2"></progress>
                 </div>
                 <div className=" tw-w-1/2 tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3">
@@ -92,10 +101,10 @@ function Dieta() {
           </div>
           <div className="tw-w-full tw-h-1/2 lg:tw-h-2/5 sm:tw-h-1/2 xl:tw-px-[4%] tw-flex tw-items-start tw-mt-[5%] sm:tw-mt-[15%] lg:tw-mt-[5%]">
             <div className=" tw-w-full tw-h-full lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-justify-between tw-p-3 tw-rounded-xl tw-px-5">
-              <Desayuno nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
-              <Almuerzo nombre={"Almuerzo"} calorias={"800"} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
-              <Cena nombre={"Cena"} calorias={"600"} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
-              <Extra nombre={"Extra"} calorias={"300"} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
+              <Desayuno nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateKcal={updateKcal} />
+              <Almuerzo nombre={"Almuerzo"} calorias={"800"} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateKcal={updateKcal} />
+              <Cena nombre={"Cena"} calorias={"600"} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateKcal={updateKcal} />
+              <Extra nombre={"Extra"} calorias={"300"} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateKcal={updateKcal} />
             </div>
           </div>
         </section>
