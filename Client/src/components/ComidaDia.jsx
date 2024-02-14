@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
-const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
+const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateDesayunoCalorias }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -17,6 +17,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
+    updateDesayunoCalorias(caloriasConsumed);
   }, [caloriasConsumed]);
 
   useEffect(() => {
@@ -99,7 +100,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 //Exact same component for Almuerzo
-const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
+const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateAlmuerzoCalorias }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -113,6 +114,8 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
   }, [HidratosConsumed]);
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
+    updateAlmuerzoCalorias(caloriasConsumed);
+
   }, [caloriasConsumed]);
 
   useEffect(() => {
@@ -196,7 +199,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 
-const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
+const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateCenaCalorias }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -210,6 +213,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
   }, [HidratosConsumed]);
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
+    updateCenaCalorias(caloriasConsumed);
   }, [caloriasConsumed]);
 
   useEffect(() => {
@@ -291,7 +295,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
   );
 };
 
-const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed }) => {
+const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateExtraCalorias }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -305,6 +309,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
   }, [HidratosConsumed]);
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
+    updateExtraCalorias(caloriasConsumed);
   }, [caloriasConsumed]);
 
   useEffect(() => {
