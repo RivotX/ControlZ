@@ -2,7 +2,7 @@ export default Dieta;
 import Navbar from "../components/Navbar";
 import add from '../img/add (1).png'
 import FoodModal from "../components/FoodModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import cafe from "../img/Deus_Coffee.png"
 import Footer from "../components/Footer";
 import Grafica from "../components/GraficaDieta";
@@ -13,10 +13,10 @@ import { Desayuno, Almuerzo, Cena, Extra } from "../components/ComidaDia";
 function Dieta() {
   const [ShowFoodModal, SetShowFoodModal] = useState(false);
 
-  const [proteinConsumed, setProteinConsumed] = useState(20);
+  const [proteinConsumed, setProteinConsumed] = useState(0);
   const [proteinGoal, setProteinGoal] = useState(100);
 
-  const [HidratosConsumed, setHidratosConsumed] = useState(40);
+  const [HidratosConsumed, setHidratosConsumed] = useState(0);
   const [HidratosGoal, setHidratosGoal] = useState(100);
 
   const [Horavalor, setHoravalor] = useState(null);
@@ -29,10 +29,17 @@ function Dieta() {
     SetShowFoodModal(false);
   }
 
-  const handleNewFood = () => {
-    // define your function here...
+  const updateProteinConsumed = (value) => {
+    setProteinConsumed(value);
   };
 
+  const updateHidratosConsumed = (value) => {
+    setHidratosConsumed(value);
+  };
+
+  // useEffect(() => {
+  //   console.log('Hidratos', proteinConsumed);
+  // }, [proteinConsumed]);
 
   return (
     <>
@@ -85,10 +92,10 @@ function Dieta() {
           </div>
           <div className="tw-w-full tw-h-1/2 lg:tw-h-2/5 sm:tw-h-1/2 xl:tw-px-[4%] tw-flex tw-items-start tw-mt-[5%] sm:tw-mt-[15%] lg:tw-mt-[5%]">
             <div className=" tw-w-full tw-h-full lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-justify-between tw-p-3 tw-rounded-xl tw-px-5">
-              <Desayuno nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} />
-              <Almuerzo nombre={"Almuerzo"} calorias={"800"} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} />
-              <Cena nombre={"Cena"} calorias={"600"} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} />
-              <Extra nombre={"Extra"} calorias={"300"} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} />
+              <Desayuno nombre={"Desayuno"} calorias={"500"} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
+              <Almuerzo nombre={"Almuerzo"} calorias={"800"} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
+              <Cena nombre={"Cena"} calorias={"600"} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
+              <Extra nombre={"Extra"} calorias={"300"} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} />
             </div>
           </div>
         </section>

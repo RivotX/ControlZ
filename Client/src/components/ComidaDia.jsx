@@ -1,8 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
-const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
+const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
   const [Comidas, setComidas] = useState([{}]);
+  const [proteinConsumed, setProteinConsumed] = useState(0);
+  const [HidratosConsumed, setHidratosConsumed] = useState(0);
+
+  useEffect(() => {
+    updateProteinConsumed(proteinConsumed);
+  }, [proteinConsumed]);
+  useEffect(() => {
+    updateHidratosConsumed(HidratosConsumed);
+  }, [HidratosConsumed]);
 
   useEffect(() => {
     const date = new Date();
@@ -14,6 +23,17 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].desayuno;
           setComidas(Comidass)
+          //for each objet.proteinas in comidass, sum them and setProteinConsumed
+          let proteinas = Comidass.map((comida) => comida.proteinas);
+
+          let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
+          console.log("proteinasSum", proteinasSum);
+          setProteinConsumed(proteinasSum);
+          //same for hidratos 
+          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
+          console.log("hidratosSum", hidratosSum);
+          setHidratosConsumed(hidratosSum);
         }
       })
       .catch((error) => {
@@ -71,8 +91,19 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
 };
 
 //Exact same component for Almuerzo
-const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
+const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
   const [Comidas, setComidas] = useState([{}]);
+
+  const [proteinConsumed, setProteinConsumed] = useState(0);
+  const [HidratosConsumed, setHidratosConsumed] = useState(0);
+
+  useEffect(() => {
+    updateProteinConsumed(proteinConsumed);
+  }, [proteinConsumed]);
+  useEffect(() => {
+    updateHidratosConsumed(HidratosConsumed);
+  }, [HidratosConsumed]);
+
   useEffect(() => {
     const date = new Date();
     const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -83,6 +114,17 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].almuerzo;
           setComidas(Comidass)
+          //for each objet.proteinas in comidass, sum them and setProteinConsumed
+          let proteinas = Comidass.map((comida) => comida.proteinas);
+
+          let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
+          console.log("proteinasSum", proteinasSum);
+          setProteinConsumed(proteinasSum);
+          //same for hidratos 
+          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
+          console.log("hidratosSum", hidratosSum);
+          setHidratosConsumed(hidratosSum);
         }
       })
       .catch((error) => {
@@ -139,9 +181,26 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
 }
 
 
-const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
+const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
 
   const [Comidas, setComidas] = useState([{}]);
+
+  const [proteinConsumed, setProteinConsumed] = useState(0);
+  const [HidratosConsumed, setHidratosConsumed] = useState(0);
+
+  useEffect(() => {
+    updateProteinConsumed(proteinConsumed);
+  }, [proteinConsumed]);
+  useEffect(() => {
+    updateHidratosConsumed(HidratosConsumed);
+  }, [HidratosConsumed]);
+
+  useEffect(() => {
+    updateProteinConsumed(proteinConsumed);
+  }, [proteinConsumed]);
+  useEffect(() => {
+    updateHidratosConsumed(HidratosConsumed);
+  }, [HidratosConsumed]);
 
   useEffect(() => {
     const date = new Date();
@@ -153,12 +212,24 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].cena;
           setComidas(Comidass)
+          //for each objet.proteinas in comidass, sum them and setProteinConsumed
+          let proteinas = Comidass.map((comida) => comida.proteinas);
+
+          let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
+          console.log("proteinasSum", proteinasSum);
+          setProteinConsumed(proteinasSum);
+          //same for hidratos 
+          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
+          console.log("hidratosSum", hidratosSum);
+          setHidratosConsumed(hidratosSum);
         }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
       });
   }, [AbrirModal]);
+
 
 
 
@@ -210,8 +281,25 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
 }
 
 
-const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
+const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed }) => {
   const [Comidas, setComidas] = useState([{}]);
+
+  const [proteinConsumed, setProteinConsumed] = useState(0);
+  const [HidratosConsumed, setHidratosConsumed] = useState(0);
+
+  useEffect(() => {
+    updateProteinConsumed(proteinConsumed);
+  }, [proteinConsumed]);
+  useEffect(() => {
+    updateHidratosConsumed(HidratosConsumed);
+  }, [HidratosConsumed]);
+
+  useEffect(() => {
+    updateProteinConsumed(proteinConsumed);
+  }, [proteinConsumed]);
+  useEffect(() => {
+    updateHidratosConsumed(HidratosConsumed);
+  }, [HidratosConsumed]);
 
   useEffect(() => {
     const date = new Date();
@@ -223,6 +311,17 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
         if (res && res.data) {
           let Comidass = res.data.dias[formattedDate].extra;
           setComidas(Comidass)
+          //for each objet.proteinas in comidass, sum them and setProteinConsumed
+          let proteinas = Comidass.map((comida) => comida.proteinas);
+
+          let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
+          console.log("proteinasSum", proteinasSum);
+          setProteinConsumed(proteinasSum);
+          //same for hidratos 
+          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
+          console.log("hidratosSum", hidratosSum);
+          setHidratosConsumed(hidratosSum);
         }
       })
       .catch((error) => {
