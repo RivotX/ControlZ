@@ -123,25 +123,25 @@ function Perfil() {
                   </span>{" "}
                   Gimnasio
                 </p>
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between ">
                   <p className="tw-text-md tw-w-1/3 " >
                     Edad
                   </p>
-                  <input className="tw-border tw-rounded-lg tw-border-blue-300 tw-text-center tw-w-1/3 " type="number" name="edad" placeholder="Años"></input>
+                  <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"></input>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
                   <p className="tw-text-md tw-w-1/3 " >
                     Peso
                   </p>
-                  <input className="mb-1 tw-border tw-rounded-lg tw-border-blue-300 tw-text-center tw-w-1/3 " type="number" name="edad" placeholder="kg"></input>
+                  <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Kg"></input>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
                   <p className="tw-text-md tw-w-1/3 " >
                     Altura
                   </p>
-                  <input className="mb-1 tw-border tw-rounded-lg tw-border-blue-300 tw-text-center tw-w-1/3 " name="edad" placeholder="Cm"></input>
+                  <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3" name="edad" placeholder="Cm"></input>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
@@ -179,7 +179,7 @@ function Perfil() {
                   </span>{" "}
                   Dieta
                 </p>
-                <div className=" tw-flex tw-w-full tw-justify-between tw-items-center mb-4">
+                <div className="mb-4 tw-flex tw-w-full tw-justify-between tw-items-center">
                   <p className="tw-text-md tw-w-1/3 " >
                     objetivo
                   </p>

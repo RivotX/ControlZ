@@ -8,13 +8,13 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-13"].desayuno;
+        let Comidass = res.data.dias["2024-02-14"].desayuno;
         setComidas(Comidass)
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
       });
-  }, []);
+  }, [AbrirModal]);
 
   return (
     <div className={`tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 lg:tw-items-start  lg:tw-border-b-0 lg:tw-h-full ${last ? "" : "tw-border-b lg:tw-border-r-2"}`}>
@@ -65,13 +65,13 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-13"].almuerzo;
+        let Comidass = res.data.dias["2024-02-14"].almuerzo;
         setComidas(Comidass)
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
       });
-  }, []);
+  }, [AbrirModal]);
 
   return (
     <div className={`tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 lg:tw-items-start  lg:tw-border-b-0 lg:tw-h-full ${last ? "" : "tw-border-b lg:tw-border-r-2"}`}>
@@ -123,13 +123,13 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-13"].cena;
+        let Comidass = res.data.dias["2024-02-14"].cena;
         setComidas(Comidass)
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
       });
-  }, []);
+  }, [AbrirModal]);
 
 
 
@@ -182,13 +182,13 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-13"].extra;
+        let Comidass = res.data.dias["2024-02-14"].extra;
         setComidas(Comidass)
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
       });
-  }, []);
+  }, [AbrirModal]);
 
   return (
     <div className={`tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 lg:tw-items-start  lg:tw-border-b-0 lg:tw-h-full ${last ? "" : "tw-border-b lg:tw-border-r-2"}`}>
