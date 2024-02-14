@@ -5,11 +5,14 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
   const [Comidas, setComidas] = useState([{}]);
 
   useEffect(() => {
-    axios.post('http://localhost:8081/getDieta')
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+    axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
         console.log("Dieta obtenida:", res);
         if (res && res.data) {
-          let Comidass = res.data.dias["2024-02-14"].desayuno;
+          let Comidass = res.data.dias[formattedDate].desayuno;
           setComidas(Comidass)
         }
       })
@@ -71,11 +74,14 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
 const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
   const [Comidas, setComidas] = useState([{}]);
   useEffect(() => {
-    axios.post('http://localhost:8081/getDieta')
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+    axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
         console.log("Dieta obtenida:", res);
         if (res && res.data) {
-          let Comidass = res.data.dias["2024-02-14"].almuerzo;
+          let Comidass = res.data.dias[formattedDate].almuerzo;
           setComidas(Comidass)
         }
       })
@@ -136,13 +142,16 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
 const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
 
   const [Comidas, setComidas] = useState([{}]);
+
   useEffect(() => {
-    axios.post('http://localhost:8081/getDieta')
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+    axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-
         if (res && res.data) {
-          let Comidass = res.data.dias["2024-02-14"].cena;
+          let Comidass = res.data.dias[formattedDate].cena;
           setComidas(Comidass)
         }
       })
@@ -203,12 +212,16 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
 
 const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
   const [Comidas, setComidas] = useState([{}]);
+
   useEffect(() => {
-    axios.post('http://localhost:8081/getDieta')
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+    axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
         console.log("Dieta obtenida:", res);
         if (res && res.data) {
-          let Comidass = res.data.dias["2024-02-14"].extra;
+          let Comidass = res.data.dias[formattedDate].extra;
           setComidas(Comidass)
         }
       })
