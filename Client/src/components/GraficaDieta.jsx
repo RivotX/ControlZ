@@ -1,7 +1,7 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const Grafica = () => {
+const Grafica = ({CaloriasConsumed, CaloriasObjetivo}) => {
     let percentage = 70;
     return (
         <div className="tw-absolute tw-w-36 tw-h-36 lg:tw-w-40 lg:tw-h-40 lg:tw-text-xl tw-font-bold  "> {/* Contenedor para la gráfica */}
@@ -37,7 +37,7 @@ const Grafica = () => {
             <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center">
                 <div className="text-container tw-relative tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-justify-center ">
 
-                    <div className="text-number tw-font-bold ">579</div>
+                    <div className="text-number tw-font-bold ">{CaloriasObjetivo-CaloriasConsumed}</div>
                     <div className="text-calories tw-text-xs  ">Calorías <span className=''>restantes</span></div>
                 </div>
             </div>

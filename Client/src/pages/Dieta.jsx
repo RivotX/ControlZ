@@ -88,7 +88,7 @@ function Dieta() {
                     <p className="tw-w-full tw-flex tw-justify-center lg:tw-text-lg"><span className="">Consumidas</span></p>
                   </div>
                   <div className=" tw-w-2/5 tw-flex tw-items-center tw-justify-center tw-h-full">
-                    <Grafica />
+                    <Grafica CaloriasConsumed={CaloriasConsumed} CaloriasObjetivo={3000} />
                   </div>
                   <div className="tw-flex tw-flex-wrap tw-justify-center tw-w-1/5 " >
                     <p className="tw-w-full tw-flex tw-justify-center tw-font-bold lg:tw-text-lg"><span>3000</span></p>
@@ -99,12 +99,14 @@ function Dieta() {
               <div className="tw-w-full tw-flex tw-justify-between tw-gap-1">
                 <div className="tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-gap-1 sm:tw-gap-3">
 
-                  <div>Proteinas: {proteinConsumed}</div>
+                  <div>Proteinas: {proteinConsumed.toFixed(1)}</div>
                   <progress value={proteinConsumed} max={proteinGoal} className="tw-h-2"></progress>
                 </div>
 
                 <div className=" tw-w-1/2 tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3">
-                  <div>Hidratos: {HidratosConsumed}</div>
+                  <div>Hidratos: {HidratosConsumed.toFixed(1)}
+                  </div>
+
                   <progress value={HidratosConsumed} max={HidratosGoal} className="tw-h-2 " />
                 </div>
               </div>
