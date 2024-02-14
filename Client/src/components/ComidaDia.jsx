@@ -23,7 +23,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
   useEffect(() => {
     const date = new Date();
     const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-
+    console.log("formattedDateEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE", formattedDate)
     axios.post('http://localhost:8081/getDieta/')
       .then((res) => {
         console.log("Dieta obtenida DESAYUNO:", res);

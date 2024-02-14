@@ -12,7 +12,8 @@ const addAlimento = async (req, res) => {
     imagenUrl: req.body.imagenUrl,
     id: "hola",
   };
-  const dia = new Date().toISOString().slice(0, 10);
+  const date = new Date();
+  const dia = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
   // Determine the meal time based on the "HoraValor" value
   let mealTime;
