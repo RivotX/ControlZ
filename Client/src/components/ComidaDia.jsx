@@ -8,8 +8,10 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-14"].desayuno;
-        setComidas(Comidass)
+        if (res && res.data) {
+          let Comidass = res.data.dias["2024-02-14"].desayuno;
+          setComidas(Comidass)
+        }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
@@ -33,7 +35,9 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
           <div className="tw-flex tw-ms-2 tw-flex-wrap tw-items-center sm:tw-px-2 lg:tw-text-left lg:tw-ms-0 lg:tw-px-0 lg:tw-w-full ">
 
             <span className="tw-w-full tw-font-bold sm:tw-text-base lg:tw-hidden lg:tw-text-left">{nombre}</span>
-            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">{calorias} kcal</span>
+            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">
+              {calorias && `${calorias} kcal`}
+            </span>
 
             <div className="tw-hidden lg:tw-w-full lg:tw-block ">
               {/* mapa alimentos */}
@@ -41,13 +45,18 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
                 Comidas && Comidas.length > 0 && (
                   Comidas.map((alimento, index) => {
                     return (
-                      <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
-                        <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida} <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400 ">({alimento.calorias} kcal)</span> </p>
-                      </div>
+                      alimento.comida && (
+                        <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
+                          <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
+                            {alimento.calorias && (
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                            )}
+                          </p>
+                        </div>
+                      )
                     );
                   })
-                )
-              }
+                )}
             </div>
 
           </div>
@@ -65,8 +74,10 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-14"].almuerzo;
-        setComidas(Comidass)
+        if (res && res.data) {
+          let Comidass = res.data.dias["2024-02-14"].almuerzo;
+          setComidas(Comidass)
+        }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
@@ -90,21 +101,27 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) =
           <div className="tw-flex tw-ms-2 tw-flex-wrap tw-items-center sm:tw-px-2 lg:tw-text-left lg:tw-ms-0 lg:tw-px-0 lg:tw-w-full ">
 
             <span className="tw-w-full tw-font-bold sm:tw-text-base lg:tw-hidden lg:tw-text-left">{nombre}</span>
-            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">{calorias} kcal</span>
-
+            <span className="tw-w-full tw-text-xs tw-text-gray-200 sm:tw-text-sm lg:tw-hidden">
+              {calorias && `${calorias} kcal`}
+            </span>
             <div className="tw-hidden lg:tw-w-full lg:tw-block ">
               {/* mapa alimentos */}
               {
                 Comidas && Comidas.length > 0 && (
                   Comidas.map((alimento, index) => {
                     return (
-                      <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
-                        <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida} <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400 ">({alimento.calorias} kcal)</span> </p>
-                      </div>
+                      alimento.comida && (
+                        <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
+                          <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
+                            {alimento.calorias && (
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                            )}
+                          </p>
+                        </div>
+                      )
                     );
                   })
-                )
-              }
+                )}
             </div>
 
           </div>
@@ -123,8 +140,11 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-14"].cena;
-        setComidas(Comidass)
+
+        if (res && res.data) {
+          let Comidass = res.data.dias["2024-02-14"].cena;
+          setComidas(Comidass)
+        }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
@@ -158,13 +178,18 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
                 Comidas && Comidas.length > 0 && (
                   Comidas.map((alimento, index) => {
                     return (
-                      <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
-                        <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida} <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400 ">({alimento.calorias} kcal)</span> </p>
-                      </div>
+                      alimento.comida && (
+                        <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
+                          <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
+                            {alimento.calorias && (
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                            )}
+                          </p>
+                        </div>
+                      )
                     );
                   })
-                )
-              }
+                )}
             </div>
 
           </div>
@@ -182,8 +207,10 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
     axios.post('http://localhost:8081/getDieta')
       .then((res) => {
         console.log("Dieta obtenida:", res);
-        let Comidass = res.data.dias["2024-02-14"].extra;
-        setComidas(Comidass)
+        if (res && res.data) {
+          let Comidass = res.data.dias["2024-02-14"].extra;
+          setComidas(Comidass)
+        }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
@@ -215,13 +242,18 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor }) => {
                 Comidas && Comidas.length > 0 && (
                   Comidas.map((alimento, index) => {
                     return (
-                      <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
-                        <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida} <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400 ">({alimento.calorias} kcal)</span> </p>
-                      </div>
+                      alimento.comida && (
+                        <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
+                          <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
+                            {alimento.calorias && (
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                            )}
+                          </p>
+                        </div>
+                      )
                     );
                   })
-                )
-              }
+                )}
             </div>
 
           </div>
