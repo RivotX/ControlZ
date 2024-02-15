@@ -31,16 +31,16 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let Comidass = res.data.dias[formattedDate].desayuno;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
-          let proteinas = Comidass.map((comida) => comida.proteinas);
+          let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
-          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratos = Comidass.map((comida) => comida.carbohidratos * (comida.cantidad / 100));
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => (comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
         }
@@ -129,18 +129,17 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let Comidass = res.data.dias[formattedDate].almuerzo;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
-          let proteinas = Comidass.map((comida) => comida.proteinas);
+          let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
-          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratos = Comidass.map((comida) => comida.carbohidratos * (comida.cantidad / 100));
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => (comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
-          console.log("caloriasSum", caloriasSum);
           setCaloriasConsumed(caloriasSum);
         }
       })
@@ -227,16 +226,16 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
           let Comidass = res.data.dias[formattedDate].cena;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
-          let proteinas = Comidass.map((comida) => comida.proteinas);
+          let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
-          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratos = Comidass.map((comida) => comida.carbohidratos * (comida.cantidad / 100));
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => (comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
         }
@@ -323,16 +322,16 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
           let Comidass = res.data.dias[formattedDate].extra;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
-          let proteinas = Comidass.map((comida) => comida.proteinas);
+          let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
 
           let proteinasSum = proteinas.reduce((a, b) => a + b, 0);
           setProteinConsumed(proteinasSum);
           //same for hidratos 
-          let hidratos = Comidass.map((comida) => comida.carbohidratos);
+          let hidratos = Comidass.map((comida) => comida.carbohidratos * (comida.cantidad / 100));
           let hidratosSum = hidratos.reduce((a, b) => a + b, 0);
           setHidratosConsumed(hidratosSum);
           //same for calorias
-          let calorias = Comidass.map((comida) => (comida.calorias));
+          let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
         }

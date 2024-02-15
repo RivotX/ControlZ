@@ -10,6 +10,7 @@ const addAlimento = async (req, res) => {
     carbohidratos: req.body.carbohidratos,
     azucar: req.body.azucar,
     imagenUrl: req.body.imagenUrl,
+    cantidad: req.body.cantidad,
     id: "hola",
   };
   const date = new Date();

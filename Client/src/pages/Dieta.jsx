@@ -1,12 +1,12 @@
 export default Dieta;
 import Navbar from "../components/Navbar";
 import add from '../img/add (1).png'
-import FoodModal from "../components/FoodModal";
+import FoodModal from "../components/Dieta/FoodModal";
 import { useState, useEffect } from "react";
 import cafe from "../img/Deus_Coffee.png"
 import Footer from "../components/Footer";
-import Grafica from "../components/GraficaDieta";
-import { Desayuno, Almuerzo, Cena, Extra } from "../components/ComidaDia";
+import Grafica from "../components/Dieta/GraficaDieta";
+import { Desayuno, Almuerzo, Cena, Extra } from "../components/ Dieta/ComidaDia";
 
 
 

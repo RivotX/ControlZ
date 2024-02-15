@@ -37,6 +37,7 @@ const DietaSchema = new Mongoose.Schema({
           azucar: Number,
           imagenUrl: String,
           id: String,
+          cantidad: Number,
         },
       ],
       almuerzo: [
@@ -49,6 +50,8 @@ const DietaSchema = new Mongoose.Schema({
           azucar: Number,
           imagenUrl: String,
           id: String,
+          cantidad: Number,
+
         },
       ],
       cena: [
@@ -61,6 +64,7 @@ const DietaSchema = new Mongoose.Schema({
           azucar: Number,
           imagenUrl: String,
           id: String,
+          cantidad: Number,
         },
       ],
       extra: [
@@ -73,6 +77,7 @@ const DietaSchema = new Mongoose.Schema({
           azucar: Number,
           imagenUrl: String,
           id: String,
+          cantidad: Number,
         },
       ],
     },

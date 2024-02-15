@@ -1,15 +1,15 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const Grafica = ({CaloriasConsumed, CaloriasObjetivo}) => {
-    let percentage = 70;
+const Grafica = ({ CaloriasConsumed, CaloriasObjetivo }) => {
+    let percentage = (100 * CaloriasConsumed) / CaloriasObjetivo;
     return (
         <div className="tw-absolute tw-w-36 tw-h-36 lg:tw-w-40 lg:tw-h-40 lg:tw-text-xl tw-font-bold  "> {/* Contenedor para la gráfica */}
             <CircularProgressbar
                 value={percentage}
                 text={""}
                 className=""
-                
+
 
                 styles={buildStyles({
                     // Rotation of path and trail, in number of turns (0-1)
@@ -28,7 +28,7 @@ const Grafica = ({CaloriasConsumed, CaloriasObjetivo}) => {
                     // pathTransition: 'none',
 
                     // Colors
-                    pathColor: `rgba(62,152,199, ${percentage / 100})`, 
+                    pathColor: `rgba(62,152,199, ${percentage / 100})`,
                     textColor: 'white',
                     trailColor: '#d6d6d6',
                     backgroundColor: '#334155',
@@ -37,7 +37,7 @@ const Grafica = ({CaloriasConsumed, CaloriasObjetivo}) => {
             <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center">
                 <div className="text-container tw-relative tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-justify-center ">
 
-                    <div className="text-number tw-font-bold ">{CaloriasObjetivo-CaloriasConsumed}</div>
+                    <div className="text-number tw-font-bold ">{Math.round(CaloriasObjetivo - CaloriasConsumed)}</div>
                     <div className="text-calories tw-text-xs  ">Calorías <span className=''>restantes</span></div>
                 </div>
             </div>

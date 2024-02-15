@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import notAviable from '../img/Image_not_available.png'
+import notAviable from '../../img/Image_not_available.png'
 import axios from "axios";
+import AlimentoCantidadInput from './AlimentoCantidadInput';
 
 
 const Alimento = ({ producto, Horavalor }) => {
@@ -8,10 +9,16 @@ const Alimento = ({ producto, Horavalor }) => {
 
     const [caracteristicasVisibles, setCaracteristicasVisibles] = useState(false);
     const [nombreUsuario, setnombreUsuario] = useState("");
+    const [inputVisible, setInputVisible] = useState(false);
+    const [Cantidad, setCantidad] = useState(0);
 
     const toggleCaracteristicas = () => {
         setCaracteristicasVisibles(!caracteristicasVisibles);
     };
+
+    const toggleInput = () => {
+        setInputVisible(!inputVisible);
+    }
 
 
 
@@ -28,6 +35,7 @@ const Alimento = ({ producto, Horavalor }) => {
             carbohidratos: producto.carbohidratos,
             azucar: producto.azucar,
             imagenUrl: producto.imagenUrl,
+            cantidad: Cantidad,
         })
             .then((response) => {
                 console.log("Alimento añadido:", response);
@@ -42,13 +50,17 @@ const Alimento = ({ producto, Horavalor }) => {
                 <div className="tw-px-2 tw-flex tw-justify-center tw-items-center tw-w-full">
                     <h3 className="tw-text-center tw-text-sm tw-text-black tw-font-bold tw-w-full tw-p-1 tw-h-[10%] tw-pt-2 tw-flex tw-items-center tw-justify-between">
                         <span>{producto.nombre}</span>
-                        <svg onClick={addFood} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-500 tw-cursor-pointer">
+
+                        <svg onClick={toggleInput} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="tw-w-[30px] tw-h-[30px] hover:tw-fill-gray-500 tw-cursor-pointer">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
+                        {
+                            inputVisible && <AlimentoCantidadInput value={Cantidad} onChange={(e) => setCantidad(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') addFood() }} addFood={addFood} />}
                     </h3>
                 </div>
                 <div className="tw-flex tw-gap-2 tw-items-center tw-justify-center tw-bg-gray-300 tw-cursor-pointer" onClick={toggleCaracteristicas}>
                     {!caracteristicasVisibles && (
+
                         <div className="tw-h-[12rem]">
                             <img className="tw-w-full tw-h-full tw-max-h-80 tw-rounded-md" src={producto.imagenUrl !== "URL de imagen no disponible" ? producto.imagenUrl : notAviable} alt="Imagen del producto" />
                         </div>
@@ -67,7 +79,9 @@ const Alimento = ({ producto, Horavalor }) => {
                     )}
                 </div>
             </div>
+
         </div>
+
     );
 };
 

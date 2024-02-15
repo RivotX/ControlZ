@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Alimento from "./Alimento";
-import Loading from "./Loading";
+import Loading from "../Loading";
 
 const FoodModal = ({ closeModal, Horavalor }) => {
     const [userInput, setUserInput] = useState('');
