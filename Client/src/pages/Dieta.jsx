@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import cafe from "../img/Deus_Coffee.png"
 import Footer from "../components/Footer";
 import Grafica from "../components/Dieta/GraficaDieta";
-import { Desayuno, Almuerzo, Cena, Extra } from "../components/ Dieta/ComidaDia";
+import { Desayuno, Almuerzo, Cena, Extra } from "../components/Dieta/ComidaDia";
 
 
 
