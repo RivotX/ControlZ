@@ -56,7 +56,9 @@ function Perfil() {
                 />
                 <h5 className="my-3 text-white">
                 </h5>
-                <p className="mb-1 text-white">Full Stack Developer</p>
+                <p className="mb-1 text-white">(Nombre usuario)
+                  {/* || registrate para ver tus datos */}
+                </p>
                 <p className="mb-2 text-white">Cullar Zaidin</p>
               </div>
             </div>
