@@ -96,14 +96,14 @@ function Dieta() {
                   </div>
                 </div>
               </div>
-              <div className="tw-w-full tw-flex tw-justify-between tw-gap-1">
+              <div className="tw-w-full tw-flex tw-justify-center md:tw-justify-between tw-gap-1 lg:tw-px-[10%]">
                 <div className="tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-gap-1 sm:tw-gap-3">
 
                   <div>Proteinas: {Math.round(proteinConsumed)}</div>
                   <progress value={proteinConsumed} max={proteinGoal} className="tw-h-2"></progress>
                 </div>
 
-                <div className=" tw-w-1/2 tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3">
+                <div className=" tw-w-1/2 md:tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3 tw-hidden">
                   <div>Hidratos: {Math.round(HidratosConsumed)}
                   </div>
 
