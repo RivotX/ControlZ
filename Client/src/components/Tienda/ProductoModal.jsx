@@ -1,6 +1,6 @@
 
 import React from 'react';
-import cruzCerrar from "../img/cruzCerrar.png"
+import cruzCerrar from "../../img/cruzCerrar.png"
 
 const ProductoModal = ({ product, closeModal }) => { 
     return (

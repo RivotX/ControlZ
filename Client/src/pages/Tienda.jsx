@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Producto from "../components/Producto";
-import ProductoModal from "../components/ProductoModal";
+import Producto from "../components/Tienda/Producto";
+import ProductoModal from "../components/Tienda/ProductoModal";
 import proteinaPolvo from "../img/proteinaPolvo.png"
 import barraProteina from "../img/barraProteina.png"
 import { useState, useEffect } from "react";
