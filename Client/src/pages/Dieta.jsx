@@ -84,7 +84,7 @@ function Dieta() {
               <div className="tw-w-full tw-justify-center tw-h-2/3 lg:tw-px-[10%]">
                 <div className="tw-flex tw-items-center  tw-w-full tw-h-full tw-justify-between  tw-pointer-events-none  tw-text-sm lg:tw-text-xs tw-px-3 md:tw-px-16 xl:tw-px-[20%] xl:tw-bg-[#292929] tw-rounded-xl">
                   <div className="tw-flex tw-flex-wrap tw-justify-center tw-w-1/5" >
-                    <p className="tw-w-full tw-flex tw-justify-center tw-font-bold lg:tw-text-lg"><span >{CaloriasConsumed}</span></p>
+                    <p className="tw-w-full tw-flex tw-justify-center tw-font-bold lg:tw-text-lg"><span >{Math.round(CaloriasConsumed)}</span></p>
                     <p className="tw-w-full tw-flex tw-justify-center lg:tw-text-lg"><span className="">Consumidas</span></p>
                   </div>
                   <div className=" tw-w-2/5 tw-flex tw-items-center tw-justify-center tw-h-full">
@@ -99,12 +99,12 @@ function Dieta() {
               <div className="tw-w-full tw-flex tw-justify-between tw-gap-1">
                 <div className="tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-gap-1 sm:tw-gap-3">
 
-                  <div>Proteinas: {proteinConsumed.toFixed(1)}</div>
+                  <div>Proteinas: {Math.round(proteinConsumed)}</div>
                   <progress value={proteinConsumed} max={proteinGoal} className="tw-h-2"></progress>
                 </div>
 
                 <div className=" tw-w-1/2 tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3">
-                  <div>Hidratos: {HidratosConsumed.toFixed(1)}
+                  <div>Hidratos: {Math.round(HidratosConsumed)}
                   </div>
 
                   <progress value={HidratosConsumed} max={HidratosGoal} className="tw-h-2 " />

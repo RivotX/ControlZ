@@ -81,7 +81,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({calorias} kcal)</span>
                             )}
                           </p>
                         </div>
@@ -179,7 +179,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({calorias} kcal)</span>
                             )}
                           </p>
                         </div>
@@ -276,7 +276,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({calorias} kcal)</span>
                             )}
                           </p>
                         </div>
@@ -372,7 +372,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({alimento.calorias} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({calorias} kcal)</span>
                             )}
                           </p>
                         </div>
