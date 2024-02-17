@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
-const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateDesayunoCalorias }) => {
+const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateDesayunoCalorias, usuario }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -24,7 +24,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
     const date = new Date();
     const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
     console.log("formattedDateEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE", formattedDate)
-    axios.post('http://localhost:8081/getDieta/')
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida DESAYUNO:", res);
         if (res && res.data) {
@@ -100,7 +100,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 //Exact same component for Almuerzo
-const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateAlmuerzoCalorias }) => {
+const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateAlmuerzoCalorias, usuario }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -122,7 +122,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
     const date = new Date();
     const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
-    axios.post('http://localhost:8081/getDieta/')
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida ALMUERZO:", res);
         if (res && res.data) {
@@ -198,7 +198,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 
-const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateCenaCalorias }) => {
+const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateCenaCalorias, usuario }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -219,7 +219,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
     const date = new Date();
     const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
-    axios.post('http://localhost:8081/getDieta/')
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida CENA:", res);
         if (res && res.data) {
@@ -294,7 +294,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
   );
 };
 
-const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateExtraCalorias }) => {
+const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateExtraCalorias, usuario }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -315,7 +315,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
     const date = new Date();
     const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
-    axios.post('http://localhost:8081/getDieta/')
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida EXTRA:", res);
         if (res && res.data) {

@@ -11,7 +11,7 @@ const addAlimento = async (req, res) => {
     azucar: req.body.azucar,
     imagenUrl: req.body.imagenUrl,
     cantidad: req.body.cantidad,
-    id: "hola",
+    id: req.body.id,
   };
   const date = new Date();
   const dia = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -34,12 +34,13 @@ const addAlimento = async (req, res) => {
   }
 
   try {
-    let dieta = await CreaDieta.findOne({ id: "hola" });
+    let dieta = await CreaDieta.findOne({ id: producto.id });
 
     if (!dieta) {
       // Create a new CreaDieta document if it doesn't exist
-      dieta = new CreaDieta({ id: "hola", dias: new Map() });
-      await dieta.save(); // Save the new document immediately
+      dieta = new CreaDieta({ id: producto.id, dias: new Map() });
+      await dieta.save();// Save the new document immediately
+      console.log(producto.id) 
     }
 
     if (!dieta.dias.get(dia)) {
@@ -66,7 +67,7 @@ const addAlimento = async (req, res) => {
 
 const getDieta = async (req, res) => {
   try {
-    const dieta = await CreaDieta.findOne({ id: "hola" });
+    const dieta = await CreaDieta.findOne({ id: req.body.id });
     res.json(dieta);
     console.log("Dieta obtenida:", dieta);
   } catch (error) {

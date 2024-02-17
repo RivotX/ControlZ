@@ -15,16 +15,16 @@ const getRutina = async (req, res) => {
 };
 
 const ActualizarRutina = async (req, res) => {
-  const  id = req.body.id;
-  const  rutinaNueva = req.body.rutinaNueva;
+  const id = req.body.id;
+  const rutinaNueva = req.body.rutinaNueva;
   try {
     // Buscar la rutina del usuario por su ID
     let rutina = await CreaRutina.findOne({ id });
 
     if (rutina) {
 
-      
-      
+
+
       const rutinacambiar = {
         id: rutina.id,
         lunes: rutinaNueva[0],
@@ -34,16 +34,16 @@ const ActualizarRutina = async (req, res) => {
         viernes: rutinaNueva[4],
         sabado: rutinaNueva[5],
         domingo: rutinaNueva[6],
-        
+
       };
 
-      console.log("RUTINA NUEVAAAAAA",rutinacambiar)
+      console.log("RUTINA NUEVAAAAAA", rutinacambiar)
 
       // Actualizar la rutina con los nuevos datos
       rutina.set(rutinacambiar);
       await rutina.save();
 
-     res.status(200).json({ mensaje: "Rutina actualizada exitosamente" });
+      res.status(200).json({ mensaje: "Rutina actualizada exitosamente" });
     } else {
       res.status(404).json({ mensaje: "Usuario no encontrado" });
     }

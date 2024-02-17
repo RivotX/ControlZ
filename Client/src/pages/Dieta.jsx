@@ -7,10 +7,20 @@ import cafe from "../img/Deus_Coffee.png"
 import Footer from "../components/Footer";
 import Grafica from "../components/Dieta/GraficaDieta";
 import { Desayuno, Almuerzo, Cena, Extra } from "../components/Dieta/ComidaDia";
-
-
+import axios from "axios";
 
 function Dieta() {
+  const [usuario, setUsuario] = useState(null);
+
+  axios.get("http://localhost:8081/getSession", {
+    withCredentials: true,
+  }).then((res) => {
+    setUsuario(res.data.usuario);
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  console.log("usuario", usuario);
   const [ShowFoodModal, SetShowFoodModal] = useState(false);
 
   const [proteinConsumed, setProteinConsumed] = useState(0);
@@ -115,16 +125,16 @@ function Dieta() {
           </div>
           <div className="tw-w-full tw-h-1/2 lg:tw-h-2/5 sm:tw-h-1/2 xl:tw-px-[4%] tw-flex tw-items-start tw-mt-[5%] sm:tw-mt-[15%] lg:tw-mt-[5%]">
             <div className=" tw-w-full tw-h-full lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-justify-between tw-p-3 tw-rounded-xl tw-px-5">
-              <Desayuno nombre={"Desayuno"} calorias={desayunoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateDesayunoCalorias={updateDesayunoCalorias} />
-              <Almuerzo nombre={"Almuerzo"} calorias={almuerzoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateAlmuerzoCalorias={updateAlmuerzoCalorias} />
-              <Cena nombre={"Cena"} calorias={cenaCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateCenaCalorias={updateCenaCalorias} />
-              <Extra nombre={"Extra"} calorias={extraCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateExtraCalorias={updateExtraCalorias} />
+              <Desayuno nombre={"Desayuno"} calorias={desayunoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateDesayunoCalorias={updateDesayunoCalorias} usuario={usuario} />
+              <Almuerzo nombre={"Almuerzo"} calorias={almuerzoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateAlmuerzoCalorias={updateAlmuerzoCalorias} usuario={usuario} />
+              <Cena nombre={"Cena"} calorias={cenaCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateCenaCalorias={updateCenaCalorias} usuario={usuario} />
+              <Extra nombre={"Extra"} calorias={extraCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateExtraCalorias={updateExtraCalorias} usuario={usuario} />
             </div>
           </div>
         </section>
 
         {/* Renderizar el modal */}
-        {ShowFoodModal && <FoodModal closeModal={closeModal} Horavalor={Horavalor} />}
+        {ShowFoodModal && <FoodModal closeModal={closeModal} Horavalor={Horavalor} usuario={usuario} />}
 
         <hr />
 
