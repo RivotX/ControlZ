@@ -17,6 +17,16 @@ export default function CarritoCompra({ visible, onClose }) {
   },
   {
     id: 2,
+    name: 'SuperZapas',
+    href: '#',
+    color: 'Azul',
+    price: '$15',
+    quantity: 1,
+    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+
+  },
+  {
+    id: 3,
     name: 'Barrita proteica',
     href: '#',
     color: 'lechita',
@@ -25,15 +35,6 @@ export default function CarritoCompra({ visible, onClose }) {
     imageSrc: barraProteina,
   },
   {
-    id: 3,
-    name: 'SuperZapas',
-    href: '#',
-    color: 'Azul',
-    price: '$15',
-    quantity: 1,
-    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-
-  }, {
     id: 4,
     name: 'SuperZapas',
     href: '#',
@@ -42,22 +43,18 @@ export default function CarritoCompra({ visible, onClose }) {
     quantity: 1,
     imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
 
-  }, {
-    id: 5,
-    name: 'SuperZapas',
-    href: '#',
-    color: 'Azul',
-    price: '$15',
-    quantity: 1,
-    imageSrc: 'https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-
-  },])
+  }
+  ]);
 
   const handleRemove = (productToRemove) => {
     setProducts(products.filter(product => product !== productToRemove)); //devuelve cada producto si no es igual al que hay que eliminar
   };
 
-  
+  useEffect(() => {
+    const number = products.length;
+    console.log(number);
+    
+  }, [products.length]);
 
 
   return (
@@ -124,7 +121,7 @@ export default function CarritoCompra({ visible, onClose }) {
                                   <div>
                                     <div className="tw-flex tw-justify-between tw-text-base tw-font-medium tw-text-gray-900">
                                       <h3>
-                                        <a href={product.href}>{product.name}</a>
+                                        <a href={"/tienda"}>{product.name}</a>
                                       </h3>
                                       <p className="tw-ml-4">{product.price}</p>
                                     </div>

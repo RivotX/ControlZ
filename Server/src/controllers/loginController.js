@@ -29,6 +29,7 @@ const login = async (req, res) => {
         req.session.telefono = result[0].telefono;
         req.session.direccion = result[0].direccion;
         req.session.sexo = result[0].sexo;
+        req.session.numberItems = 0;
 
         console.log(req.session);
         return res.send({ status: "correcto", redirectTo: "/principal" });

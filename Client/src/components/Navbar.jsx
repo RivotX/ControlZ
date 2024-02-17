@@ -5,8 +5,18 @@ import AsistenteVirtual from "./AsistenteVirtual";
 import CarritoCompra from "./CarritoCompra";
 import { useState } from "react";
 import habilitarTailwind from "./habilitarTailwind";
+import axios from "axios";
 
 function Navbar({ linkHome }) {
+  const [numeroItems, setNumeroItems] = useState(0);
+
+  axios.get("http://localhost:8081/getSession", {
+    withCredentials: true,
+  }).then((res) => {
+    setNumeroItems(res.data.numberItems);
+  }).catch((error) => {
+    console.error(error);
+  });
   habilitarTailwind()
   const [visibleCesta, setVisibleCesta] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,8 +24,6 @@ function Navbar({ linkHome }) {
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
-
- 
 
   return (
     <>
@@ -28,9 +36,11 @@ function Navbar({ linkHome }) {
           <div className="tw-flex md:tw-order-2 tw-space-x-3 md:tw-space-x-0 rtl:tw-space-x-reverse">
             <div className="tw-relative tw-bottom-1">
               <div className="tw-absolute tw-left-3 tw-top-0">
-                <p className="tw-flex tw-h-2 tw-w-2 tw-items-center tw-justify-center tw-rounded-full tw-bg-red-500 tw-p-3 tw-text-xs tw-text-white tw-pointer-events-none">
-                  3
-                </p>
+                {numeroItems !== 0 && (
+                  <p className="tw-flex tw-h-2 tw-w-2 tw-items-center tw-justify-center tw-rounded-full tw-bg-red-500 tw-p-3 tw-text-xs tw-text-white tw-pointer-events-none">
+                    {numeroItems}
+                  </p>
+                )}
               </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +82,7 @@ function Navbar({ linkHome }) {
               <li>
                 <a href="/tienda" className="tw-block tw-py-2 tw-rounded hover:tw-text-gray-400 ">Tienda</a>
               </li>
-              
+
             </ul>
           </div>
         </div>
