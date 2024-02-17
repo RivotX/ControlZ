@@ -21,15 +21,17 @@ function Perfil() {
   const cambiarEstado = () => {
     setOpcionSeleccionada(target.value);
   }
-
+  const [usuario, setUsuario] = useState("");
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [Telefono, setTelefono] = useState("");
   const [direccion, setDireccion] = useState("");
+  const [sexo, setSexo] = useState(1);
 
   axios
     .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
     .then((res) => {
+      setUsuario(res.data.usuario);
       setNombre(res.data.nombre);
       setEmail(res.data.email);
       setTelefono(res.data.telefono);
@@ -49,17 +51,17 @@ function Perfil() {
               <div className="mt-5 text-center card-body ">
                 <img
                   id="flecha"
-                  src={fotoMujer}
+                  src={sexo ? fotoHombre : fotoMujer}
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: "150px" }}
                 />
                 <h5 className="my-3 text-white">
                 </h5>
-                <p className="mb-1 text-white">(Nombre usuario)
+                <p className="mb-1 text-white">{usuario}
                   {/* || registrate para ver tus datos */}
                 </p>
-                <p className="mb-2 text-white">Cullar Zaidin</p>
+                <p className="mb-2 text-white">aqui no se que poner</p>
               </div>
             </div>
           </div>
