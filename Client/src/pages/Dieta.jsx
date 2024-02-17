@@ -25,18 +25,25 @@ function Dieta() {
 
   console.log("usuario", usuario);
   const [ShowFoodModal, SetShowFoodModal] = useState(false);
-
+  //proteinas
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [proteinGoal, setProteinGoal] = useState(100);
+  const [desayunoProteinasConsumed, setDesayunoProteinasConsumed] = useState(0);
+  const [almuerzoProteinasConsumed, setAlmuerzoProteinasConsumed] = useState(0);
+  const [cenaProteinasConsumed, setCenaProteinasConsumed] = useState(0);
+  const [extraProteinasConsumed, setExtraProteinasConsumed] = useState(0);
 
-  const [HidratosConsumed, setHidratosConsumed] = useState(0);
-  const [HidratosGoal, setHidratosGoal] = useState(100);
-
+  //calorias
   const [CaloriasConsumed, setCaloriasConsumed] = useState(0);
   const [desayunoCaloriasConsumed, setDesayunoCaloriasConsumed] = useState(0);
   const [almuerzoCaloriasConsumed, setAlmuerzoCaloriasConsumed] = useState(0);
   const [cenaCaloriasConsumed, setCenaCaloriasConsumed] = useState(0);
   const [extraCaloriasConsumed, setExtraCaloriasConsumed] = useState(0);
+
+  //hidratos
+  const [HidratosConsumed, setHidratosConsumed] = useState(0);
+  const [HidratosGoal, setHidratosGoal] = useState(100);
+
 
   const [Horavalor, setHoravalor] = useState(null);
 
@@ -48,14 +55,28 @@ function Dieta() {
     SetShowFoodModal(false);
   }
 
+  //proteinas
+  const updateProteinasDesayuno = (value) => {
+    setDesayunoProteinasConsumed(prevProteinas => prevProteinas + value);
+  }
+  const updateProteinasAlmuerzo = (value) => {
+    setAlmuerzoProteinasConsumed(prevProteinas => prevProteinas + value);
+  }
+  const updateProteinasCena = (value) => {
+    setCenaProteinasConsumed(prevProteinas => prevProteinas + value);
+  }
+  const updateProteinasExtra = (value) => {
+    setExtraProteinasConsumed(prevProteinas => prevProteinas + value);
+  }
   const updateProteinConsumed = (value) => {
-    setProteinConsumed(prevProtein => prevProtein + value);
+    setProteinConsumed(prevProteinas => prevProteinas + value);
   };
 
+  //hidratos
   const updateHidratosConsumed = (value) => {
     setHidratosConsumed(prevHidratos => prevHidratos + value);
   };
-
+  //calorias
   const updateCaloriasConsumed = (value) => {
     setCaloriasConsumed(prevCalorias => prevCalorias + value);
   };
@@ -72,6 +93,19 @@ function Dieta() {
     setExtraCaloriasConsumed(prevCalorias => prevCalorias + value);
   }
   const DiaSiguiente = () => {
+    //calorias
+    setAlmuerzoCaloriasConsumed(0);
+    setDesayunoCaloriasConsumed(0);
+    setCenaCaloriasConsumed(0);
+    setExtraCaloriasConsumed(0);
+    setCaloriasConsumed(0);
+    //proteinas
+    setDesayunoProteinasConsumed(0);
+    setAlmuerzoProteinasConsumed(0);
+    setCenaProteinasConsumed(0);
+    setExtraProteinasConsumed(0);
+    setProteinConsumed(0);
+
     const date = new Date(Fecha);
     date.setDate(date.getDate() + 1);
     const formattedDatee = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -79,6 +113,20 @@ function Dieta() {
   }
 
   const DiaAnterior = () => {
+    //calorias
+    setAlmuerzoCaloriasConsumed(0);
+    setDesayunoCaloriasConsumed(0);
+    setCenaCaloriasConsumed(0);
+    setExtraCaloriasConsumed(0);
+    setCaloriasConsumed(0);
+    //proteinas
+    setDesayunoProteinasConsumed(0);
+    setAlmuerzoProteinasConsumed(0);
+    setCenaProteinasConsumed(0);
+    setExtraProteinasConsumed(0);
+    setProteinConsumed(0);
+
+
     const date = new Date(Fecha);
     date.setDate(date.getDate() - 1);
     const formattedDatee = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -119,31 +167,32 @@ function Dieta() {
                     <p className="tw-w-full tw-flex tw-justify-center tw-font-bold lg:tw-text-lg"><span>3000</span></p>
                     <p className="tw-w-full tw-flex tw-justify-center lg:tw-text-lg"><span className="">Objetivo</span></p>
                   </div>
+
                 </div>
+
               </div>
-              <div className="tw-w-full tw-flex tw-justify-center md:tw-justify-between tw-gap-1 lg:tw-px-[10%]">
-                <div className="tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-gap-1 sm:tw-gap-3">
-
-                  <div>Proteinas: {Math.round(proteinConsumed)}</div>
-                  <progress value={proteinConsumed} max={proteinGoal} className="tw-h-2"></progress>
+              <div className="tw-w-full tw-flex tw-justify-center lg:tw-pr-[10%]">
+                <div className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 ">
+                  <p className=" tw-text-sm sm:tw-text-base lg:tw-text-lg">Proteinas: {Math.round(proteinConsumed)}</p>
+                  <progress value={proteinConsumed} max={proteinGoal} className="tw-h-2 tw-w-5/6"></progress>
                 </div>
 
-                <div className=" tw-w-1/2 md:tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3 tw-hidden">
+                {/* <div className=" tw-w-1/2 md:tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3 tw-hidden">
                   <div>Hidratos: {Math.round(HidratosConsumed)}
                   </div>
 
                   <progress value={HidratosConsumed} max={HidratosGoal} className="tw-h-2 " />
-                </div>
+                </div> */}
               </div>
             </div>
 
           </div>
           <div className="tw-w-full tw-h-1/2 lg:tw-h-2/5 sm:tw-h-1/2 xl:tw-px-[4%] tw-flex tw-items-start tw-mt-[5%] sm:tw-mt-[15%] lg:tw-mt-[5%]">
             <div className=" tw-w-full tw-h-full lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-justify-between tw-p-3 tw-rounded-xl tw-px-5">
-              <Desayuno nombre={"Desayuno"} calorias={desayunoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateDesayunoCalorias={updateDesayunoCalorias} usuario={usuario} Fecha={Fecha} />
-              <Almuerzo nombre={"Almuerzo"} calorias={almuerzoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateAlmuerzoCalorias={updateAlmuerzoCalorias} usuario={usuario} Fecha={Fecha} />
-              <Cena nombre={"Cena"} calorias={cenaCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateCenaCalorias={updateCenaCalorias} usuario={usuario} Fecha={Fecha} />
-              <Extra nombre={"Extra"} calorias={extraCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateExtraCalorias={updateExtraCalorias} usuario={usuario} Fecha={Fecha} />
+              <Desayuno nombre={"Desayuno"} calorias={desayunoCaloriasConsumed} proteinas={desayunoProteinasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} updateCaloriasConsumed={updateCaloriasConsumed} updateProteinConsumed={updateProteinConsumed} updateProteinasDesayuno={updateProteinasDesayuno} updateDesayunoCalorias={updateDesayunoCalorias} updateHidratosConsumed={updateHidratosConsumed} usuario={usuario} Fecha={Fecha} />
+              <Almuerzo nombre={"Almuerzo"} calorias={almuerzoCaloriasConsumed} proteinas={almuerzoProteinasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} updateCaloriasConsumed={updateCaloriasConsumed} updateProteinConsumed={updateProteinConsumed} updateProteinasAlmuerzo={updateProteinasAlmuerzo} updateAlmuerzoCalorias={updateAlmuerzoCalorias} updateHidratosConsumed={updateHidratosConsumed} usuario={usuario} Fecha={Fecha} />
+              <Cena nombre={"Cena"} calorias={cenaCaloriasConsumed} proteinas={cenaProteinasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} updateCaloriasConsumed={updateCaloriasConsumed} updateProteinConsumed={updateProteinConsumed} updateProteinasCena={updateProteinasCena} updateCenaCalorias={updateCenaCalorias} updateHidratosConsumed={updateHidratosConsumed} usuario={usuario} Fecha={Fecha} />
+              <Extra nombre={"Extra"} calorias={extraCaloriasConsumed} proteinas={extraProteinasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} updateCaloriasConsumed={updateCaloriasConsumed} updateProteinConsumed={updateProteinConsumed} updateProteinasExtra={updateProteinasExtra} updateExtraCalorias={updateExtraCalorias} updateHidratosConsumed={updateHidratosConsumed} usuario={usuario} Fecha={Fecha} />
             </div>
           </div>
         </section>
