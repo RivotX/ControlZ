@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
-const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateDesayunoCalorias, usuario }) => {
+const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateDesayunoCalorias, usuario, Fecha }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -10,25 +10,22 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
   useEffect(() => {
     updateProteinConsumed(proteinConsumed);
   }, [proteinConsumed]);
-
   useEffect(() => {
     updateHidratosConsumed(HidratosConsumed);
   }, [HidratosConsumed]);
-
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
     updateDesayunoCalorias(caloriasConsumed);
+    console.log("Update a CALORIAS")
   }, [caloriasConsumed]);
 
   useEffect(() => {
-    const date = new Date();
-    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-    console.log("formattedDateEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE", formattedDate)
+
     axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida DESAYUNO:", res);
-        if (res && res.data) {
-          let Comidass = res.data.dias[formattedDate].desayuno;
+        if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].desayuno && res.data.dias[Fecha].desayuno.length > 0) {
+          let Comidass = res.data.dias[Fecha].desayuno;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
           let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
@@ -43,10 +40,14 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
+        } else {
+          setCaloriasConsumed(-calorias)
+          setComidas([]);
         }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
+        setComidas([]);
       });
   }, [AbrirModal]);
 
@@ -81,7 +82,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round(calorias)} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round((alimento.calorias * alimento.cantidad) / 100)} kcal)</span>
                             )}
                           </p>
                         </div>
@@ -100,7 +101,7 @@ const Desayuno = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 //Exact same component for Almuerzo
-const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateAlmuerzoCalorias, usuario }) => {
+const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateAlmuerzoCalorias, usuario, Fecha }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -115,18 +116,16 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
     updateAlmuerzoCalorias(caloriasConsumed);
-
+    console.log("Update a CALORIAS")
   }, [caloriasConsumed]);
 
   useEffect(() => {
-    const date = new Date();
-    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
     axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida ALMUERZO:", res);
-        if (res && res.data) {
-          let Comidass = res.data.dias[formattedDate].almuerzo;
+        if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].almuerzo && res.data.dias[Fecha].almuerzo.length > 0) {
+          let Comidass = res.data.dias[Fecha].almuerzo;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
           let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
@@ -141,10 +140,14 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
           let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
+        } else {
+          setCaloriasConsumed(-calorias)
+          setComidas([]);
         }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
+
       });
   }, [AbrirModal]);
 
@@ -179,7 +182,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round(calorias)} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round((alimento.calorias * alimento.cantidad) / 100)} kcal)</span>
                             )}
                           </p>
                         </div>
@@ -198,7 +201,7 @@ const Almuerzo = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, upd
 };
 
 
-const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateCenaCalorias, usuario }) => {
+const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateCenaCalorias, usuario, Fecha }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -213,17 +216,16 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
     updateCenaCalorias(caloriasConsumed);
+    console.log("Update a CALORIAS")
   }, [caloriasConsumed]);
 
   useEffect(() => {
-    const date = new Date();
-    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-
     axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida CENA:", res);
-        if (res && res.data) {
-          let Comidass = res.data.dias[formattedDate].cena;
+        if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].cena && res.data.dias[Fecha].cena.length > 0) {
+          console.log("holiwiiis")
+          let Comidass = res.data.dias[Fecha].cena;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
           let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
@@ -238,6 +240,10 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
           let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
+        }
+        else {
+          setCaloriasConsumed(-calorias)
+          setComidas([]);
         }
       })
       .catch((error) => {
@@ -276,7 +282,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round(calorias)} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round((alimento.calorias * alimento.cantidad) / 100)} kcal)</span>
                             )}
                           </p>
                         </div>
@@ -294,7 +300,7 @@ const Cena = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateP
   );
 };
 
-const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateExtraCalorias, usuario }) => {
+const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, updateProteinConsumed, updateHidratosConsumed, updateCaloriasConsumed, updateExtraCalorias, usuario, Fecha }) => {
   const [Comidas, setComidas] = useState([{}]);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [HidratosConsumed, setHidratosConsumed] = useState(0);
@@ -309,17 +315,16 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
   useEffect(() => {
     updateCaloriasConsumed(caloriasConsumed);
     updateExtraCalorias(caloriasConsumed);
+    console.log("Update a CALORIAS")
   }, [caloriasConsumed]);
 
   useEffect(() => {
-    const date = new Date();
-    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
     axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida EXTRA:", res);
-        if (res && res.data) {
-          let Comidass = res.data.dias[formattedDate].extra;
+        if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].extra && res.data.dias[Fecha].extra.length > 0) {
+          let Comidass = res.data.dias[Fecha].extra;
           setComidas(Comidass)
           //for each objet.proteinas in comidass, sum them and setProteinConsumed
           let proteinas = Comidass.map((comida) => comida.proteinas * (comida.cantidad / 100));
@@ -334,10 +339,15 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
           let calorias = Comidass.map((comida) => (comida.calorias * (comida.cantidad / 100)));
           let caloriasSum = calorias.reduce((a, b) => a + b, 0);
           setCaloriasConsumed(caloriasSum);
+        } else {
+          setCaloriasConsumed(-calorias)
+          setComidas([]);
         }
       })
       .catch((error) => {
         console.error("Error al obtener dieta:", error);
+        setComidas([]);
+        calorias = 0
       });
   }, [AbrirModal]);
 
@@ -372,7 +382,7 @@ const Extra = ({ nombre, calorias, AbrirModal, img, add, last, Horavalor, update
                         <div key={index} className="tw-w-full tw-flex tw-justify-between tw-items-center tw-px-2 tw-my-1 tw-border-b tw-border-gray-400 tw-py-1">
                           <p className="tw-w-full tw-flex tw-justify-between tw-items-center lg:tw-text-sm">{alimento.comida}
                             {alimento.calorias && (
-                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round(calorias)} kcal)</span>
+                              <span className="tw-w-1/2 tw-flex tw-justify-end tw-text-red-400">({Math.round((alimento.calorias * alimento.cantidad) / 100)} kcal)</span>
                             )}
                           </p>
                         </div>

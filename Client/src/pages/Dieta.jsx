@@ -11,6 +11,9 @@ import axios from "axios";
 
 function Dieta() {
   const [usuario, setUsuario] = useState(null);
+  const date = new Date();
+  const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  const [Fecha, setFecha] = useState(formattedDate);
 
   axios.get("http://localhost:8081/getSession", {
     withCredentials: true,
@@ -68,7 +71,19 @@ function Dieta() {
   const updateExtraCalorias = (value) => {
     setExtraCaloriasConsumed(prevCalorias => prevCalorias + value);
   }
+  const DiaSiguiente = () => {
+    const date = new Date(Fecha);
+    date.setDate(date.getDate() + 1);
+    const formattedDatee = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    setFecha(formattedDatee);
+  }
 
+  const DiaAnterior = () => {
+    const date = new Date(Fecha);
+    date.setDate(date.getDate() - 1);
+    const formattedDatee = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    setFecha(formattedDatee);
+  }
 
 
   return (
@@ -79,13 +94,13 @@ function Dieta() {
           <div className="lg:tw-px-[10%] tw-w-full tw-h-[38%] ">
             <div className="tw-w-full tw-text-center tw-h-full tw-px-3 tw-pb-3 tw-rounded-xl tw-flex tw-flex-wrap tw-items-center lg:tw-bg-[#292929]">
               <div className="tw-flex tw-justify-between tw-px-5 tw-w-full tw-h-1/4 tw-items-center lg:tw-border-b tw-bg-[#292929] lg:tw-rounded-none tw-rounded-xl lg:tw-border-gray-400">
-                <div className="tw-cursor-pointer">
+                <div className="tw-cursor-pointer" onClick={DiaAnterior}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-pointer-events-none tw-w-[30px] tw-h-[30px] sm:tw-w-[50px] sm:tw-h-[50px] ">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </div>
-                <span className="tw-w-full tw-font-bold lg:tw-text-lg tw-text-center tw-flex tw-justify-center tw-items-center"> HOY </span>
-                <div className="tw-cursor-pointer">
+                <span className="tw-w-full tw-font-bold lg:tw-text-lg tw-text-center tw-flex tw-justify-center tw-items-center"> {Fecha == formattedDate ? 'HOY' : Fecha}  </span>
+                <div className="tw-cursor-pointer" onClick={DiaSiguiente}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-pointer-events-none hover:tw-pointer-events-none tw-w-[30px] tw-h-[30px] sm:tw-w-[50px] sm:tw-h-[50px] ">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
@@ -125,16 +140,16 @@ function Dieta() {
           </div>
           <div className="tw-w-full tw-h-1/2 lg:tw-h-2/5 sm:tw-h-1/2 xl:tw-px-[4%] tw-flex tw-items-start tw-mt-[5%] sm:tw-mt-[15%] lg:tw-mt-[5%]">
             <div className=" tw-w-full tw-h-full lg:tw-flex-nowrap tw-bg-[#292929] tw-roudned-md tw-flex tw-flex-wrap tw-justify-between tw-p-3 tw-rounded-xl tw-px-5">
-              <Desayuno nombre={"Desayuno"} calorias={desayunoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateDesayunoCalorias={updateDesayunoCalorias} usuario={usuario} />
-              <Almuerzo nombre={"Almuerzo"} calorias={almuerzoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateAlmuerzoCalorias={updateAlmuerzoCalorias} usuario={usuario} />
-              <Cena nombre={"Cena"} calorias={cenaCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateCenaCalorias={updateCenaCalorias} usuario={usuario} />
-              <Extra nombre={"Extra"} calorias={extraCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateExtraCalorias={updateExtraCalorias} usuario={usuario} />
+              <Desayuno nombre={"Desayuno"} calorias={desayunoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("desayuno")} Horavalor={"desayuno"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateDesayunoCalorias={updateDesayunoCalorias} usuario={usuario} Fecha={Fecha} />
+              <Almuerzo nombre={"Almuerzo"} calorias={almuerzoCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("almuerzo")} Horavalor={"almuerzo"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateAlmuerzoCalorias={updateAlmuerzoCalorias} usuario={usuario} Fecha={Fecha} />
+              <Cena nombre={"Cena"} calorias={cenaCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("cena")} Horavalor={"cena"} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateCenaCalorias={updateCenaCalorias} usuario={usuario} Fecha={Fecha} />
+              <Extra nombre={"Extra"} calorias={extraCaloriasConsumed} img={cafe} add={add} AbrirModal={() => AbrirModal("extra")} Horavalor={"extra"} last={true} updateProteinConsumed={updateProteinConsumed} updateHidratosConsumed={updateHidratosConsumed} updateCaloriasConsumed={updateCaloriasConsumed} updateExtraCalorias={updateExtraCalorias} usuario={usuario} Fecha={Fecha} />
             </div>
           </div>
         </section>
 
         {/* Renderizar el modal */}
-        {ShowFoodModal && <FoodModal closeModal={closeModal} Horavalor={Horavalor} usuario={usuario} />}
+        {ShowFoodModal && <FoodModal closeModal={closeModal} Horavalor={Horavalor} usuario={usuario} Fecha={Fecha} />}
 
         <hr />
 

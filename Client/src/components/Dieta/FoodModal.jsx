@@ -3,7 +3,7 @@ import axios from "axios";
 import Alimento from "./Alimento";
 import Loading from "../Loading";
 
-const FoodModal = ({ closeModal, Horavalor, usuario }) => {
+const FoodModal = ({ closeModal, Horavalor, usuario, Fecha  }) => {
     const [userInput, setUserInput] = useState('');
     const [resultados, setResultados] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -68,7 +68,7 @@ const FoodModal = ({ closeModal, Horavalor, usuario }) => {
                     )}
                     {resultados && !loading && (
                         resultados.map(producto => (
-                            <Alimento key={producto.id} producto={producto} Horavalor={Horavalor} usuario={usuario}/>
+                            <Alimento key={producto.id} producto={producto} Horavalor={Horavalor} usuario={usuario} Fecha={Fecha}/>
                         ))
                     )}
                 </div>

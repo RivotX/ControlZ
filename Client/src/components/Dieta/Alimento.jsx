@@ -4,7 +4,7 @@ import axios from "axios";
 import AlimentoCantidadInput from './AlimentoCantidadInput';
 
 
-const Alimento = ({ producto, Horavalor, usuario }) => {
+const Alimento = ({ producto, Horavalor, usuario, Fecha }) => {
 
 
     const [caracteristicasVisibles, setCaracteristicasVisibles] = useState(false);
@@ -37,7 +37,8 @@ const Alimento = ({ producto, Horavalor, usuario }) => {
             azucar: producto.azucar,
             imagenUrl: producto.imagenUrl,
             cantidad: Cantidad,
-            id: usuario
+            id: usuario,
+            Fecha: Fecha
         })
             .then((response) => {
                 console.log("Alimento añadido:", response);
