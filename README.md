@@ -1,1 +1,1 @@
-ControlZ is a full-stack fitness application
+ControlZ is a full-stack fitness application.
