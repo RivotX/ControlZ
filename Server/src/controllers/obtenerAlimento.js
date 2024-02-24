@@ -54,6 +54,8 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
           imagenUrl,
           id,
         };
+      }).filter((producto) => {
+        return producto.nombre !== "Nombre no disponible" && producto.calorias !== "No disponible" && producto.proteinas !== "No disponible";
       });
 
 
