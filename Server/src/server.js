@@ -10,6 +10,7 @@ import { login } from "./controllers/loginController.js";
 import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
 import { virtualAssistant } from "./controllers/Assistant.js";
 import { addAlimento, getDieta } from "./controllers/DietaController.js";
+
 const app = express();
 app.use(express.json());
 app.use(
@@ -92,10 +93,11 @@ app.post("/login", login);
 app.post("/obtenerAlimento", async (req, res) => {
   try {
     const { userInput } = req.body;
+    const offset = req.body.offset || 0;
     console.log(
       `Recibida solicitud para obtener alimento con userInput: ${userInput}`
     );
-    const datosBusqueda = await obtenerInformacionProductos(userInput);
+    const datosBusqueda = await obtenerInformacionProductos(userInput, offset);
     console.log(`Información de productos obtenida:`, datosBusqueda);
 
     res.json(datosBusqueda);
