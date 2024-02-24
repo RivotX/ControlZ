@@ -15,56 +15,63 @@ async function buscarProductosPorNombre(nombreProducto) {
 }
 
 async function obtenerInformacionProductos(nombreProducto, offset) {
-
   function formatNumber(value) {
     if (typeof value === 'number') {
-      const roundedValue = Math.round(value * 10) / 10; //ponemos a value con 1 decimal siempre (5.0 sigue siendo int)
-      return Number.isInteger(roundedValue) ? roundedValue.toFixed(0) : roundedValue.toFixed(1); //si es entero se muestra sin decimales, si no, muestra un decimal
+      const roundedValue = Math.round(value * 10) / 10;
+      return Number.isInteger(roundedValue) ? roundedValue.toFixed(0) : roundedValue.toFixed(1);
     } else {
-      return value; // Si el valor no es un número, devolvemos tal cual
+      return value;
     }
   }
 
+  let informacionProductos = [];
   try {
-    const datosBusqueda = await buscarProductosPorNombre(nombreProducto);
+    while (informacionProductos.length < 5) {
+      const datosBusqueda = await buscarProductosPorNombre(nombreProducto);
 
-    if (datosBusqueda && "products" in datosBusqueda) {
-      const productos = datosBusqueda.products.slice(offset, offset + 5);
+      if (datosBusqueda && "products" in datosBusqueda) {
+        if (datosBusqueda.products.length <= offset) {
+          break; // No more products to fetch, break the loop
+        }
+        const productos = datosBusqueda.products.slice(offset, offset + 5);
 
+        const newProducts = productos.map((producto) => {
+          const nombre = producto.product_name || "Nombre no disponible";
+          const calorias = formatNumber(producto.nutriments?.["energy-kcal_100g"]) || "No disponible";
+          const proteinas = formatNumber(producto.nutriments?.["proteins_100g"]) || "No disponible";
+          const grasas = formatNumber(producto.nutriments?.["fat_100g"]) || "No disponible";
+          const grasasSaturadas = formatNumber(producto.nutriments?.["saturated-fat_100g"]) || "No disponible";
+          const carbohidratos = formatNumber(producto.nutriments?.["carbohydrates_100g"]) || "No disponible";
+          const azucar = formatNumber(producto.nutriments?.["sugars_100g"]) || "No disponible";
+          const imagenUrl = producto.image_url || "URL de imagen no disponible";
+          const id = producto.code || "ID no disponible";
 
-      const informacionProductos = productos.map((producto) => {
-        const nombre = producto.product_name || "Nombre no disponible";
-        const calorias = formatNumber(producto.nutriments?.["energy-kcal_100g"]) || "No disponible";
-        const proteinas = formatNumber(producto.nutriments?.["proteins_100g"]) || "No disponible";
-        const grasas = formatNumber(producto.nutriments?.["fat_100g"]) || "No disponible";
-        const grasasSaturadas = formatNumber(producto.nutriments?.["saturated-fat_100g"]) || "No disponible";
-        const carbohidratos = formatNumber(producto.nutriments?.["carbohydrates_100g"]) || "No disponible";
-        const azucar = formatNumber(producto.nutriments?.["sugars_100g"]) || "No disponible";
-        const imagenUrl = producto.image_url || "URL de imagen no disponible";
-        const id = producto.code || "ID no disponible";
+          return {
+            nombre,
+            calorias,
+            proteinas,
+            grasas,
+            grasasSaturadas,
+            carbohidratos,
+            azucar,
+            imagenUrl,
+            id,
+          };
+        }).filter((producto) => {
+          return producto.nombre !== "Nombre no disponible" && producto.calorias !== "No disponible" && producto.proteinas !== "No disponible";
+        });
 
-        return {
-          nombre,
-          calorias,
-          proteinas,
-          grasas,
-          grasasSaturadas,
-          carbohidratos,
-          azucar,
-          imagenUrl,
-          id,
-        };
-      }).filter((producto) => {
-        return producto.nombre !== "Nombre no disponible" && producto.calorias !== "No disponible" && producto.proteinas !== "No disponible";
-      });
-
-
-      return informacionProductos;
+        informacionProductos = [...informacionProductos, ...newProducts];
+        offset += newProducts.length; // Actualiza el offset dependiendo de cuantos newProducts
+      } else {
+        break;
+      }
     }
 
-    return null;
-  } catch (error) {
-    throw new Error(`Error de red: ${error.message}`);
+    return informacionProductos.slice(0, 5);
+  }
+  catch (error) {
+    throw new Error(`Error al obtener información de productos: ${error.message}`);
   }
 }
 
