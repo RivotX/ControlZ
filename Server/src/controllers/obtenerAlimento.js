@@ -34,6 +34,7 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
           break; // No more products to fetch, break the loop
         }
         const productos = datosBusqueda.products.slice(offset, offset + 5);
+        offset += productos.length; // Actualiza el offset antes de filtrar
 
         const newProducts = productos.map((producto) => {
           const nombre = producto.product_name || "Nombre no disponible";
@@ -62,7 +63,6 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
         });
 
         informacionProductos = [...informacionProductos, ...newProducts];
-        offset += newProducts.length; // Actualiza el offset dependiendo de cuantos newProducts
       } else {
         break;
       }

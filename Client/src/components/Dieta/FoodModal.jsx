@@ -8,6 +8,7 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
     const [loading, setLoading] = useState(false);
     const [resultados, setResultados] = useState([]);
     const divRef = useRef(null);
+    
 
     //para el infinite fetching
     const [offset, setOffset] = useState(0);
@@ -49,9 +50,8 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
     //infinite scrolling
     useEffect(() => {
         const FetchBottom = (e) => {
-            const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 0.5;
+            const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 1.5;
             if (bottom && !loading) {
-                setLoading(true);
                 console.log('bottom');
                 fetchData();
             }
