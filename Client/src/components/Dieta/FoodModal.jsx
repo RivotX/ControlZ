@@ -3,23 +3,33 @@ import axios from "axios";
 import Alimento from "./Alimento";
 import Loading from "../Loading";
 
-const FoodModal = ({ closeModal, Horavalor, usuario, Fecha  }) => {
+const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
     const [userInput, setUserInput] = useState('');
-    const [resultados, setResultados] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [resultados, setResultados] = useState([]);
+    //para el infinite scrolling
+    const [offset, setOffset] = useState(0);
 
-    //obtener alimentos endpoint
-    const handleClick = () => {
+
+
+    // Fetch data function
+    const fetchData = () => {
+        console.log('offset ', offset)
+
         setLoading(true);
         axios.post(
             "http://localhost:8081/obtenerAlimento",
-            { userInput: userInput },
+            { userInput: userInput, offset: offset },
         ).then(res => {
             console.log(res.data);
             setLoading(false);
-            setResultados(res.data);
+            if (Array.isArray(res.data)) {
+                setResultados(prevResultados => [...prevResultados, ...res.data]);
+                setOffset(prevOffset => prevOffset + 5);
+                console.log('offset ', offset)
+            }
         });
-    }
+    };
 
     //cerrar modal usando esc
     useEffect(() => {
@@ -52,10 +62,10 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha  }) => {
                         value={userInput}
                         onChange={(e) => setUserInput(e.target.value)}
                         className="tw-text-black tw-px-2 tw-w-4/5 tw-text-center tw-text-sm tw-rounded-md "
-                        onKeyDown={(e) => { if (e.key === "Enter") handleClick(); }}
+                        onKeyDown={(e) => { if (e.key === "Enter") fetchData(); }}
                     />
                     <div className="tw-flex tw-items-center tw-justify-center">
-                        <svg onClick={handleClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] tw-cursor-pointer hover:tw-fill-gray-500">
+                        <svg onClick={fetchData} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] tw-cursor-pointer hover:tw-fill-gray-500">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                         </svg>
                     </div>
@@ -68,7 +78,7 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha  }) => {
                     )}
                     {resultados && !loading && (
                         resultados.map(producto => (
-                            <Alimento key={producto.id} producto={producto} Horavalor={Horavalor} usuario={usuario} Fecha={Fecha}/>
+                            <Alimento key={producto.id} producto={producto} Horavalor={Horavalor} usuario={usuario} Fecha={Fecha} />
                         ))
                     )}
                 </div>

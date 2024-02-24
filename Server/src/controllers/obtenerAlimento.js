@@ -14,7 +14,7 @@ async function buscarProductosPorNombre(nombreProducto) {
   }
 }
 
-async function obtenerInformacionProductos(nombreProducto) {
+async function obtenerInformacionProductos(nombreProducto, offset) {
 
   function formatNumber(value) {
     if (typeof value === 'number') {
@@ -24,11 +24,12 @@ async function obtenerInformacionProductos(nombreProducto) {
       return value; // Si el valor no es un número, devolvemos tal cual
     }
   }
+
   try {
     const datosBusqueda = await buscarProductosPorNombre(nombreProducto);
 
     if (datosBusqueda && "products" in datosBusqueda) {
-      const productos = datosBusqueda.products.slice(0, 5);
+      const productos = datosBusqueda.products.slice(offset, offset + 5);
 
 
       const informacionProductos = productos.map((producto) => {
