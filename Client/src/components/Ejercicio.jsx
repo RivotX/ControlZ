@@ -26,7 +26,7 @@ const Ejercicio = ({
             <img src={pesaimg} className="tw-w-1/6" alt="Comida" />
             <div className="tw-flex tw-w-full  tw-items-center tw-justify-between">
               <div className="tw-ml-2 tw-flex tw-w-3/4 tw-flex-col tw-items-center">
-                <span className="tw-w-full tw-font-bold">{nombre}</span>
+                <span className=" tw-w-full tw-font-bold">{nombre}</span>
                 <span className="tw-w-full tw-text-xs tw-text-blue-200">
                   <span className="tw-font-extrabold">{series}</span>x
                   {repeticiones}/

@@ -29,7 +29,7 @@ function Login() {
     email: "",
     telefono: "",
     direccion: "",
-    // sexo: "",
+    sexo: "",
     password2: "",
   });
 
@@ -719,9 +719,9 @@ function Login() {
                 <div className="tw-text-white tw-py-5 tw-text-md lg:tw-text-xl tw-justify-between tw-flex tw-w-full">
                   <h3 className="">Sexo</h3>
                   <div className="inline-flex tw-items-center">
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="" name="sexo"></input>
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" onClick={(e)=>{setValues({ ...values, sexo: e.target.value })}} name="sexo"></input>
                     <label htmlFor="sexo" className="tw-ml-1">M</label>
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="" name="sexo"></input>
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" onClick={(e)=>{setValues({ ...values, sexo: e.target.value })}} name="sexo"></input>
                     <label htmlFor="sexo" className="tw-ml-1">F</label>
                   </div>
                 </div>

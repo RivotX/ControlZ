@@ -56,6 +56,7 @@ export default function ModalEjercicio({
                 >
                   <input
                     required
+                    maxLength={20}
                     onInput={(event) => {
                       setEjercicio(event.target.value);
                     }}
@@ -151,6 +152,7 @@ export default function ModalEjercicio({
                   }}
                 >
                   <input
+                  maxLength={20}
                     value={ejercicio!=null?ejercicio:""}
                     required
                     onInput={(event) => {

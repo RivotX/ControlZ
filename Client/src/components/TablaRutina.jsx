@@ -164,7 +164,7 @@ const TablaRutina = () => {
 
   return (
     <>
-      <div className="  flex-column tw-m-auto tw-flex tw-w-[100%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
+      <div className="  flex-column tw-m-auto tw-flex tw-w-[100%]  md:tw-w-[70%] lg:tw-w-[60%] 2xl:tw-w-[40%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
         <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
           <button
             className=" botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
