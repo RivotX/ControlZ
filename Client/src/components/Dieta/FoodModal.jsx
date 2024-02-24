@@ -49,7 +49,7 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
     //infinite scrolling
     useEffect(() => {
         const FetchBottom = (e) => {
-            const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 3;
+            const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 0.5;
             if (bottom && !loading) {
                 setLoading(true);
                 console.log('bottom');
