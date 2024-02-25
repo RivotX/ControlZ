@@ -300,18 +300,18 @@ function Perfil() {
                     <option value='4'>Recomposición Corporal</option>
                   </select>
                 </div>
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
                   <p className="tw-text-md tw-w-1/3 " >
                     Calorías
                   </p>
-                  <h1 className=" tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
+                  <h1 className=" tw-flex tw-justify-center  tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
                 </div>
 
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
                   <p className="tw-text-md tw-w-1/3 " >
                     Proteínas
                   </p>
-                  <h1 className="mb-1 tw-flex tw-justify-center tw-items-center tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
+                  <h1 className="mb-1 tw-flex tw-justify-center  tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
                 </div>
 
 
