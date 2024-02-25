@@ -37,7 +37,7 @@ function Navbar({ linkHome }) {
             <img src={logo} className="tw-h-9 tw-mt-2 " alt="" />
             <span className="tw-self-center tw-text-2xl tw-font-semibold tw-whitespace-nowrap tw-text-white ">Control<span className="tw-text-2xl tw-font-semibold tw-whitespace-nowrap tw-text-[#03e9f4] ">Z</span></span>
           </a>
-          <div className="tw-flex md:tw-order-2 tw-space-x-3 md:tw-space-x-0 rtl:tw-space-x-reverse">
+          <div className="tw-flex md:tw-order-2 tw-space-x-3 md:tw-space-x-0 rtl:tw-space-x-reverse tw-items-center">
             <div className="tw-relative tw-bottom-1">
               <div className="tw-absolute tw-left-3 tw-top-0">
                 {numeroItems !== 0 && (
