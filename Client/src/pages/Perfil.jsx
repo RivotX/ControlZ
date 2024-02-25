@@ -12,11 +12,11 @@ import {
 
 } from "mdb-react-ui-kit";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Perfil() {
 
-  const [opcionSeleccionada, setOpcionSeleccionada] = useState('')
+
 
   const cambiarEstado = () => {
     setOpcionSeleccionada(target.value);
@@ -26,9 +26,44 @@ function Perfil() {
   const [email, setEmail] = useState("");
   const [Telefono, setTelefono] = useState("");
   const [direccion, setDireccion] = useState("");
-  const [sexo, setSexo] = useState(1);
+  const [sexo, setSexo] = useState(0);
+  const [edad, setedad] = useState(0);
+  const [peso, setpeso] = useState(0);
+  const [altura, setaltura] = useState(1.1);
+  const [opcionActividadFisica, setOpcionActividadFisica] = useState(1);
+  const [opcionObjetivo, setopcionObjetivo] = useState(1);
+  const [modificado, setModificado] = useState(false);
 
-  axios
+
+  useEffect(() => {
+
+    if (modificado) {
+
+
+      const values = {
+        nombre: nombre,
+        email: email,
+        telefono: Telefono,
+        direccion: direccion,
+        sexo: sexo,
+        edad: edad,
+        peso: peso,
+        altura: altura,
+        usuario: usuario
+
+
+      };
+      axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => console.error(err));
+        setModificado(false)
+    }
+  }, [nombre, email, Telefono, direccion, sexo, edad, peso, altura]);
+
+  useEffect(() => {
+    axios
     .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
     .then((res) => {
       setUsuario(res.data.usuario);
@@ -36,9 +71,22 @@ function Perfil() {
       setEmail(res.data.email);
       setTelefono(res.data.telefono);
       setDireccion(res.data.direccion);
+      setSexo(res.data.sexo);
+      setedad(res.data.edad);
+      setpeso(res.data.peso);
+      setaltura(res.data.altura);
+      // setOpcionActividadFisica(res.data.opcionActividadFisica);
+      // setopcionObjetivo(res.data.opcionObjetivo);
+
       console.log(res);
     })
     .catch((err) => console.error(err));
+    console.log("hola");
+  }, []);
+  
+
+
+
 
 
   return (
@@ -51,7 +99,7 @@ function Perfil() {
               <div className="mt-5 text-center card-body ">
                 <img
                   id="flecha"
-                  src={sexo ? fotoHombre : fotoMujer}
+                  src={sexo==1 ? fotoHombre : fotoMujer}
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: "150px" }}
@@ -131,33 +179,56 @@ function Perfil() {
                   <p className="tw-text-md tw-w-1/3 " >
                     Edad
                   </p>
-                  <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"></input>
+                  <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
+                  value={edad}
+                  onInput={(e) => {setedad(e.target.value);}}
+                  onBlur={(e) => {
+                    setedad(e.target.value);
+                    setModificado(true);
+                  }}></input>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
                   <p className="tw-text-md tw-w-1/3 " >
                     Peso
                   </p>
-                  <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Kg"></input>
+                  <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="peso" placeholder="Kg"
+                  value={peso}
+                  onInput={(e) => {setpeso(e.target.value);}}
+                  onBlur={(e) => {
+                    setpeso(e.target.value);
+                    setModificado(true);
+                  }}></input>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
                   <p className="tw-text-md tw-w-1/3 " >
                     Altura
                   </p>
-                  <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3" name="edad" placeholder="Cm"></input>
-                </div>
+                  <input
+                  value={altura}
+                    className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3"
+                    type="number"
+                    name="altura"
+                    placeholder="Cm"
+                    onInput={(e) => {setaltura(e.target.value);}}
+                    onBlur={(e) => {
+                      setaltura(e.target.value);
+                      setModificado(true);
+                    }}
+                  ></input>                </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
                   <p className="tw-text-md tw-w-1/3 " >
                     Actividad Física
                   </p>
-                  <select className="tw-border tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="edad" placeholder="...">
-                    <option selected>Seleccionar</option>
-                    <option value='1'>1 vez en semana</option>
-                    <option value='1'>2-3 vez en semana</option>
-                    <option value='2'>4-5 vez en semana</option>
-                    <option value='3'>Todos los días</option>
+                  <select defaultValue={opcionActividadFisica} className="tw-border tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="edad" placeholder="..."
+                  >
+                    <option value="1">Seleccionar</option>
+                    <option value='2'>1 vez en semana</option>
+                    <option value='3'>2-3 vez en semana</option>
+                    <option value='4'>4-5 vez en semana</option>
+                    <option value='5'>Todos los días</option>
                   </select>
                 </div>
                 <div className="mb-1 tw-justify-between tw-flex tw-w-full">
@@ -165,11 +236,28 @@ function Perfil() {
                     Sexo
                   </p>
                   <div className="inline-flex tw-items-center tw-justify-between">
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="" name="sexo"></input>
-                    <label htmlFor="sexo" className="tw-ml-1">M</label>
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="" name="sexo"></input>
-                    <label htmlFor="sexo" className="tw-ml-1">F</label>
-                  </div>
+                    {sexo == 1 ?
+                      <>
+                        <input
+                          className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio"
+                          value="1"
+                          name="sexo"
+                          defaultChecked
+                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
+                        <label htmlFor="sexo" className="tw-ml-1">M</label>
+                        <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo"
+                          onClick={(e) => { setSexo(e.target.value);  setModificado(true)}}></input>
+                        <label htmlFor="sexo" className="tw-ml-1">F</label>
+                      </>
+                      : <>
+                        <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" name="sexo"
+                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
+                        <label htmlFor="sexo" className="tw-ml-1">M</label>
+                        <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo" defaultChecked
+                          onClick={(e) => { setSexo(e.target.value); setModificado(true)}}></input>
+                        <label htmlFor="sexo" className="tw-ml-1">F</label>
+                      </>
+                    }</div>
                 </div>
               </div>
             </div>
@@ -187,11 +275,12 @@ function Perfil() {
                   <p className="tw-text-md tw-w-1/3 " >
                     objetivo
                   </p>
-                  <select value={opcionSeleccionada} onChange={cambiarEstado} name="objetivo" className="tw-border tw-rounded-lg tw-border-blue-300 tw-h-10 tw-text-center tw-w-1/3 form-select" placeholder="...">
-                    <option value=''>Seleccionar</option>
-                    <option value='1'>Incremento de Masa Corporal</option>
-                    <option value='2'>Reducción de Masa Corporal</option>
-                    <option value='3'>Recomposición Corporal</option>
+                  <select defaultValue={opcionObjetivo} onChange={cambiarEstado} name="objetivo" className="tw-border tw-rounded-lg tw-border-blue-300 tw-h-10 tw-text-center tw-w-1/3 form-select" placeholder="..."
+                  >
+                    <option value='1'>Seleccionar</option>
+                    <option value='2'>Incremento de Masa Corporal</option>
+                    <option value='3'>Reducción de Masa Corporal</option>
+                    <option value='4'>Recomposición Corporal</option>
                   </select>
                 </div>
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
