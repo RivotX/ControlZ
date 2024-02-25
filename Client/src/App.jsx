@@ -1,4 +1,4 @@
-import Gym from "./pages/Gym.jsx";
+import Home from "./pages/Home.jsx";
 import Rutina from "./pages/Rutina.jsx";
 import Dieta from "./pages/Dieta.jsx";
 import Perfil from "./pages/Perfil.jsx";
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   { path: "/perfil", element: <Perfil /> },
   { path: "/principal", element: <Principal /> },
   { path: "/tienda", element: <Tienda /> },
-  { path: "/", element: <Gym /> },
+  { path: "/", element: <Home /> },
 
 ]);
 function App() {
