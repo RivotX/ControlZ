@@ -80,6 +80,8 @@ function Perfil() {
       .catch((err) => console.error(err));
     console.log("hola");
   }, []);
+  const [isEditing, setIsEditing] = useState('');
+
 
 
   return (
@@ -180,92 +182,84 @@ function Perfil() {
                   </span>{" "}
                   Gimnasio
                 </p>
-                <div className="tw-w-full tw-flex">
-                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center ">
+                <div className="tw-w-full tw-flex mb-1 ">
+                  <div className="tw-flex tw-w-full tw-justify-between tw-items-center ">
                     <p className="tw-text-md tw-w-1/3 " >
                       Edad
                     </p>
-                    <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">967</h1>
-                    {/* <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
-                    value={edad}
-                    onInput={(e) => { setedad(e.target.value); }}
-                    onBlur={
-                      ModificarDB
-                    }
-                  >
-                  </input> */}
+                    {isEditing === 'edad' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
+                        value={edad}
+                        onInput={(e) => { setedad(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                      />
+                    ) : (
+                      <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{edad}</h1>
+                    )}
                   </div>
-                  <button className="tw-rounded-md  tw-w-auto">✏</button>
+                  <button className="tw-rounded-md  tw-w-auto" onClick={() => setIsEditing('edad')}>✏</button>
                 </div>
 
-                <div className="tw-w-full tw-flex">
-
-                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
+                <div className="tw-w-full tw-flex mb-1 ">
+                  <div className="tw-flex tw-w-full tw-justify-between tw-items-center ">
                     <p className="tw-text-md tw-w-1/3 " >
                       Peso
                     </p>
-                    <h1 className=" tw-flex tw-justify-center  tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">967</h1>
-
-                    {/* <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="peso" placeholder="Kg"
-                    value={peso}
-                    onInput={(e) => {
-                      setpeso(e.target.value);
-                      console.log(peso)
-                    }}
-                    onBlur={
-                      ModificarDB
-                    }
-                  >
-
-                  </input> */}
+                    {isEditing === 'peso' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="peso" placeholder="kg"
+                        value={peso}
+                        onInput={(e) => { setpeso(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                      />
+                    ) : (
+                      <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{peso}</h1>
+                    )}
                   </div>
-                  <button className="tw-rounded-md  tw-w-auto">✏</button>
-
+                  <button className="tw-rounded-md  tw-w-auto" onClick={() => setIsEditing('peso')}>✏</button>
                 </div>
 
-                <div className="tw-w-full tw-flex">
-                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
+                <div className="tw-w-full tw-flex mb-1">
+                  <div className=" tw-flex tw-w-full tw-justify-between tw-items-center ">
                     <p className="tw-text-md tw-w-1/3 " >
                       Altura
                     </p>
-                    <h1 className=" tw-flex tw-justify-center  tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">967</h1>
-
-                    {/* <input
-                    value={altura}
-                    className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3"
-                    type="number"
-                    name="altura"
-                    placeholder="Cm"
-                    onInput={(e) => { setaltura(e.target.value); }}
-                    onBlur={
-                      ModificarDB
-                    }
-                  >
-                  </input> */}
+                    {isEditing === 'altura' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="altura" placeholder="cm"
+                        value={altura}
+                        onInput={(e) => { setaltura(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                      />
+                    ) : (
+                      <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{altura}</h1>
+                    )}
                   </div>
-                  <button className="tw-rounded-md  tw-w-auto">✏</button>
+                  <button className="tw-rounded-md  tw-w-auto" onClick={() => setIsEditing('altura')}>✏</button>
                 </div>
 
 
-                <div className="tw-w-full tw-flex">
-                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
+                <div className="tw-w-full tw-flex mb-1">
+                  <div className=" tw-flex tw-w-full tw-justify-between tw-items-center">
                     <p className="tw-text-md tw-w-auto " >
                       Actividad Física
                     </p>
-                    <h1 className=" tw-flex tw-justify-center tw-text-blue-500 tw-text-center tw-w-1/3 tw-font-medium">967</h1>
-
-                    {/* <select defaultValue={opcionActividadFisica} className="tw-border tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="edad" placeholder="..."
-                  >
-                    <option value="1">Seleccionar</option>
-                    <option value='2'>1 vez en semana</option>
-                    <option value='3'>2-3 vez en semana</option>
-                    <option value='4'>4-5 vez en semana</option>
-                    <option value='5'>Todos los días</option>
-                  </select> */}
+                    {isEditing === 'actividadFisica' ? (
+                      <select defaultValue={opcionActividadFisica} className="tw-border tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="actividadFisica" placeholder="..."
+                        onChange={(e) => { setOpcionActividadFisica(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                      >
+                        <option value="1">Seleccionar</option>
+                        <option value='2'>1 vez en semana</option>
+                        <option value='3'>2-3 vez en semana</option>
+                        <option value='4'>4-5 vez en semana</option>
+                        <option value='5'>Todos los días</option>
+                      </select>
+                    ) : (
+                      <h1 className=" tw-flex tw-justify-center  tw-items-center tw-text-blue-500 tw-text-center tw-w-1/3 tw-font-medium">{ }</h1>
+                    )}
                   </div>
-                  <button className="tw-rounded-md  tw-w-auto">✏</button>
-
+                  <button className="tw-rounded-md  tw-w-auto" onClick={() => setIsEditing('actividadFisica')}>✏</button>
                 </div>
+
                 <div className="mb-1 tw-justify-between tw-flex tw-w-full tw-items-center">
                   <p className="tw-w-1/3 text-md">
                     Sexo
