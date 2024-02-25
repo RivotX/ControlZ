@@ -1,6 +1,6 @@
-import pesaimg from "../img/peso.png";
+import pesaimg from "../../img/peso.png";
 import "animate.css";
-import Close from "./Tienda/Close";
+import Close from "../Tienda/Close";
 
 const Ejercicio = ({
   nombre,

@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import TablaRutina from "../components/TablaRutina";
+import TablaRutina from "../components/Rutina/TablaRutina";
 import "../styles/rutina.css"
 
 

@@ -107,6 +107,7 @@ function Gym() {
                   }
                     link={"rutina"}
                   />
+
                   {/* <CartasFeatures
                     imagen={fotoejerciciosexpli}
                     titulo={"Guia ejercicios"}
@@ -115,6 +116,7 @@ function Gym() {
                     }
                     link={"#"}
                   /> */}
+                  
                   <CartasFeatures
                     imagen={fotodietaserv}
                     titulo={"Dieta"}

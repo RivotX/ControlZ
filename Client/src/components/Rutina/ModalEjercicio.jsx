@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Close from "./Tienda/Close";
+import Close from "../Tienda/Close";
 import Ejercicio from "./Ejercicio";
 
 export default function ModalEjercicio({

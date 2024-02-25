@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Ejercicio from "./Ejercicio.jsx";
-import Plus from "./plus.jsx";
+import Plus from "../plus.jsx";
 import ModalEjercicio from "./ModalEjercicio.jsx";
-import LoginRequiredModal from "../components/LoginRequiredModal";
+import LoginRequiredModal from "../LoginRequiredModal.jsx";
 
 
 const TablaRutina = () => {
