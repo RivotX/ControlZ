@@ -26,10 +26,10 @@ function Perfil() {
   const [email, setEmail] = useState("");
   const [Telefono, setTelefono] = useState("");
   const [direccion, setDireccion] = useState("");
-  const [sexo, setSexo] = useState(0);
-  const [edad, setedad] = useState(0);
-  const [peso, setpeso] = useState(0);
-  const [altura, setaltura] = useState(1.1);
+  const [sexo, setSexo] = useState(null);
+  const [edad, setedad] = useState(null);
+  const [peso, setpeso] = useState(null);
+  const [altura, setaltura] = useState(null);
   const [opcionActividadFisica, setOpcionActividadFisica] = useState(1);
   const [opcionObjetivo, setopcionObjetivo] = useState(1);
   const [modificado, setModificado] = useState(false);
@@ -80,10 +80,6 @@ function Perfil() {
       .catch((err) => console.error(err));
     console.log("hola");
   }, []);
-
-
-
-
 
 
   return (
@@ -248,18 +244,34 @@ function Perfil() {
                           value="1"
                           name="sexo"
                           defaultChecked
-                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
+                          onClick={(e) => {
+                            setSexo(e.target.value)
+                            ModificarDB()
+                          }}>
+                        </input>
                         <label htmlFor="sexo" className="tw-ml-1">M</label>
                         <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo"
-                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
+                          onClick={(e) => {
+                            setSexo(e.target.value)
+                            ModificarDB()
+                          }}>
+                        </input>
                         <label htmlFor="sexo" className="tw-ml-1">F</label>
                       </>
                       : <>
                         <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" name="sexo"
-                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
+                          onClick={(e) => {
+                            setSexo(e.target.value)
+                            ModificarDB()
+                          }}>
+                        </input>
                         <label htmlFor="sexo" className="tw-ml-1">M</label>
                         <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo" defaultChecked
-                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
+                          onClick={(e) => {
+                            setSexo(e.target.value)
+                            ModificarDB()
+                          }}>
+                        </input>
                         <label htmlFor="sexo" className="tw-ml-1">F</label>
                       </>
                     }</div>
