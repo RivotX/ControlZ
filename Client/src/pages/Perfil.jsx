@@ -192,6 +192,10 @@ function Perfil() {
                         value={edad}
                         onInput={(e) => { setedad(e.target.value); }}
                         onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
                       />
                     ) : (
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{edad}</h1>
@@ -210,6 +214,10 @@ function Perfil() {
                         value={peso}
                         onInput={(e) => { setpeso(e.target.value); }}
                         onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
                       />
                     ) : (
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{peso}</h1>
@@ -228,6 +236,10 @@ function Perfil() {
                         value={altura}
                         onInput={(e) => { setaltura(e.target.value); }}
                         onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
                       />
                     ) : (
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{altura}</h1>
@@ -237,27 +249,21 @@ function Perfil() {
                 </div>
 
 
-                <div className="tw-w-full tw-flex mb-1">
-                  <div className=" tw-flex tw-w-full tw-justify-between tw-items-center">
-                    <p className="tw-text-md tw-w-auto " >
-                      Actividad Física
-                    </p>
-                    {isEditing === 'actividadFisica' ? (
-                      <select defaultValue={opcionActividadFisica} className="tw-border tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="actividadFisica" placeholder="..."
-                        onChange={(e) => { setOpcionActividadFisica(e.target.value); }}
-                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
-                      >
-                        <option value="1">Seleccionar</option>
-                        <option value='2'>1 vez en semana</option>
-                        <option value='3'>2-3 vez en semana</option>
-                        <option value='4'>4-5 vez en semana</option>
-                        <option value='5'>Todos los días</option>
-                      </select>
-                    ) : (
-                      <h1 className=" tw-flex tw-justify-center  tw-items-center tw-text-blue-500 tw-text-center tw-w-1/3 tw-font-medium">{ }</h1>
-                    )}
-                  </div>
-                  <button className="tw-rounded-md  tw-w-auto" onClick={() => setIsEditing('actividadFisica')}>✏</button>
+                <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
+                  <p className="tw-text-base tw-w-auto " >
+                    Actividad Física
+                  </p>
+                  <select defaultValue={opcionActividadFisica} className="tw-border tw-text-[15px] tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-auto form-select" name="actividadFisica" placeholder="..."
+                    onChange={(e) => { setOpcionActividadFisica(e.target.value); }}
+                    onBlur={() => { ModificarDB(); setIsEditing(''); }}
+
+                  >
+                    <option value="1">Seleccionar</option>
+                    <option value='2'>1 vez en semana</option>
+                    <option value='3'>2-3 vez en semana</option>
+                    <option value='4'>4-5 vez en semana</option>
+                    <option value='5'>Todos los días</option>
+                  </select>
                 </div>
 
                 <div className="mb-1 tw-justify-between tw-flex tw-w-full tw-items-center">
@@ -317,10 +323,10 @@ function Perfil() {
                   Dieta
                 </p>
                 <div className="mb-4 tw-flex tw-w-full tw-justify-between tw-items-center">
-                  <p className="tw-text-md tw-w-1/3 " >
+                  <p className="tw-text-md tw-w-auto " >
                     objetivo
                   </p>
-                  <select defaultValue={opcionObjetivo} onChange={cambiarEstado} name="objetivo" className="tw-border tw-rounded-lg tw-border-blue-300 tw-h-10 tw-text-center tw-w-1/3 form-select" placeholder="..."
+                  <select defaultValue={opcionObjetivo} onChange={cambiarEstado} name="objetivo" className="tw-border tw-rounded-lg tw-text-[15px] tw-border-blue-300 tw-h-10 tw-text-center tw-w-auto form-select" placeholder="..."
                   >
                     <option value='1'>Seleccionar</option>
                     <option value='2'>Incremento de Masa Corporal</option>
