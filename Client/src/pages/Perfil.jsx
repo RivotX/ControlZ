@@ -125,7 +125,10 @@ function Perfil() {
                   <MDBCardText>Nombre </MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">{nombre}</MDBCardText>
+                  <MDBCardText className="text-muted">
+                    {nombre}
+                    {nombre && <button className="tw-rounded-md  tw-w-auto">✏</button>}
+                  </MDBCardText>
                 </MDBCol>
               </MDBRow>
 
@@ -134,7 +137,10 @@ function Perfil() {
                   <MDBCardText>Email</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">{email}</MDBCardText>
+                  <MDBCardText className="text-muted">
+                    {email}
+                    {email && <button className="tw-rounded-md  tw-w-auto">✏</button>}
+                  </MDBCardText>
                 </MDBCol>
               </MDBRow>
 
@@ -143,7 +149,10 @@ function Perfil() {
                   <MDBCardText>Teléfono</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">{Telefono}</MDBCardText>
+                  <MDBCardText className="text-muted">
+                    {Telefono}
+                    {Telefono && <button className="tw-rounded-md  tw-w-auto">✏</button>}
+                  </MDBCardText>
                 </MDBCol>
               </MDBRow>
 
@@ -152,7 +161,10 @@ function Perfil() {
                   <MDBCardText>Dirección</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                  <MDBCardText className="text-muted">{direccion}</MDBCardText>
+                  <MDBCardText className="text-muted">
+                    {direccion}
+                    {direccion && <button className="tw-rounded-md  tw-w-auto">✏</button>}
+                  </MDBCardText>
                 </MDBCol>
               </MDBRow>
             </MDBCardBody>
@@ -168,26 +180,33 @@ function Perfil() {
                   </span>{" "}
                   Gimnasio
                 </p>
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between ">
-                  <p className="tw-text-md tw-w-1/3 " >
-                    Edad
-                  </p>
-                  <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
+                <div className="tw-w-full tw-flex">
+                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center ">
+                    <p className="tw-text-md tw-w-1/3 " >
+                      Edad
+                    </p>
+                    <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">967</h1>
+                    {/* <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
                     value={edad}
                     onInput={(e) => { setedad(e.target.value); }}
                     onBlur={
                       ModificarDB
                     }
                   >
-
-                  </input>
+                  </input> */}
+                  </div>
+                  <button className="tw-rounded-md  tw-w-auto">✏</button>
                 </div>
 
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
-                  <p className="tw-text-md tw-w-1/3 " >
-                    Peso
-                  </p>
-                  <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="peso" placeholder="Kg"
+                <div className="tw-w-full tw-flex">
+
+                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
+                    <p className="tw-text-md tw-w-1/3 " >
+                      Peso
+                    </p>
+                    <h1 className=" tw-flex tw-justify-center  tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">967</h1>
+
+                    {/* <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="peso" placeholder="Kg"
                     value={peso}
                     onInput={(e) => {
                       setpeso(e.target.value);
@@ -198,14 +217,20 @@ function Perfil() {
                     }
                   >
 
-                  </input>
+                  </input> */}
+                  </div>
+                  <button className="tw-rounded-md  tw-w-auto">✏</button>
+
                 </div>
 
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
-                  <p className="tw-text-md tw-w-1/3 " >
-                    Altura
-                  </p>
-                  <input
+                <div className="tw-w-full tw-flex">
+                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
+                    <p className="tw-text-md tw-w-1/3 " >
+                      Altura
+                    </p>
+                    <h1 className=" tw-flex tw-justify-center  tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">967</h1>
+
+                    {/* <input
                     value={altura}
                     className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3"
                     type="number"
@@ -216,23 +241,32 @@ function Perfil() {
                       ModificarDB
                     }
                   >
-                  </input>
+                  </input> */}
+                  </div>
+                  <button className="tw-rounded-md  tw-w-auto">✏</button>
                 </div>
 
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between">
-                  <p className="tw-text-md tw-w-1/3 " >
-                    Actividad Física
-                  </p>
-                  <select defaultValue={opcionActividadFisica} className="tw-border tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="edad" placeholder="..."
+
+                <div className="tw-w-full tw-flex">
+                  <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
+                    <p className="tw-text-md tw-w-auto " >
+                      Actividad Física
+                    </p>
+                    <h1 className=" tw-flex tw-justify-center tw-text-blue-500 tw-text-center tw-w-1/3 tw-font-medium">967</h1>
+
+                    {/* <select defaultValue={opcionActividadFisica} className="tw-border tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-1/3 form-select" name="edad" placeholder="..."
                   >
                     <option value="1">Seleccionar</option>
                     <option value='2'>1 vez en semana</option>
                     <option value='3'>2-3 vez en semana</option>
                     <option value='4'>4-5 vez en semana</option>
                     <option value='5'>Todos los días</option>
-                  </select>
+                  </select> */}
+                  </div>
+                  <button className="tw-rounded-md  tw-w-auto">✏</button>
+
                 </div>
-                <div className="mb-1 tw-justify-between tw-flex tw-w-full">
+                <div className="mb-1 tw-justify-between tw-flex tw-w-full tw-items-center">
                   <p className="tw-w-1/3 text-md">
                     Sexo
                   </p>
@@ -304,14 +338,14 @@ function Perfil() {
                   <p className="tw-text-md tw-w-1/3 " >
                     Calorías
                   </p>
-                  <h1 className=" tw-flex tw-justify-center  tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
+                  <h1 className=" tw-flex tw-justify-center  tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
                   <p className="tw-text-md tw-w-1/3 " >
                     Proteínas
                   </p>
-                  <h1 className="mb-1 tw-flex tw-justify-center  tw-text-blue-300 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
+                  <h1 className="mb-1 tw-flex tw-justify-center  tw-text-blue-500 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
                 </div>
 
 
