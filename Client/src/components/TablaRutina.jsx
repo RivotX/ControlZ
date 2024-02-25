@@ -166,7 +166,8 @@ const TablaRutina = () => {
 
   return (
     <>
-      {usuarioSession === undefined && <LoginRequiredModal />}
+      {console.log("USUARIO", usuarioSession)}
+      {(usuarioSession === null || usuarioSession === undefined || usuarioSession === '') && <LoginRequiredModal />}
       <div className="  flex-column tw-m-auto tw-flex tw-w-[100%]  md:tw-w-[70%] lg:tw-w-[60%] 2xl:tw-w-[40%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
         <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
           <button

@@ -144,7 +144,7 @@ function Dieta() {
 
         <Navbar linkHome={"/"} />
         <section className=" tw-w-full  tw-text-white tw-rounded-xl  tw-h-[100vh] ">
-          {usuario === null || usuario === undefined && <LoginRequiredModal />}
+          {(usuario === null || usuario === undefined) && <LoginRequiredModal />}
 
           <div className="lg:tw-px-[10%] tw-w-full tw-h-[38%] ">
             <div className="tw-w-full tw-text-center tw-h-full tw-px-3 tw-pb-3 tw-rounded-xl tw-flex tw-flex-wrap tw-items-center lg:tw-bg-[#292929]">
