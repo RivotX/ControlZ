@@ -23,15 +23,18 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
       return value;
     }
   }
-
+  let attempts = 0;
+  const maxAttempts = 8;
   let informacionProductos = [];
   try {
-    while (informacionProductos.length < 5) {
+    while (informacionProductos.length < 5 && attempts < maxAttempts) {
+
+      attempts++
       const datosBusqueda = await buscarProductosPorNombre(nombreProducto);
 
       if (datosBusqueda && "products" in datosBusqueda) {
         if (datosBusqueda.products.length <= offset) {
-          break; // No more products to fetch, break the loop
+          break; // si no hay mas productos para hacer fetch, sale del loop
         }
         const productos = datosBusqueda.products.slice(offset, offset + 5);
         offset += productos.length; // Actualiza el offset antes de filtrar
