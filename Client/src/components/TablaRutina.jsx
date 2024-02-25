@@ -3,6 +3,8 @@ import axios from "axios";
 import Ejercicio from "./Ejercicio.jsx";
 import Plus from "./plus.jsx";
 import ModalEjercicio from "./ModalEjercicio.jsx";
+import LoginRequiredModal from "../components/LoginRequiredModal";
+
 
 const TablaRutina = () => {
   const [lunes, setLunes] = useState([
@@ -164,6 +166,7 @@ const TablaRutina = () => {
 
   return (
     <>
+      {usuarioSession === undefined && <LoginRequiredModal />}
       <div className="  flex-column tw-m-auto tw-flex tw-w-[100%]  md:tw-w-[70%] lg:tw-w-[60%] 2xl:tw-w-[40%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
         <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
           <button

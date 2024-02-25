@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import Grafica from "../components/Dieta/GraficaDieta";
 import { Desayuno, Almuerzo, Cena, Extra } from "../components/Dieta/ComidaDia";
 import axios from "axios";
+import LoginRequiredModal from "../components/LoginRequiredModal";
 
 function Dieta() {
   const [usuario, setUsuario] = useState(null);
@@ -136,9 +137,15 @@ function Dieta() {
 
   return (
     <>
+      <>
+      </>
       <div className="tw-min-h-screen  tw-bg-[#0d0d0d] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
+
+
         <Navbar linkHome={"/"} />
         <section className=" tw-w-full  tw-text-white tw-rounded-xl  tw-h-[100vh] ">
+          {usuario === null || usuario === undefined && <LoginRequiredModal />}
+
           <div className="lg:tw-px-[10%] tw-w-full tw-h-[38%] ">
             <div className="tw-w-full tw-text-center tw-h-full tw-px-3 tw-pb-3 tw-rounded-xl tw-flex tw-flex-wrap tw-items-center lg:tw-bg-[#292929]">
               <div className="tw-flex tw-justify-between tw-px-5 tw-w-full tw-h-1/4 tw-items-center lg:tw-border-b tw-bg-[#292929] lg:tw-rounded-none tw-rounded-xl lg:tw-border-gray-400">
