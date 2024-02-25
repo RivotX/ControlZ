@@ -2,8 +2,8 @@ export default CartasFeatures;
 
 function CartasFeatures({ imagen, titulo, descripcion, link }) {
   return (
-    <a href={link} className="text-decoration-none">
-      <div className="col tw-w-full">
+    <a href={link} className="text-decoration-none ">
+      <div className=" tw-w-full">
         <div className="m-2 card hovcard ">
           <img src={imagen} className="card-img-top " alt="..." />
           <div className="card-body bg-dark ">

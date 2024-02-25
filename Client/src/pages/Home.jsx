@@ -101,8 +101,8 @@ function Home() {
               </div>
             </div>
             <div className="container mx-auto d-flex align-items-center justify-content-center ">
-              <div className="card-group">
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 tw-justify-around  ">
+              <div className="card-group tw-flex tw-justify-center">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4 col-xl-9 col-lg-12 ">
                   <CartasFeatures imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales y tu progreso gracias a la ayuda que ControlZ te brinda en el día a día."
                   }
                     link={"rutina"}
@@ -116,7 +116,7 @@ function Home() {
                     }
                     link={"#"}
                   /> */}
-                  
+
                   <CartasFeatures
                     imagen={fotodietaserv}
                     titulo={"Dieta"}
