@@ -3,20 +3,24 @@ export default Navbar;
 import logo from "../img/logo.png";
 import AsistenteVirtual from "./AsistenteVirtual";
 import CarritoCompra from "./CarritoCompra";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import habilitarTailwind from "./habilitarTailwind";
 import axios from "axios";
 
 function Navbar({ linkHome }) {
   const [numeroItems, setNumeroItems] = useState(0);
 
-  axios.get("http://localhost:8081/getSession", {
-    withCredentials: true,
-  }).then((res) => {
-    setNumeroItems(res.data.numberItems);
-  }).catch((error) => {
-    console.error(error);
-  });
+  useEffect(() => {
+    axios.get("http://localhost:8081/getSession", {
+      withCredentials: true,
+    }).then((res) => {
+      setNumeroItems(res.data.numberItems);
+    }).catch((error) => {
+      console.error(error);
+    });
+
+  }, []);
+
   habilitarTailwind()
   const [visibleCesta, setVisibleCesta] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

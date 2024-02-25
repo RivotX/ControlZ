@@ -10,6 +10,7 @@ import { login } from "./controllers/loginController.js";
 import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
 import { virtualAssistant } from "./controllers/Assistant.js";
 import { addAlimento, getDieta } from "./controllers/DietaController.js";
+import { modificar } from "./controllers/ModifyDatos.js";
 
 const app = express();
 app.use(express.json());
@@ -83,6 +84,9 @@ app.post("/saveRutina", async (req, res) => {
 });
 
 app.post("/registro", registro);
+
+
+app.post("/modificar", modificar);
 
 app.post("/ActualizarRutina", ActualizarRutina);
 

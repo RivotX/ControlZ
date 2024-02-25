@@ -29,6 +29,11 @@ const login = async (req, res) => {
         req.session.telefono = result[0].telefono;
         req.session.direccion = result[0].direccion;
         req.session.sexo = result[0].sexo;
+        req.session.edad = result[0].edad;
+        req.session.peso = result[0].peso;
+        req.session.altura = result[0].altura;
+        // req.session.sexo = result[0].actividadFisica;
+        // req.session.sexo = result[0].objetivo;
         req.session.numberItems = 0;
 
         console.log(req.session);
