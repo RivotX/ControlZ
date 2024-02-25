@@ -35,55 +35,52 @@ function Perfil() {
   const [modificado, setModificado] = useState(false);
 
 
-  useEffect(() => {
+  const ModificarDB = () => {
 
-    if (modificado) {
-
-
-      const values = {
-        nombre: nombre,
-        email: email,
-        telefono: Telefono,
-        direccion: direccion,
-        sexo: sexo,
-        edad: edad,
-        peso: peso,
-        altura: altura,
-        usuario: usuario
+    const values = {
+      nombre: nombre,
+      email: email,
+      telefono: Telefono,
+      direccion: direccion,
+      sexo: sexo,
+      edad: edad,
+      peso: peso,
+      altura: altura,
+      usuario: usuario
 
 
-      };
-      axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => console.error(err));
-        setModificado(false)
-    }
-  }, [nombre, email, Telefono, direccion, sexo, edad, peso, altura]);
+    };
+    axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.error(err));
+    setModificado(false)
+  }
+
 
   useEffect(() => {
     axios
-    .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
-    .then((res) => {
-      setUsuario(res.data.usuario);
-      setNombre(res.data.nombre);
-      setEmail(res.data.email);
-      setTelefono(res.data.telefono);
-      setDireccion(res.data.direccion);
-      setSexo(res.data.sexo);
-      setedad(res.data.edad);
-      setpeso(res.data.peso);
-      setaltura(res.data.altura);
-      // setOpcionActividadFisica(res.data.opcionActividadFisica);
-      // setopcionObjetivo(res.data.opcionObjetivo);
+      .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+      .then((res) => {
+        setUsuario(res.data.usuario);
+        setNombre(res.data.nombre);
+        setEmail(res.data.email);
+        setTelefono(res.data.telefono);
+        setDireccion(res.data.direccion);
+        setSexo(res.data.sexo);
+        setedad(res.data.edad);
+        setpeso(res.data.peso);
+        setaltura(res.data.altura);
+        // setOpcionActividadFisica(res.data.opcionActividadFisica);
+        // setopcionObjetivo(res.data.opcionObjetivo);
 
-      console.log(res);
-    })
-    .catch((err) => console.error(err));
+        console.log(res);
+      })
+      .catch((err) => console.error(err));
     console.log("hola");
   }, []);
-  
+
 
 
 
@@ -99,7 +96,7 @@ function Perfil() {
               <div className="mt-5 text-center card-body ">
                 <img
                   id="flecha"
-                  src={sexo==1 ? fotoHombre : fotoMujer}
+                  src={sexo == 1 ? fotoHombre : fotoMujer}
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: "150px" }}
@@ -180,12 +177,14 @@ function Perfil() {
                     Edad
                   </p>
                   <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
-                  value={edad}
-                  onInput={(e) => {setedad(e.target.value);}}
-                  onBlur={(e) => {
-                    setedad(e.target.value);
-                    setModificado(true);
-                  }}></input>
+                    value={edad}
+                    onInput={(e) => { setedad(e.target.value); }}
+                    onBlur={
+                      ModificarDB
+                    }
+                  >
+
+                  </input>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
@@ -193,12 +192,17 @@ function Perfil() {
                     Peso
                   </p>
                   <input className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="peso" placeholder="Kg"
-                  value={peso}
-                  onInput={(e) => {setpeso(e.target.value);}}
-                  onBlur={(e) => {
-                    setpeso(e.target.value);
-                    setModificado(true);
-                  }}></input>
+                    value={peso}
+                    onInput={(e) => {
+                      setpeso(e.target.value);
+                      console.log(peso)
+                    }}
+                    onBlur={
+                      ModificarDB
+                    }
+                  >
+
+                  </input>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
@@ -206,17 +210,18 @@ function Perfil() {
                     Altura
                   </p>
                   <input
-                  value={altura}
+                    value={altura}
                     className="mb-1 tw-ps-1 tw-border tw-rounded-lg tw-border-blue-300 tw-w-1/3"
                     type="number"
                     name="altura"
                     placeholder="Cm"
-                    onInput={(e) => {setaltura(e.target.value);}}
-                    onBlur={(e) => {
-                      setaltura(e.target.value);
-                      setModificado(true);
-                    }}
-                  ></input>                </div>
+                    onInput={(e) => { setaltura(e.target.value); }}
+                    onBlur={
+                      ModificarDB
+                    }
+                  >
+                  </input>
+                </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between">
                   <p className="tw-text-md tw-w-1/3 " >
@@ -246,7 +251,7 @@ function Perfil() {
                           onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
                         <label htmlFor="sexo" className="tw-ml-1">M</label>
                         <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo"
-                          onClick={(e) => { setSexo(e.target.value);  setModificado(true)}}></input>
+                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
                         <label htmlFor="sexo" className="tw-ml-1">F</label>
                       </>
                       : <>
@@ -254,7 +259,7 @@ function Perfil() {
                           onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
                         <label htmlFor="sexo" className="tw-ml-1">M</label>
                         <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo" defaultChecked
-                          onClick={(e) => { setSexo(e.target.value); setModificado(true)}}></input>
+                          onClick={(e) => { setSexo(e.target.value); setModificado(true) }}></input>
                         <label htmlFor="sexo" className="tw-ml-1">F</label>
                       </>
                     }</div>
