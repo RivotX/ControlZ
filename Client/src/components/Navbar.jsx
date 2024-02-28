@@ -8,7 +8,7 @@ import habilitarTailwind from "./habilitarTailwind";
 import axios from "axios";
 
 function Navbar({ linkHome }) {
-  const [numeroItems, setNumeroItems] = useState(1);
+  const [numeroItems, setNumeroItems] = useState(4);
 
   // useEffect(() => {
   //   axios.get("http://localhost:8081/getSession", {
