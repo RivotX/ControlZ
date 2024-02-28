@@ -347,15 +347,15 @@ function Perfil() {
                   </select>
                 </div>
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
-                  <p className="tw-text-md tw-w-1/3 " >
-                    Calorías
+                  <p className="tw-text-md tw-w-auto " >
+                    Objetivo de calorías
                   </p>
                   <h1 className=" tw-flex tw-justify-center  tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
                 </div>
 
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
-                  <p className="tw-text-md tw-w-1/3 " >
-                    Proteínas
+                  <p className="tw-text-md tw-w-auto " >
+                    Objetivo de Proteínas
                   </p>
                   <h1 className="mb-1 tw-flex tw-justify-center  tw-text-blue-500 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
                 </div>
