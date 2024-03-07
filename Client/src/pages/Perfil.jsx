@@ -140,8 +140,20 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    {nombre}
-                    {nombre && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                  {isEditing === 'nombre' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="nombre" placeholder="nombre"
+                        value={nombre}
+                        onInput={(e) => { setNombre(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
+                      />
+                    ) : (
+                     <>{nombre}</> 
+                    )}
+                    {nombre && <button onClick={() => setIsEditing('nombre')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -152,8 +164,20 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    {email}
-                    {email && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                  {isEditing === 'email' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="email" placeholder="email"
+                        value={email}
+                        onInput={(e) => { setEmail(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
+                      />
+                    ) : (
+                     <>{email}</> 
+                    )}
+                    {email && <button onClick={() => setIsEditing('email')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -164,8 +188,20 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    {Telefono}
-                    {Telefono && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                  {isEditing === 'Telefono' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="Telefono" placeholder="Telefono"
+                        value={Telefono}
+                        onInput={(e) => { setTelefono(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
+                      />
+                    ) : (
+                     <>{Telefono}</> 
+                    )}
+                    {Telefono && <button onClick={() => setIsEditing('Telefono')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -176,8 +212,20 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    {direccion}
-                    {direccion && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                  {isEditing === 'direccion' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="direccion" placeholder="direccion"
+                        value={direccion}
+                        onInput={(e) => { setDireccion(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
+                      />
+                    ) : (
+                     <>{direccion}</> 
+                    )}
+                    {direccion && <button onClick={() => setIsEditing('direccion')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
