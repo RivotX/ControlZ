@@ -13,6 +13,7 @@ import {
 } from "mdb-react-ui-kit";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Pen from "../components/General/pen";
 
 function Perfil() {
 
@@ -137,7 +138,7 @@ function Perfil() {
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
                     {nombre}
-                    {nombre && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto">✏</button>}
+                    {nombre && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -149,7 +150,7 @@ function Perfil() {
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
                     {email}
-                    {email && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto">✏</button>}
+                    {email && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -161,7 +162,7 @@ function Perfil() {
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
                     {Telefono}
-                    {Telefono && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto">✏</button>}
+                    {Telefono && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -173,7 +174,7 @@ function Perfil() {
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
                     {direccion}
-                    {direccion && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto">✏</button>}
+                    {direccion && <button className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -209,7 +210,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{edad}</h1>
                     )}
                   </div>
-                  {edad && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}>✏</button>}
+                  {edad && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen/></button>}
 
                 </div>
 
@@ -232,7 +233,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{peso}</h1>
                     )}
                   </div>
-                  {peso && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('peso')}>✏</button>}
+                  {peso && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('peso')}><Pen/></button>}
                 </div>
 
                 <div className="tw-w-full tw-flex mb-1">
@@ -254,7 +255,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{altura}</h1>
                     )}
                   </div>
-                  {altura && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('altura')}>✏</button>}
+                  {altura && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('altura')}><Pen/></button>}
                 </div>
 
 
