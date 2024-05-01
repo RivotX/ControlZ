@@ -2,7 +2,7 @@ import { db } from "../config/db.js";
 
 export const modificar = async (req, res) => {
     const consulta =
-        "UPDATE usuarios SET nombre = ?, email = ?, telefono = ?, direccion = ?, sexo = ?, edad = ?, peso = ?, altura = ? WHERE usuario=?;";
+        "UPDATE usuarios SET nombre = ?, email = ?, telefono = ?, direccion = ?, sexo = ?, edad = ?, peso = ?, altura = ?, actividadfisica = ?, objetivo = ? WHERE usuario=?;";
     const values = [
         req.body.nombre,
         req.body.email,
@@ -12,6 +12,8 @@ export const modificar = async (req, res) => {
         req.body.edad,
         req.body.peso,
         req.body.altura,
+        req.body.actividadfisica,
+        req.body.objetivo,
         req.body.usuario,
     ];
     const consultaSession = "SELECT * FROM usuarios WHERE email = ?";
@@ -52,6 +54,8 @@ export const modificar = async (req, res) => {
         req.session.edad = sacarsession[0].edad;
         req.session.peso = sacarsession[0].peso;
         req.session.altura = sacarsession[0].altura;
+        req.session.actividadfisica = sacarsession[0].actividadfisica;
+        req.session.objetivo = sacarsession[0].objetivo;
         req.session.numberItems = 0;
 
         // Enviar respuesta solo después de completar todas las operaciones

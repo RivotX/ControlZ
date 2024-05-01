@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import habilitarTailwind from "../components/habilitarTailwind";
 import "../styles/index.css"
+import { act } from "react";
 
 function Login() {
   habilitarTailwind()
@@ -31,6 +32,8 @@ function Login() {
     direccion: "",
     sexo: "",
     password2: "",
+    actividadfisica: 1,
+    objetivo: 1,
   });
 
   // Función para vaciar todos los campos
@@ -42,8 +45,10 @@ function Login() {
       email: "",
       telefono: "",
       direccion: "",
-      // sexo: "",
+      sexo: "",
       password2: "",
+      actividadfisica: 1,
+      objetivo: 1,
     });
   };
 

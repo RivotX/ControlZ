@@ -32,10 +32,11 @@ const login = async (req, res) => {
         req.session.edad = result[0].edad;
         req.session.peso = result[0].peso;
         req.session.altura = result[0].altura;
-        // req.session.sexo = result[0].actividadFisica;
-        // req.session.sexo = result[0].objetivo;
+        req.session.actividadfisica = result[0].actividadfisica;
+        req.session.objetivo = result[0].objetivo;
         req.session.numberItems = 0;
-
+        console.log("Actividad fisica", result[0].actividadfisica);
+        console.log("Objetivo", result[0].objetivo);
         console.log(req.session);
         return res.send({ status: "correcto", redirectTo: "/principal" });
       } else {

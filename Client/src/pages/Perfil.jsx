@@ -16,11 +16,7 @@ import { useEffect, useState } from "react";
 import Pen from "../components/General/pen";
 
 function Perfil() {
-
-
-
   const cambiarEstado = () => {
-    setOpcionSeleccionada(target.value);
   }
   const [usuario, setUsuario] = useState('');
   const [nombre, setNombre] = useState("");
@@ -33,11 +29,12 @@ function Perfil() {
   const [altura, setaltura] = useState(null);
   const [opcionActividadFisica, setOpcionActividadFisica] = useState(1);
   const [opcionObjetivo, setopcionObjetivo] = useState(1);
-  const [modificado, setModificado] = useState(false);
-
-
+  const [Guardado, setGuardado] = useState(true);
+  console.log("Objetivo", opcionObjetivo);
+  console.log("Actividad fisica", opcionActividadFisica);
+  
   const ModificarDB = () => {
-
+console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
     const values = {
       nombre: nombre,
       email: email,
@@ -47,19 +44,17 @@ function Perfil() {
       edad: edad,
       peso: peso,
       altura: altura,
-      usuario: usuario
-
-
+      usuario: usuario,
+      actividadfisica: opcionActividadFisica,
+      objetivo: opcionObjetivo,
     };
     axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
       .then((res) => {
         console.log(res);
       })
       .catch((err) => console.error(err));
-    setModificado(false)
+    
   }
-
-
   useEffect(() => {
     axios
       .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
@@ -73,15 +68,22 @@ function Perfil() {
         setedad(res.data.edad);
         setpeso(res.data.peso);
         setaltura(res.data.altura);
-        // setOpcionActividadFisica(res.data.opcionActividadFisica);
-        // setopcionObjetivo(res.data.opcionObjetivo);
-
+        setOpcionActividadFisica(res.data.actividadfisica);
+        setopcionObjetivo(res.data.objetivo);
         console.log(res);
       })
       .catch((err) => console.error(err));
     console.log("hola");
+    setGuardado(true);
   }, []);
   const [isEditing, setIsEditing] = useState('');
+
+  useEffect(() => {
+    if (!Guardado) {
+       ModificarDB()
+    }
+   
+  },[sexo,]);
 
 
 
@@ -314,7 +316,8 @@ function Perfil() {
                   <p className="tw-text-base tw-w-auto " >
                     Actividad Física
                   </p>
-                  <select defaultValue={opcionActividadFisica} className="tw-border tw-text-[15px] tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-auto form-select" name="actividadFisica" placeholder="..."
+                  {console.log("Actividad fisica estoy aqui", opcionActividadFisica)}
+                  <select value={opcionActividadFisica} className="tw-border tw-text-[15px] tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-auto form-select" name="actividadFisica" placeholder="..."
                     onChange={(e) => { setOpcionActividadFisica(e.target.value); }}
                     onBlur={() => { ModificarDB(); setIsEditing(''); }}
 
@@ -326,7 +329,7 @@ function Perfil() {
                     <option value='5'>Todos los días</option>
                   </select>
                 </div>
-
+                {(usuario ) && (
                 <div className="mb-1 tw-justify-between tw-flex tw-w-full tw-items-center">
                   <p className="tw-w-1/3 text-md">
                     Sexo
@@ -341,14 +344,14 @@ function Perfil() {
                           defaultChecked
                           onClick={(e) => {
                             setSexo(e.target.value)
-                            ModificarDB()
+                            setGuardado(false)
                           }}>
                         </input>
                         <label htmlFor="sexo" className="tw-ml-1">M</label>
                         <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo"
                           onClick={(e) => {
                             setSexo(e.target.value)
-                            ModificarDB()
+                            setGuardado(false)
                           }}>
                         </input>
                         <label htmlFor="sexo" className="tw-ml-1">F</label>
@@ -357,7 +360,6 @@ function Perfil() {
                         <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" name="sexo"
                           onClick={(e) => {
                             setSexo(e.target.value)
-                            ModificarDB()
                           }}>
                         </input>
                         <label htmlFor="sexo" className="tw-ml-1">M</label>
@@ -369,8 +371,9 @@ function Perfil() {
                         </input>
                         <label htmlFor="sexo" className="tw-ml-1">F</label>
                       </>
-                    }</div>
-                </div>
+                    }
+                    </div>
+                </div>)}
               </div>
             </div>
           </div>
@@ -387,8 +390,10 @@ function Perfil() {
                   <p className="tw-text-md tw-w-auto " >
                     objetivo
                   </p>
-                  <select defaultValue={opcionObjetivo} onChange={cambiarEstado} name="objetivo" className="tw-border tw-rounded-lg tw-text-[15px] tw-border-blue-300 tw-h-10 tw-text-center tw-w-auto form-select" placeholder="..."
-                  >
+                  <select value={opcionObjetivo} name="objetivo" className="tw-border tw-rounded-lg tw-text-[15px] tw-border-blue-300 tw-h-10 tw-text-center tw-w-auto form-select" placeholder="..."
+                    onChange={(e) => { setopcionObjetivo(e.target.value); }}
+                    onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                 >
                     <option value='1'>Seleccionar</option>
                     <option value='2'>Incremento de Masa Corporal</option>
                     <option value='3'>Reducción de Masa Corporal</option>

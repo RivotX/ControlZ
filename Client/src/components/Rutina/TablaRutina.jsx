@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Ejercicio from "./Ejercicio.jsx";
-import Plus from "../plus.jsx";
-import ModalEjercicio from "./ModalEjercicio.jsx";
+import React, { useEffect, useState } from "react";
 import LoginRequiredModal from "../LoginRequiredModal.jsx";
+import Plus from "../plus.jsx";
+import Ejercicio from "./Ejercicio.jsx";
+import ModalEjercicio from "./ModalEjercicio.jsx";
 
 
 const TablaRutina = () => {
@@ -194,8 +194,8 @@ const TablaRutina = () => {
             </svg>
           </button>
           <h1 className=" tw-text-2xl tw-font-semibold">
-            {" "}
-            {nombredias[diaVisible]}{" "}
+            
+            {nombredias[diaVisible]}
           </h1>
           <button
             className=" botonlados tw-m-4 tw-flex tw-h-10 tw-w-12 tw-items-center tw-justify-center tw-rounded-full tw-bg-slate-800 tw-text-center tw-font-semibold tw-text-white tw-shadow-sm tw-shadow-slate-400"
