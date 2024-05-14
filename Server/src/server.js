@@ -11,6 +11,8 @@ import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
 import { virtualAssistant } from "./controllers/Assistant.js";
 import { addAlimento, getDieta } from "./controllers/DietaController.js";
 import { modificar } from "./controllers/ModifyDatos.js";
+import { db } from "./config/db.js";
+
 
 const app = express();
 app.use(express.json());
@@ -34,6 +36,29 @@ app.use(
     saveUninitialized: true,
   })
 );
+var consultaDbCreate= "CREATE TABLE IF NOT EXISTS usuarios ( \
+  usuario VARCHAR(50), \
+  password VARCHAR(1000), \
+  nombre VARCHAR(100), \
+email VARCHAR(100), \
+  telefono VARCHAR(50), \
+  direccion VARCHAR(50), \
+  sexo TINYINT, \
+  edad INT, \
+  peso FLOAT, \
+  altura FLOAT, \
+  actividadfisica INT, \
+  objetivo INT \
+)";
+var drop= "DROP TABLE usuarios"
+
+db.query(consultaDbCreate, (error, results, fields) => {
+if (error) {
+  console.error('Error al ejecutar la consulta SQL:', error);
+} else {
+  console.log('Tabla Usada correctamente');
+}
+});
 
 //Mongoose mongodb base de datos rutina
 Mongoose.connect("mongodb://127.0.0.1:27017/rutina")

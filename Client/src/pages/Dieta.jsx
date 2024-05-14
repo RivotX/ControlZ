@@ -16,7 +16,7 @@ function Dieta() {
   const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
   const [Fecha, setFecha] = useState(formattedDate);
 
-  axios.get("http://localhost:8081/getSession", {
+  axios.get("http://188.165.254.184:8114/getSession", {
     withCredentials: true,
   }).then((res) => {
     setUsuario(res.data.usuario);

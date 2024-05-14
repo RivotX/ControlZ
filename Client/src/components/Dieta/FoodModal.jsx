@@ -19,7 +19,7 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
 
         setLoading(true);
         axios.post(
-            "http://localhost:8081/obtenerAlimento",
+            "http://188.165.254.184:8114/obtenerAlimento",
             { userInput: userInput, offset: offset },
         ).then(res => {
             console.log(res.data);

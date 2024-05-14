@@ -5,7 +5,6 @@ import logo from "../img/logo.png";
 import AsistenteVirtual from "./AsistenteVirtual";
 import CarritoCompra from "./CarritoCompra";
 import { useEffect, useState } from "react";
-import habilitarTailwind from "./habilitarTailwind";
 import axios from "axios";
 
 function Navbar({ linkHome }) {
@@ -13,7 +12,7 @@ function Navbar({ linkHome }) {
   const [usuarioSession, setUsuarioSession] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getSession", {
+    axios.get("http://188.165.254.184:8114/getSession", {
       withCredentials: true,
     }).then((res) => {
       setUsuarioSession(res.data.usuario);
@@ -24,7 +23,6 @@ function Navbar({ linkHome }) {
 
   }, []);
 
-  habilitarTailwind()
   const [visibleCesta, setVisibleCesta] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -33,7 +31,7 @@ function Navbar({ linkHome }) {
   };
 
   const cerrarSesion = () => {
-    axios.get("http://localhost:8081/logout", {
+    axios.get("http://188.165.254.184:8114/logout", {
       withCredentials: true,
     })
       

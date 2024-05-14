@@ -48,7 +48,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
       actividadfisica: opcionActividadFisica,
       objetivo: opcionObjetivo,
     };
-    axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
+    axios.post("http://188.165.254.184:8114/modificar", values, { withCredentials: true })
       .then((res) => {
         console.log(res);
       })
@@ -57,7 +57,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
   }
   useEffect(() => {
     axios
-      .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+      .get("http://188.165.254.184:8114/getSession", { withCredentials: true }) //envia values a "servidor/registro"
       .then((res) => {
         setUsuario(res.data.usuario);
         setNombre(res.data.nombre);

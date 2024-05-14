@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import habilitarTailwind from "../components/habilitarTailwind";
 import "../styles/index.css"
 import { act } from "react";
+import logoIcon from "../img/logoIcon.png";
 
 function Login() {
-  habilitarTailwind()
 
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
@@ -174,7 +173,7 @@ function Login() {
     IrInicioSesion();
 
     axios
-      .post("http://localhost:8081/registro", values) //envia values a "servidor/registro"
+      .post("http://188.165.254.184:8114/registro", values) //envia values a "servidor/registro"
       .then((res) => {
         console.log(res);
       })
@@ -186,7 +185,7 @@ function Login() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8081/existeregistro", values) //envia values a "servidor/registro"
+      .post("http://188.165.254.184:8114/existeregistro", values) //envia values a "servidor/registro"
       .then((ccc) => {
         console.log(ccc);
 
@@ -214,13 +213,13 @@ function Login() {
     event.preventDefault();
     axios
       .post(
-        "http://localhost:8081/login",
+        "http://188.165.254.184:8114/login",
         { usuario: values.usuario, password: values.password },
         { withCredentials: true },
       )
       .then((res) => {
         axios
-          .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+          .get("http://188.165.254.184:8114/getSession", { withCredentials: true }) //envia values a "servidor/registro"
           .then((res) => {
             console.log(res);
           })
@@ -250,7 +249,7 @@ function Login() {
         <nav className="tw-w-full tw-absolute tw-flex tw-justify-between tw-items-center tw-max-w-screen-2xl tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
           <a className="tw-w-1/2 tw-flex tw-text-white tw-items-center " href="#">
             <img
-              src="../src/img/logoicon.png"
+              src={logoIcon}
               alt="Logo"
               width="50"
               height="50"

@@ -29,7 +29,7 @@ function AsistenteVirtual() {
   const sendMessage = async () => {
     if (message.trim() === "") return;
     try {
-      const response = await axios.post("http://localhost:8081/assistant", { question: message });
+      const response = await axios.post("http://188.165.254.184:8114/assistant", { question: message });
       const answer = response.data.answer;
       // Actualizar el estado de la conversación
       setConversation(prevConversation => [

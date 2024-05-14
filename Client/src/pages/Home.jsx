@@ -23,7 +23,7 @@ function Home() {
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+    axios.get("http://188.165.254.184:8114/getSession", { withCredentials: true }) //envia values a "servidor/registro"
       .then((res) => {
         setNombreUsuario(res.data.usuario);
 

@@ -25,7 +25,7 @@ const Alimento = ({ producto, Horavalor, usuario, Fecha }) => {
 
     const addFood = () => {
 
-        axios.post('http://localhost:8081/AddAlimento', {
+        axios.post('http://188.165.254.184:8114/AddAlimento', {
 
             nombre: producto.nombre,
             Horavalor: Horavalor,
