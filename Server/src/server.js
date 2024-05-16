@@ -14,19 +14,21 @@ import { modificar } from "./controllers/ModifyDatos.js";
 import { db } from "./config/db.js";
 
 
-const app = express();
+
+
+
+const app = express()
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://controlz.kesug.com",
     credentials: true,
   })
 );
-
 app.use(
   session({
     key: "tu_clave_personalizada",
-    secret: "secreto",
+    secret: "ÑLKJHGFDSAMNBVCXZPOIUYTREWQ",
     cookie: {
       maxAge: 1000 * 60 * 60 * 24, // 1 día en milisegundos
       httpOnly: true,
@@ -36,6 +38,10 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+
+
+
 var consultaDbCreate= "CREATE TABLE IF NOT EXISTS usuarios ( \
   usuario VARCHAR(50), \
   password VARCHAR(1000), \
@@ -61,7 +67,8 @@ if (error) {
 });
 
 //Mongoose mongodb base de datos rutina
-Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
+const uri = process.env.DB_URI;
+Mongoose.connect(uri)
   .then(() => {
     console.log("Conexión exitosa a MongoDB");
   })
@@ -69,7 +76,7 @@ Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
     console.error("Error de conexión a MongoDB:", error);
   });
 
-app.listen(8081, () => {
+app.listen(8114, () => {
   console.log("servidor corriendo...");
 });
 
@@ -97,10 +104,9 @@ app.get("/logout", (req, res) => {
 
 app.get("/getSession", (req, res) => {
   console.log(req.session);
-
+    
   res.json(req.session);
 });
-
 app.use("/getrutina", getRutina);
 
 app.post("/saveRutina", async (req, res) => {
@@ -117,7 +123,9 @@ app.post("/ActualizarRutina", ActualizarRutina);
 
 app.post("/existeregistro", existeRegistro);
 
-app.post("/login", login);
+app.post("/login",login);
+
+
 
 app.post("/obtenerAlimento", async (req, res) => {
   try {
