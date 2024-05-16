@@ -50,14 +50,14 @@ const TablaRutina = () => {
   useEffect(() => {
     const obtenerRutina = async () => {
       try {
-        const resUsuario = await axios.get("http://188.165.254.184:8114/getSession", {
+        const resUsuario = await axios.get("http://localhost:8081/getSession", {
           withCredentials: true,
         });
         const usuario = { usuario: resUsuario.data.usuario };
         setUsuarioSession(resUsuario.data.usuario);
 
         const resRutina = await axios.post(
-          "http://188.165.254.184:8114/getrutina",
+          "http://localhost:8081/getrutina",
           usuario,
         );
 
@@ -90,7 +90,7 @@ const TablaRutina = () => {
     const actualizarRutina = async () => {
       try {
         const actualizar = await axios.post(
-          "http://188.165.254.184:8114/ActualizarRutina",
+          "http://localhost:8081/ActualizarRutina",
           { id: usuarioSession, rutinaNueva: rutina },
         );
 

@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @font-face {
   font-family: gym;
   src: url(font/SportCenter-DO9Od.ttf);
