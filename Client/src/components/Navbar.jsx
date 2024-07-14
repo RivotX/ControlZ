@@ -64,7 +64,7 @@ function Navbar({ linkHome }) {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="flipaa tw-me-5 tw-mt-4 tw-h-6 tw-w-6 tw-cursor-pointer tw-text-white hover:tw-fill-current hover:tw-tw-text-gray-400"
+                className="flipaa tw-me-5 tw-mt-4 tw-cursor-pointer tw-text-white hover:tw-fill-current hover:tw-tw-text-gray-400"
                 onClick={() => setVisibleCesta(true)}
               >
                 <path
