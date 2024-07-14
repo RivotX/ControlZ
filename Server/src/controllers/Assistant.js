@@ -24,11 +24,14 @@ export async function virtualAssistant(question) {
 
         // Extract the generated answer from the response
         const answer = response.choices[0].message.content
-
+        
         // Return the answer
         return answer;
     } catch (error) {
-        console.error('Error:', error);
-        return null;
+        if (error.status === 429) {
+            return "Your OpenAI API Key has reached its usage limit, please check your plan and billing details.";
+        }
+        // Manejo de otros errores
+        throw error;
     }
 }
