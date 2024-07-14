@@ -13,4 +13,4 @@ ControlZ is a fitness application designed to help you achieve your health goals
 
 ## Usage
 
-- Open your browser and navigate to `https://controlz.onrender.com`.
+- Open your browser and navigate to [https://controlz.onrender.com](https://controlz.onrender.com).
