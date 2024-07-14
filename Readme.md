@@ -2,7 +2,7 @@
 
 ## Description
 
-ControlZ is a comprehensive fitness application designed to help you achieve your health goals. With this app, you can effortlessly track your gym sessions, log your daily diet, and monitor your nutritional intake.
+ControlZ is a fitness application designed to help you achieve your health goals. With this app, you can effortlessly track your gym sessions, log your daily diet, and monitor your nutritional intake.
 
 ## Features
 
