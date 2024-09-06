@@ -16,8 +16,7 @@ import { useEffect, useState } from "react";
 import Pen from "../components/General/pen";
 
 function Perfil() {
-  const cambiarEstado = () => {
-  }
+
   const [usuario, setUsuario] = useState('');
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -30,11 +29,10 @@ function Perfil() {
   const [opcionActividadFisica, setOpcionActividadFisica] = useState(1);
   const [opcionObjetivo, setopcionObjetivo] = useState(1);
   const [Guardado, setGuardado] = useState(true);
-  console.log("Objetivo", opcionObjetivo);
-  console.log("Actividad fisica", opcionActividadFisica);
-  
+  const [ObjCalorias, setObjCalorias] = useState(null);
+  const [ObjProteinas, setObjProteinas] = useState(null);
+
   const ModificarDB = () => {
-console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
     const values = {
       nombre: nombre,
       email: email,
@@ -53,7 +51,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
         console.log(res);
       })
       .catch((err) => console.error(err));
-    
+
   }
   useEffect(() => {
     axios
@@ -80,10 +78,10 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
 
   useEffect(() => {
     if (!Guardado) {
-       ModificarDB()
+      ModificarDB()
     }
-   
-  },[sexo,]);
+
+  }, [sexo,]);
 
 
 
@@ -142,7 +140,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                  {isEditing === 'nombre' ? (
+                    {isEditing === 'nombre' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="nombre" placeholder="nombre"
                         value={nombre}
                         onInput={(e) => { setNombre(e.target.value); }}
@@ -153,9 +151,9 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                         }}
                       />
                     ) : (
-                     <>{nombre}</> 
+                      <>{nombre}</>
                     )}
-                    {nombre && <button onClick={() => setIsEditing('nombre')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                    {nombre && <button onClick={() => setIsEditing('nombre')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen /></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -166,7 +164,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                  {isEditing === 'email' ? (
+                    {isEditing === 'email' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="email" placeholder="email"
                         value={email}
                         onInput={(e) => { setEmail(e.target.value); }}
@@ -177,9 +175,9 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                         }}
                       />
                     ) : (
-                     <>{email}</> 
+                      <>{email}</>
                     )}
-                    {email && <button onClick={() => setIsEditing('email')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                    {email && <button onClick={() => setIsEditing('email')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen /></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -190,7 +188,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                  {isEditing === 'Telefono' ? (
+                    {isEditing === 'Telefono' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="Telefono" placeholder="Telefono"
                         value={Telefono}
                         onInput={(e) => { setTelefono(e.target.value); }}
@@ -201,9 +199,9 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                         }}
                       />
                     ) : (
-                     <>{Telefono}</> 
+                      <>{Telefono}</>
                     )}
-                    {Telefono && <button onClick={() => setIsEditing('Telefono')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                    {Telefono && <button onClick={() => setIsEditing('Telefono')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen /></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -214,7 +212,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                  {isEditing === 'direccion' ? (
+                    {isEditing === 'direccion' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="direccion" placeholder="direccion"
                         value={direccion}
                         onInput={(e) => { setDireccion(e.target.value); }}
@@ -225,9 +223,9 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                         }}
                       />
                     ) : (
-                     <>{direccion}</> 
+                      <>{direccion}</>
                     )}
-                    {direccion && <button onClick={() => setIsEditing('direccion')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen/></button>}
+                    {direccion && <button onClick={() => setIsEditing('direccion')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen /></button>}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -263,7 +261,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{edad}</h1>
                     )}
                   </div>
-                  {edad && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen/></button>}
+                  {edad && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen /></button>}
 
                 </div>
 
@@ -286,7 +284,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{peso}</h1>
                     )}
                   </div>
-                  {peso && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('peso')}><Pen/></button>}
+                  {peso && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('peso')}><Pen /></button>}
                 </div>
 
                 <div className="tw-w-full tw-flex mb-1">
@@ -308,7 +306,7 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{altura}</h1>
                     )}
                   </div>
-                  {altura && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('altura')}><Pen/></button>}
+                  {altura && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('altura')}><Pen /></button>}
                 </div>
 
 
@@ -329,51 +327,51 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                     <option value='5'>Todos los días</option>
                   </select>
                 </div>
-                {(usuario ) && (
-                <div className="mb-1 tw-justify-between tw-flex tw-w-full tw-items-center">
-                  <p className="tw-w-1/3 text-md">
-                    Sexo
-                  </p>
-                  <div className="inline-flex tw-items-center tw-justify-between">
-                    {sexo == 1 ?
-                      <>
-                        <input
-                          className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio"
-                          value="1"
-                          name="sexo"
-                          defaultChecked
-                          onClick={(e) => {
-                            setSexo(e.target.value)
-                            setGuardado(false)
-                          }}>
-                        </input>
-                        <label htmlFor="sexo" className="tw-ml-1">M</label>
-                        <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo"
-                          onClick={(e) => {
-                            setSexo(e.target.value)
-                            setGuardado(false)
-                          }}>
-                        </input>
-                        <label htmlFor="sexo" className="tw-ml-1">F</label>
-                      </>
-                      : <>
-                        <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" name="sexo"
-                          onClick={(e) => {
-                            setSexo(e.target.value)
-                          }}>
-                        </input>
-                        <label htmlFor="sexo" className="tw-ml-1">M</label>
-                        <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo" defaultChecked
-                          onClick={(e) => {
-                            setSexo(e.target.value)
-                            ModificarDB()
-                          }}>
-                        </input>
-                        <label htmlFor="sexo" className="tw-ml-1">F</label>
-                      </>
-                    }
+                {(usuario) && (
+                  <div className="mb-1 tw-justify-between tw-flex tw-w-full tw-items-center">
+                    <p className="tw-w-1/3 text-md">
+                      Sexo
+                    </p>
+                    <div className="inline-flex tw-items-center tw-justify-between">
+                      {sexo == 1 ?
+                        <>
+                          <input
+                            className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio"
+                            value="1"
+                            name="sexo"
+                            defaultChecked
+                            onClick={(e) => {
+                              setSexo(e.target.value)
+                              setGuardado(false)
+                            }}>
+                          </input>
+                          <label htmlFor="sexo" className="tw-ml-1">M</label>
+                          <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo"
+                            onClick={(e) => {
+                              setSexo(e.target.value)
+                              setGuardado(false)
+                            }}>
+                          </input>
+                          <label htmlFor="sexo" className="tw-ml-1">F</label>
+                        </>
+                        : <>
+                          <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" name="sexo"
+                            onClick={(e) => {
+                              setSexo(e.target.value)
+                            }}>
+                          </input>
+                          <label htmlFor="sexo" className="tw-ml-1">M</label>
+                          <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" name="sexo" defaultChecked
+                            onClick={(e) => {
+                              setSexo(e.target.value)
+                              ModificarDB()
+                            }}>
+                          </input>
+                          <label htmlFor="sexo" className="tw-ml-1">F</label>
+                        </>
+                      }
                     </div>
-                </div>)}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -393,28 +391,56 @@ console.log("modificandoOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                   <select value={opcionObjetivo} name="objetivo" className="tw-border tw-rounded-lg tw-text-[15px] tw-border-blue-300 tw-h-10 tw-text-center tw-w-auto form-select" placeholder="..."
                     onChange={(e) => { setopcionObjetivo(e.target.value); }}
                     onBlur={() => { ModificarDB(); setIsEditing(''); }}
-                 >
+                  >
                     <option value='1'>Seleccionar</option>
                     <option value='2'>Incremento de Masa Corporal</option>
                     <option value='3'>Reducción de Masa Corporal</option>
                     <option value='4'>Recomposición Corporal</option>
                   </select>
                 </div>
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
-                  <p className="tw-text-md tw-w-auto " >
-                    Objetivo de calorías
-                  </p>
-                  <h1 className=" tw-flex tw-justify-center  tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">967</h1>
+                <div className="tw-w-full tw-flex mb-1 ">
+                  <div className="tw-flex tw-w-full tw-justify-between tw-items-center ">
+                    <p className="tw-text-md tw-w-1/3 " >
+                      Objetivo de calorías
+                    </p>
+                    {isEditing === 'ObjCalorias' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
+                        value={ObjCalorias}
+                        onInput={(e) => { setedad(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
+                      />
+                    ) : (
+                      <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjCalorias}</h1>
+                    )}
+                  </div>
+                  {ObjCalorias && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen /></button>}
+
                 </div>
 
-                <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
-                  <p className="tw-text-md tw-w-auto " >
-                    Objetivo de Proteínas
-                  </p>
-                  <h1 className="mb-1 tw-flex tw-justify-center  tw-text-blue-500 tw-text-center tw-w-1/3 tw-font-medium" type="number" name="">592</h1>
+                <div className="tw-w-full tw-flex mb-1 ">
+                  <div className="tw-flex tw-w-full tw-justify-between tw-items-center ">
+                    <p className="tw-text-md tw-w-1/3">
+                      Objetivo de Proteinas
+                    </p>
+                    {isEditing === 'ObjProteinas' ? (
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="ObjProteinas" placeholder="calorias"
+                        value={ObjProteinas}
+                        onInput={(e) => { setObjCalorias(e.target.value); }}
+                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
+                          if (e.key === 'Escape') { setIsEditing(''); }
+                        }}
+                      />
+                    ) : (
+                      <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjProteinas}</h1>)}
+                  </div>
+                  {ObjProteinas && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjProteinas')}><Pen /></button>}
                 </div>
-
-
               </div>
             </div>
           </div>
