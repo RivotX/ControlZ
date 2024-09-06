@@ -52,11 +52,11 @@ function Navbar({ linkHome }) {
           <div className="tw-flex md:tw-order-2 tw-space-x-3 md:tw-space-x-0 rtl:tw-space-x-reverse tw-items-center">
             <div className="tw-relative tw-bottom-1">
               <div className="tw-absolute tw-left-3 tw-top-0">
-                {/* {numeroItems !== 0 && ( */}
-                <p className="tw-flex tw-h-2 tw-w-2 tw-items-center tw-justify-center tw-rounded-full tw-bg-red-500 tw-p-3 tw-text-xs tw-text-white tw-pointer-events-none">
-                  {numeroItems}
-                </p>
-                {/* )} */}
+                {numeroItems !== 0 && (
+                  <p className="tw-flex tw-h-2 tw-w-2 tw-items-center tw-justify-center tw-rounded-full tw-bg-red-500 tw-p-3 tw-text-xs tw-text-white tw-pointer-events-none">
+                    {numeroItems}
+                  </p>
+                )}
               </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ function Navbar({ linkHome }) {
         </div>
         <div className="tw-absolute "></div>
         {/* Renderizar cesta */}
-        <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} />
+        <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} setNumeroItems={setNumeroItems} />
       </nav>
       {!visibleCesta && (
         <AsistenteVirtual />
