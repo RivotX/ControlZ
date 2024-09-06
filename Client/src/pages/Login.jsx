@@ -34,6 +34,8 @@ function Login() {
     password2: "",
     actividadfisica: 1,
     objetivo: 1,
+    ObjProteinas: 0,
+    ObjCalorias: 0,
   });
 
   // Función para vaciar todos los campos
@@ -49,6 +51,8 @@ function Login() {
       password2: "",
       actividadfisica: 1,
       objetivo: 1,
+      ObjProteinas: 0,
+      ObjCalorias: 0,
     });
   };
 

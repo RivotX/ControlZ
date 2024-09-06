@@ -1,8 +1,9 @@
 export default Principal;
 
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import { useRef } from "react";
 import 'animate.css';
+import logo from "../img/logoIcon.png";
 
 
 function Principal() {
@@ -38,10 +39,8 @@ function Principal() {
 
       <div className="d-flex justify-content-center align-items-center kkk">
         <div className="logo-container animate__animated animate__backInDown ">
-          <a href="perfil">
-            <div id="logo" className="logo">
-              <div></div>
-            </div>
+          <a href="perfil" className="d-flex justify-content-center align-items-center">
+            <img id="logo" className="logo" src={logo} alt="Logo" />
           </a>
         </div>
       </div>
