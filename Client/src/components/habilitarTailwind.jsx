@@ -1,15 +1,15 @@
 const habilitarTailwind = () => {
-    const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
-    if (!existingLink) {
-        const head = document.head;
-        const link = document.createElement('link');
+  const existingLink = document.querySelector('link[href="/src/styles/TiendaTailwind.css"]');
+  if (!existingLink) {
+    const head = document.head;
+    const link = document.createElement('link');
 
-        link.type = 'text/css';
-        link.rel = 'stylesheet';
-        link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.href = '/src/styles/TiendaTailwind.css'; // Ruta a tu archivo CSS de Tailwind
 
-        head.appendChild(link);
-    }
+    head.appendChild(link);
+  }
 
 };
 

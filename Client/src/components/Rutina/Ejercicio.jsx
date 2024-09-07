@@ -18,9 +18,8 @@ const Ejercicio = ({
     <>
       {!vacio ? (
         <div
-          className={`cadaEjercicio tw-flex tw-h-1/4 tw-w-full tw-flex-wrap tw-border-gray-400 tw-p-5 ${
-            last ? "" : "tw-border-b"
-          }`}
+          className={`cadaEjercicio tw-flex tw-h-1/4 tw-w-full tw-flex-wrap tw-border-gray-400 tw-p-5 ${last ? "" : "tw-border-b"
+            }`}
         >
           <div className="gap-2 tw-flex tw-w-full tw-items-center">
             <img src={pesaimg} className="tw-w-1/6" alt="Comida" />
@@ -34,7 +33,7 @@ const Ejercicio = ({
                 </span>
               </div>
 
-              <div className="botoneditar  tw-w-2/12" onClick={()=>{editar(idEditar)}}>
+              <div className="botoneditar  tw-w-2/12" onClick={() => { editar(idEditar) }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -51,7 +50,7 @@ const Ejercicio = ({
                 </svg>
               </div>
               <div className="botoncerrar  tw-w-2/12" onClick={eliminar}>
-                <Close/>
+                <Close />
               </div>
             </div>
           </div>

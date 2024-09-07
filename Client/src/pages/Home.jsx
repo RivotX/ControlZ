@@ -22,7 +22,7 @@ function Home() {
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+    axios.get("https://serverc-4y5e.onrender.com/getSession", { withCredentials: true }) //envia values a "servidor/registro"
       .then((res) => {
         setNombreUsuario(res.data.usuario);
       })
@@ -98,7 +98,7 @@ function Home() {
                 <h1 className="titulobienvenidagym fw-semibold">Servicios</h1>
               </div>
             </div>
-            <div className="container mx-auto d-flex align-items-center justify-content-center">
+            <div className="container mx-auto d-flex align-items-center justify-content-center ">
               <div className="card-group tw-flex tw-justify-center">
                 <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4 g-4 col-xl-12 col-lg-9 ">
                   <CartasFeatures imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales y tu progreso gracias a la ayuda que ControlZ te brinda en el día a día."
@@ -112,7 +112,7 @@ function Home() {
                       "Crea, modifica y sigue tu dieta a través de nuestra calculadora de macronutrientes para poder cumplir tus objetivos."
                     }
                     link={"dieta"}
-                  />{" "}
+                  />
                   <CartasFeatures
                     imagen={fototiendaserv}
                     titulo={"Tienda"}

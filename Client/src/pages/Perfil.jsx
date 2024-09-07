@@ -50,15 +50,16 @@ function Perfil() {
       ObjProteinas: ObjProteinas,
       ObjCalorias: ObjCalorias,
     };
-    axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
+    axios.post("https://serverc-4y5e.onrender.com/modificar", values, { withCredentials: true })
       .then((res) => {
+        console.log(res.data);
       })
       .catch((err) => console.error(err));
 
   }
   useEffect(() => {
     axios
-      .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+      .get("https://serverc-4y5e.onrender.com/getSession", { withCredentials: true })
       .then((res) => {
         setUsuario(res.data.usuario);
         setNombre(res.data.nombre);
@@ -419,7 +420,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjCalorias}</h1>
                     )}
                   </div>
-                  {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjCalorias')}><Pen /></button>}
+                  {usuario && (<button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjCalorias')}><Pen /></button>)}
                 </div>
 
                 <div className="tw-w-full tw-flex mb-1 ">
@@ -440,7 +441,7 @@ function Perfil() {
                     ) : (
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjProteinas}</h1>)}
                   </div>
-                  {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjProteinas')}><Pen /></button>}
+                  {usuario && (<button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjProteinas')}><Pen /></button>)}
                 </div>
               </div>
             </div>

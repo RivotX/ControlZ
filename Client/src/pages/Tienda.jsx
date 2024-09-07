@@ -43,132 +43,129 @@ function Tienda() {
     <>
       <div className="tw-min-h-screen tw-pt-[4.87rem] tw-bg-gradient-to-b tw-from-[#292929] tw-to-[#0d0d0d] tw-to-60%" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"/"} />
-
         <div className="tw-p-2 tw-mb-8 tw-flex tw-flex-wrap tw-gap-4 tw-mt-1 tw-justify-center sm:tw-mx-4"> {/* tw-grid md:tw-grid-cols-3 xl:tw-grid-cols-4*/}
-
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
-            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante ",
+            descripcion: "¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate!",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: proteinaPolvo
           })}
-            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Proteina en polvo"} descripcion={"¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate!"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
 
           />
           <Producto img={barraProteina} onClick={() => AbrirModal({
             nombre: "Barrita de Proteina",
-            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto",
+            descripcion: "Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra.",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: barraProteina
           })}
-            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Barrita de Proteina"} descripcion={"Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra."} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
-            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante ",
+            descripcion: "¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate! ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: proteinaPolvo
           })}
-            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Proteina en polvo"} descripcion={"¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate!"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={barraProteina} onClick={() => AbrirModal({
             nombre: "Barrita de Proteina",
-            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto",
+            descripcion: "Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra.",
             precio: "20",
             precioScam: "25",
             descuento: "20%",
             img: barraProteina
 
           })}
-            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Barrita de Proteina"} descripcion={"Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra."} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={barraProteina} onClick={() => AbrirModal({
             nombre: "Barrita de Proteina",
-            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto",
+            descripcion: "Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra.",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: barraProteina
           })}
-            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Barrita de Proteina"} descripcion={"Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra."} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
-            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante ",
+            descripcion: "¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate!. ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: proteinaPolvo
           })}
-            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Proteina en polvo"} descripcion={"¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate! "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={barraProteina} onClick={() => AbrirModal({
             nombre: "Barrita de Proteina",
-            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto",
+            descripcion: "Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra. ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: barraProteina
           })}
-            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Barrita de Proteina"} descripcion={"Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra. "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
-            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante ",
+            descripcion: "¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate! ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: proteinaPolvo
           })}
-            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Proteina en polvo"} descripcion={"¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate!"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={barraProteina} onClick={() => AbrirModal({
             nombre: "Barrita de Proteina",
-            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto",
+            descripcion: "Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra. ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: barraProteina
           })}
-            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Barrita de Proteina"} descripcion={"Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra. "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
-            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante ",
+            descripcion: "¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate!  ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: proteinaPolvo
           })}
-            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Proteina en polvo"} descripcion={"¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate! "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={barraProteina} onClick={() => AbrirModal({
             nombre: "Barrita de Proteina",
-            descripcion: "El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto",
+            descripcion: "Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra. ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: barraProteina
           })}
-            nombre={"Barrita de Proteina"} descripcion={"El sabor de esta increible barrita proteica hará que te cagues en los pantalones es increible flipante de sabor fliparas seguro =) texto"} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Barrita de Proteina"} descripcion={"Descubre la combinación perfecta de sabor y nutrición con la Barra de Proteína FitBar sabor Vainilla y Almendra. "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
           <Producto img={proteinaPolvo} onClick={() => AbrirModal({
             nombre: "Proteina en polvo",
-            descripcion: "Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante ",
+            descripcion: "¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate! ",
             precio: "20€",
             precioScam: "25€",
             descuento: "20%",
             img: proteinaPolvo
           })}
-            nombre={"Proteina en polvo"} descripcion={"Fliparás en colores con el colocón de las proteinas que te haran estar como arnold sauagseingneinger rico rico rico flipas que rico esta flipante "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
+            nombre={"Proteina en polvo"} descripcion={"¡Lleva tu nutrición al siguiente nivel con la Proteína en Polvo Whey Pro sabor Chocolate! "} precio={"20€"} precioScam={"25€"} descuento={"20%"}
           />
-
 
         </div>
         {/* Renderizar el modal */}
@@ -178,13 +175,8 @@ function Tienda() {
             closeModal={CerrarModal}
           />
         )}
-
-
-
         <Footer />
       </div>
-
-
     </>
   )
 }

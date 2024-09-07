@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import habilitarTailwind from "../components/habilitarTailwind";
 import "../styles/index.css"
 import { act } from "react";
+import logoIcon from "../img/logoIcon.png";
 
 function Login() {
-  habilitarTailwind()
 
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
@@ -21,7 +20,7 @@ function Login() {
       window.removeEventListener('resize', actualizarAnchoVentana);
     };
   }, []);
-
+  axios.defaults.withCredentials = true;
 
   const [values, setValues] = useState({
     usuario: "",
@@ -69,6 +68,7 @@ function Login() {
   const [showErrorRegistro, setshowErrorRegistro] = useState(false);
   const [showMensajeInicio, setshowMensajeInicio] = useState(false);
   const [showMensajeNoExiste, setshowMensajeNoExiste] = useState(false);
+  const [animacion, setanimacion] = useState("");
 
 
   const btnComenzar = () => {
@@ -178,7 +178,7 @@ function Login() {
     IrInicioSesion();
 
     axios
-      .post("http://localhost:8081/registro", values) //envia values a "servidor/registro"
+      .post("https://serverc-4y5e.onrender.com/registro", values) //envia values a "servidor/registro"
       .then((res) => {
         console.log(res);
       })
@@ -190,7 +190,7 @@ function Login() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8081/existeregistro", values) //envia values a "servidor/registro"
+      .post("https://serverc-4y5e.onrender.com/existeregistro", values) //envia values a "servidor/registro"
       .then((ccc) => {
         console.log(ccc);
 
@@ -218,13 +218,13 @@ function Login() {
     event.preventDefault();
     axios
       .post(
-        "http://localhost:8081/login",
+        "https://serverc-4y5e.onrender.com/login",
         { usuario: values.usuario, password: values.password },
         { withCredentials: true },
       )
       .then((res) => {
         axios
-          .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+          .get("https://serverc-4y5e.onrender.com/getSession", { withCredentials: true }) //envia values a "servidor/registro"
           .then((res) => {
             console.log(res);
           })
@@ -237,11 +237,29 @@ function Login() {
           res.request.response == '{"Error":"Contraseña incorrecta"}'
         ) {
           setshowMensajeNoExiste(false);
-          setshowMensajeInicio(true);
+          if (!showMensajeInicio) {
+            setshowMensajeInicio(true);
+          } else {
+
+            setanimacion("animate__animated animate__headShake")
+            setTimeout(() => {
+              setanimacion("")
+            }, 1000);
+          }
+
         } else {
           console.log("entro al 201");
           setshowMensajeInicio(false);
-          setshowMensajeNoExiste(true);
+
+          if (!showMensajeNoExiste) {
+            setshowMensajeNoExiste(true);
+          } else {
+
+            setanimacion("animate__animated animate__headShake")
+            setTimeout(() => {
+              setanimacion("")
+            }, 1000);
+          }
         }
       })
       .catch((err) => console.log(err));
@@ -252,9 +270,9 @@ function Login() {
       {/* Navbar  */}
       <div className="tw-flex tw-justify-center">
         <nav className="tw-w-full tw-absolute tw-flex tw-justify-between tw-items-center tw-max-w-screen-2xl tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
-          <a className="tw-w-1/2 tw-flex tw-text-white tw-items-center " href="#">
+          <a className="tw-w-1/2 tw-flex tw-text-white tw-items-center " href="/">
             <img
-              src="../src/img/logoicon.png"
+              src={logoIcon}
               alt="Logo"
               width="50"
               height="50"
@@ -310,7 +328,7 @@ function Login() {
               <a
                 className=""
                 style={{ backgroundColor: "#ffe60000" }}
-                href="https://www.instagram.com/miguerosso_/"
+                href="https://www.instagram.com/"
                 role="button"
                 target="_blank"
               >
@@ -448,7 +466,7 @@ function Login() {
                 </div>
                 <p
                   id="mensajeConstraseñaincorrectaInicio"
-                  className="text-danger position-absolute"
+                  className={`${animacion} text-danger position-absolute`}
                   style={{
                     display: showMensajeInicio ? "block" : "none",
                     height: "10px",
@@ -459,7 +477,7 @@ function Login() {
 
                 <p
                   id="mensajeConstraseñaincorrectaInicio"
-                  className="text-danger position-absolute"
+                  className={`${animacion} text-danger position-absolute`}
                   style={{
                     display: showMensajeNoExiste ? "block" : "none",
                     height: "10px",
@@ -728,9 +746,9 @@ function Login() {
                 <div className="tw-text-white tw-py-5 tw-text-md lg:tw-text-xl tw-justify-between tw-flex tw-w-full">
                   <h3 className="">Sexo</h3>
                   <div className="inline-flex tw-items-center">
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" onClick={(e)=>{setValues({ ...values, sexo: e.target.value })}} name="sexo"></input>
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" onClick={(e) => { setValues({ ...values, sexo: e.target.value }) }} name="sexo"></input>
                     <label htmlFor="sexo" className="tw-ml-1">M</label>
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" onClick={(e)=>{setValues({ ...values, sexo: e.target.value })}} name="sexo"></input>
+                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" onClick={(e) => { setValues({ ...values, sexo: e.target.value }) }} name="sexo"></input>
                     <label htmlFor="sexo" className="tw-ml-1">F</label>
                   </div>
                 </div>

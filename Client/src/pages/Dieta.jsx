@@ -18,7 +18,7 @@ function Dieta() {
   const [ObjProteinas, setObjProteinas] = useState(100);
   const [ObjCalorias, setObjCalorias] = useState(2100);
 
-  axios.get("http://localhost:8081/getSession", {
+  axios.get("https://serverc-4y5e.onrender.com/getSession", {
     withCredentials: true,
   }).then((res) => {
     setUsuario(res.data.usuario);
@@ -32,7 +32,6 @@ function Dieta() {
     console.error(error);
   });
 
-  console.log("usuario", usuario);
   const [ShowFoodModal, SetShowFoodModal] = useState(false);
   //proteinas
   const [proteinConsumed, setProteinConsumed] = useState(0);
@@ -144,6 +143,7 @@ function Dieta() {
 
   return (
     <>
+
       <div className="tw-min-h-screen  tw-bg-[#0d0d0d] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
 
 
@@ -179,9 +179,7 @@ function Dieta() {
                     <p className="tw-w-full tw-flex tw-justify-center tw-font-bold lg:tw-text-lg"><span>{ObjCalorias}</span></p>
                     <p className="tw-w-full tw-flex tw-justify-center lg:tw-text-lg"><span className="">Objetivo</span></p>
                   </div>
-
                 </div>
-
               </div>
               <div className="tw-w-full tw-flex tw-justify-center lg:tw-pr-[10%]">
                 <div className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 ">

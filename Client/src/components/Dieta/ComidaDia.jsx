@@ -25,7 +25,7 @@ const Desayuno = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, upd
 
   useEffect(() => {
 
-    axios.post('http://localhost:8081/getDieta/', { id: usuario })
+    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida DESAYUNO:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].desayuno && res.data.dias[Fecha].desayuno.length > 0) {
@@ -127,7 +127,7 @@ const Almuerzo = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, upd
 
   useEffect(() => {
 
-    axios.post('http://localhost:8081/getDieta/', { id: usuario })
+    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida ALMUERZO:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].almuerzo && res.data.dias[Fecha].almuerzo.length > 0) {
@@ -161,7 +161,7 @@ const Almuerzo = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, upd
   return (
     <div className={`tw-border-gray-400 tw-w-full tw-flex tw-flex-wrap tw-h-1/4 lg:tw-items-start  lg:tw-border-b-0 lg:tw-h-full ${last ? "" : "tw-border-b lg:tw-border-r-2"}`}>
       <div className="tw-gap-2 tw-w-full tw-flex tw-items-center lg:tw-flex-col lg:tw-justify-center lg:tw-px-5">
-        <div className="tw-w-[19%] sm:tw-w-[12%] lg:tw-w-full lg:tw-flex lg:tw-justify-center lg:tw-items-center tw-gap-[10%]  lg:tw-border-b tw-border-gray-400">
+        <div className="tw-w-[19%] sm:tw-w-[12%] lg:tw-w-full lg:tw-flex lg:tw-justify-center lg:tw-items-center tw-gap-[10%]  lg:tw-border-b tw-border-gray-400 lg:tw-pb-1">
           <div className="lg:tw-flex tw-flex-wrap tw-w-full " >
             <span className="tw-hidden lg:tw-block tw-text-lg tw-font-bold lg:tw-w-full lg:tw-text-center">{nombre}</span>
             <span className="tw-w-full tw-text-xs sm:tw-text-base tw-hidden lg:tw-block lg:tw-w-full lg:tw-text-center">({Math.round(calorias)} kcal)</span>
@@ -227,7 +227,7 @@ const Cena = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, updateP
   }, [caloriasConsumed]);
 
   useEffect(() => {
-    axios.post('http://localhost:8081/getDieta/', { id: usuario })
+    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida CENA:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].cena && res.data.dias[Fecha].cena.length > 0) {
@@ -328,7 +328,7 @@ const Extra = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, update
 
   useEffect(() => {
 
-    axios.post('http://localhost:8081/getDieta/', { id: usuario })
+    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida EXTRA:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].extra && res.data.dias[Fecha].extra.length > 0) {

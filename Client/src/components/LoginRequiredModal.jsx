@@ -28,7 +28,7 @@ const LoginRequiredModal = () => {
               <span className="tw-font-medium">Necesitas iniciar sesion para poder utilizar esta funcionalidad </span>⚠️
             </div>
           </div>
-          <a href='/login' className='tw-mt-[5%] tw-bg-sky-400 tw-font-medium tw-transition-all hover:tw-brightness-90 hover:tw-scale-105 tw-rounded-md tw-tex tw-p-2 '>Loguearse </a>
+          <a href='/login' className='tw-mt-[5%] tw-bg-sky-400 tw-font-medium tw-transition-all hover:tw-brightness-90 hover:tw-scale-105 tw-rounded-md tw-tex tw-p-2 '>iniciar sesion </a>
 
         </div>
       </div>
