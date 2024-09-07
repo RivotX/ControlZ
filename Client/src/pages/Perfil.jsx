@@ -73,6 +73,7 @@ function Perfil() {
         setopcionObjetivo(res.data.objetivo);
         setObjProteinas(res.data.ObjProteinas);
         setObjCalorias(res.data.ObjCalorias);
+        console.log("sesion", res.data);
       })
       .catch((err) => console.error(err));
     setGuardado(true);
