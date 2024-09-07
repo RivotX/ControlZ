@@ -18,7 +18,7 @@ function Dieta() {
   const [ObjProteinas, setObjProteinas] = useState(100);
   const [ObjCalorias, setObjCalorias] = useState(2100);
 
-  axios.get("https://serverc-4y5e.onrender.com/getSession", {
+  axios.get("http://localhost:8081/getSession", {
     withCredentials: true,
   }).then((res) => {
     setUsuario(res.data.usuario);

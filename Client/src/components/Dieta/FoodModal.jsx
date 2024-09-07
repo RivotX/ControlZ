@@ -16,7 +16,7 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
 
     setLoading(true);
     axios.post(
-      "https://serverc-4y5e.onrender.com/obtenerAlimento",
+      "http://localhost:8081/obtenerAlimento",
       { userInput: userInput, offset: page * 5 },
     ).then(res => {
       console.log(res.data);

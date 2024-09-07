@@ -25,7 +25,7 @@ const Desayuno = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, upd
 
   useEffect(() => {
 
-    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida DESAYUNO:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].desayuno && res.data.dias[Fecha].desayuno.length > 0) {
@@ -127,7 +127,7 @@ const Almuerzo = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, upd
 
   useEffect(() => {
 
-    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida ALMUERZO:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].almuerzo && res.data.dias[Fecha].almuerzo.length > 0) {
@@ -227,7 +227,7 @@ const Cena = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, updateP
   }, [caloriasConsumed]);
 
   useEffect(() => {
-    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida CENA:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].cena && res.data.dias[Fecha].cena.length > 0) {
@@ -328,7 +328,7 @@ const Extra = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, update
 
   useEffect(() => {
 
-    axios.post('https://serverc-4y5e.onrender.com/getDieta/', { id: usuario })
+    axios.post('http://localhost:8081/getDieta/', { id: usuario })
       .then((res) => {
         console.log("Dieta obtenida EXTRA:", res);
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].extra && res.data.dias[Fecha].extra.length > 0) {

@@ -50,7 +50,7 @@ function Perfil() {
       ObjProteinas: ObjProteinas,
       ObjCalorias: ObjCalorias,
     };
-    axios.post("https://serverc-4y5e.onrender.com/modificar", values, { withCredentials: true })
+    axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
       .then((res) => {
         console.log(res.data);
       })
@@ -59,7 +59,7 @@ function Perfil() {
   }
   useEffect(() => {
     axios
-      .get("https://serverc-4y5e.onrender.com/getSession", { withCredentials: true })
+      .get("http://localhost:8081/getSession", { withCredentials: true })
       .then((res) => {
         setUsuario(res.data.usuario);
         setNombre(res.data.nombre);

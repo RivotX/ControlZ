@@ -25,7 +25,7 @@ const Alimento = ({ producto, Horavalor, usuario, Fecha }) => {
 
   const addFood = () => {
     console.log("addFood")
-    axios.post('https://serverc-4y5e.onrender.com/AddAlimento', {
+    axios.post('http://localhost:8081/AddAlimento', {
 
       nombre: producto.nombre,
       Horavalor: Horavalor,
