@@ -408,7 +408,7 @@ function Perfil() {
                     {isEditing === 'ObjCalorias' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
                         value={ObjCalorias}
-                        onInput={(e) => { setedad(e.target.value); }}
+                        onInput={(e) => { setObjCalorias(e.target.value); }}
                         onBlur={() => { ModificarDB(); setIsEditing(''); }}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
@@ -419,7 +419,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjCalorias}</h1>
                     )}
                   </div>
-                  {ObjCalorias && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen /></button>}
+                  {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjCalorias')}><Pen /></button>}
                 </div>
 
                 <div className="tw-w-full tw-flex mb-1 ">
@@ -430,7 +430,7 @@ function Perfil() {
                     {isEditing === 'ObjProteinas' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="ObjProteinas" placeholder="calorias"
                         value={ObjProteinas}
-                        onInput={(e) => { setObjCalorias(e.target.value); }}
+                        onInput={(e) => { setObjProteinas(e.target.value); }}
                         onBlur={() => { ModificarDB(); setIsEditing(''); }}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
@@ -440,7 +440,7 @@ function Perfil() {
                     ) : (
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjProteinas}</h1>)}
                   </div>
-                  {ObjProteinas && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjProteinas')}><Pen /></button>}
+                  {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjProteinas')}><Pen /></button>}
                 </div>
               </div>
             </div>
