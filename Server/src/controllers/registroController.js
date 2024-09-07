@@ -4,8 +4,9 @@ import { db } from "../config/db.js";
 
 // /registro
 const registro = async (req, res) => {
+
   const consulta =
-    "INSERT INTO usuarios (`usuario`, `password`,`nombre`,`email` ,`telefono` ,`direccion`,`sexo`, actividadfisica, objetivo ) VALUES (?,?,?,?,?,?,?,?,?)";
+    "INSERT INTO usuarios (`usuario`, `password`,`nombre`,`email` ,`telefono` ,`direccion`,`sexo`, actividadfisica, objetivo, ObjProteinas, ObjCalorias ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
   //hasheo de la contraseña, (error,hash) es el ultimo parametro que recibe la funcion de bcrypt, llamado funcion de callback.
 
   const salt = 10;
@@ -24,7 +25,8 @@ const registro = async (req, res) => {
         req.body.sexo,
         req.body.actividadfisica,
         req.body.objetivo,
-        
+        req.body.ObjProteinas,
+        req.body.ObjCalorias,
       ];
 
       const rutina = new CreaRutina({
@@ -62,8 +64,9 @@ const registro = async (req, res) => {
 
 //existe registro
 const existeRegistro = async (req, res) => {
-  const consultaUsuario = "SELECT * FROM USUARIOS WHERE USUARIO=?";
-  const consultaEmail = "SELECT * FROM USUARIOS WHERE EMAIL=?";
+
+  const consultaUsuario = "SELECT * FROM usuarios WHERE usuario=?";
+  const consultaEmail = "SELECT * FROM usuarios WHERE email=?";
 
   const usuario = req.body.usuario;
   const email = req.body.email;

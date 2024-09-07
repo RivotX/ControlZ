@@ -16,7 +16,8 @@ import { useEffect, useState } from "react";
 import Pen from "../components/General/pen";
 
 function Perfil() {
-
+  const cambiarEstado = () => {
+  }
   const [usuario, setUsuario] = useState('');
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +33,7 @@ function Perfil() {
   const [ObjCalorias, setObjCalorias] = useState(null);
   const [ObjProteinas, setObjProteinas] = useState(null);
 
+  axios.defaults.withCredentials = true;
   const ModificarDB = () => {
     const values = {
       nombre: nombre,
@@ -45,10 +47,11 @@ function Perfil() {
       usuario: usuario,
       actividadfisica: opcionActividadFisica,
       objetivo: opcionObjetivo,
+      ObjProteinas: ObjProteinas,
+      ObjCalorias: ObjCalorias,
     };
     axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
       .then((res) => {
-        console.log(res);
       })
       .catch((err) => console.error(err));
 
@@ -68,10 +71,10 @@ function Perfil() {
         setaltura(res.data.altura);
         setOpcionActividadFisica(res.data.actividadfisica);
         setopcionObjetivo(res.data.objetivo);
-        console.log(res);
+        setObjProteinas(res.data.ObjProteinas);
+        setObjCalorias(res.data.ObjCalorias);
       })
       .catch((err) => console.error(err));
-    console.log("hola");
     setGuardado(true);
   }, []);
   const [isEditing, setIsEditing] = useState('');
@@ -80,7 +83,6 @@ function Perfil() {
     if (!Guardado) {
       ModificarDB()
     }
-
   }, [sexo,]);
 
 
@@ -261,7 +263,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{edad}</h1>
                     )}
                   </div>
-                  {edad && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen /></button>}
+                  {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen /></button>}
 
                 </div>
 
@@ -284,7 +286,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{peso}</h1>
                     )}
                   </div>
-                  {peso && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('peso')}><Pen /></button>}
+                  {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('peso')}><Pen /></button>}
                 </div>
 
                 <div className="tw-w-full tw-flex mb-1">
@@ -306,7 +308,7 @@ function Perfil() {
                       <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{altura}</h1>
                     )}
                   </div>
-                  {altura && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('altura')}><Pen /></button>}
+                  {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('altura')}><Pen /></button>}
                 </div>
 
 
@@ -314,7 +316,6 @@ function Perfil() {
                   <p className="tw-text-base tw-w-auto " >
                     Actividad Física
                   </p>
-                  {console.log("Actividad fisica estoy aqui", opcionActividadFisica)}
                   <select value={opcionActividadFisica} className="tw-border tw-text-[15px] tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-auto form-select" name="actividadFisica" placeholder="..."
                     onChange={(e) => { setOpcionActividadFisica(e.target.value); }}
                     onBlur={() => { ModificarDB(); setIsEditing(''); }}
@@ -418,7 +419,6 @@ function Perfil() {
                     )}
                   </div>
                   {ObjCalorias && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('edad')}><Pen /></button>}
-
                 </div>
 
                 <div className="tw-w-full tw-flex mb-1 ">

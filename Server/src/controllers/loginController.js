@@ -35,6 +35,8 @@ const login = async (req, res) => {
         req.session.actividadfisica = result[0].actividadfisica;
         req.session.objetivo = result[0].objetivo;
         req.session.numberItems = 0;
+        req.session.ObjProteinas = result[0].ObjProteinas;
+        req.session.ObjCalorias = result[0].ObjCalorias;
         console.log("Actividad fisica", result[0].actividadfisica);
         console.log("Objetivo", result[0].objetivo);
         console.log(req.session);

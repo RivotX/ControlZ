@@ -2,7 +2,7 @@ import { db } from "../config/db.js";
 
 export const modificar = async (req, res) => {
     const consulta =
-        "UPDATE usuarios SET nombre = ?, email = ?, telefono = ?, direccion = ?, sexo = ?, edad = ?, peso = ?, altura = ?, actividadfisica = ?, objetivo = ? WHERE usuario=?;";
+        "UPDATE usuarios SET nombre = ?, email = ?, telefono = ?, direccion = ?, sexo = ?, edad = ?, peso = ?, altura = ?, actividadfisica = ?, objetivo = ?, ObjProteinas = ?, ObjCalorias = ? WHERE usuario=?;";
     const values = [
         req.body.nombre,
         req.body.email,
@@ -15,6 +15,8 @@ export const modificar = async (req, res) => {
         req.body.actividadfisica,
         req.body.objetivo,
         req.body.usuario,
+        req.body.ObjProteinas,
+        req.body.ObjCalorias,
     ];
     const consultaSession = "SELECT * FROM usuarios WHERE email = ?";
     const email = values[1];
@@ -57,6 +59,8 @@ export const modificar = async (req, res) => {
         req.session.actividadfisica = sacarsession[0].actividadfisica;
         req.session.objetivo = sacarsession[0].objetivo;
         req.session.numberItems = 0;
+        req.session.ObjProteinas = sacarsession[0].ObjProteinas;
+        req.session.ObjCalorias = sacarsession[0].ObjCalorias;
 
         // Enviar respuesta solo después de completar todas las operaciones
         return res.json({ Status: "success, datos modificados y sesión actualizada" });

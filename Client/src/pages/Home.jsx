@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CartasFeatures from "../components/CartasFeatures";
 import fotorutinaserv from "../img/fotorutinaserv.jpg";
-import fotoejerciciosexpli from "../img/fotoejerciciosexpli.jpg";
 import fototiendaserv from "../img/fototiendaserv.jpg";
 import fotodietaserv from "../img/fotodietaserv.jpg";
+import fotoPefil from "../img/ProfileServ.png";
 import fotogym from "../img/contact.jpg";
 import foto1 from "../img/foto1.png";
 import { useState, useEffect } from "react";
@@ -15,7 +15,6 @@ function Home() {
 
   const [mostrarTexto, setmostrarTexto] = useState(false)
   const [nombreUsuario, setNombreUsuario] = useState("");
-
   const cambiarDisplay = () => {
     setmostrarTexto(!mostrarTexto)
   }
@@ -26,7 +25,6 @@ function Home() {
     axios.get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
       .then((res) => {
         setNombreUsuario(res.data.usuario);
-
       })
       .catch((err) => console.error(err));
 
@@ -100,9 +98,9 @@ function Home() {
                 <h1 className="titulobienvenidagym fw-semibold">Servicios</h1>
               </div>
             </div>
-            <div className="container mx-auto d-flex align-items-center justify-content-center ">
+            <div className="container mx-auto d-flex align-items-center justify-content-center">
               <div className="card-group tw-flex tw-justify-center">
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4 col-xl-12 col-lg-12 ">
+                <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4 g-4 col-xl-12 col-lg-9 ">
                   <CartasFeatures imagen={fotorutinaserv} titulo={"Rutina"} descripcion={"LLeva un registro de tus rutinas personales y tu progreso gracias a la ayuda que ControlZ te brinda en el día a día."
                   }
                     link={"rutina"}
@@ -122,6 +120,13 @@ function Home() {
                       "Consigue y hazte con algunos de nuestros productos de suplementación de la mano de las mejores marcas."
                     }
                     link={"tienda"}
+                  />
+                  <CartasFeatures
+                    imagen={fotoPefil}
+                    titulo={"Perfil"}
+                    descripcion={
+                      "Actualiza la información de tu perfil, revisa y establece tus datos personales para que tu información esté siempre al día."}
+                    link={"perfil"}
                   />
                 </div>
               </div>
