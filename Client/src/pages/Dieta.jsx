@@ -15,11 +15,19 @@ function Dieta() {
   const date = new Date();
   const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
   const [Fecha, setFecha] = useState(formattedDate);
+  const [ObjProteinas, setObjProteinas] = useState(100);
+  const [ObjCalorias, setObjCalorias] = useState(3000);
 
   axios.get("http://localhost:8081/getSession", {
     withCredentials: true,
   }).then((res) => {
     setUsuario(res.data.usuario);
+    if (res.data.usuario.ObjProteinas) {
+      setObjProteinas(res.data.usuario.ObjProteinas);
+    }
+    if (res.data.usuario.ObjCalorias) {
+      setObjCalorias(res.data.usuario.ObjCalorias);
+    }
   }).catch((error) => {
     console.error(error);
   });
@@ -28,7 +36,6 @@ function Dieta() {
   const [ShowFoodModal, SetShowFoodModal] = useState(false);
   //proteinas
   const [proteinConsumed, setProteinConsumed] = useState(0);
-  const [proteinGoal, setProteinGoal] = useState(100);
   const [desayunoProteinasConsumed, setDesayunoProteinasConsumed] = useState(0);
   const [almuerzoProteinasConsumed, setAlmuerzoProteinasConsumed] = useState(0);
   const [cenaProteinasConsumed, setCenaProteinasConsumed] = useState(0);
@@ -137,8 +144,6 @@ function Dieta() {
 
   return (
     <>
-      <>
-      </>
       <div className="tw-min-h-screen  tw-bg-[#0d0d0d] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
 
 
@@ -168,10 +173,10 @@ function Dieta() {
                     <p className="tw-w-full tw-flex tw-justify-center lg:tw-text-lg"><span className="">Consumidas</span></p>
                   </div>
                   <div className=" tw-w-2/5 tw-flex tw-items-center tw-justify-center tw-h-full">
-                    <Grafica CaloriasConsumed={CaloriasConsumed} CaloriasObjetivo={3000} />
+                    <Grafica CaloriasConsumed={CaloriasConsumed} CaloriasObjetivo={ObjCalorias} />
                   </div>
                   <div className="tw-flex tw-flex-wrap tw-justify-center tw-w-1/5 " >
-                    <p className="tw-w-full tw-flex tw-justify-center tw-font-bold lg:tw-text-lg"><span>3000</span></p>
+                    <p className="tw-w-full tw-flex tw-justify-center tw-font-bold lg:tw-text-lg"><span>{ObjCalorias}</span></p>
                     <p className="tw-w-full tw-flex tw-justify-center lg:tw-text-lg"><span className="">Objetivo</span></p>
                   </div>
 
@@ -181,15 +186,8 @@ function Dieta() {
               <div className="tw-w-full tw-flex tw-justify-center lg:tw-pr-[10%]">
                 <div className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 ">
                   <p className=" tw-text-sm sm:tw-text-base lg:tw-text-lg">Proteinas: {Math.round(proteinConsumed)}</p>
-                  <progress value={proteinConsumed} max={proteinGoal} className="tw-h-2 tw-w-5/6"></progress>
+                  <progress value={proteinConsumed} max={ObjProteinas} className="tw-h-2 tw-w-5/6"></progress>
                 </div>
-
-                {/* <div className=" tw-w-1/2 md:tw-flex tw-items-center tw-gap-1 tw-justify-center sm:tw-gap-3 tw-hidden">
-                  <div>Hidratos: {Math.round(HidratosConsumed)}
-                  </div>
-
-                  <progress value={HidratosConsumed} max={HidratosGoal} className="tw-h-2 " />
-                </div> */}
               </div>
             </div>
 
