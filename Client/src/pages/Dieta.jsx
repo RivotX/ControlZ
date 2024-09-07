@@ -18,19 +18,24 @@ function Dieta() {
   const [ObjProteinas, setObjProteinas] = useState(100);
   const [ObjCalorias, setObjCalorias] = useState(2100);
 
-  axios.get("http://localhost:8081/getSession", {
-    withCredentials: true,
-  }).then((res) => {
-    setUsuario(res.data.usuario);
-    if (res.data.usuario.ObjProteinas) {
-      setObjProteinas(res.data.usuario.ObjProteinas);
-    }
-    if (res.data.usuario.ObjCalorias) {
-      setObjCalorias(res.data.usuario.ObjCalorias);
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
+  useEffect(() => {
+    axios.get("https://serverc-4y5e.onrender.com/getSession", {
+      withCredentials: true,
+    }).then((res) => {
+      if (res.data.usuario == null || res.data.usuario == undefined) {
+        return;
+      }
+      setUsuario(res.data.usuario);
+      if (res.data.usuario.ObjProteinas != undefined && res.data.usuario.ObjProteinas != null) {
+        setObjProteinas(res.data.usuario.ObjProteinas);
+      }
+      if (res.data.usuario.ObjProteinas != undefined && res.data.usuario.ObjProteinas != null) {
+        setObjCalorias(res.data.usuario.ObjCalorias);
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  }, []);
 
   const [ShowFoodModal, SetShowFoodModal] = useState(false);
   //proteinas

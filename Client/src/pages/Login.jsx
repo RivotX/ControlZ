@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/index.css"
 import { act } from "react";
 import logoIcon from "../img/logoIcon.png";
-
+import habilitarTailwind from "../components/habilitarTailwind";
 function Login() {
 
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
@@ -169,8 +169,9 @@ function Login() {
     setVisibleRegistro2(false);
     setVisibleIniciarSesion(true);
   };
-
-
+  useEffect(() => {
+    habilitarTailwind();
+  }, []);
   //servidor
 
   const SumbitRegistro = (event) => {

@@ -23,20 +23,22 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
       return value;
     }
   }
+
   let attempts = 0;
   const maxAttempts = 8;
   let informacionProductos = [];
   try {
-    while (informacionProductos.length < 5 && attempts < maxAttempts) {
-
-      attempts++
+    while (informacionProductos.length < 10 && attempts < maxAttempts) {
+      attempts++;
+      console.log(`Attempt ${attempts}: Fetching products with offset ${offset}`);
       const datosBusqueda = await buscarProductosPorNombre(nombreProducto);
 
       if (datosBusqueda && "products" in datosBusqueda) {
         if (datosBusqueda.products.length <= offset) {
+          console.log('No more products available for the given offset');
           break; // si no hay mas productos para hacer fetch, sale del loop
         }
-        const productos = datosBusqueda.products.slice(offset, offset + 5);
+        const productos = datosBusqueda.products.slice(offset, offset + 10);
         offset += productos.length; // Actualiza el offset antes de filtrar
 
         const newProducts = productos.map((producto) => {
@@ -67,13 +69,15 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
 
         informacionProductos = [...informacionProductos, ...newProducts];
       } else {
+        console.log('No products found in the search results');
         break;
       }
     }
 
-    return informacionProductos.slice(0, 5);
-  }
-  catch (error) {
+    console.log('Final productos:', informacionProductos);
+    return informacionProductos.slice(0, 10);
+  } catch (error) {
+    console.error(`Error al obtener información de productos: ${error.message}`);
     throw new Error(`Error al obtener información de productos: ${error.message}`);
   }
 }
