@@ -13,7 +13,6 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
   // Fetch data function
   const fetchData = (page) => {
     console.log('page ', page);
-
     setLoading(true);
     axios.post(
       "http://localhost:8081/obtenerAlimento",
@@ -57,10 +56,10 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha }) => {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             className="tw-text-black tw-px-2 tw-w-4/5 tw-text-center tw-text-sm tw-rounded-md "
-            onKeyDown={(e) => { if (e.key === "Enter") fetchData(page); }}
+            onKeyDown={(e) => { if (e.key === "Enter") fetchData(page); setPage(page + 1); }}
           />
           <div className="tw-flex tw-items-center tw-justify-center">
-            <svg onClick={() => fetchData(page)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] tw-cursor-pointer hover:tw-fill-gray-500">
+            <svg onClick={() => { fetchData(page); setPage(page + 1); }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="tw-w-[30px] tw-h-[30px] tw-cursor-pointer hover:tw-fill-gray-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
             </svg>
           </div>
