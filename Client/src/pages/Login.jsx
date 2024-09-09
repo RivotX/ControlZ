@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/index.css"
-import { act } from "react";
+import "../styles/index.css";
 import logoIcon from "../img/logoIcon.png";
 import habilitarTailwind from "../components/habilitarTailwind";
 import Loading from "../components/Loading";
 
 function Login() {
-
-  const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
+  const [PantallaPequeña, setPantallaPequeña] = useState(
+    window.innerWidth < 640,
+  );
 
   useEffect(() => {
     const actualizarAnchoVentana = () => {
       setPantallaPequeña(window.innerWidth < 640);
     };
 
-    window.addEventListener('resize', actualizarAnchoVentana);
+    window.addEventListener("resize", actualizarAnchoVentana);
 
     // Limpiar el listener del evento resize cuando el componente se desmonte
     return () => {
-      window.removeEventListener('resize', actualizarAnchoVentana);
+      window.removeEventListener("resize", actualizarAnchoVentana);
     };
   }, []);
   axios.defaults.withCredentials = true;
@@ -71,8 +71,8 @@ function Login() {
   const [showMensajeInicio, setshowMensajeInicio] = useState(false);
   const [showMensajeNoExiste, setshowMensajeNoExiste] = useState(false);
   const [showMensajeLoading, setshowMensajeLoading] = useState(false);
+  const [showMensajeTardar, setshowMensajeTardar] = useState(false);
   const [animacion, setanimacion] = useState("");
-
 
   const btnComenzar = () => {
     vaciarCampos();
@@ -95,7 +95,6 @@ function Login() {
     setVisibleIniciarSesion(false);
     setVisibleRegistro2(false);
     setVisibleRegistro(true);
-
   };
 
   useEffect(() => {
@@ -166,7 +165,6 @@ function Login() {
     setVisibleRegistro2(true);
   };
 
-
   const IrInicioSesion = () => {
     setVisibleRegistro(false);
     setVisibleRegistro2(false);
@@ -216,7 +214,6 @@ function Login() {
       .catch((err) => console.error(err));
   };
 
-
   //mandamos a servidor/login los datos para trabajar con ellos
   const SumbitLogin = (event) => {
     event.preventDefault();
@@ -247,13 +244,11 @@ function Login() {
           if (!showMensajeInicio) {
             setshowMensajeInicio(true);
           } else {
-
-            setanimacion("animate__animated animate__headShake")
+            setanimacion("animate__animated animate__headShake");
             setTimeout(() => {
-              setanimacion("")
+              setanimacion("");
             }, 1000);
           }
-
         } else {
           console.log("entro al 201");
           setshowMensajeInicio(false);
@@ -261,10 +256,9 @@ function Login() {
           if (!showMensajeNoExiste) {
             setshowMensajeNoExiste(true);
           } else {
-
-            setanimacion("animate__animated animate__headShake")
+            setanimacion("animate__animated animate__headShake");
             setTimeout(() => {
-              setanimacion("")
+              setanimacion("");
             }, 1000);
           }
         }
@@ -272,12 +266,23 @@ function Login() {
       .catch((err) => console.log(err));
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("sd")
+
+      setshowMensajeTardar(true);
+    }, 15000);
+  }, [showMensajeLoading]);
+
   return (
     <div className="fondoindex tw-h-screen tw-w-full ">
       {/* Navbar  */}
       <div className="tw-flex tw-justify-center">
-        <nav className="tw-w-full tw-absolute tw-flex tw-justify-between tw-items-center tw-max-w-screen-2xl tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
-          <a className="tw-w-1/2 tw-flex tw-text-white tw-items-center " href="/">
+        <nav className="tw-absolute tw-flex tw-w-full tw-max-w-screen-2xl tw-items-center tw-justify-between tw-px-4 sm:tw-px-12 md:tw-px-24 lg:tw-px-28 ">
+          <a
+            className="tw-flex tw-w-1/2 tw-items-center tw-text-white "
+            href="/"
+          >
             <img
               src={logoIcon}
               alt="Logo"
@@ -285,13 +290,13 @@ function Login() {
               height="50"
               className="tw-me-3 tw-mt-1"
             />
-            <span className=" tw-text-lg" >
+            <span className=" tw-text-lg">
               Control<span className="tw-text-[#03e9f4]">Z</span>
             </span>
           </a>
-          <div className="tw-text-white tw-flex tw-justify-between tw-w-1/3 sm:tw-w-1/4 lg:tw-w-1/5  xl:tw-w-[15%]">
+          <div className="tw-flex tw-w-1/3 tw-justify-between tw-text-white sm:tw-w-1/4 lg:tw-w-1/5  xl:tw-w-[15%]">
             <div className="tw-flex">
-              <div className="tw-cursor-pointer hover:tw-bg-[#25D366] tw-rounded-full">
+              <div className="tw-cursor-pointer tw-rounded-full hover:tw-bg-[#25D366]">
                 <a
                   className="tw-pointer-events-none"
                   style={{ backgroundColor: "#ffe60000" }}
@@ -311,12 +316,10 @@ function Login() {
                 </a>
               </div>
             </div>
-            <div className="tw-cursor-pointer hover:tw-bg-blue-500 tw-rounded-full">
-
+            <div className="tw-cursor-pointer tw-rounded-full hover:tw-bg-blue-500">
               <a
                 className=""
                 style={{ backgroundColor: "#ffe60000" }}
-
                 role="button"
               >
                 <svg
@@ -331,7 +334,10 @@ function Login() {
                 </svg>
               </a>
             </div>
-            <div className="tw-cursor-pointer hover:tw-bg-[#cc4ccf] tw-rounded-full " href="">
+            <div
+              className="tw-cursor-pointer tw-rounded-full hover:tw-bg-[#cc4ccf] "
+              href=""
+            >
               <a
                 className=""
                 style={{ backgroundColor: "#ffe60000" }}
@@ -339,7 +345,9 @@ function Login() {
                 role="button"
                 target="_blank"
               >
-                <svg className="instagram bi bi-instagram tw-pointer-events-none" xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  className="instagram bi bi-instagram tw-pointer-events-none"
+                  xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   fill="currentColor"
@@ -354,8 +362,11 @@ function Login() {
       </div>
 
       {/* Pantalla inicial */}
-      <div className="tw-py-32" style={{ display: VisibleWelcome ? "block" : "none" }} >
-        <div className="  titulocontenedor tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl d-flex justify-content-center align-items-center">
+      <div
+        className="tw-py-32"
+        style={{ display: VisibleWelcome ? "block" : "none" }}
+      >
+        <div className="  titulocontenedor d-flex justify-content-center align-items-center tw-text-[33px] sm:tw-text-5xl md:tw-text-5xl lg:tw-text-7xl">
           <p>
             Nosotros te ayudamos a
             <br />
@@ -363,29 +374,39 @@ function Login() {
           </p>
         </div>
         <br />
-        <div className="fixed tw-mt-3 descripcionindex tw-text-sm tw-text-pretty sm:tw-text-lg md:tw-text-lg lg:tw-text-lg xl:tw-text-lg">
-          {PantallaPequeña ?
-            (<p id="frasesuelta">No esperes más para comenzar tu viaje hacia una mejor versión de ti mismo.
+        <div className="fixed descripcionindex tw-mt-3 tw-text-pretty tw-text-sm sm:tw-text-lg md:tw-text-lg lg:tw-text-lg xl:tw-text-lg">
+          {PantallaPequeña ? (
+            <p id="frasesuelta">
+              No esperes más para comenzar tu viaje hacia una mejor versión de
+              ti mismo.
               <br></br>
               <br></br>
-              ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu historia de éxito!</p>)
-
-            :
-
-            (<>
-              < p id="frasesuelta">
-                No esperes más para comenzar tu viaje hacia una mejor versión de ti mismo. Únete a nosotros para descubrir el placer del ejercicio, la emoción del logro y el apoyo inquebrantable de una comunidad dedicada.
+              ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu
+              historia de éxito!
+            </p>
+          ) : (
+            <>
+              <p id="frasesuelta">
+                No esperes más para comenzar tu viaje hacia una mejor versión de
+                ti mismo. Únete a nosotros para descubrir el placer del
+                ejercicio, la emoción del logro y el apoyo inquebrantable de una
+                comunidad dedicada.
               </p>
               <br />
               <p id="frasesuelta">
                 ¡Únete a nuestra familia de fitness hoy y empieza a escribir tu
                 historia de éxito!
               </p>
-            </>)}
+            </>
+          )}
         </div>
 
-        <div className="d-flex tw-text-sm tw-pt-[3%] justify-content-center align-items-center">
-          <button className="iniciar tw-p-5" type="button" onClick={btnComenzar}>
+        <div className="d-flex justify-content-center align-items-center tw-pt-[3%] tw-text-sm">
+          <button
+            className="iniciar tw-p-5"
+            type="button"
+            onClick={btnComenzar}
+          >
             <span></span>
             <span></span>
             <span></span>
@@ -395,18 +416,22 @@ function Login() {
         </div>
       </div>
 
-      <div className=" tw-px-2 tw-flex tw-justify-center tw-items-center">
+      <div className=" tw-flex tw-items-center tw-justify-center tw-px-2">
         {/* Inicio de sesion */}
         {VisibleIniciarSesion && (
-
-          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-pt-20">
-            <div className=" login-box tw-border-cyan-50 tw-py-8 tw-px-20 tw-h-full"
+          <div className="tw-flex tw-w-full tw-items-center tw-justify-center tw-pt-20">
+            <div
+              className=" login-box tw-h-full tw-border-cyan-50 tw-px-20 tw-py-8"
               id="logearse"
             >
-              <h2 className="tw-text-white tw-text-[1.9rem] text-center sm:tw-text-[2.3rem] md:tw-text-[3rem] tw-font-semibold ">Iniciar Sesión</h2>
+              <h2 className="text-center tw-text-[1.9rem] tw-font-semibold tw-text-white sm:tw-text-[2.3rem] md:tw-text-[3rem] ">
+                Iniciar Sesión
+              </h2>
               <form onSubmit={SumbitLogin} method="post" className="tw-h-1/2">
-                <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center ">
-                  <p className="text-white tw-w-full tw-text-[1.rem] sm:tw-text-[1.2rem]  tw-py-5 ">Sign in with:</p>
+                <div className="text-center tw-flex tw-flex-wrap tw-items-center tw-justify-center ">
+                  <p className="text-white tw-w-full tw-py-5 tw-text-[1.rem]  sm:tw-text-[1.2rem] ">
+                    Sign in with:
+                  </p>
                   <button
                     type="button"
                     className="mx-1 btn btn-secondary btn-floating "
@@ -445,7 +470,7 @@ function Login() {
                     </i>
                   </button>
                 </div>
-                <div className="tw-py-8 tw-flex tw-flex-wrap tw-gap-8 sm:tw-gap-8 md:tw-gap-20 md:tw-py-10">
+                <div className="tw-flex tw-flex-wrap tw-gap-8 tw-py-8 sm:tw-gap-8 md:tw-gap-20 md:tw-py-10">
                   <div className="user-box tw-w-full md:tw-gap-2">
                     <input
                       type="text"
@@ -456,7 +481,9 @@ function Login() {
                         setValues({ ...values, usuario: e.target.value })
                       }
                     />
-                    <label className="sm:tw-text-lg md:tw-text-xl md:tw-top-[-80%] tw-top-[-20%]">Usuario</label>
+                    <label className="tw-top-[-20%] sm:tw-text-lg md:tw-top-[-80%] md:tw-text-xl">
+                      Usuario
+                    </label>
                   </div>
                   <div className="user-box tw-w-full md:tw-gap-2">
                     <input
@@ -468,7 +495,9 @@ function Login() {
                         setValues({ ...values, password: e.target.value })
                       }
                     />
-                    <label className="sm:tw-text-lg md:tw-text-xl md:tw-top-[-80%] tw-top-[-20%]">Contraseña</label>
+                    <label className="tw-top-[-20%] sm:tw-text-lg md:tw-top-[-80%] md:tw-text-xl">
+                      Contraseña
+                    </label>
                   </div>
                 </div>
                 <p
@@ -478,7 +507,6 @@ function Login() {
                     display: showMensajeInicio ? "block" : "none",
                     height: "10px",
                     marginTop: "25%",
-
                   }}
                 >
                   Constraseña Incorrecta
@@ -497,9 +525,24 @@ function Login() {
                 </p>
                 {showMensajeLoading && (
                   <>
-                    <span className="position-absolute loading" style={{ left: 50, right: 50, marginTop: "2vh" }}>
+                    <span
+                      className="position-absolute loading"
+                      style={{ left: 50, right: 50, marginTop: "4vh" }}
+                    >
                       <Loading />
                     </span>
+                    {showMensajeTardar && (
+                      <p
+                        id="mensajePuedeTardar"
+                        className={`${animacion} text-danger position-absolute mensajeslogin`}
+                        style={{
+                          height: "10px",
+                          marginTop: "20vh",
+                        }}
+                      >
+                        Puede tardar unos segundos...
+                      </p>
+                    )}
                   </>
                 )}
 
@@ -512,8 +555,8 @@ function Login() {
                     No tengo cuenta
                   </u>
                 </div>
-                <div className="tw-mt-[20%] sm:tw-mt-[20%] tw-flex tw-w-full tw-justify-center ">
-                  <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
+                <div className="tw-mt-[25%] tw-flex tw-w-full tw-justify-center sm:tw-mt-[25%] ">
+                  <div className="text-center sm:tw-w-100%] rounded-2 tw-w-[100%] md:tw-w-[100%]">
                     <input
                       type="submit"
                       className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl "
@@ -529,16 +572,24 @@ function Login() {
 
         {/* Registro 1 */}
         {VisibleRegistro && (
-          <div className="tw-flex tw-justify-center tw-items-center tw-w-full tw-pt-20">
-            <div className='login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-32 tw-h-full'
+          <div className="tw-flex tw-w-full tw-items-center tw-justify-center tw-pt-20">
+            <div
+              className="login-box tw-h-full tw-border-cyan-50 tw-px-16 tw-py-8 md:tw-px-32"
               id="registrar"
-
             >
-              <h2 className="tw-text-white tw-text-[2.2rem] text-center  sm:tw-text-[3rem]  tw-font-semibold">Crea tu Perfil</h2>
+              <h2 className="text-center tw-text-[2.2rem] tw-font-semibold  tw-text-white  sm:tw-text-[3rem]">
+                Crea tu Perfil
+              </h2>
 
-              <form id="" onSubmit={ComprobarReg} className="tw-h-1/2 tw-w-full">
-                <div className="text-center tw-flex tw-flex-wrap tw-justify-center tw-items-center ">
-                  <p className="text-white tw-w-full tw-text-[1.rem] sm:tw-text-[1.2rem]  tw-py-5">Sign up with:</p>
+              <form
+                id=""
+                onSubmit={ComprobarReg}
+                className="tw-h-1/2 tw-w-full"
+              >
+                <div className="text-center tw-flex tw-flex-wrap tw-items-center tw-justify-center ">
+                  <p className="text-white tw-w-full tw-py-5 tw-text-[1.rem]  sm:tw-text-[1.2rem]">
+                    Sign up with:
+                  </p>
                   <button
                     type="button"
                     className="mx-1 btn btn-secondary btn-floating"
@@ -579,7 +630,7 @@ function Login() {
                 </div>
 
                 <div className="tw-pt-5 ">
-                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
+                  <div className="user-box tw-text-md tw-w-full tw-py-5 md:tw-gap-2 lg:tw-text-xl">
                     <input
                       type="text"
                       name="usuario"
@@ -592,7 +643,7 @@ function Login() {
                     />
                     <label>Usuario</label>
                   </div>
-                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
+                  <div className="user-box tw-text-md tw-w-full tw-py-5 md:tw-gap-2 lg:tw-text-xl">
                     <input
                       type="text"
                       name="email"
@@ -605,7 +656,7 @@ function Login() {
                     />
                     <label>Email</label>
                   </div>
-                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
+                  <div className="user-box tw-text-md tw-w-full tw-py-5 md:tw-gap-2 lg:tw-text-xl">
                     <input
                       type="password"
                       name="clave1"
@@ -619,7 +670,7 @@ function Login() {
                     <label>Contraseña</label>
                   </div>
 
-                  <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
+                  <div className="user-box tw-text-md tw-w-full tw-py-5 md:tw-gap-2 lg:tw-text-xl">
                     <input
                       type="password"
                       name="clave2"
@@ -641,7 +692,6 @@ function Login() {
                     height: "10px",
                   }}
                 >
-
                   El usuario o el Email ya existen
                 </p>
                 <p
@@ -695,8 +745,8 @@ function Login() {
                     Ya tienes cuenta
                   </u>
                 </div>
-                <div className="tw-mt-[20%] sm:tw-mt-[12%] tw-flex tw-w-full tw-justify-center">
-                  <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
+                <div className="tw-mt-[20%] tw-flex tw-w-full tw-justify-center sm:tw-mt-[12%]">
+                  <div className="text-center sm:tw-w-100%] rounded-2 tw-w-[100%] md:tw-w-[100%]">
                     <input
                       type="submit"
                       className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl"
@@ -711,86 +761,116 @@ function Login() {
           </div>
         )}
 
-
         {/* Registro 2 */}
-        {VisibleRegistro2 && (<div className='tw-flex tw-justify-center tw-items-center tw-w-full tw-py-20'>
-          <div
-            className="login-box tw-border-cyan-50 tw-py-8 tw-px-16 md:tw-px-28 tw-h-full "
-            id="reg"
-          >
-            <h2 className="tw-text-white tw-text-[2.2rem] text-center sm:tw-text-[3.5rem] md:tw-text-[4rem] tw-font-semibold">Crea tu Perfil</h2>
+        {VisibleRegistro2 && (
+          <div className="tw-flex tw-w-full tw-items-center tw-justify-center tw-py-20">
+            <div
+              className="login-box tw-h-full tw-border-cyan-50 tw-px-16 tw-py-8 md:tw-px-28 "
+              id="reg"
+            >
+              <h2 className="text-center tw-text-[2.2rem] tw-font-semibold tw-text-white sm:tw-text-[3.5rem] md:tw-text-[4rem]">
+                Crea tu Perfil
+              </h2>
 
-            <form id="enviarphp" onSubmit={SumbitRegistro} className="tw-h-1/2">
-              <div className="tw-pt-8">
-                <div className="user-box tw-w-full md:tw-gap-2 tw-text-md lg:tw-text-xl tw-py-5">
-                  <input
-                    type="text"
-                    name="nombre"
-                    value={values.nombre}
-                    onChange={(e) =>
-                      setValues({ ...values, nombre: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Nombre completo</label>
-                </div>
+              <form
+                id="enviarphp"
+                onSubmit={SumbitRegistro}
+                className="tw-h-1/2"
+              >
+                <div className="tw-pt-8">
+                  <div className="user-box tw-text-md tw-w-full tw-py-5 md:tw-gap-2 lg:tw-text-xl">
+                    <input
+                      type="text"
+                      name="nombre"
+                      value={values.nombre}
+                      onChange={(e) =>
+                        setValues({ ...values, nombre: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Nombre completo</label>
+                  </div>
 
-                <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
-                  <input
-                    type="text"
-                    name="telefono"
-                    value={values.telefono}
-                    onChange={(e) =>
-                      setValues({ ...values, telefono: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Telefono</label>
-                </div>
+                  <div className="user-box regPlus tw-text-md tw-py-5 lg:tw-text-xl">
+                    <input
+                      type="text"
+                      name="telefono"
+                      value={values.telefono}
+                      onChange={(e) =>
+                        setValues({ ...values, telefono: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Telefono</label>
+                  </div>
 
-                <div className="user-box regPlus tw-text-md lg:tw-text-xl tw-py-5">
-                  <input
-                    type="text"
-                    name="direccion"
-                    value={values.direccion}
-                    onChange={(e) =>
-                      setValues({ ...values, direccion: e.target.value })
-                    }
-                    required
-                  />
-                  <label>Direccion</label>
-                </div>
+                  <div className="user-box regPlus tw-text-md tw-py-5 lg:tw-text-xl">
+                    <input
+                      type="text"
+                      name="direccion"
+                      value={values.direccion}
+                      onChange={(e) =>
+                        setValues({ ...values, direccion: e.target.value })
+                      }
+                      required
+                    />
+                    <label>Direccion</label>
+                  </div>
 
-                <div className="tw-text-white tw-py-5 tw-text-md lg:tw-text-xl tw-justify-between tw-flex tw-w-full">
-                  <h3 className="">Sexo</h3>
-                  <div className="inline-flex tw-items-center">
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input" type="radio" value="1" onClick={(e) => { setValues({ ...values, sexo: e.target.value }) }} name="sexo"></input>
-                    <label htmlFor="sexo" className="tw-ml-1">M</label>
-                    <input className="text-center tw-border tw-rounded-lg tw-border-blue-300 form-check-input tw-ml-1" type="radio" value="0" onClick={(e) => { setValues({ ...values, sexo: e.target.value }) }} name="sexo"></input>
-                    <label htmlFor="sexo" className="tw-ml-1">F</label>
+                  <div className="tw-text-md tw-flex tw-w-full tw-justify-between tw-py-5 tw-text-white lg:tw-text-xl">
+                    <h3 className="">Sexo</h3>
+                    <div className="inline-flex tw-items-center">
+                      <input
+                        className="text-center form-check-input tw-rounded-lg tw-border tw-border-blue-300"
+                        type="radio"
+                        value="1"
+                        onClick={(e) => {
+                          setValues({ ...values, sexo: e.target.value });
+                        }}
+                        name="sexo"
+                      ></input>
+                      <label htmlFor="sexo" className="tw-ml-1">
+                        M
+                      </label>
+                      <input
+                        className="text-center form-check-input tw-ml-1 tw-rounded-lg tw-border tw-border-blue-300"
+                        type="radio"
+                        value="0"
+                        onClick={(e) => {
+                          setValues({ ...values, sexo: e.target.value });
+                        }}
+                        name="sexo"
+                      ></input>
+                      <label htmlFor="sexo" className="tw-ml-1">
+                        F
+                      </label>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <u href="" className="registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1.1rem] lg:tw-text-[1rem]" onClick={btnComenzar}>
-                Ya tienes cuenta
-              </u>
+                <u
+                  href=""
+                  className="registro float-end tw-text-sm sm:tw-text-[0.9rem] md:tw-text-[1.1rem] lg:tw-text-[1rem]"
+                  onClick={btnComenzar}
+                >
+                  Ya tienes cuenta
+                </u>
 
-              <div className="tw-mt-[20%] sm:tw-mt-[12%] tw-flex tw-w-full tw-justify-center">
-                <div className="text-center tw-w-[100%] sm:tw-w-100%] md:tw-w-[100%] rounded-2">
-                  <input
-                    type="submit"
-                    className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl"
-                    value="Siguiente"
-                    name="submit"
-                    id="submit"
-                  />
+                <div className="tw-mt-[20%] tw-flex tw-w-full tw-justify-center sm:tw-mt-[12%]">
+                  <div className="text-center sm:tw-w-100%] rounded-2 tw-w-[100%] md:tw-w-[100%]">
+                    <input
+                      type="submit"
+                      className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl"
+                      value="Siguiente"
+                      name="submit"
+                      id="submit"
+                    />
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-        </div>)}
-
+        )}
       </div>
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
@@ -802,7 +882,7 @@ function Login() {
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossOrigin="anonymous"
       ></script>
-    </div >
+    </div>
   );
 }
 
