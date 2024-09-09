@@ -25,10 +25,10 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
   }
 
   let attempts = 0;
-  const maxAttempts = 3;
+  const maxAttempts = 1;
   let informacionProductos = [];
   try {
-    while (informacionProductos.length < 8 && attempts < maxAttempts) {
+    while (informacionProductos.length < 6 && attempts < maxAttempts) {
       attempts++;
       console.log(`Attempt ${attempts}: Fetching products with offset ${offset}`);
       const datosBusqueda = await buscarProductosPorNombre(nombreProducto);
@@ -38,7 +38,7 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
           console.log('No more products available for the given offset');
           break; // si no hay mas productos para hacer fetch, sale del loop
         }
-        const productos = datosBusqueda.products.slice(offset, offset + 8);
+        const productos = datosBusqueda.products.slice(offset, offset + 6);
         offset += productos.length; // Actualiza el offset antes de filtrar
 
         const newProducts = productos.map((producto) => {
@@ -75,7 +75,7 @@ async function obtenerInformacionProductos(nombreProducto, offset) {
     }
 
     console.log('Final productos:', informacionProductos);
-    return informacionProductos.slice(0, 8);
+    return informacionProductos.slice(0, 6);
   } catch (error) {
     console.error(`Error al obtener información de productos: ${error.message}`);
     throw new Error(`Error al obtener información de productos: ${error.message}`);
