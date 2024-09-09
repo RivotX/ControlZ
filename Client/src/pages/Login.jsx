@@ -535,7 +535,7 @@ function Login() {
                         className={`${animacion} text-danger position-absolute mensajeslogin`}
                         style={{
                           height: "10px",
-                          marginTop: "19%",
+                          marginTop: "17%",
                         }}
                       >
                         Puede tardar unos segundos...
@@ -553,8 +553,8 @@ function Login() {
                     No tengo cuenta
                   </u>
                 </div>
-                <div className="tw-mt-[25%] tw-flex tw-w-full tw-justify-center sm:tw-mt-[25%] ">
-                  <div className="text-center sm:tw-w-100%] rounded-2 tw-w-[100%] md:tw-w-[100%]">
+                <div className="tw-mt-[17%] tw-flex tw-w-full tw-justify-center ">
+                  <div className="text-center rounded-2 tw-w-[100%] md:tw-w-[100%]">
                     <input
                       type="submit"
                       className=" botonsiguiente tw-w-full tw-bg-[#43b6bca3] sm:tw-text-lg md:tw-text-xl "
