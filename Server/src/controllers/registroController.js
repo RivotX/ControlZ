@@ -64,6 +64,29 @@ const registro = async (req, res) => {
 
 //existe registro
 const existeRegistro = async (req, res) => {
+  // const consultaDeleteTable = `DROP TABLE IF EXISTS usuarios;`;
+  // db.query(consultaDeleteTable);
+
+  // const consultaCreateTable = `
+  // CREATE TABLE IF NOT EXISTS usuarios (
+  //   id INT AUTO_INCREMENT PRIMARY KEY,
+  //   nombre VARCHAR(40) NOT NULL,
+  //   password VARCHAR(260) NOT NULL,
+  //   email VARCHAR(50) NOT NULL UNIQUE,
+  //   telefono VARCHAR(20),
+  //   direccion VARCHAR(70),
+  //   sexo INT,
+  //   edad INT,
+  //   peso FLOAT,
+  //   altura FLOAT,
+  //   actividadfisica INT,
+  //   objetivo INT,
+  //   ObjProteinas VARCHAR(260),
+  //   ObjCalorias VARCHAR(260),
+  //   usuario VARCHAR(70) NOT NULL UNIQUE
+  // );
+  // `;
+  // db.query(consultaCreateTable)
 
   const consultaUsuario = "SELECT * FROM usuarios WHERE usuario=?";
   const consultaEmail = "SELECT * FROM usuarios WHERE email=?";

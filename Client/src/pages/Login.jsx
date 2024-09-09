@@ -4,6 +4,8 @@ import "../styles/index.css"
 import { act } from "react";
 import logoIcon from "../img/logoIcon.png";
 import habilitarTailwind from "../components/habilitarTailwind";
+import Loading from "../components/Loading";
+
 function Login() {
 
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
@@ -68,6 +70,7 @@ function Login() {
   const [showErrorRegistro, setshowErrorRegistro] = useState(false);
   const [showMensajeInicio, setshowMensajeInicio] = useState(false);
   const [showMensajeNoExiste, setshowMensajeNoExiste] = useState(false);
+  const [showMensajeLoading, setshowMensajeLoading] = useState(false);
   const [animacion, setanimacion] = useState("");
 
 
@@ -217,6 +220,8 @@ function Login() {
   //mandamos a servidor/login los datos para trabajar con ellos
   const SumbitLogin = (event) => {
     event.preventDefault();
+    setshowMensajeLoading(true);
+    setshowMensajeNoExiste(false);
     axios
       .post(
         "http://localhost:8081/login",
@@ -229,7 +234,8 @@ function Login() {
           .then((res) => {
             console.log(res);
           })
-          .catch((err) => console.error(err));
+          .catch((err) => console.error(err))
+          .finally(setshowMensajeLoading(false));
 
         console.log(res);
         if (res.data.redirectTo != undefined) {
@@ -467,10 +473,12 @@ function Login() {
                 </div>
                 <p
                   id="mensajeConstraseñaincorrectaInicio"
-                  className={`${animacion} text-danger position-absolute`}
+                  className={`${animacion} text-danger position-absolute mensajeslogin`}
                   style={{
                     display: showMensajeInicio ? "block" : "none",
                     height: "10px",
+                    marginTop: "25%",
+
                   }}
                 >
                   Constraseña Incorrecta
@@ -478,14 +486,22 @@ function Login() {
 
                 <p
                   id="mensajeConstraseñaincorrectaInicio"
-                  className={`${animacion} text-danger position-absolute`}
+                  className={`${animacion} text-danger position-absolute mensajeslogin`}
                   style={{
                     display: showMensajeNoExiste ? "block" : "none",
                     height: "10px",
+                    marginTop: "5vh",
                   }}
                 >
                   Usuario inexistente
                 </p>
+                {showMensajeLoading && (
+                  <>
+                    <span className="position-absolute loading" style={{ left: 50, right: 50, marginTop: "2vh" }}>
+                      <Loading />
+                    </span>
+                  </>
+                )}
 
                 <div className="">
                   <u
@@ -668,6 +684,7 @@ function Login() {
                 >
                   Debes escribir en todos los campos
                 </p>
+
                 <br></br>
                 <div className="">
                   <u
@@ -785,7 +802,7 @@ function Login() {
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossOrigin="anonymous"
       ></script>
-    </div>
+    </div >
   );
 }
 

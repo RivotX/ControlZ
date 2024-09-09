@@ -4,23 +4,17 @@ import axios from "axios";
 import AlimentoCantidadInput from './AlimentoCantidadInput';
 
 
-const Alimento = ({ producto, Horavalor, usuario, Fecha }) => {
+const Alimento = ({ producto, Horavalor, usuario, Fecha, update }) => {
 
 
   const [caracteristicasVisibles, setCaracteristicasVisibles] = useState(false);
 
   const [inputVisible, setInputVisible] = useState(false);
-  const [Cantidad, setCantidad] = useState(0);
-
-  const toggleCaracteristicas = () => {
-    setCaracteristicasVisibles(!caracteristicasVisibles);
-  };
+  const [Cantidad, setCantidad] = useState(undefined);
 
   const toggleInput = () => {
     setInputVisible(!inputVisible);
   }
-
-  console.log("usuarioUUUUWWWUUUU", usuario);
 
 
   const addFood = () => {
@@ -41,7 +35,7 @@ const Alimento = ({ producto, Horavalor, usuario, Fecha }) => {
       Fecha: Fecha
     })
       .then((response) => {
-        console.log("Alimento añadido:", response);
+        console.log("alimento añadido:", response);
       }).catch((error) => {
         console.error("Error al añadir alimento:", error);
       });
@@ -58,10 +52,10 @@ const Alimento = ({ producto, Horavalor, usuario, Fecha }) => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
             {
-              inputVisible && <AlimentoCantidadInput nombre={producto.nombre} closeModal={toggleInput} value={Cantidad} onChange={(e) => setCantidad(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') addFood() }} addFood={addFood} />}
+              inputVisible && <AlimentoCantidadInput nombre={producto.nombre} closeModal={toggleInput} value={Cantidad} onChange={(e) => setCantidad(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') addFood() }} update={update} addFood={addFood} />}
           </h3>
         </div>
-        <div className="tw-flex tw-gap-2 tw-items-center tw-justify-center tw-bg-gray-300 tw-cursor-pointer" onClick={toggleCaracteristicas}>
+        <div className="tw-flex tw-gap-2 tw-items-center tw-justify-center tw-bg-gray-300 tw-cursor-pointer" onMouseEnter={() => setCaracteristicasVisibles(true)} onMouseLeave={() => setCaracteristicasVisibles(false)}>
           {!caracteristicasVisibles && (
 
             <div className="tw-h-[12rem]">
@@ -69,7 +63,7 @@ const Alimento = ({ producto, Horavalor, usuario, Fecha }) => {
             </div>
           )}
           {caracteristicasVisibles && (
-            <div className="tw-w-4/5 tw-flex tw-flex-wrap tw-h-[12rem] tw-text-pretty tw-text-center tw-p-2">
+            <div className="tw-w-4/5 tw-flex tw-flex-wrap tw-h-[12rem] tw-text-pretty tw-text-center tw-p-2 tw-transition-opacity tw-duration-500 tw-opacity-0 hover:tw-opacity-100 ">
               <div className="tw-text-xs tw-flex tw-flex-wrap tw-gap-2 tw-h-full tw-bg-opacity-25 tw-py-4 tw-rounded-md tw-bg-gray-200 tw-p-2">
                 <p className="tw-w-full"><span className="tw-font-bold">Calorías:</span> <span className="tw-text-orange-500">{producto.calorias}</span> / 100g</p>
                 <p className="tw-w-full"><span className="tw-font-bold">Proteínas:</span> <span className="tw-text-orange-500">{producto.proteinas}</span> / 100g</p>

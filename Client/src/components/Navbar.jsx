@@ -23,6 +23,10 @@ function Navbar({ linkHome }) {
 
   }, []);
 
+  useEffect (() => {
+    console.log("usuarioSession: " + usuarioSession);
+  }, [usuarioSession]);
+
   const [visibleCesta, setVisibleCesta] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -73,10 +77,10 @@ function Navbar({ linkHome }) {
               </svg>
 
             </div>
-            {typeof usuarioSession === 'string' && usuarioSession !== ''
+            {typeof usuarioSession === 'string' && usuarioSession !== '' && usuarioSession !== undefined && usuarioSession !== null
               ?
               <div onClick={cerrarSesion} className=" tw-w-7 tw-text-white tw-cursor-pointer  hoverGirar">
-                <svg className="   hoveraGirar tw-text-red-500 tw-pointer-events-none" xmlns="http://www.w3.org/2000/svg"
+                <svg className="   hoveraGirar tw-text-green-500 tw-pointer-events-none" xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 1024 1024"
                   fill="currentColor"
                   height="25px"
@@ -88,7 +92,7 @@ function Navbar({ linkHome }) {
               </div>
               :
               <a href="/login" className=" tw-w-7 tw-text-white tw-cursor-pointer  hoverGirar">
-                <svg className="hoveraGirar tw-text-green-500 tw-pointer-events-none" xmlns="http://www.w3.org/2000/svg"
+                <svg className="hoveraGirar tw-text-red-500 tw-pointer-events-none" xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 1024 1024"
                   fill="currentColor"
                   height="25px"

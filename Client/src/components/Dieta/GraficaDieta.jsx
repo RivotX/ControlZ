@@ -4,7 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 const Grafica = ({ CaloriasConsumed, CaloriasObjetivo }) => {
   let percentage = (100 * CaloriasConsumed) / CaloriasObjetivo;
   return (
-    <div className="tw-absolute tw-w-36 tw-h-36 lg:tw-w-40 lg:tw-h-40 lg:tw-text-xl tw-font-bold "> {/* Contenedor para la gráfica */}
+    <div className="tw-absolute tw-w-36 tw-h-36 lg:tw-w-40 lg:tw-h-40 lg:tw-text-xl tw-font-bold tw-z-0"> {/* Contenedor para la gráfica */}
       <CircularProgressbar
         value={percentage}
         text={""}
@@ -34,11 +34,10 @@ const Grafica = ({ CaloriasConsumed, CaloriasObjetivo }) => {
           backgroundColor: '#334155',
         })}
       />
-      <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center">
+      <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center tw-z-0">
         <div className="text-container tw-relative tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-justify-center ">
-
           <div className="text-number tw-font-bold ">{Math.round(CaloriasObjetivo - CaloriasConsumed)}</div>
-          <div className="text-calories tw-text-xs ">Calorías <span className=''>restantes</span></div>
+          <div className="text-calories tw-text-xs ">Calorías <span className=''>{Math.round(CaloriasObjetivo - CaloriasConsumed) < 0 ? "sobrantes" : "restantes"}</span></div>
         </div>
       </div>
 

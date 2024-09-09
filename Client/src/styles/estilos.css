@@ -183,7 +183,6 @@
   justify-content: center;
   align-items: center;
   z-index: 9999999;
-
 }
 
 #logo {
@@ -461,4 +460,35 @@
 
 .no-spinners {
   -moz-appearance: textfield;
+}
+/* Add this to your CSS file or inside a <style> tag in your component */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px; /* Adjust the width to make the scrollbar thinner */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888; /* Adjust the color as needed */
+  border-radius: 10px; /* Adjust the border radius as needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Adjust the hover color as needed */
+}
+
+@media (max-width: 550px) {
+  .hide-on-small-screen {
+    display: none;
+  }
+}
+#logearse {
+  height: 75vh;
+}
+@media (max-width: 550px) {
+  .mensajeslogin {
+    margin-top: 14vh !important;
+  }
+  .loading
+  {
+    margin-top: 18vh !important;
+  }
 }

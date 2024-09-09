@@ -47,9 +47,10 @@ function Perfil() {
       usuario: usuario,
       actividadfisica: opcionActividadFisica,
       objetivo: opcionObjetivo,
-      ObjProteinas: ObjProteinas,
       ObjCalorias: ObjCalorias,
+      ObjProteinas: ObjProteinas,
     };
+    console.log("values enviados desde FRONT", values);
     axios.post("http://localhost:8081/modificar", values, { withCredentials: true })
       .then((res) => {
         console.log(res.data);
@@ -168,20 +169,7 @@ function Perfil() {
                 </MDBCol>
                 <MDBCol sm="9">
                   <MDBCardText className="text-muted">
-                    {isEditing === 'email' ? (
-                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="text" name="email" placeholder="email"
-                        value={email}
-                        onInput={(e) => { setEmail(e.target.value); }}
-                        onBlur={() => { ModificarDB(); setIsEditing(''); }}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') { ModificarDB(); setIsEditing(''); }
-                          if (e.key === 'Escape') { setIsEditing(''); }
-                        }}
-                      />
-                    ) : (
-                      <>{email}</>
-                    )}
-                    {email && <button onClick={() => setIsEditing('email')} className="tw-rounded-md tw-ms-5 lg:tw-ms-12 tw-w-auto"><Pen /></button>}
+                    {email}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
@@ -272,7 +260,7 @@ function Perfil() {
                 <div className="tw-w-full tw-flex mb-1 ">
                   <div className="tw-flex tw-w-full tw-justify-between tw-items-center ">
                     <p className="tw-text-md tw-w-1/3 " >
-                      Peso
+                      Peso (kg)
                     </p>
                     {isEditing === 'peso' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="peso" placeholder="kg"
@@ -294,7 +282,7 @@ function Perfil() {
                 <div className="tw-w-full tw-flex mb-1">
                   <div className=" tw-flex tw-w-full tw-justify-between tw-items-center ">
                     <p className="tw-text-md tw-w-1/3 " >
-                      Altura
+                      Altura (cm)
                     </p>
                     {isEditing === 'altura' ? (
                       <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="altura" placeholder="cm"
@@ -313,22 +301,22 @@ function Perfil() {
                   {usuario && <button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('altura')}><Pen /></button>}
                 </div>
 
-
                 <div className="mb-1 tw-flex tw-w-full tw-justify-between tw-items-center">
                   <p className="tw-text-base tw-w-auto " >
                     Actividad Física
                   </p>
-                  <select value={opcionActividadFisica} className="tw-border tw-text-[15px] tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-auto form-select" name="actividadFisica" placeholder="..."
-                    onChange={(e) => { setOpcionActividadFisica(e.target.value); }}
-                    onBlur={() => { ModificarDB(); setIsEditing(''); }}
-
-                  >
-                    <option value="1">Seleccionar</option>
-                    <option value='2'>1 vez en semana</option>
-                    <option value='3'>2-3 vez en semana</option>
-                    <option value='4'>4-5 vez en semana</option>
-                    <option value='5'>Todos los días</option>
-                  </select>
+                  {usuario && (
+                    <select value={opcionActividadFisica} className="tw-border tw-text-[15px] tw-rounded-lg tw-h-10 tw-border-blue-300 tw-text-center tw-w-auto form-select" name="actividadFisica" placeholder="..."
+                      onChange={(e) => { setOpcionActividadFisica(e.target.value); }}
+                      onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                    >
+                      <option value="1">Seleccionar</option>
+                      <option value='2'>1 vez en semana</option>
+                      <option value='3'>2-3 vez en semana</option>
+                      <option value='4'>4-5 vez en semana</option>
+                      <option value='5'>Todos los días</option>
+                    </select>
+                  )}
                 </div>
                 {(usuario) && (
                   <div className="mb-1 tw-justify-between tw-flex tw-w-full tw-items-center">
@@ -391,15 +379,17 @@ function Perfil() {
                   <p className="tw-text-md tw-w-auto " >
                     objetivo
                   </p>
-                  <select value={opcionObjetivo} name="objetivo" className="tw-border tw-rounded-lg tw-text-[15px] tw-border-blue-300 tw-h-10 tw-text-center tw-w-auto form-select" placeholder="..."
-                    onChange={(e) => { setopcionObjetivo(e.target.value); }}
-                    onBlur={() => { ModificarDB(); setIsEditing(''); }}
-                  >
-                    <option value='1'>Seleccionar</option>
-                    <option value='2'>Incremento de Masa Corporal</option>
-                    <option value='3'>Reducción de Masa Corporal</option>
-                    <option value='4'>Recomposición Corporal</option>
-                  </select>
+                  {usuario && (
+                    <select value={opcionObjetivo} name="objetivo" className="tw-border tw-rounded-lg tw-text-[15px] tw-border-blue-300 tw-h-10 tw-text-center tw-w-auto form-select" placeholder="..."
+                      onChange={(e) => { setopcionObjetivo(e.target.value); }}
+                      onBlur={() => { ModificarDB(); setIsEditing(''); }}
+                    >
+                      <option value='1'>Seleccionar</option>
+                      <option value='2'>Incremento de Masa Corporal</option>
+                      <option value='3'>Reducción de Masa Corporal</option>
+                      <option value='4'>Recomposición Corporal</option>
+                    </select>
+                  )}
                 </div>
                 <div className="tw-w-full tw-flex mb-1 ">
                   <div className="tw-flex tw-w-full tw-justify-between tw-items-center ">
@@ -407,7 +397,7 @@ function Perfil() {
                       Objetivo de calorías
                     </p>
                     {isEditing === 'ObjCalorias' ? (
-                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Años"
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Calorias"
                         value={ObjCalorias}
                         onInput={(e) => { setObjCalorias(e.target.value); }}
                         onBlur={() => { ModificarDB(); setIsEditing(''); }}
@@ -425,11 +415,11 @@ function Perfil() {
 
                 <div className="tw-w-full tw-flex mb-1 ">
                   <div className="tw-flex tw-w-full tw-justify-between tw-items-center ">
-                    <p className="tw-text-md tw-w-1/3">
-                      Objetivo de Proteinas
+                    <p className="tw-text-md tw-w-1/3 " >
+                      Objetivo de Proteinas (g)
                     </p>
                     {isEditing === 'ObjProteinas' ? (
-                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="ObjProteinas" placeholder="calorias"
+                      <input className="tw-border tw-ps-1 tw-rounded-lg tw-border-blue-300 tw-w-1/3 " type="number" name="edad" placeholder="Proteinas"
                         value={ObjProteinas}
                         onInput={(e) => { setObjProteinas(e.target.value); }}
                         onBlur={() => { ModificarDB(); setIsEditing(''); }}
@@ -439,7 +429,8 @@ function Perfil() {
                         }}
                       />
                     ) : (
-                      <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjProteinas}</h1>)}
+                      <h1 className=" tw-flex tw-justify-center tw-text-blue-500  tw-text-center tw-w-1/3 tw-font-medium">{ObjProteinas}</h1>
+                    )}
                   </div>
                   {usuario && (<button className="tw-rounded-md tw-w-auto" onClick={() => setIsEditing('ObjProteinas')}><Pen /></button>)}
                 </div>
