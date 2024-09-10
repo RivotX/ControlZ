@@ -11,32 +11,76 @@ import { obtenerInformacionProductos } from "./controllers/obtenerAlimento.js";
 import { virtualAssistant } from "./controllers/Assistant.js";
 import { addAlimento, getDieta, RemoveFood } from "./controllers/DietaController.js";
 import { modificar } from "./controllers/ModifyDatos.js";
+import { db } from "./config/db.js";
+import { addToCart, removetoCart } from "./controllers/shopcar.js";
 
-const app = express();
+
+
+
+const app = express()
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://controlz.onrender.com",
     credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
-
 app.use(
   session({
     key: "tu_clave_personalizada",
-    secret: "secreto",
+    secret: "ÑLKJHGFDSAMNBVCXZPOIUYTREWQ",
+    resave: true,
+    saveUninitialized: true,
+    proxy: true,
     cookie: {
       maxAge: 1000 * 60 * 60 * 24, // 1 día en milisegundos
       httpOnly: true,
-      secure: false, // Establece a true si estás usando HTTPS
+      secure: true, // Establece a true si estás usando HTTPS
+      sameSite: 'none'
     },
-    resave: true,
-    saveUninitialized: true,
   })
 );
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:8081");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
+
+
+
+
+// var consultaDbCreate= "CREATE TABLE IF NOT EXISTS usuarios ( \
+//   usuario VARCHAR(50), \
+//   password VARCHAR(1000), \
+//   nombre VARCHAR(100), \
+// email VARCHAR(100), \
+//   telefono VARCHAR(50), \
+//   direccion VARCHAR(50), \
+//   sexo TINYINT, \
+//   edad INT, \
+//   peso FLOAT, \
+//   altura FLOAT, \
+//   actividadfisica INT, \
+//   objetivo INT \
+// )";
+// var drop= "DROP TABLE usuarios"
+
+// db.query(consultaDbCreate, (error, results, fields) => {
+// if (error) {
+//   console.error('Error al ejecutar la consulta SQL:', error);
+// } else {
+//   console.log('Tabla Usada correctamente');
+// }
+// });
+
 //Mongoose mongodb base de datos rutina
-Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
+
+Mongoose.connect(process.env.DB_URI)
   .then(() => {
     console.log("Conexión exitosa a MongoDB");
   })
@@ -44,8 +88,8 @@ Mongoose.connect("mongodb://127.0.0.1:27017/rutina")
     console.error("Error de conexión a MongoDB:", error);
   });
 
-app.listen(8081, () => {
-  console.log("servidor corriendo...");
+app.listen(process.env.PORT, () => {
+  console.log("servidor corriendo... en el puerto", process.env.PORT);
 });
 
 //Asistente virtual
@@ -75,7 +119,6 @@ app.get("/getSession", (req, res) => {
 
   res.json(req.session);
 });
-
 app.use("/getrutina", getRutina);
 
 app.post("/saveRutina", async (req, res) => {
@@ -90,9 +133,16 @@ app.post("/modificar", modificar);
 
 app.post("/ActualizarRutina", ActualizarRutina);
 
+app.post("/addToCart", addToCart);
+
+app.post("/removeToCart", removetoCart);
+
+
 app.post("/existeregistro", existeRegistro);
 
 app.post("/login", login);
+
+
 
 app.post("/obtenerAlimento", async (req, res) => {
   try {
@@ -110,10 +160,13 @@ app.post("/obtenerAlimento", async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 });
-app.post("/RemoveFood", RemoveFood);
 
 app.post("/AddAlimento", addAlimento);
 
 app.post("/getDieta", getDieta);
+app.post("/RemoveFood", RemoveFood);
 
-// app.post("/RemoveFood", RemoveFood);
+app.listen(8081, () => {
+  console.log("Servidor corriendo en el puerto 8081");
+});
+
