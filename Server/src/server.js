@@ -37,7 +37,7 @@ app.use(
   })
 );
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8081");
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
@@ -128,8 +128,3 @@ app.post("/AddAlimento", addAlimento);
 app.post("/getDieta", getDieta);
 
 app.post("/RemoveFood", RemoveFood);
-
-app.listen(8081, () => {
-  console.log("Servidor corriendo en el puerto 8081");
-});
-

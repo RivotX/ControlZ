@@ -6,11 +6,12 @@ import AsistenteVirtual from "./AsistenteVirtual";
 import CarritoCompra from "./CarritoCompra";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import habilitarTailwind from "../components/habilitarTailwind";
 
 function Navbar({ linkHome , refreshsession}) {
   const [numeroItems, setNumeroItems] = useState(4);
   const [usuarioSession, setUsuarioSession] = useState("");
-
+  habilitarTailwind();
   useEffect(() => {
     axios.get("http://localhost:8081/getSession", {
       withCredentials: true,
