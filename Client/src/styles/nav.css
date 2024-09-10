@@ -1,13 +1,13 @@
-.hoveraGirar{
-    transition: transform .7s;
-    
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hoveraGirar {
+  transition: transform 0.7s;
 }
 
-.hoverGirar:hover{
-
-    .hoveraGirar{
+.hoverGirar:hover {
+  .hoveraGirar {
     transform: scaleX(-1);
-    
-    
-}
+  }
 }

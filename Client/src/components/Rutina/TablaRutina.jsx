@@ -61,18 +61,16 @@ const TablaRutina = () => {
           usuario,
         );
 
-        console.log("RUTINA BASE DE DATOS", resRutina)
         const datosRutina = resRutina.data[0];
-        console.log(resRutina.data[0]);
-        if(datosRutina && datosRutina !== null && datosRutina !== '') {
-        setLunes(datosRutina.lunes);
-        setMartes(datosRutina.martes);
-        setMiercoles(datosRutina.miercoles);
-        setJueves(datosRutina.jueves);
-        setViernes(datosRutina.viernes);
-        setSabado(datosRutina.sabado);
-        setDomingo(datosRutina.domingo);
-      }
+        if (datosRutina && datosRutina !== null && datosRutina !== '') {
+          setLunes(datosRutina.lunes);
+          setMartes(datosRutina.martes);
+          setMiercoles(datosRutina.miercoles);
+          setJueves(datosRutina.jueves);
+          setViernes(datosRutina.viernes);
+          setSabado(datosRutina.sabado);
+          setDomingo(datosRutina.domingo);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -94,7 +92,6 @@ const TablaRutina = () => {
           { id: usuarioSession, rutinaNueva: rutina },
         );
 
-        console.log(actualizar);
 
         setrutinacambiada(!rutinacambiada);
       } catch (error) {
@@ -106,7 +103,6 @@ const TablaRutina = () => {
       setInteraccion(!interaccion);
     }
 
-    console.log("CAMBIO RUTINA");
     setRutinainiciada(true)
   }, [rutina]);
 
@@ -121,7 +117,6 @@ const TablaRutina = () => {
     var copiarutina = [...rutina];
     copiarutina[diaVisible].splice(i, 1);
     setRutina(copiarutina);
-    console.log("Eliminar");
     setInteraccion(true);
   };
 
@@ -148,7 +143,7 @@ const TablaRutina = () => {
       repeticiones: repeticiones,
       kg: peso,
     };
-    console.log("edita")
+
     setInteraccion(true);
     setRutina(copiarutina);
     setvisibleModalRutina(false);
@@ -168,8 +163,8 @@ const TablaRutina = () => {
 
   return (
     <>
-      {console.log("USUARIO", usuarioSession)}
-      {(usuarioSession === null || usuarioSession === undefined || usuarioSession === '') && <LoginRequiredModal />}
+
+      {(usuarioSession === null || usuarioSession === undefined || usuarioSession === '') && <LoginRequiredModal href={"/"} />}
       <div className="  flex-column tw-m-auto tw-flex tw-w-[100%]  md:tw-w-[70%] lg:tw-w-[60%] 2xl:tw-w-[40%] tw-flex-wrap tw-items-center tw-justify-center tw-text-center tw-text-white ">
         <div className="tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between tw-px-7">
           <button
@@ -194,7 +189,7 @@ const TablaRutina = () => {
             </svg>
           </button>
           <h1 className=" tw-text-2xl tw-font-semibold">
-            
+
             {nombredias[diaVisible]}
           </h1>
           <button

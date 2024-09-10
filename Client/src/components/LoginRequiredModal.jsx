@@ -1,20 +1,25 @@
 import React from 'react';
 import Close from './Tienda/Close';
 
-const LoginRequiredModal = () => {
+const LoginRequiredModal = ({ href, close, setShowLoginRequiredModal }) => {
+  const handleCloseClick = (e) => {
+    if (close) {
+      e.preventDefault();
+      setShowLoginRequiredModal(false);
+    }
+  };
+
   return (
     <>
       <div className="tw-fixed tw-top-0 tw-z-10 tw-text-black tw-left-0 tw-w-screen tw-h-screen NegroOpacidad75 tw-flex tw-items-center tw-justify-center">
-
         <div className=" tw-flex  tw-flex-col tw-items-center tw-bg-slate-200  tw-mx-2 tw-p-8 tw-rounded-lg tw-w-full tw-h-4/6 md:tw-w-4/5 lg:tw-w-3/5 tw-opacity-100 ">
-          <div className='tw-mb-[5%] tw-w-full tw-flex tw-justify-end  '><a href='/'> <Close></Close> </a></div>
+          <div className='tw-mb-[5%] tw-w-full tw-flex tw-justify-end  '><a href={href} onClick={handleCloseClick}> <Close></Close> </a></div>
           <svg
             className='  tw-pointer-events-none tw-text-gray-700 tw-dark:text-red-300'
             viewBox="0 0 24 24"
             fill="currentColor"
             height="40%"
             width="40%"
-
           >
             <path d="M17 9V7c0-2.8-2.2-5-5-5S7 4.2 7 7v2c-1.7 0-3 1.3-3 3v7c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3v-7c0-1.7-1.3-3-3-3zM9 7c0-1.7 1.3-3 3-3s3 1.3 3 3v2H9V7zm4.1 8.5l-.1.1V17c0 .6-.4 1-1 1s-1-.4-1-1v-1.4c-.6-.6-.7-1.5-.1-2.1.6-.6 1.5-.7 2.1-.1.6.5.7 1.5.1 2.1z" />
           </svg>
@@ -32,9 +37,6 @@ const LoginRequiredModal = () => {
 
         </div>
       </div>
-
-
-
     </>
   );
 };

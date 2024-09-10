@@ -22,7 +22,6 @@ function Dieta() {
     axios.get("http://localhost:8081/getSession", {
       withCredentials: true,
     }).then((res) => {
-      console.log(res.data);
       if (res.data.usuario == null || res.data.usuario == undefined) {
         return;
       }
@@ -144,7 +143,7 @@ function Dieta() {
         // Introduce a delay of 200ms before setting loading to false
         setTimeout(() => {
           setLoading(false);
-        }, 1200);
+        }, 900);
 
       }, 500);
     }, 500);
@@ -189,9 +188,7 @@ function Dieta() {
     const formattedDatee = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
     setFecha(formattedDatee);
   }
-  useEffect(() => {
-    console.log(Loading);
-  }, [Loading]);
+
   return (
     <>
       {Loading && (
@@ -202,7 +199,7 @@ function Dieta() {
       <div className="tw-min-h-screen  tw-bg-[#0d0d0d] tw-pt-[4.87rem] tw-px-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont' }}>
         <Navbar linkHome={"/"} />
         <section className=" tw-w-full  tw-text-white tw-rounded-xl  tw-h-[100vh] ">
-          {(usuario === null || usuario === undefined) && <LoginRequiredModal />}
+          {(usuario === null || usuario === undefined) && <LoginRequiredModal href={"/"} />}
 
           <div className="lg:tw-px-[10%] tw-w-full tw-h-[38%] ">
             <div className="tw-w-full tw-text-center tw-h-full tw-px-3 tw-pb-3 tw-rounded-xl tw-flex tw-flex-wrap tw-items-center lg:tw-bg-[#292929]">

@@ -12,13 +12,11 @@ const FoodModal = ({ closeModal, Horavalor, usuario, Fecha, update }) => {
   const [pagesEnabled, setPagesEnabled] = useState(false);
   // Fetch alimentos
   const fetchData = (page) => {
-    console.log('page ', page);
     setLoading(true);
     axios.post(
       "http://localhost:8081/obtenerAlimento",
       { userInput: userInput, offset: page * 10 }
     ).then(res => {
-      console.log(res.data);
       setLoading(false);
       setPagesEnabled(true);
 

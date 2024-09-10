@@ -1,13 +1,10 @@
 export default Principal;
-
 import { useState, useEffect } from "react";
 import { useRef } from "react";
 import 'animate.css';
 import logo from "../img/logoIcon.png";
 
-
 function Principal() {
-
   const [PantallaPequeña, setPantallaPequeña] = useState(window.innerWidth < 640);
 
   useEffect(() => {
@@ -105,7 +102,6 @@ function Principal() {
           </div>
         </div>
       </div >
-
     </div >
   );
 }

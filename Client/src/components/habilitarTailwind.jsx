@@ -10,7 +10,6 @@ const habilitarTailwind = () => {
 
     head.appendChild(link);
   }
-
 };
 
 export default habilitarTailwind;

@@ -322,7 +322,7 @@ const Cena = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, updateP
   }, [caloriasConsumed]);
 
   useEffect(() => {
-    axios.post('http://localhost:8081/getDieta/', { id: usuario })
+    axios.post('http://localhost:8081getDieta/', { id: usuario })
       .then((res) => {
         if (res && res.data && res.data.dias && res.data.dias[Fecha] && res.data.dias[Fecha].cena && res.data.dias[Fecha].cena.length > 0) {
           let Comidass = res.data.dias[Fecha].cena;
@@ -354,7 +354,7 @@ const Cena = ({ nombre, calorias, proteinas, AbrirModal, img, add, last, updateP
   };
 
   const RemoveFood = (alimento, Fecha, Horavalor) => {
-    axios.post('http://localhost:8081/RemoveFood', { ...alimento, Fecha, Horavalor })
+    axios.post('http://localhost:8081RemoveFood', { ...alimento, Fecha, Horavalor })
       .then(
         update()
       )

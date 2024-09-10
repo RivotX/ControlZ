@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/index.css";
 import logoIcon from "../img/logoIcon.png";
-import habilitarTailwind from "../components/habilitarTailwind";
 import Loading from "../components/Loading";
 
 function Login() {
@@ -168,11 +167,8 @@ function Login() {
     setVisibleRegistro2(false);
     setVisibleIniciarSesion(true);
   };
-  useEffect(() => {
-    habilitarTailwind();
-  }, []);
-  //servidor
 
+  //servidor
   const SumbitRegistro = (event) => {
     event.preventDefault();
     IrInicioSesion();
@@ -216,6 +212,11 @@ function Login() {
   const SumbitLogin = (event) => {
     event.preventDefault();
     setshowMensajeLoading(true);
+    setTimeout(() => {
+      console.log('Timeout completed, setting showMensajeTardar to true');
+      setshowMensajeTardar(true);
+    }, 15000);
+
     setshowMensajeNoExiste(false);
     axios
       .post(
@@ -265,11 +266,14 @@ function Login() {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log("sd");
+    console.log('useEffect triggered with showMensajeLoading:', showMensajeLoading);
 
-      setshowMensajeTardar(true);
-    }, 15000);
+
+
+    return () => {
+      console.log('Cleaning up timeout');
+      clearTimeout(timer);
+    };
   }, [showMensajeLoading]);
 
   return (
@@ -538,7 +542,7 @@ function Login() {
                           marginTop: "17%",
                         }}
                       >
-                        Puede tardar unos segundos...
+                        Espera unos segundos...
                       </p>
                     )}
                   </>

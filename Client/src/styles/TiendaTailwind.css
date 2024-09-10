@@ -50,13 +50,9 @@
   }
 }
 
-
-
-@media (max-width:300px) {
-
-  .fold{
+@media (max-width: 300px) {
+  .fold {
     height: 7.5rem;
     width: 7.5rem;
   }
-  
 }

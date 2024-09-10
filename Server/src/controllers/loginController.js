@@ -1,6 +1,9 @@
 // controllers/authController.js
 import bcrypt from "bcrypt";
 import { db } from "../config/db.js";
+import { creaCarritoCompra } from "../models/rutinaModel.js";
+
+
 
 const login = async (req, res) => {
   const consulta = "SELECT * FROM usuarios WHERE usuario = ?";
@@ -11,12 +14,15 @@ const login = async (req, res) => {
       db.query(consulta, values, (err, result) => {
         if (err) {
           console.log("Error en la consulta:", err);
-          reject("Error en la consulta a la base de datos");
+          reject("Error en la consulta a la base de datos", err);
         } else {
           resolve(result);
         }
       });
     });
+
+    const usercar = await creaCarritoCompra.findOne({ id: req.body.usuario });
+
 
     if (result.length > 0) {
       const passwordFromDB = result[0].password;
@@ -35,6 +41,7 @@ const login = async (req, res) => {
         req.session.actividadfisica = result[0].actividadfisica;
         req.session.objetivo = result[0].objetivo;
         req.session.numberItems = 0;
+        req.session.carrito = usercar.productos || [];
         req.session.ObjProteinas = result[0].ObjProteinas;
         req.session.ObjCalorias = result[0].ObjCalorias;
         console.log("Actividad fisica", result[0].actividadfisica);

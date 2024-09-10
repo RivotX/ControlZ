@@ -6,25 +6,23 @@ import AsistenteVirtual from "./AsistenteVirtual";
 import CarritoCompra from "./CarritoCompra";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import habilitarTailwind from "./habilitarTailwind";
-function Navbar({ linkHome }) {
+
+function Navbar({ linkHome , refreshsession}) {
   const [numeroItems, setNumeroItems] = useState(4);
   const [usuarioSession, setUsuarioSession] = useState("");
-  habilitarTailwind();
+
   useEffect(() => {
     axios.get("http://localhost:8081/getSession", {
       withCredentials: true,
     }).then((res) => {
       setUsuarioSession(res.data.usuario);
-      console.log("usuario: " + res.data.usuario);
     }).catch((error) => {
       console.error(error);
     });
 
   }, []);
 
-  useEffect (() => {
-    console.log("usuarioSession: " + usuarioSession);
+  useEffect(() => {
   }, [usuarioSession]);
 
   const [visibleCesta, setVisibleCesta] = useState(false);
@@ -40,7 +38,6 @@ function Navbar({ linkHome }) {
     })
 
     window.location.href = "/login";
-    console.log("Sesión cerrada exitosamentessssssss");
 
   }
   return (
@@ -135,7 +132,11 @@ function Navbar({ linkHome }) {
         </div>
         <div className="tw-absolute "></div>
         {/* Renderizar cesta */}
+        {refreshsession !== undefined ?
+        <CarritoCompra refreshsession={refreshsession} visible={visibleCesta} onClose={() => setVisibleCesta(false)} setNumeroItems={setNumeroItems} />
+        : 
         <CarritoCompra visible={visibleCesta} onClose={() => setVisibleCesta(false)} setNumeroItems={setNumeroItems} />
+        }
       </nav>
       {!visibleCesta && (
         <AsistenteVirtual />

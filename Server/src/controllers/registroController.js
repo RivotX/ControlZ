@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { CreaRutina } from "../models/rutinaModel.js";
+import { CreaRutina, creaCarritoCompra } from "../models/rutinaModel.js";
 import { db } from "../config/db.js";
 
 // /registro
@@ -40,6 +40,19 @@ const registro = async (req, res) => {
         domingo: [],
       });
 
+      const carrito = new creaCarritoCompra({
+        id: req.body.usuario,
+        productos: [],
+      });
+
+      carrito.save()
+        .then((resultado) => {
+          console.log('carrito creado', resultado);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+
       rutina.save()
         .then((resultado) => {
           console.log(resultado);
@@ -64,6 +77,9 @@ const registro = async (req, res) => {
 
 //existe registro
 const existeRegistro = async (req, res) => {
+
+  //reset base de datos
+
   // const consultaDeleteTable = `DROP TABLE IF EXISTS usuarios;`;
   // db.query(consultaDeleteTable);
 

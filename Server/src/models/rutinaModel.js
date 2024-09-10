@@ -20,6 +20,20 @@ const rutinaSchema = new Mongoose.Schema({
   domingo: [diasSchema],
 });
 
+const carritoCompraSchema = new Mongoose.Schema({
+  id: String,
+  productos: [
+    {
+      id: String,
+      name: String,
+      quantity: Number,
+      price: Number,
+      imageSrc: String,
+    },
+  ],
+});
+
+
 // Dieta schema
 const DietaSchema = new Mongoose.Schema({
   id: String,
@@ -88,4 +102,6 @@ const CreaRutina = Mongoose.model("rutinas", rutinaSchema); // Changed "rutina" 
 
 const CreaDieta = Mongoose.model("dieta", DietaSchema); // Created a new model for "dieta"
 
-export { CreaRutina, CreaDieta }; // Export both models
+const creaCarritoCompra = Mongoose.model("carritoCompra", carritoCompraSchema); // Created a new model for "carritoCompra"
+
+export { CreaRutina, CreaDieta, creaCarritoCompra }; // Export both models
