@@ -487,7 +487,13 @@
   .mensajeslogin {
     margin-top: 14vh !important;
   }
-  .loading {
+  .loading
+  {
     margin-top: 20vh !important;
+  }
+  .loadingRegistro
+  {
+    margin-top: 2vh !important;
+    margin-right:30% ;
   }
 }

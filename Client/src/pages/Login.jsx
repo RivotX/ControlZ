@@ -79,6 +79,8 @@ function Login() {
     setVisibleRegistro(false);
 
     setVisibleRegistro2(false);
+    setshowMensajeTardar(false);
+    setshowMensajeLoading(false);
     setVisibleIniciarSesion(true);
   };
 
@@ -94,6 +96,8 @@ function Login() {
     setVisibleIniciarSesion(false);
     setVisibleRegistro2(false);
     setVisibleRegistro(true);
+    setshowMensajeTardar(false);
+    setshowMensajeLoading(false);
   };
 
   useEffect(() => {
@@ -176,36 +180,33 @@ function Login() {
     axios
       .post("http://localhost:8081/registro", values) //envia values a "servidor/registro"
       .then((res) => {
-        console.log(res);
       })
       .catch((err) => console.error(err));
   };
 
   const ComprobarReg = (event) => {
-    console.log("loqesea");
     event.preventDefault();
-
+    setshowMensajeLoading(true);
+    setTimeout(() => {
+      setshowMensajeTardar(true);
+    }, 15000);
     axios
       .post("http://localhost:8081/existeregistro", values) //envia values a "servidor/registro"
       .then((ccc) => {
-        console.log(ccc);
 
-        console.log(ccc.status);
 
         if (ccc.status == 200) {
           cambiarDisplayRegistro2();
-          console.log("entro al 200");
         } else {
-          console.log("entro al 201");
-
           setshowErrorRegistro(true);
           setShowMensaje1(false);
           setShowMensajeCompletar(false);
           setShowMensajeEmail(false);
           setShowMensaje2(false);
+          setshowMensajeNoExiste(false);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err)).finally(()=>{setshowMensajeLoading(false); setshowMensajeTardar(false) }); ;
   };
 
   //mandamos a servidor/login los datos para trabajar con ellos
@@ -213,7 +214,6 @@ function Login() {
     event.preventDefault();
     setshowMensajeLoading(true);
     setTimeout(() => {
-      console.log('Timeout completed, setting showMensajeTardar to true');
       setshowMensajeTardar(true);
     }, 15000);
 
@@ -226,14 +226,12 @@ function Login() {
       )
       .then((res) => {
         axios
-          .get("http://localhost:8081/getSession", { withCredentials: true }) //envia values a "servidor/registro"
+          .get("http://localhost:8081/registro/getSession", { withCredentials: true }) //envia values a "servidor/registro"
           .then((res) => {
-            console.log(res);
           })
           .catch((err) => console.error(err))
           .finally(setshowMensajeLoading(false));
 
-        console.log(res);
         if (res.data.redirectTo != undefined) {
           window.location.href = res.data.redirectTo;
         } else if (
@@ -249,7 +247,6 @@ function Login() {
             }, 1000);
           }
         } else {
-          console.log("entro al 201");
           setshowMensajeInicio(false);
 
           if (!showMensajeNoExiste) {
@@ -262,19 +259,7 @@ function Login() {
           }
         }
       })
-      .catch((err) => console.log(err));
   };
-
-  useEffect(() => {
-    console.log('useEffect triggered with showMensajeLoading:', showMensajeLoading);
-
-
-
-    return () => {
-      console.log('Cleaning up timeout');
-      clearTimeout(timer);
-    };
-  }, [showMensajeLoading]);
 
   return (
     <div className="fondoindex tw-h-screen tw-w-full ">
@@ -577,7 +562,7 @@ function Login() {
           <div className="tw-flex tw-w-full tw-items-center tw-justify-center tw-pt-20">
             <div
               className="login-box tw-h-full tw-border-cyan-50 tw-px-16 tw-py-8 md:tw-px-32"
-              id="registrar"
+              id="registrarse"
             >
               <h2 className="text-center tw-text-[2.2rem] tw-font-semibold  tw-text-white  sm:tw-text-[3rem]">
                 Crea tu Perfil
@@ -736,6 +721,28 @@ function Login() {
                 >
                   Debes escribir en todos los campos
                 </p>
+                {showMensajeLoading && (
+                  <>
+                    <span
+                      className="position-absolute loadingRegistro"
+                      style={{ left: 50, right: 50, marginTop: "2%" }}
+                    >
+                      <Loading />
+                    </span>
+                    {showMensajeTardar && (
+                      <p
+                        id="mensajePuedeTardar"
+                        className={`${animacion} text-danger position-absolute mensajeslogin`}
+                        style={{
+                          height: "10px",
+                          marginTop: "17%",
+                        }}
+                      >
+                        Espera unos segundos...
+                      </p>
+                    )}
+                  </>
+                )}
 
                 <br></br>
                 <div className="">
@@ -768,7 +775,7 @@ function Login() {
           <div className="tw-flex tw-w-full tw-items-center tw-justify-center tw-py-20">
             <div
               className="login-box tw-h-full tw-border-cyan-50 tw-px-16 tw-py-8 md:tw-px-28 "
-              id="reg"
+              id="reg2"
             >
               <h2 className="text-center tw-text-[2.2rem] tw-font-semibold tw-text-white sm:tw-text-[3.5rem] md:tw-text-[4rem]">
                 Crea tu Perfil
